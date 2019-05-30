@@ -749,9 +749,88 @@ select sessiontimezone from dual;
 
   
 
-* add_months(date,n)
+* add_months(date,n), months_between(date,date)
 
-* months_between(date,date)
+```sql
+select add_months(sysdate,3)from dual;
+select add_months(hiredate,6)from emp;
+select months_between(sysdate,hiredate) from emp; --입사한지 얼마나 됐는지 알수 있다
+```
+
+* next_day(date,'요일명')
+
+  ```sql
+  select next_day(sysdate,'목') from emp;
+  ```
+
+* trunc & round
+
+  ```sql
+  alter session set nls_date_format ='RR/MM/DD';
+  select trunc(to_date('14/02/14'),'MONTH'),
+  trunc(to_date('14/02/14'),'YEAR')
+  from dual;
+  
+  select round(to_date('14/02/16'),'MONTH'),
+  round(to_date('14/02/16'),'YEAR')
+  from dual;
+  ```
+
+* last_day
 
 
+
+문제) 사원들의 입사 날짜로부터 6개월후 날짜로부터 다음 금요일이 연봉 조정면담날짜입니다.
+
+사원들의 사번과 입사날짜와 연봉 조정 면담날짜를 출력하세요
+
+```sql
+select empno,hiredate, next_day(add_months(hiredate,6),'금') from emp;
+```
+
+
+
+* 형변환 sql은 주로 'to_' 로 시작하는 경우가 많다
+
+  to_date
+
+  to_char
+
+  ​	to_char(number, '변환형식 0 or 9' )
+
+  to_number
+
+  ​	to _number ('number로 변경가능한 문자열이 와야함' '똑같이 지정해야함 format형식')
+
+```sql
+select to_char(123456.789, '$9,999,999,9999') from dual;
+select to_number ('$1,234,567.999','99,999,999.999') from dual; --error
+select to_number ('$1,234,567.999','$99,999,999.999') from dual;
+```
+
+* 날짜 형식 모델의 요소
+
+  to_char('날짜',format형식)
+
+```sql
+select sysdate, to_char(sysdate,'YYYY "년" MM"월" DD"일" DY')from dual;
+```
+
+
+
+``` sql
+alter session set nls_languate=american;
+select sysdate, to_char(sysdate,'Year Month DDspth Day') from dual;
+```
+
+```sql
+alter session set nls_languate=korean;
+select '2019-05-30 5:43 PM',to_date('2019-05-30 5:43 ', 'YYYY-MM-DD HH12:MI ') from dual;
+```
+
+
+
+* RR날짜 형식 : RR반올림 기준
+
+  nls파라미터 RR/MM/DD
 

@@ -1,4 +1,4 @@
-## DB
+## DB 개요
 
 Database :
 특정 기업이나 조직 또는 개인이 필요에 의해 논리적으로 연관된 데이터를 모아 일정한 형태로 저장해 놓은것
@@ -206,13 +206,15 @@ optimizer (navigation 같은)
 
 
 
+### 1장 SQL SELECT문을 사용한 데이터 검색
+
 ERD
 
 p67
 
 
 
-select 검색
+* select 검색
 
 1 table에서 column 기준으로 검색 = projection 검색
 
@@ -288,9 +290,468 @@ conn scott/oracle
 
 cf) host cls 정리
 
+select ename,sal,job,deptno from emp; 
+
+조회할 칼럼은 테이블의 순서와 관련 없음
+
+select deptno from emp;
+
+select distinct deptno from emp; --hashing 방식으로 중복값 제거
+
+- distinct 는 중간에 쓸 수 없음! 뒤에것 다 중복 제거해줌
 
 
 
+expression [as]  alias
+
+표현식					
+
+| expression | [as] | alias |
+| ---------- | ---- | ----- |
+| 표현식     |      | 별칭  |
+
+칼럼 연산자 값
+
+함수
+
+number 타입 칼럼은 산술연산 가능
+
+char/varchar2 타입 칼럼은 concaternate 가능 (||)
+
+date 타입 칼럼 : date+n, date-n,   date +date
+
+
+
+select sal+100,sal -100,sal*2,sal/100
+
+(메모리 상에서 연산되어 리턴하는 것뿐 db에서 값을 변경하는 것은 아님)
+
+from emp;
+
+
+
+```
+select sal,com,(sal+comm)*2 from emp;
+```
+
+데이터가 추가될때 입력되지 않는 칼럼값은 null입니다.
+
+(sal+comm)*2 comm에서 null이 존재하여 오류남
+
+null 비교,산술연산 결과는 항상 null
+
+null을 포함하는 칼럼들은 null이 아닌 값으로 변환해주는 내장함수를 제공
+
+null값을 바꿔주는 함수 nvl(column,null일때 리턴값)
+
+
+
+
+
+
+
+```sql
+select sal,comm, (sal+nvl(comm,0))*2 as salary
+
+select sal,comm, (sal+nvl(comm,0))*2 as "salary" 대소문자 구불해 column alias 지정 가능
+
+select sal,comm, (sal+nvl(comm,0))*2 as "Total salary" 공백 포함
+```
+
+문자, 날짜 데이터는 반드시 ' '를 사용해서 표현,처리
+
+날짜 데이터 세션에 설정된 포맷 형식과 일치해야 합니다.('RR/MM/DD')
+
+ 
+
+
+
+
+
+* 'A'를 결과로 출력하려면?
+
+select '''A''' from dual; 이전버전
+
+select q[`A`]` from dual;
+
+
+
+* dual 테이블
+
+select from절 필수절
+
+단순 계산 결과 함수 결과 단순 문자열 데이터 출력 등은 dual테이블을 사용합니다.
+
+desc dual
+
+select * from dual;    --임의의 X 출력
+
+
+
+* 자동 형변환
+
+select 10||10 from dual; 
+
+오라클 서버가 정수 10을 문자열로 자동 형변환
+
+select '10'+'10' from dual; 
+
+문자열 10을 정수로 형변환함
+
+
+
+* 날짜 계산
+
+```sql
+select sysdate+1,sysdate-1 from dual;
+
+select sysdate hiredate from emp;
+기간이 리턴
+
+select sysdate_hiredate from emp;
+eroor
+```
+
+```sql
+alter session set nls_date_format='YYYY-MM-DD HH24:MI:SS';
+select sysdate,sysdate+1/24, sysdate+5/1440 from daul;
+```
+
+
+
+### 2장 데이터 제한 및 정렬 (p87)
+
+select 검색 칼럼 리스트,표현식 from 테이블 where 조건;=>칼럼 비교연산자 값
+
+
+
+조건검색 :
+
+Q.무서번호 30번만 사원 검색
+
+Q.직무가 ANALYST 인 사원 검색
+
+Q.급여가 3000이상인 사원검색
+
+
+
+```sql
+select ename,deptno from emp where  deptno=30;
+
+select ename,job from emp where  job='ANALYST';
+
+select ename,sal from emp where  sal>=3000;
+```
+
+alter session set nls_date_format='RR/MM/DD';
+
+
+
+Q.87년 1월 1일 이후에 입사한 사원 이름 검색
+
+```sql
+select ename,hiredate from emp where hiredate>='87/1/1';  	
+```
+
+문> 커미션을 받는 사원을 검색하시오
+
+```sql
+select ename from emp where comm>=0;
+```
+
+문> 커미션을 받지 않는 사원을 검색하시오
+
+```sql
+select ename from emp where comm is null;
+```
+
+문> 월급이 3000이상 5000이하인 사원 검색 (3000 포함, 5000포함)
+
+and 또는 between 사용
+
+```sql
+select ename,sal from emp where sal>=3000 and sal<=5000;
+```
+
+문> 직무가 clerk또는 analyst인 사원 검색
+
+```sql
+select ename,job from emp where job='CLERK' or job='ANALYST';
+
+in 리스트 연산자 in(값,값,값,,,,,,)
+select ename,job from emp where job in ('CLERK",'ANALYST');
+```
+
+
+
+문> 사원이름중에서 두번째 문자가 'D'인 사원 검색
+
+```sql
+select ename from emp where ename like '_D%';
+```
+
+character pattern matching 연산자 : like '%,_'
+
+% : 모든 문자 , 개수는 0개 이상
+
+_ : 특수,영문자,숫자 등 모든 문자, 개수는 1개만
+
+문>사원이름중에서 'N'으로 끝나는 사원 검색
+
+```sql
+select ename from emp where ename like '%N';
+```
+
+문> 사원이름중에서 첫번째 문자가 'S'로 시작하는 사원 검색
+
+```sql
+select ename from emp where ename like 'S%';
+```
+
+
+
+문> 81년도에 입사한 사원 검색
+
+```SQL
+select ename, hiredate
+from emp
+where  hiredate like '81%';
+
+select ename, hiredate
+from emp
+where  hiredate between '81/01/01' and '81/12/31';
+
+
+select ename, hiredate
+from emp
+where  hiredate > '80/12/31' 
+and hiredate < '82/01/01';
+```
+
+
+
+* 논리연산자의 우선순위 NOT, AND, OR
+
+문>업무가 PRESIDENT이고 급여가 1500 이상이거나 업무가 SALESMAN인 사원의
+ 사원번호, 이름, 업무, 급여를 출력하여라.
+
+```sql
+select empno,ename,job,sal from emp where (job='PRESIDENT' and sal>=1500)or job='SALESMAN';
+```
+
+
+
+문> 급여가 1500 이상이고, 업무가 SALESMAN이거나 PRESIDENT인 사원의
+ 사원번호, 이름, 업무, 급여를 출력하여라.
+
+```sql
+select empno,ename,job,sal from emp where sal>=1500 and (job='PRESIDENT' or job='SALESMAN');
+```
+
+
+
+
+
+*  group by ~ having
+
+select ~ 
+
+from ~ 
+
+[where 필터 조건]
+
+[group by 컬럼]
+
+[having 조건]
+
+[order by 정렬기준컬럼 정렬방식] - asc 오름차순 default desc내림차순
+
+
+
+월급의 오름차순으로 사원정보 출력
+
+```sql
+select ename,job,sal from emp order by sal asc;
+```
+
+
+
+* order 조건 1개
+
+사원들의 사번,이름,부서번호,월급,커미션,연봉(sal+comm*12)
+
+출력 연봉의 내림차순으로
+
+```sql
+* select empno, ename, deptno, sal, comm, (sal+nvl(comm, 0))*12 "연봉"
+from emp
+order by (sal+nvl(comm, 0))*12 desc;
+
+* select empno, ename, deptno, sal, comm, (sal+nvl(comm, 0))*12 "연봉"
+from emp
+order by "연봉" desc;
+
+* select empno, ename, deptno, sal, comm, (sal+nvl(comm, 0))*12 "연봉"
+from emp
+order by 6 desc;
+
+--order by절에는 컬럼 표현식, 별칭, 컬럼 포지션을 사용할 수 있습니다.
+
+```
+
+* order 조건 2개
+
+사원들의 사번,이름,부서번호,월급,커미션,연봉(sal+comm*12)
+
+출력 부서번호 내림차순, 연봉의 내림차순으로
+
+```sql
+* select empno, ename, deptno, sal, comm, (sal+nvl(comm, 0))*12 "연봉" from emp order by 3 asc, 6 desc;
+
+* select empno, ename, deptno, sal, comm, (sal+nvl(comm, 0))*12 "연봉"
+from emp
+order by 3 asc, "연봉" desc;
+```
+
+rowid 칼럼명/칼럼타입 (내장칼럼)
+
+Object id
+
+File id
+
+Block id
+
+행순서
+
+
+
+SQL 과정중심 -> 조건처리가 안됨 (**함수** 이용)
+
+반복처리 table 의 행단위반복처리
+
+변수사용 X
+
+
+
+함수 : sql을 더 강력하게 사용할 수 있도록 보조
+
+
+
+predefine  db벤더에서의 not, sysdate, view
+
+custom(PL/SQL)
+
+
+
+1. 단일행 함수    
+
+   언어와 다른 db의 함수 
+
+   반드시 하나의 결과가 나와야함
+
+   input data에 따라 달라지는 함수들
+
+   1. Character
+   2. Number
+   3. Date
+   4. Null처리
+   5. 기타
+   6. Conversion
+
+2. 복수행 함수(그룹함수)
+
+   그룹핑된 컬럼값이 들어가고 한개의 결과가나옴
+
+3. 분석함수(Window 함수)
+   - 최대값 .순위. 비율을 구할때 사용
+
+oracle 11g doc
+
+​	Database SQL Language Reference
+
+​		Functions
+
+```sql
+select substr('today is 2015년 4월 20일',1,5),
+substr('today is 2015년 4월 20일',10,5),
+substr('today is 2015년 4월 20일',15),
+substr('today is 2015년 4월 20일',-3,2),
+from dual;
+
+select inStr('korea is wonderful','o'),
+ inStr('korea is wonderful','o',1,2),
+ inStr('korea is wonderful','o',9),
+ inStr('korea is wonderful','X'), --없을 땐 0이 리턴됨
+from dual;
+
+```
+
+### lpad,rpad
+
+문자열로 변환, 문자열 전체 길이내 왼쪽 공백에 특정 문자를 padding
+
+```sql
+select ename,sal,rpad(sal,10,'*') from emp;
+```
+
+### trim, ltrim, rtrim 
+
+```sql
+ltrim, rtrim 을 사용하지 않을때
+select trim('H' from 'Hello wonderful'),trim('l' from 'Hello wonderful')from dual;
+```
+
+### replace
+
+```sql
+select replace ('Jack AND Jue','J','BL') from dual;
+```
+
+
+
+ceil 가장 가까운 큰정수<->floor
+
+사원번호가 홀수인 사원만 출력
+
+```sql
+select ename  from emp where mod(empno,2)=1;
+```
+
+
+
+### data function
+
+timestamp : 컬럼타입 추가됨 정밀한 시간 저장을 위해 1초를 10억분의 1초단위로 저장 가능함
+
+* timestamp(YYYY/MM/DD HH24:MI:SS,SSSSSSSSS)
+* timestamp (6) 6자리가 dafault
+
+```sql
+timestamp with time zone
+
+select sessiontimezone from dual;
+
+alter session set time_zone ='+3:00';
+select sessiontimezone from dual;
+```
+
+
+
+* sysdate 시스템의 현재 리턴
+
+  ```sql
+  current_date; -- 세션의 timezone기반 현재시간을 date타입으로 리턴
+  
+  current_timestamp;-- 세션의 timezone기반현재시간을 timestamp타입으로 리턴
+  
+  select sysdate,current_date,current_timestamp from dual;
+  ```
+
+  
+
+* add_months(date,n)
+
+* months_between(date,date)
 
 
 

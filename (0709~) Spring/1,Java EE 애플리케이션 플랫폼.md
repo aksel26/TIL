@@ -55,5 +55,27 @@ JSP Bean(DTO)
 
 
 
+### Spring IoC 컨테이너
+
+- BeanFactory
+
+  - bean의 생성과 소멸담당
+
+  - bean 생성시 필요한 속성  설정
+
+  - bean의 life cycle에 관련된 메서드 호출
+
+  - Context시작 시 모든 singleton Bean을 실제 bean객체가 사용되는 시점에 로딩
+
+    *singleton 아무리 요청해도 같은 빈 (기본 값)
+
+- ApplicationContext (also DI Container)
+
+  - 국제화 
+
+- XML설정
+
+
+
 
 

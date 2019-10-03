@@ -1,4 +1,4 @@
-```javascript
+```html
 
 <!DOCTYPE html>
 <html lang="ko">

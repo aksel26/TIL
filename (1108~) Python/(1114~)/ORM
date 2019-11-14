@@ -1,0 +1,50 @@
+ORM (Object Relational Mapping)
+
+MTV (MVC)
+
+모델 / 템플릿(뷰) / 뷰(컨트롤러)
+
+
+
+- 데이터베이스의 기본 구조
+  - 쿼리 : 데이터를 질의하는, 조회하는 명령어
+  - DB : 체계화된 데이터의 모임
+  - 스키마 : DB 자료의 구조, 표현방법, 관계를 정의한 구조
+  - 테이블 
+    	필드 : 컬럼
+    	레코드 : 데이터
+
+- 장고 - ORM
+  - 장점 : SQL을 몰라도 사용가능
+  - 단점 : 클래스 설계시 보다 신중해야 함, 대규모 프로젝트에서는 난이도가 높아질 수 있다, 속도가 느려질 수 있기 때문
+- Model
+  - 모델은 단일 데이터에 대한 정보를 가지고 있다. 필수적인 필드(컬럼)과 데이터(레코드)에 대한 정보를 포함.
+  - 각각의 모델은 단일 DB테이블과 매핑
+  - 사용자가 저장하는 데이터들의 필수적인 필드(컬럼) 동작 메서드를 포함
+- 변경순서
+  1. models.py 작성
+  2. makemigration : migration 파일 (명세서) 생성 (showmigration ,,,)
+  3. migrate : 실제 적용되는 부분
+
+
+
+데이터 객체를 만드는 3가지 방법
+
+1. 첫번째
+
+   `board=Board()`
+
+   `board.title="값"`
+
+   `board.save()`
+
+2. 두번째
+
+   `board=Board(title=값,content="값")`
+
+   `board.save()`
+
+3. 세번째 (save없이 저장)
+
+   `board=Board.objects.create(title="값",content="값")`
+

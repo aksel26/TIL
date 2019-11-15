@@ -639,7 +639,7 @@ boards.models.Board.DoesNotExist: Board matching query does not exist.
    admin.site.register(Board)
    ```
 
-![image-20191115201207355](../(1114~)/assets/image-20191115201207355.png)
+![image-20191115214829854](ORM.assets/image-20191115214829854.png)
 
 4. board 커스터마이징
 
@@ -658,4 +658,4 @@ boards.models.Board.DoesNotExist: Board matching query does not exist.
 
    
 
-![image-20191115201648241](../(1114~)/assets/image-20191115201648241.png)
+![image-20191115214946501](ORM.assets/image-20191115214946501.png)

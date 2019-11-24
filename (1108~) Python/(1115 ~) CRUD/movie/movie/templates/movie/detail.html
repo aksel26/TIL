@@ -36,10 +36,10 @@
     </tr>
 </table>
 <div class="contain" align="right">
-        <form action='#' method='POST'>
+        <form action='{% url "movie:delete" movie.id %}' method='POST'>
             {% csrf_token %}
             <a class="btn btn-primary" href="{% url 'movie:index' %}" role="button">List</a>
-            <a class="btn btn-primary" href="#" role="button">Edit</a>
+            <a class="btn btn-primary" href="{% url 'movie:edit' movie.id %}" role="button">Edit</a>
             <a class="btn btn-outline-danger" href="#" role="button" onclick="this.parentNode.submit()">Delete</a>
         </form>
     </div>

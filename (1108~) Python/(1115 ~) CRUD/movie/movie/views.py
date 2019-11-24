@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from .models import Movie
 import csv
 from datetime import datetime
+from django.urls import resolve
+
 # Create your views here.
 def index(request):
     movie = Movie.objects.all()
@@ -61,7 +63,6 @@ def detail(request,m_id):
 
 
 def edit(request,m_id):
-
     movie = Movie.objects.get(id=m_id)
 
     if request.method == "POST":
@@ -82,3 +83,29 @@ def edit(request,m_id):
             "movie": movie 
         }
         return render(request,'movie/edit.html', context)
+
+def delete(request,m_id):
+    if request.method=="POST":
+        movie=Movie.objects.get(id=m_id)
+        movie.delete()
+        return redirect("movie:index")
+    else:
+        return redirect("movie:detail",m_id)
+
+def search(request):
+    search=request.GET.get('search')
+    movies=Movie.objects.filter(title__contains=search)
+
+    context={
+        "movies" : movies,
+        "search" : search
+    }
+    return render(request,'movie/search.html',context)
+
+def movie_sort(request):
+    sorttype=resolve(request.path_info).url_name
+    movies=Movie.objects.order_by(f'-{sorttype}')
+    context={
+        "movies":movies
+    }
+    return render(request,'movie/index.html',context)

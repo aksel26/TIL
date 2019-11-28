@@ -21,3 +21,10 @@ User모델 정의된 것을 수정할 수 없어서
 
 2. settings.py
     `AUTH_USER_MODEL = 'accounts.User'` 
+
+
+* 검색엔진
+    아파치 solr
+    일래스틱 서치
+
+페이지네이션

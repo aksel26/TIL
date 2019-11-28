@@ -3,12 +3,20 @@ from .forms import BoardForm, CommentForm
 from .models import Board, Comment
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-
+from django.contrib.auth import get_user_model
+from django.core.paginator import Paginator
 def index(request):
     boards = Board.objects.all()
 
+    #Paginator(게시글의 전체 리스트, 페이지 당 보여지는 갯수)
+
+    paging=Paginator(boards,5) #페이지 당 5개
+
+    page=request.GET.get('page') #page 라는 value값으로 숫자가 날라옴
+    page_list=paging.get_page(page)
+
     context = {
-        'boards':boards
+        'boards':page_list
     }
     return render(request, 'boards/index.html', context)
 
@@ -140,3 +148,14 @@ def like(request, b_id):
         board.like_users.add(request.user)
 
     return redirect('boards:index')
+
+def search(request):
+    text=request.GET.get('search')
+
+    results=Board.objects.filter(title__contains=text)
+
+    context={
+        'results':results
+    }
+
+    return render(request,'boards/search.html',context)

@@ -12,3 +12,12 @@ User모델 정의된 것을 수정할 수 없어서
 - AbstractUser
   - settings.AUTH_USER_MODEL 꼭 재설정을 해줘야함
   - AUTH_USER_MODEL="앱이름.클래스이름"
+
+
+1. models.py 
+    ```python
+    class User(AbstractUser) :  #M:M관계, 
+    followers=models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="followings") 
+
+2. settings.py
+    `AUTH_USER_MODEL = 'accounts.User'` 

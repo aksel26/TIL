@@ -40,11 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django.contrib.sites',
     'crispy_forms',
     'bootstrap4',
+    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.kakao',
+
 ]
 
 MIDDLEWARE = [
@@ -126,5 +131,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+AUTH_USER_MODEL='accounts.User'
 SITE_ID=1
+LOGIN_REDIRECT_URL='boards:index'

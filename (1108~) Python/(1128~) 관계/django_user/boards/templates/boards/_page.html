@@ -10,7 +10,7 @@
 
 
         {% for page_num in boards.paginator.page_range %}
-        <li class="page-item">
+        <li class="page-item {% if page_num == boards.number%} active {% endif %}"">
             <a href="{% url 'boards:index' %}?page={{page_num}}" class="page-link">{{page_num}}</a>
         </li>
         {%endfor%}

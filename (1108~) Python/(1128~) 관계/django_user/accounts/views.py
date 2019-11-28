@@ -11,7 +11,7 @@ def signup(request):
         return redirect('boards:index')
 
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = UserCustomChangeForm(request.POST)
         # embed()
         if form.is_valid():
             user = form.save()
@@ -46,7 +46,7 @@ def login(request):
         'form':form,
         'label': "로그인"
     }
-    return render(request, 'accounts/auth_form.html', context)
+    return render(request, 'accounts/login.html', context)
 
 def logout(request):
     if request.method == "POST":
@@ -93,3 +93,6 @@ def delete(request):
         request.user.delete()
 
     return redirect('boards:index')
+
+def profile(request,name):
+    

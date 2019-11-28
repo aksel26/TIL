@@ -5,3 +5,8 @@ class UserCustomChangeForm(UserChangeForm):
     class Meta:
         model = get_user_model()
         fields = ['first_name', 'last_name', 'email']
+
+class UserCustomCreationForm(UserCustomChangeForm):
+    class Meta:
+        model = get_user_model()
+        fields=UserCustomCreationForm.Meta.fields()

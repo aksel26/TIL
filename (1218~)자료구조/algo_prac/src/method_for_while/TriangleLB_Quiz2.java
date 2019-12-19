@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class TriangleLB_Quiz2 {
 	
-	//n´ÜÀÇ ÇÇ¶ó¹Ìµå ¸¸µé±â
+	//në‹¨ì˜ í”¼ë¼ë¯¸ë“œ ë§Œë“¤ê¸°
 	static void spira(int n ) {
 		for(int i =1; i<=n; i++) {
 			for(int j = 1; j<=n-i; j++)
@@ -17,7 +17,7 @@ public class TriangleLB_Quiz2 {
 		}
 	}
 		
-	//¼ıÀÚ ÇÇ¶ó¹Ìµå ¸¸µé±â 
+	//ìˆ«ì í”¼ë¼ë¯¸ë“œ ë§Œë“¤ê¸° 
 	static void npira(int n) {
 		for (int i=1; i<=n ;i ++) {
 			for(int j =1;j<=n-i;j++) 
@@ -43,13 +43,13 @@ public class TriangleLB_Quiz2 {
 //	  *************
 //	 ***************
 //	*****************
-// *******************
+//     *******************
 	
 		
 //		npira(4);
 //		
 //		   1
-//        222
+//                222
 //		 33333
 //		4444444
 

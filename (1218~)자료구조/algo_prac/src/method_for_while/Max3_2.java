@@ -1,4 +1,4 @@
-package algo_prac;
+package method_for_while;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package algo_prac;
+package method_for_while;
 
 public class Multi99 {
 

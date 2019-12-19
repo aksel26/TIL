@@ -1,7 +1,7 @@
 //반복구조 ( 루프 )
 
 
-package algo_prac;
+package method_for_while;
 
 import java.util.Scanner;
 

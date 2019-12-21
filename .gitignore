@@ -55,3 +55,6 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+(1218~)자료구조/.metadata/.log
+*.log
+*.ini

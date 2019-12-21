@@ -10,14 +10,15 @@ import java.util.Scanner;
 //두 값의 교환
 //	작업용 변수를 하나 설정한다
 
-public class ReverseArray {
+public class ReverseArray {	
+//	교환하고
 	static void swap(int[] a, int idx1, int idx2) {
 		int t = a[idx1];
 		a[idx1] = a[idx2];
 		a[idx2] = t;
 
 	}
-
+//	정렬하고
 	static void reverse(int[] a) {
 		for (int i = 0; i < a.length / 2; i++) {
 			swap(a, i, a.length - i - 1);
@@ -31,11 +32,14 @@ public class ReverseArray {
 
 		int[] x = new int[num]; // 요소 수가 num인 배열
 
+//		배열 요소 입력받기
 		for (int i = 0; i < num; i++) {
 			System.out.println("x[" + i + "]");
 			x[i] = scn.nextInt();
 
 		}
+		
+//		정렬
 		reverse(x);
 
 		System.out.println("요소룰 역순으로 정리했다");

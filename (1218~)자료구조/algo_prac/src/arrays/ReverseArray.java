@@ -2,51 +2,49 @@ package arrays;
 
 import java.util.Scanner;
 
-//배열요소 역순으로 정렬하
-//교환 횟수 : 요소 개수/2회 (홀수 시 나머지는 버림)
 
-//	for( i =0; i< n/2 ;i++)
-
-//두 값의 교환
-//	작업용 변수를 하나 설정한다
 
 public class ReverseArray {	
-//	교환하고
-	static void swap(int[] a, int idx1, int idx2) {
-		int t = a[idx1];
-		a[idx1] = a[idx2];
-		a[idx2] = t;
-
-	}
-//	정렬하고
-	static void reverse(int[] a) {
-		for (int i = 0; i < a.length / 2; i++) {
-			swap(a, i, a.length - i - 1);
+	static boolean equals(int a[],int b[]) {
+		if(a.length!=b.length) {
+			return false;
 		}
+		for(int i =0; i<a.length; i++) {
+			if (a[i] !=b[i]) {
+				return false;
+			}
+			
+		}
+		return true;
 	}
-
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		System.out.println("요소 수 : ");
-		int num = scn.nextInt();
-
-		int[] x = new int[num]; // 요소 수가 num인 배열
-
-//		배열 요소 입력받기
-		for (int i = 0; i < num; i++) {
-			System.out.println("x[" + i + "]");
-			x[i] = scn.nextInt();
-
+		int na, ba;
+		
+		System.out.println("배열 a길이 입력하세요");
+		na=scn.nextInt()	;
+		int[] a= new int[na];
+		
+	
+		
+		for(int i = 0; i<na; i++) {
+			System.out.println("a[" + i +"]:");
+			a[i]=scn.nextInt();
 		}
 		
-//		정렬
-		reverse(x);
-
-		System.out.println("요소룰 역순으로 정리했다");
-		for (int i = 0; i < num; i++) {
-			System.out.println("x[" + i + "]=" + x[i]);
+		System.out.println("배열b읙길이를 입력하세요");
+		ba= scn.nextInt();
+		int[] b=new int [ba];
+		
+		for(int i =0; i<ba ; i++) {
+			System.out.println("b[" + i + "]:");
+			b[i]=scn.nextInt();
 		}
-
+		System.out.println("배열 b와 a는 " + (equals(a,b)? "같습니다":"다릅니다"));
+		
+//메서드 equals는 배열a와 b가 같은지 판단해줌 :type은 boolean
+		
+	
 	}
 
 }

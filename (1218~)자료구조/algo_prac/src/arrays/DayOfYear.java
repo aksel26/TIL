@@ -21,7 +21,7 @@ public class DayOfYear {
 			};
 
 	static int isLeap(int year) {
-		return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) ? 1 : 0;
+		return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) ? 1 : 0; //윤년이면  1, 평년이면 0을 반환
 	}
 	
 

@@ -87,7 +87,7 @@ public class PysicalExamination {
 
 }
 
-djdjdj
+
 //		===== 신체검사 리스트 =====
 //		이름      키    시력
 //		-----------------------

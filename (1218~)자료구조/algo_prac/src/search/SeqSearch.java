@@ -3,23 +3,23 @@ package search;
 import java.util.Scanner;
 
 public class SeqSearch {
-	//  While¹® ÀÌ¿ë
+	//  Whileë¬¸ ì´ìš©
 //	static int seqSearch(int[] a , int n, int key) {
 //		int i = 0;
 //		while(true) {
 //			if(i==n) {
-//				return -1; //°Ë»ö ½ÇÆĞ : -1 À» ¹İÈ¯
+//				return -1; //ê²€ìƒ‰ ì‹¤íŒ¨ : -1 ì„ ë°˜í™˜
 //				
 //			}
 //			if(a[i]==key) {
-//				return i; //°Ë»ö ¼º°ø :ÀÎµ¦½º¸¦ ¹İÈ¯
+//				return i; //ê²€ìƒ‰ ì„±ê³µ :ì¸ë±ìŠ¤ë¥¼ ë°˜í™˜
 //				
 //			}
 //			i++;
 //		}
 //	}
 
-	// FOR¹® ÀÌ
+	// FORë¬¸ ì´ìš©
 	static int seqSearch(int[] a, int n, int key) {
 		for (int i = 0; i < n; i++) {
 			if (a[i] == key)
@@ -30,7 +30,7 @@ public class SeqSearch {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		System.out.println("¿ä¼Ú ¼ö :");
+		System.out.println("ìš”ì†Ÿ ìˆ˜ :");
 		int num = scn.nextInt();
 		int[] x = new int[num];
 
@@ -39,22 +39,22 @@ public class SeqSearch {
 			x[i] = scn.nextInt();
 
 		}
-		System.out.println("°Ë»öÇÒ °ª :");
+		System.out.println("ê²€ìƒ‰í•  ê°’ :");
 		int ky = scn.nextInt();
-		int idx = seqSearch(x, num, ky); // ¹è¿­x¿¡¼­ Å° °ªÀÌ ky ÀÎ ¿ä¼Ò¸¦ °Ë»ö
+		int idx = seqSearch(x, num, ky); // ë°°ì—´xì—ì„œ í‚¤ ê°’ì´ ky ì¸ ìš”ì†Œë¥¼ ê²€ìƒ‰
 		if (idx == -1) {
-			System.out.println("±× °ªÀÇ ¿ä¼Ò°¡ ¾ø´Ù.");
+			System.out.println("ê·¸ ê°’ì˜ ìš”ì†Œê°€ ì—†ë‹¤.");
 		} else {
-			System.out.println(ky + "Àºx[" + idx + "]¿¡ ÀÖ´Ù.");
+			System.out.println(ky + "ì€x[" + idx + "]ì— ìˆë‹¤.");
 		}
 
 	}
 
 }
 
-//	Ãâ·Â
+//	ì¶œë ¥
 
-//	¿ä¼Ú ¼ö :
+//	ìš”ì†Ÿ ìˆ˜ :
 //	3
 //	x[0]
 //	1
@@ -62,6 +62,6 @@ public class SeqSearch {
 //	2
 //	3x[2]
 //	
-//	°Ë»öÇÒ °ª :
+//	ê²€ìƒ‰í•  ê°’ :
 //	2
-//	2Àºx[1]¿¡ ÀÖ´Ù.
+//	2ì€x[1]ì— ìˆë‹¤.

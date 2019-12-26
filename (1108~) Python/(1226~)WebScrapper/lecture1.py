@@ -1,4 +1,4 @@
-# Data types of Python
+######## Data types of Python ########
 
 
 a_String = "Like this"
@@ -14,10 +14,10 @@ print(type(a_none))      #<class 'NoneType'>
 
 
 
-# Lists in Python
+######## Lists in Python ########
 
-1. list
-2. tuple
+# 1. list
+# 2. tuple
 
 # 1-1. List
 
@@ -45,7 +45,7 @@ print(type(a_none))      #<class 'NoneType'>
 
 
 
-# Dictionary
+######## Dictionary ########
 nico = {
     "name" : "kim",    
     "age" : 29,
@@ -54,10 +54,17 @@ nico = {
 }
 print(type(nico))  >>> print(nico)
                     # {'name': 'kim', 'age': 29, 'korean': True, 'fav_food': ['kimchi', 'bread']}
-print(type(nico)) #<class 'dict'>
-print(nico["fav_food"])  #['kimchi', 'bread']
+print(type(nico)) 
+    #<class 'dict'>
+print(nico["fav_food"])  
+    #['kimchi', 'bread']
 
-추가하려면
+#------------- 추가하려면 ?
 nico["hahaha"] =True
 print(nico)
     #{'name': 'kim', 'age': 29, 'korean': True, 'fav_food': ['kimchi', 'bread'], 'hahaha': True}
+
+
+
+####### Built-in Functions #######
+

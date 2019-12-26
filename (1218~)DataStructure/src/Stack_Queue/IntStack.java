@@ -1,4 +1,4 @@
-package stack;
+package Stack_Queue;
 
 
 
@@ -9,32 +9,32 @@ public class IntStack {
 	private int ptr;
 	private int[] stk;
 	
-//	ì‹¤í–‰ì‹œ ì˜ˆì™¸ : ìŠ¤íƒì´ ë¹„ì–´ìˆìŒ.
+//	?‹¤?–‰?‹œ ?˜ˆ?™¸ : ?Š¤?ƒ?´ ë¹„ì–´?ˆ?Œ.
 	public class EmptyIntStackException extends RuntimeException{
 		public EmptyIntStackException(){}
 	}
 	
-//	ì‹¤í–‰ì‹œ ì˜ˆì™¸ : ê°€ë“ ì°¼ì„ ë•Œ
+//	?‹¤?–‰?‹œ ?˜ˆ?™¸ : ê°??“ ì°¼ì„ ?•Œ
 	public class  OverflowIntStackException extends RuntimeException{
 		public OverflowIntStackException() {
 			
 		}
 	}
-	//ìƒì„±
+	//?ƒ?„±
 	public IntStack(int capacity) {
 		ptr = 0;
 		max = capacity;
 		try {
-			stk  = new int[max];	//ìŠ¤íƒ ë³¸ì²´ì—´ ë°°ì—´ ìƒì„±
+			stk  = new int[max];	//?Š¤?ƒ ë³¸ì²´?—´ ë°°ì—´ ?ƒ?„±
 			
-		}catch(OutOfMemoryError e) { // ìƒì„±í•  ìˆ˜ ì—†ìŒ
+		}catch(OutOfMemoryError e) { // ?ƒ?„±?•  ?ˆ˜ ?—†?Œ
 			max = 0;
 		}
 	}
 
 	
 	
-//	ìŠ¤íƒì— xë¥¼ í‘¸ì‹œ
+//	?Š¤?ƒ?— xë¥? ?‘¸?‹œ
 	public int push(int x ) throws OverflowIntStackException{
 		if (ptr>=max) {
 			throw new OverflowIntStackException();
@@ -44,7 +44,7 @@ public class IntStack {
 	}
 	
 	
-//	ìŠ¤íƒì—ì„œ ë°ì´í„°ë¥¼ íŒ
+//	?Š¤?ƒ?—?„œ ?°?´?„°ë¥? ?Œ
 	public int pop () throws EmptyIntStackException{
 		if (ptr<0) {
 			throw new EmptyIntStackException();
@@ -53,7 +53,7 @@ public class IntStack {
 	}
 	
 
-//	ìŠ¤íƒì—ì„œ ë°ì´íŠ¸ë¥¼ í”¼í¬ 
+//	?Š¤?ƒ?—?„œ ?°?´?Š¸ë¥? ?”¼?¬ 
 	public int peek()	throws EmptyIntStackException{
 		if(ptr<=0) {
 			throw new EmptyIntStackException();
@@ -63,7 +63,7 @@ public class IntStack {
 	}
 	
 	
-//	ìŠ¤íƒì—ì„œ xë¥¼ ì°¾ì•„ ì¸ë±ìŠ¤(ì—†ìœ¼ë©´ -1)ë¥¼ ë°˜í™˜
+//	?Š¤?ƒ?—?„œ xë¥? ì°¾ì•„ ?¸?±?Š¤(?—†?œ¼ë©? -1)ë¥? ë°˜í™˜
 	public int indexOf(int x ) {
 		for (int i =ptr-1; i>=0 ;i--) {
 			if(stk[i]==x){
@@ -75,38 +75,38 @@ public class IntStack {
 	}
 	
 	
-	// ìŠ¤íƒì„ ë¹„ì›€
+	// ?Š¤?ƒ?„ ë¹„ì?
 	public void clear() {
 		ptr=0;
 		
 	}
 	
-//	 ìŠ¤íƒì˜ ìš©ëŸ‰ì„ ë°˜í™˜
+//	 ?Š¤?ƒ?˜ ?š©?Ÿ‰?„ ë°˜í™˜
 	public int capacity() {
 		return max;
 	}
 	
-//	ìŠ¤íƒì— ìŒ“ì—¬ ìˆëŠ” ë°ì´í„°ì˜ ìˆ˜ë¥¼ ë°˜í™˜
+//	?Š¤?ƒ?— ?Œ“?—¬ ?ˆ?Š” ?°?´?„°?˜ ?ˆ˜ë¥? ë°˜í™˜
 	public int size() {
 		return ptr;
 	}
 	
-//	ìŠ¤íƒì´ ë¹„ì–´ ìˆëŠ”ê°€?
+//	?Š¤?ƒ?´ ë¹„ì–´ ?ˆ?Š”ê°??
 	public boolean isEmpty() {
 		return ptr<=0;
 	}
 	
 	
-//	ìŠ¤íƒì´ ê°€ë“ ì°¨ìˆëŠ”ê°€?
+//	?Š¤?ƒ?´ ê°??“ ì°¨ìˆ?Š”ê°??
 	public boolean isFull() {
 		return ptr>=max;
 	}
 	
 	
-//	ìŠ¤íƒ ì•ˆì˜ ëª¨ë“  ë°ì´í„°ë¥¼ ë°”ë‹¥ -> ê¼­ëŒ€ê¸° ìˆœì„œëŒ€ë¡œ ì¶œë ¥
+//	?Š¤?ƒ ?•ˆ?˜ ëª¨ë“  ?°?´?„°ë¥? ë°”ë‹¥ -> ê¼???ê¸? ?ˆœ?„œ??ë¡? ì¶œë ¥
 	public void dump() {
 		if(ptr<=0)
-			System.out.println("ìŠ¤íƒì´ ë¹„ì–´ìˆë‹¤.");
+			System.out.println("?Š¤?ƒ?´ ë¹„ì–´?ˆ?‹¤.");
 		else {
 			for(int i=0;i<ptr;i++) {
 				System.out.print(stk[i]+" ");

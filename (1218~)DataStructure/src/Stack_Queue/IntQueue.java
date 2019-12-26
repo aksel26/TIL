@@ -1,6 +1,6 @@
-package stack;
+package Stack_Queue;
 
-import stack.IntStack.EmptyIntStackException;
+import Stack_Queue.IntStack.EmptyIntStackException;
 
 public class IntQueue {
 	private int max;

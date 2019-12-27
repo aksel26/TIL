@@ -67,4 +67,36 @@ print(nico)
 
 
 ####### Built-in Functions #######
+# 1. print()
+# 2. type()
+# 3. len()
+print(len("as;dkfjask;ldjfkjdsf;l"))  #22
+
+# 4. str()
+# 5. int() 
+# ....
+
+# example
+age = "18"
+print(type(age))
+n_age=int(age)
+print(type(n_age))
+    # >>> print(type(age))
+    # <class 'str'>
+    # >>> n_age=int(age)
+    # >>> print(type(n_age))
+    # <class 'int'>
+    
+
+####### Creatign Function #######
+
+def say_hello():
+    print("hello")  # 파이썬은 들여쓰기로 함수의 시작과 끝을 인식함.
+    print("bye")
+
+say_hello()
+say_hello()
+say_hello()
+say_hello()
+say_hello()
 

@@ -173,3 +173,29 @@ public class Recur {
   1. Recur (3)	실행
   2. 4 출력
   3. recur(2)   실행
+
+![](/Users/hxmkim/Documents/GitHub/TIL/(1218~)DataStructure/src/recursive/Recursive.assets/recursive-7431480.JPG)
+
+- 같은 호출이 여러번 -> 효율적이지 못함.
+
+#### 상향식 분석
+
+- recur(1) 	수행 순서
+
+  1. recur(0) 실행
+
+  2. 1을 출력
+
+  3. recur(-1) 실행
+
+     ---> 1,2 에서 출력 내용이 없으므로 1만 출력됨
+
+- recur(2)  수행순서
+
+  1. recur(1). --> 1출력
+
+  2. 2출력
+
+  3. recur(2) --> recur(0) 출력 내용 없음
+
+     ----> 1, 2출력

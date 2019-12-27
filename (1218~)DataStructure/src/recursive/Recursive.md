@@ -174,7 +174,7 @@ public class Recur {
   2. 4 출력
   3. recur(2)   실행
 
-![](./assets/recursive-7431480.JPG)
+<img src="recursive.JPG" alt="recursive" style="zoom:50%;" />
 
 - 같은 호출이 여러번 -> 효율적이지 못함.
 
@@ -198,4 +198,6 @@ public class Recur {
 
   3. recur(2) --> recur(0) 출력 내용 없음
 
-     ----> 1, 2출력![recursive](recursive.JPG)
+     ----> 1, 2출력
+
+     <img src="../../../../../../Desktop/recur(-1) 1.jpg" alt="recur(Recursive.assets/recur(-1) 1.jpg) 1" style="zoom:33%;" />

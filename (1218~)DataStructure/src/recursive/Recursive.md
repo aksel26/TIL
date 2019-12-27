@@ -201,3 +201,30 @@ public class Recur {
      ----> 1, 2출력
 
      <img src="Recursive.assets/recur(-1) 1-7432953.jpg" alt="recur(Recursive.assets/recur(-1) 1-7432935.jpg) 1" style="zoom:33%;" />
+
+### 재귀알고리즘의 비재귀적 표현
+
+Recur 메서드를 재귀호출을 사용하지 않고 구현하는 방법
+
+#### 꼬리 재귀의 제거
+
+recur(n-2)는 인자로 n-2를 전달하여 recur메서드를 호출한다는 의미 <=>
+**n의 값을 n-2로 업데이트하고 메서드의 시작 지점으로 돌아갑니다.**
+
+```java
+	//꼬리재귀를 제거함.
+	static void recur2(int n) {
+		if (n>0) {
+			recur(n-1);
+			System.out.println("n");
+
+			//여가
+			n =n-2;
+		}
+	}
+```
+
+
+
+#### 재귀의 제거
+

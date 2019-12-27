@@ -200,4 +200,4 @@ public class Recur {
 
      ----> 1, 2출력
 
-     <img src="../../../../../../Desktop/recur(-1) 1.jpg" alt="recur(Recursive.assets/recur(-1) 1.jpg) 1" style="zoom:33%;" />
+     <img src="../../../../../../Desktop/recur(-1) 1.jpg" alt="recur(recur(-1) 1-7432756.jpg) 1" style="zoom:33%;" />

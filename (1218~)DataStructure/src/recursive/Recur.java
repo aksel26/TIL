@@ -10,6 +10,18 @@ public class Recur {
 			recur(n - 2);
 		}
 	}
+	
+	
+	//꼬리재귀를 제거함.
+	static void recur2(int n) {
+		if (n>0) {
+			recur(n-1);
+			System.out.println("n");
+
+			//여가
+			n =n-2;
+		}
+	}
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
@@ -24,6 +36,7 @@ public class Recur {
 
 //	정수를 입력하세요
 //	4
+
 //	1
 //	2
 //	3

@@ -88,7 +88,7 @@ print(type(n_age))
     # <class 'int'>
     
 
-####### Creatign Function #######
+####### Creating Function #######
 
 def say_hello():
     print("hello")  # 파이썬은 들여쓰기로 함수의 시작과 끝을 인식함.
@@ -100,3 +100,27 @@ say_hello()
 say_hello()
 say_hello()
 
+
+
+
+####### Keyword Argument #######
+# 위치가 아닌 키워드로 인자를 정할 수 있다.
+
+def plus(a,b):
+    if type(b) is str:
+        return None
+    else :
+        return a+b
+
+result = plus(b=30, a =1)
+print(result)
+
+
+# string 안에 인자를 대입하는 방법.
+
+def say_hello(name,age):
+    return f"hello {name} you are {age} years old"
+
+
+hello= say_hello(name="kim",age="12")
+print(hello)

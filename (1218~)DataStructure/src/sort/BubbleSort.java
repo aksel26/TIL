@@ -55,7 +55,7 @@ public class BubbleSort {
 	
 	
 	
-	//단순 선택 정
+	//단순 선택 정렬
 	static void selectionSort(int[]a , int n) {
 		for (int i = 0;i<n-1; i++) {
 			int min = i;

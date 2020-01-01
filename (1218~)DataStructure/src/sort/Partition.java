@@ -53,7 +53,7 @@ public class Partition {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		System.out.println("배열을 나누빈다");
+		System.out.println("배열을 나눕니다");
 		System.out.println("요솟 수 : ");
 		int nx = scn.nextInt();
 		int[] x = new int[nx];
@@ -66,3 +66,27 @@ public class Partition {
 
 	}
 }
+
+
+//			배열을 나눕니
+//			요솟 수 : 
+//			7
+//			x[0] :
+//			39
+//			x[1] :
+//			42
+//			x[2] :
+//			52
+//			x[3] :
+//			5
+//			x[4] :
+//			4
+//			x[5] :
+//			7
+//			x[6] :
+//			8
+//			피벗의 값은 5입니다.
+//			피벗 이하의 그룹 :
+//			4 5 
+//			피벗 이상의 그룹 :
+//			52 42 39 7 8 

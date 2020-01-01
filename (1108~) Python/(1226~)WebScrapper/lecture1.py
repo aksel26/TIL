@@ -1,6 +1,8 @@
 ######## Data types of Python ########
 
 
+
+
 a_String = "Like this"
 a_number= 3
 a_float = 3.12
@@ -149,7 +151,7 @@ age_check(23)
 
 week2 = ("Mon","Tue","Wed","Thu","Fri")
 
-for day in week : 
+for day in week2 : 
     if day is "Wed":
         break
     else:
@@ -157,3 +159,13 @@ for day in week :
 
 
 # tuple, list에서 사용ㄱ ㅏ능
+
+
+### modules 기능의 집합 import해서 사용 가능
+import math as m
+print(m.ceil(1.2))
+
+
+
+
+

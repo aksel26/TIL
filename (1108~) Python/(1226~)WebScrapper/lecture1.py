@@ -124,3 +124,36 @@ def say_hello(name,age):
 
 hello= say_hello(name="kim",age="12")
 print(hello)
+
+
+# Boolean Operation (and or not)
+def age_check(age):
+        print(f"you are {age}")
+        if age< 18:
+            print("you cant drink")
+        
+        elif age == 18 :
+            print("you are new to this")
+        elif age > 20 and age < 25:
+            print("you are still kind of young")
+
+        else:
+            print("enjoy it!")
+
+
+age_check(23)
+
+# 출력
+# you are 23
+# you are still kind of young
+
+week2 = ("Mon","Tue","Wed","Thu","Fri")
+
+for day in week : 
+    if day is "Wed":
+        break
+    else:
+        print(day)
+
+
+# tuple, list에서 사용ㄱ ㅏ능

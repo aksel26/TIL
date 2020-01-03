@@ -7,12 +7,12 @@ public class Plus {
 	public static void main(String[] args) {
 
 //		1000번 
-		int num1,num2=0;
-		Scanner scn1 = new Scanner(System.in);
-		Scanner scn2 = new Scanner(System.in);
-		 num1 = scn1.nextInt();
-		 num2 = scn1.nextInt();
-		System.out.println(num1+num2);
+//		int num1,num2=0;
+//		Scanner scn1 = new Scanner(System.in);
+//		Scanner scn2 = new Scanner(System.in);
+//		 num1 = scn1.nextInt();
+//		 num2 = scn1.nextInt();
+//		System.out.println(num1+num2);
 
 		
 //		2558번
@@ -24,14 +24,14 @@ public class Plus {
 //		출력
 //		첫째 줄에 A+B를 출력한다.
 
-		int a,b =0 ;
-		Scanner scn = new Scanner(System.in);
-		Scanner scn2 = new Scanner(System.in);
-		a =  scn.nextInt();
-		b = scn.nextInt();
-			if(0<a && b<10) {
-				System.out.println(a+b);
-			}
+//		int a,b =0 ;
+//		Scanner scn = new Scanner(System.in);
+//		Scanner scn2 = new Scanner(System.in);
+//		a =  scn.nextInt();
+//		b = scn.nextInt();
+//			if(0<a && b<10) {
+//				System.out.println(a+b);
+//			}
 
 		
 //		10950번
@@ -45,17 +45,17 @@ public class Plus {
 //		출력
 //		각 테스트 케이스마다 A+B를 출력한다.
 
-		int tcase = 0;
-
-		Scanner scn = new Scanner(System.in);
-
-		tcase = scn.nextInt();
-		int a, b = 0;
-		for (int i = 0; i < tcase; i++) {
-			a = scn.nextInt();
-			b = scn.nextInt();
-			System.out.println(a + b);
-		}
+//		int tcase = 0;
+//
+//		Scanner scn = new Scanner(System.in);
+//
+//		tcase = scn.nextInt();
+//		int a, b = 0;
+//		for (int i = 0; i < tcase; i++) {
+//			a = scn.nextInt();
+//			b = scn.nextInt();
+//			System.out.println(a + b);
+//		}
 	
 		
 //		10951번
@@ -71,16 +71,16 @@ public class Plus {
 		
 		
 		
-		Scanner scn = new Scanner(System.in);
-		
-		int a,b = 0;
-	
-		while(scn.hasNextInt()) {
-			a =scn.nextInt();
-			b = scn.nextInt();
-			System.out.println(a+b);
-		}
-		
+//		Scanner scn = new Scanner(System.in);
+//		
+//		int a,b = 0;
+//	
+//		while(scn.hasNextInt()) {
+//			a =scn.nextInt();
+//			b = scn.nextInt();
+//			System.out.println(a+b);
+//		}
+//		
 		
 		
 		
@@ -94,16 +94,16 @@ public class Plus {
 //
 //		입력의 마지막에는 0 두 개가 들어온다.
 		
-		Scanner scn = new Scanner(System.in);
-		
-		int a,b = 0;
-		
-		do {
-			a = scn.nextInt();
-			b = scn.nextInt();
-			if(a!=0 && b!=0)
-			System.out.println(a+b);
-		}while(a != 0 && b!= 0);
+//		Scanner scn = new Scanner(System.in);
+//		
+//		int a,b = 0;
+//		
+//		do {
+//			a = scn.nextInt();
+//			b = scn.nextInt();
+//			if(a!=0 && b!=0)
+//			System.out.println(a+b);
+//		}while(a != 0 && b!= 0);
 		
 
 		
@@ -118,7 +118,7 @@ public class Plus {
 		int a ,b, tcase= 0 ;
 		tcase = scn.nextInt();
 		
-	//	오답
+		//오답
 //		for (int i = 0; i< tcase ; i++) {
 //			a = scn.nextInt();
 //			System.out.print(",");

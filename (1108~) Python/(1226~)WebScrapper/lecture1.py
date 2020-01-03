@@ -163,9 +163,7 @@ for day in week2 :
 
 ### modules 기능의 집합 import해서 사용 가능
 import math as m
+import requests
 print(m.ceil(1.2))
-
-
-
 
 

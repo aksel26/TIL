@@ -8,7 +8,6 @@ import java.io.OutputStreamWriter;
 import java.util.Scanner;
 import java.util.Stack;
 
-
 public class Stack_prac {
 
 	public static void main(String[] args) throws IOException {
@@ -24,8 +23,6 @@ public class Stack_prac {
 //			size -=1;
 //		}
 
-		
-		
 //		10828번
 //		정수를 저장하는 스택을 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.
 //
@@ -42,53 +39,45 @@ public class Stack_prac {
 //		출력
 //		출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.
 //		
-//		Scanner scn = new Scanner(System.in);
-//
-//		int n = scn.nextInt();
-//
-//		int[] stack = new int[n];
-//		int size = 0;
-//		while (n-- > 0) {
-//			String cmd = scn.next();
-//			if (cmd.equals("push")) {
-//				int num = Integer.parseInt(scn.next());
-//				stack[size++] = num;
-//			} else if (cmd.equals("top")) {
-//				if (size == 0) {
-//					System.out.println("-1");
-//				} else {
-//					System.out.println(stack[size - 1]);
-//				}
-//			} else if (cmd.equals("size")) {
-//				System.out.println(size);
-//
-//			} else if (cmd.equals("empty")) {
-//				if (size == 0) {
-//					System.out.println("1");
-//				} else {
-//					System.out.println("0");
-//				}
-//			} else if (cmd.equals("pop")) {
-//				if (size == 0) {
-//					System.out.println("-1");
-//				} else {
-//					System.out.println(stack[size - 1]);
-//					size -= 1;
-//				}
-//			}
-//
-//		}
-		
-		
-//		문장이 주어졌을 때, 단어를 모두 뒤집어서 출력하는 프로그램을 작성하시오. 단, 단어의 순서는 바꿀 수 없다. 단어는 영어 알파벳으로만 이루어져 있다.
-//
-//		입력
-//		첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있으며, 문장이 하나 주어진다. 단어의 길이는 최대 20, 문장의 길이는 최대 1000이다. 단어와 단어 사이에는 공백이 하나 있다.
-//
-//		출력
-//		각 테스트 케이스에 대해서, 입력으로 주어진 문장의 단어를 모두 뒤집어 출력한다.
-		
-		
+		Scanner scn = new Scanner(System.in);
+
+		int n = scn.nextInt();
+
+		int[] stack = new int[n];
+		int size = 0;
+		while (n-- > 0) {
+			String cmd = scn.next();
+			if (cmd.equals("push")) {
+				int num = Integer.parseInt(scn.next());
+				stack[size++] = num;
+			} else if (cmd.equals("top")) {
+				if (size == 0) {
+					System.out.println("-1");
+				} else {
+					System.out.println(stack[size - 1]);
+				}
+			} else if (cmd.equals("size")) {
+				System.out.println(size);
+
+			} else if (cmd.equals("empty")) {
+				if (size == 0) {
+					System.out.println("1");
+				} else {
+					System.out.println("0");
+				}
+			} else if (cmd.equals("pop")) {
+				if (size == 0) {
+					System.out.println("-1");
+				} else {
+					System.out.println(stack[size - 1]);
+					size -= 1;
+				}
+			}
+
+		}
+
+
+
 //		#######  bufferdReader 사용법  #######
 //		선언
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -105,8 +94,6 @@ public class Stack_prac {
 //			1) StringTokenizer의 nextToken()을 쓰면 readLine()을 통해 입력받은 값이 공백단위로 구분	해 순서대로 호출할 수 있다.
 //			2) String.Split() : 배열에 공백단위로 끊어 데이터를 넣고 사용하는 방법.
 
-		
-		
 //		####### BufferdWriter 사용 ########
 //			: 일반적으로 System.out.println("");를 쓰는데, 양이 많아지면 성능에서 차이가 나므로 Buffer를 활용하는게 좋다.
 //		
@@ -118,28 +105,37 @@ public class Stack_prac {
 //		bw.close(); ----> 스트림을 닫음
 //		
 //		자동 개행 기능이 없기 때문에 \n으로 따로 처리를 해주어야 한다.
-	
 		
+		
+		
+//		9098번
+//		문장이 주어졌을 때, 단어를 모두 뒤집어서 출력하는 프로그램을 작성하시오. 단, 단어의 순서는 바꿀 수 없다. 단어는 영어 알파벳으로만 이루어져 있다.
+//
+//		입력
+//		첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있으며, 문장이 하나 주어진다. 단어의 길이는 최대 20, 문장의 길이는 최대 1000이다. 단어와 단어 사이에는 공백이 하나 있다.
+//
+//		출력
+//		각 테스트 케이스에 대해서, 입력으로 주어진 문장의 단어를 모두 뒤집어 출력한다.
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int i = Integer.parseInt(br.readLine());
-		BufferedWriter bw = new  BufferedWriter(new OutputStreamWriter(System.out));
-		while(i--> 0) {
-				String str = br.readLine() +"\n";
-				Stack<Character> s = new Stack<>();
-				for(char ch: str.toCharArray()) {
-					if(ch=='\n' || ch==' ') {
-						while(!s.isEmpty()) {
-							bw.write(s.pop());
-						}
-						bw.write(ch);
-					}else {
-						s.push(ch);
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		while (i-- > 0) {
+			String str = br.readLine() + "\n";
+			Stack<Character> s = new Stack<>();
+			for (char ch : str.toCharArray()) {
+				if (ch == '\n' || ch == ' ') {
+					while (!s.isEmpty()) {
+						bw.write(s.pop());
 					}
+					bw.write(ch);
+				} else {
+					s.push(ch);
 				}
-						
+			}
+
 		}
-		
-		
+
 		bw.flush();
 
 	}

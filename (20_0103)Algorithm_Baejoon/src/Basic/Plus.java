@@ -14,7 +14,6 @@ public class Plus {
 //		 num2 = scn1.nextInt();
 //		System.out.println(num1+num2);
 
-		
 //		2558번
 //		두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
 //
@@ -33,7 +32,6 @@ public class Plus {
 //				System.out.println(a+b);
 //			}
 
-		
 //		10950번
 //		두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
 //
@@ -56,8 +54,7 @@ public class Plus {
 //			b = scn.nextInt();
 //			System.out.println(a + b);
 //		}
-	
-		
+
 //		10951번
 //		두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
 //
@@ -68,9 +65,7 @@ public class Plus {
 //
 //		출력
 //		각 테스트 케이스마다 A+B를 출력한다.
-		
-		
-		
+
 //		Scanner scn = new Scanner(System.in);
 //		
 //		int a,b = 0;
@@ -81,9 +76,7 @@ public class Plus {
 //			System.out.println(a+b);
 //		}
 //		
-		
-		
-		
+
 //		10952번
 //		두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
 //
@@ -93,7 +86,7 @@ public class Plus {
 //		각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
 //
 //		입력의 마지막에는 0 두 개가 들어온다.
-		
+
 //		Scanner scn = new Scanner(System.in);
 //		
 //		int a,b = 0;
@@ -104,21 +97,18 @@ public class Plus {
 //			if(a!=0 && b!=0)
 //			System.out.println(a+b);
 //		}while(a != 0 && b!= 0);
-		
 
-		
-		
 //		10953번
 //		첫째 줄에 테스트 케이스의 개수 T가 주어진다.
 //
 //		각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. A와 B는 콤마(,)로 구분되어 있다. (0 < A, B < 10)
-		
-		Scanner scn  = new Scanner(System.in);
-		
-		int a ,b, tcase= 0 ;
-		tcase = scn.nextInt();
-		
-		//오답
+
+//		Scanner scn  = new Scanner(System.in);
+//		
+//		int a ,b, tcase= 0 ;
+//		tcase = scn.nextInt();
+
+		// 오답
 //		for (int i = 0; i< tcase ; i++) {
 //			a = scn.nextInt();
 //			System.out.print(",");
@@ -126,15 +116,66 @@ public class Plus {
 //			System.out.println(a+b);
 //			
 //		}
+
+//		for(int i=0;i<tcase;i++){
+//            String[] arr = scn.next().split(",");
+//            System.out.println(Integer.parseInt(arr[0])+Integer.parseInt(arr[1]));
+//        }
+
+//		11021번
+//		두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+//
+//		입력
+//		첫째 줄에 테스트 케이스의 개수 T가 주어진다.
+//
+//		각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+//
+//		출력
+//		각 테스트 케이스마다 "Case #x: "를 출력한 다음, A+B를 출력한다. 테스트 케이스 번호는 1부터 시작한다.
+
+//		Scanner scn = new Scanner(System.in);
+//
+//		int tcase =scn.nextInt();
+//		int cnum = 0;
+//		int a, b = 0;
+//		for (int i = 0; i < tcase; i++) {
+//			++cnum;
+//			a = scn.nextInt();
+//			b = scn.nextInt();
+//			int sum = a + b;
+//			System.out.println("Case #" + cnum + ": " + sum);
+//		}
+
 		
-		for(int i=0;i<tcase;i++){
-            String[] arr = scn.next().split(",");
-            System.out.println(Integer.parseInt(arr[0])+Integer.parseInt(arr[1]));
-        }
-		
-	
 		
 		
+//		11022번
+//		두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+//
+//		입력
+//		첫째 줄에 테스트 케이스의 개수 T가 주어진다.
+//
+//		각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+//
+//		출력
+//		각 테스트 케이스마다 "Case #x: A + B = C" 형식으로 출력한다. x는 테스트 케이스 번호이고 1부터 시작하며, C는 A+B이다.
+
+//		Scanner scn = new Scanner(System.in);
+//
+//		int tcase = 0;
+//		tcase = scn.nextInt();
+//		int cnum = 0;
+//		int a, b = 0;
+//		int sum = 0;
+//		for (int i = 0; i < tcase; i++) {
+//			++cnum;
+//			a = scn.nextInt();
+//			b = scn.nextInt();
+//			sum = a + b;
+//			System.out.println("Case #" + cnum + ": " + a + " + " + b + " = " + sum);
+//
+//		}
+
 	}
 
 }

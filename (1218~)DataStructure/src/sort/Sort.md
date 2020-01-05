@@ -273,3 +273,5 @@ public class InsertionSort {
 
 #### 퀵정렬
 
+- 피벗을 기준으로 나누기만 했다면, 퀵정렬에서는 나눈 부분
+

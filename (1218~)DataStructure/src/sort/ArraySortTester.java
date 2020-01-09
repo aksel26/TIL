@@ -22,7 +22,7 @@ public class ArraySortTester {
 		}
 		
 		Arrays.sort(x);
-		
+		ㅌㅌㅌ
 		System.out.println("오름차순으로 정리하였습니다.");
 		for(int i = 0 ; i<num ; i++) {
 			System.out.println("x[" + i + "] = "+ x[i]);

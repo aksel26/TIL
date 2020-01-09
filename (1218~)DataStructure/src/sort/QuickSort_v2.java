@@ -9,8 +9,8 @@ public class QuickSort_v2 {
 		
 	}
 	public void quicksort(int[]a, int left, int right) {
-		IntStack lstack = new IntStack(right-left+1);
-		IntStack rstack = new IntStack(right-left+1);
+		IntStack lstack = new IntStack(right-left+1); // 나눌 범위의 왼쪽 끝 요소의 인덱스를 저장하는 스택
+		IntStack rstack = new IntStack(right-left+1); // 나눌 범위의 오른쪽 끝 요소의인덱스를 저장하는스택
 		
 		lstack.push(left);
 		rstack.push(right);

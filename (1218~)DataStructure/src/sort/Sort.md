@@ -302,7 +302,9 @@ rstack.push(right); //rstack에 right를 푸시
     - 방법2.
       : 나눌 배열의 처음, 가운데 , 끝 요소를 정렬한 다음 가운데 요소와 끝에서 두번째 요소를 교환한다. 피벗으로 끝에서 두번째 요소의 값 (a[right-1])을 선택해 나눌 대상의 범위를 a[left+1]~a[right-2]로 좁힌다.
 
-    <img src="Sort.assets/스크린샷 2020-01-09 오후 4.57.31-8558009.png" alt="스크린샷 2020-01-09 오후 4.57.31" style="zoom:50%;" />
+    <img width="600" alt="1" src="https://user-images.githubusercontent.com/50945713/72050639-f74b1480-3304-11ea-96a5-017f330bf903.png">
+
+    
 - 시간 복잡도
 : O(n log n)
 	- 최악의 시간 복잡도 : O(n^2)

@@ -21,7 +21,7 @@ def get_last_page():
     return max_page
 
 
-def extract_job(html):
+def extract_indeed_pages(html):
     title= html.find("div",{"class":"title"}).find("a")["title"]
     company = html.find("span",{"class":"company"})
     if compnay:
@@ -33,8 +33,9 @@ def extract_job(html):
             company= company.strip()
     else:
         company = None
-    location = html.find("div",{"class":"recJobLoc"})["data-rc-loc"]
-    job_id = html["data-jk"]
+    location = html.find("div",{"class":"sjcl"}).find("location accessible-contrast-color-location")
+    print(location)
+    # job_id = html["data-jk"]
     
     return {'title':title,
             'company':company, 
@@ -54,7 +55,7 @@ def extract_job(html):
 # BeautifulSoup 
 
 
-def extract_jobs(last_page):
+def extract_indeed_jobs(last_page):
     jobs=[]
     for page in range(last_page):
         print(f"Scrapping page {page}")

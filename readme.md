@@ -1,3 +1,3 @@
 TIL
 
-[java](https://github.com/heesu40/STUDY/blob/master/Study/DAY%209-10.md)
+[Linux](https://github.com/aksel26/TIL/tree/master/(0808~)Linux)

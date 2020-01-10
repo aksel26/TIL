@@ -304,9 +304,9 @@ rstack.push(right); //rstack에 right를 푸시
 
     <img width="600" alt="1" src="https://user-images.githubusercontent.com/50945713/72050639-f74b1480-3304-11ea-96a5-017f330bf903.png">
 
-    
 - 시간 복잡도
 : O(n log n)
+	
 	- 최악의 시간 복잡도 : O(n^2)
 
 
@@ -478,6 +478,10 @@ public class MergeSort {
 > java.util.Arrays 클래스의 클래스 메서드로 제공.
 
 ###### 기본 자료형 배열의 정렬
+
+- sort메서드가 정렬하는 알고리즘은 안정적이지 않음.
+  - 배열에 같은 값이 존재하는 경우 같은 값 사이에 순서가 뒤바뀔 수 있다.
+- 
 
 
 

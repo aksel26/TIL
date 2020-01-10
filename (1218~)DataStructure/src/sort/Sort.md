@@ -481,7 +481,19 @@ public class MergeSort {
 
 - sort메서드가 정렬하는 알고리즘은 안정적이지 않음.
   - 배열에 같은 값이 존재하는 경우 같은 값 사이에 순서가 뒤바뀔 수 있다.
-- 
+
+클래스 객체 배열의 정렬 (병합 정렬)
+
+1. 자연정렬이 필요한 배열
+
+   ```java
+   static void sort(Object a[])
+   static void sort(Object a[], int fromIndex, int toIndex)
+   ```
+
+   
+
+2. 
 
 
 

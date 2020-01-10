@@ -477,12 +477,16 @@ public class MergeSort {
 
 > java.util.Arrays 클래스의 클래스 메서드로 제공.
 
-###### 기본 자료형 배열의 정렬
+**기본 자료형 배열의 정렬**
 
 - sort메서드가 정렬하는 알고리즘은 안정적이지 않음.
   - 배열에 같은 값이 존재하는 경우 같은 값 사이에 순서가 뒤바뀔 수 있다.
 
-클래스 객체 배열의 정렬 (병합 정렬)
+**클래스 객체 배열의 정렬 (병합 정렬)**
+
+<img width="243" alt="스크린샷 2020-01-10 오후 2 48 31" src="https://user-images.githubusercontent.com/50945713/72129084-62095800-33b8-11ea-9ca5-35a7cf4c7d78.png">
+
+- 안정적인 결과 보장
 
 1. 자연정렬이 필요한 배열
 
@@ -491,9 +495,139 @@ public class MergeSort {
    static void sort(Object a[], int fromIndex, int toIndex)
    ```
 
+   ```java
+   package sort;
+   
+   import java.util.Arrays;
+   import java.util.GregorianCalendar;
+   import static java.util.GregorianCalendar.*;
+   public class SortCalender {
+   
+   	public static void main(String[] args) {
+   		
+   		GregorianCalendar[] x = {
+   				new GregorianCalendar(2017, NOVEMBER, 1),
+   				new GregorianCalendar(1963, OCTOBER, 18),
+   				new GregorianCalendar(1985, APRIL, 5),
+   				
+   		};
+   		
+   		Arrays.sort(x);
+   		
+   		for(int i = 0 ; i<x.length ; i++) {
+   			System.out.printf("%04d년 %02d월 %02d일\n", 
+   			
+   			x[i].get(YEAR),
+   			x[i].get(MONTH)+1,
+   			x[i].get(DATE)
+   			);
+       }
+   	}
+   }
+   
+   //	출력
+   //	
+   //	1963년 10월 18일
+   //	1985년 04월 05일
+   //	2017년 11월 01일
+   ```
+
    
 
-2. 
+2. 자연정렬이 필요하지 않은 배열
+
+   요소의 대소관계 비교 시 comparator. c를 사용하여 정렬
+
+   ```java
+   static <T> void sort(T [] a, Compararator<? super T> c)
+   static <T> void sort(T [] a, int fromIndex, int toIndex, Compararator<? super T> c)
+   ```
+
+   
+
+   - 키를 기준으로 오름차순 정렬
+
+   ```java
+   package sort;
+   
+   import java.util.Arrays;
+   import java.util.Comparator;
+   import java.util.Scanner;
+   
+   public class PhyscExamSort {
+   
+   	static class PhyscData {
+   		String name;
+   		int height;
+   		double vision;
+   
+       
+       //생성자
+   		PhyscData(String name, int height, double vision) {
+   
+   			this.name = name;
+   			this.height = height;
+   			this.vision = vision;
+   		}
+   
+   		public String toString() {
+   			return name + " " + height + " " + vision;
+   		}
+   
+       
+       //키 오름차순용 comparator
+   		static final Comparator<PhyscData> HEIGHT_ORDER = new HeightOrderComparator();
+   
+   		private static class HeightOrderComparator implements Comparator<PhyscData> {
+   			public int compare(PhyscData d1, PhyscData d2) {
+   				return (d1.height > d2.height) ? 1 : (d1.height < d2.height) ? -1 : 0;
+   			}
+   		}
+   
+   	}
+   
+   	public static void main(String[] args) {
+   		Scanner scn = new Scanner(System.in);
+   
+   		PhyscData[] x = { new PhyscData("이나령", 162, 0.3), new PhyscData("전서현", 173, 0.7),
+   				new PhyscData("이수민", 175, 2.0), new PhyscData("홍준기", 171, 1.5), new PhyscData("유지훈", 168, 0.4),
+   				new PhyscData("이호연", 174, 1.2), new PhyscData("김한결", 169, 0.8), };
+   
+   		Arrays.sort(x, // 배열x
+   
+   				PhyscData.HEIGHT_ORDER); // HEIGHT_ORDE을 사용하여 정렬
+   
+   		System.out.println("###### 신체검사 리스트 ######");
+   		System.out.println("이름        키   시력");
+   		System.out.println("------------------------");
+   		for (int i = 0; i < x.length; i++) {
+   			System.out.printf("%-8s%3d%5.1f\n", x[i].name, x[i].height, x[i].vision);
+   		}
+   		int num = scn.nextInt();
+   
+   	}
+   
+   }
+   
+   
+   
+   //		출력
+   
+   
+   //		###### 신체검사 리스트 ######
+   //		이름        키   시력
+   //		------------------------
+   //		이나령     162  0.3
+   //		유지훈     168  0.4
+   //		김한결     169  0.8
+   //		홍준기     171  1.5
+   //		전서현     173  0.7
+   //		이호연     174  1.2
+   //		이수민     175  2.0
+   
+   ```
+
+   
 
 
 

@@ -45,3 +45,20 @@ def get_jobs():
     jobs= extract_jobs(last_page)
     
     return jobs
+
+
+
+# 출력
+
+# {'title': 'Software Engineer (Monitoring System) - Working in Japan', 'company': 'LINE Fukuoka', 'location': 'Fukuoka, Japan', 'apply_link': 'https://stackoverflow.com/jobs/273841'}
+# {'title': 'Software Engineer (m/f/d)', 'company': 'Synfioo GmbH', 'location': 'Potsdam, Germany', 'apply_link': 'https://stackoverflow.com/jobs/295854'}
+# {'title': 'Threat Analyst (Rapid Detection Center)', 'company': 'F-Secure', 'location': 'Poznań, Poland', 'apply_link': 'https://stackoverflow.com/jobs/295715'}
+# {'title': 'SE', 'company': '株式会社エバーコンサルティング', 'location': 'Minato City, Japan', 'apply_link': 'https://stackoverflow.com/jobs/348772'}
+# {'title': 'iOS/Androidアプリのバックエンドエンジニア harmo事業部', 'company': 'シミックホールディングス株式会社', 'location': 'Minato City, Japan', 'apply_link': 'https://stackoverflow.com/jobs/322022'}
+# {'title': 'Androidエンジニア / システムインテグレータ・ソフトハウス', 'company': 'i Nations 株式会社', 'location': 'Chuo City, Japan', 'apply_link': 'https://stackoverflow.com/jobs/327634'}
+# {'title': '市場調査･データ分析･数値分析', 'company': 'TDK株式会社', 'location': 'Chuo City, Japan', 'apply_link': 'https://stackoverflow.com/jobs/340249'}
+# {'title': 'PHPエンジニア / インターネット/Webサービス・ASP', 'company': '株式会社 エムフロ', 'location': 'Shibuya City, Japan', 'apply_link': 'https://stackoverflow.com/jobs/328584'}
+# {'title': '社内SE/アプリ', 'company': '株式会社CINC', 'location': 'Japan', 'apply_link': 'https://stackoverflow.com/jobs/319401'}
+# {'title': '[ PHP/Rubyなど ] 技術力が身につくバックエンドエンジニア(実務経験1年以上の方)', 'company': '株式会社LLL', 'location': 'Shibuya City, Japan', 'apply_link': 'https://stackoverflow.com/jobs/348748'}
+# {'title': 'サーバ・ネットワークエンジニア', 'company': '弁護士ドットコム株式会社', 'location': 'Minato City, Japan', 'apply_link': 'https://stackoverflow.com/jobs/332461'}
+# ...

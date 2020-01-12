@@ -14,7 +14,8 @@ def get_last_page():
 
 
 def extract_job(html):
-    title = html.find("div",{"class":"grid--cell fl1 mr12"}).find("h2").find("a")["title"]
+    title = html.find("div",{"class":"grid--cell fl1"}).find("h2").find("a")["title"]
+    
     location = html.find("h3",{"class":"fc-black-700 fs-body1 mb4"}).find("span",{"class":"fc-black-500"})
     company = html.find("h3",{"class" : "fc-black-700 fs-body1 mb4"}).find("span")
     location =location.get_text(strip=True).strip("-")

@@ -627,7 +627,117 @@ public class MergeSort {
    
    ```
 
-   
+
+
+
+### 힙정렬
+
+- 부모는 a[(i-1)/2]
+- 왼쪽 자식은 a[ ßi * 2 + 1]
+- 오른쪽 자식은 a[ i * 2 + 2 ]
+
+#### 힙정렬의 시간 복잡도
+
+- 단순 선택 정렬에서 가장 큰 요소를 선택할 때의 시간 복잡도 O (n)의 값을 한번에 선택할 수 있어 O (1)
+  - 힙 정렬에서 다시 힙으로 만드는 작업의 시간 복잡도 : O(log n)
+- O(n log n)
+
+```java
+package sort;
+import java.util.Scanner;
+// 힙 정렬
+
+class HeapSort {
+	// 배열 요소 a[idx1]과 a[idx2]의 값을 바꿉니다. 
+	static void swap(int[] a, int idx1, int idx2) {
+		int t = a[idx1];  
+		a[idx1] = a[idx2];  
+		a[idx2] = t;
+	}
+
+	// a[left] ~ a[right]를 힙으로 만듭니다. 
+	static void downHeap(int[] a, int left, int right) {
+		int temp = a[left];				// 루트
+		int child;						// 큰 값을 가진 노드
+		int parent;						// 부모
+
+		for (parent = left; parent < (right + 1) / 2; parent = child) {
+			int cl = parent * 2 + 1;							// 왼쪽 자식
+			int cr = cl + 1;									// 오른쪽 자식
+			child = (cr <= right && a[cr] > a[cl]) ? cr : cl;	// 큰 값을 가진 노드를 자식에 대입 
+			if (temp >= a[child])
+				break;
+			a[parent] = a[child];
+		}
+		a[parent] = temp;
+	}
+
+	// 힙 정렬
+	static void heapSort(int[] a, int n) {
+		for (int i = (n - 1) / 2; i >= 0; i--)	// a[i] ~ a[n-1]를 힙으로 만들기
+			downHeap(a, i, n - 1);
+
+		for (int i = n - 1; i > 0; i--) {
+			swap(a, 0, i);				// 가장 큰 요소와 아직 정렬되지 않은 부분의 마지막 요소를 교환
+			downHeap(a, 0, i - 1);		// a[0] ~ a[i-1]을 힙으로 만듭니다.
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+
+		System.out.println("힙 정렬");
+		System.out.print("요솟수：");
+		int nx = stdIn.nextInt();
+		int[] x = new int[nx];
+
+		for (int i = 0; i < nx; i++) {
+			System.out.print("x[" + i + "]：");
+			x[i] = stdIn.nextInt();
+		}
+
+		heapSort(x, nx);	// 배열 x를 힙 정렬합니다.
+
+		System.out.println("오름차순으로 정렬했습니다.");
+		for (int i = 0; i < nx; i++)
+			System.out.println("x[" + i + "]＝" + x[i]);
+	}
+}
+
+
+//	출력
+
+
+//	힙 정렬
+//	요솟수：6
+//	x[0]：9
+//	x[1]：85
+//	x[2]：3
+//	x[3]：5
+//	x[4]：3
+//	x[5]：5
+//	오름차순으로 정렬했습니다.
+//	x[0]＝3
+//	x[1]＝3
+//	x[2]＝5
+//	x[3]＝5
+//	x[4]＝9
+//	x[5]＝85
+
+```
+
+
+
+### 도수 정렬
+
+> 요소의 대소관계를 판단하지 않고 빠르게 정렬 가능한 알고리즘
+
+1. 도수분포표 작성
+2. 누적도수분포표 작성
+3. 목적 배열 만들기
+4. 배열 복사
+
+
 
 
 

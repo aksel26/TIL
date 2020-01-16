@@ -20,6 +20,22 @@ const USER_LS = "currentUser",
 SHOWING_CN ="showing";
 
 
+function saveName(text){
+    localStorage.setItem(USER_LS,text)
+}
+
+
+function handleSubmit(event){
+    event.preventDefault();   //이벤트에 대한 기본동작을 막는 메서드
+    const currentValue = input.value;
+    paintGreeting(currentValue);
+    saveName(currentValue);// 사용자의 이름을 기억
+
+}
+function askForName(){
+    form.classList.add(SHOWING_CN);
+    form.addEventListener("submit",handleSubmit)
+}
 
 function paintGreeting(text){
 
@@ -34,7 +50,7 @@ function loadName(){
     const currentUser = localStorage.getItem(USER_LS);
 
     if(currentUser ===null){
-      
+      askForName();
     }else{
         paintGreeting(currentUser);
     }

@@ -182,14 +182,14 @@ class Node<E>{
     	}
     
     
-    	//선택 노드를 하나씩 뒤로 이동
-    	public boolean next() {
-    		if(crnt == null || crnt.next == null) {
-    			return false;
-    		}
-    		crnt = crnt.next;
-    		return true;
+    //선택 노드를 하나씩 뒤로 이동
+    public boolean next() {
+    	if(crnt == null || crnt.next == null) {
+    		return false;
     	}
+    	crnt = crnt.next;
+    	return true;
+    }
     
     ```
 

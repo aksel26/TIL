@@ -5,30 +5,33 @@ import PropTypes from "prop-types"
 
 class App extends React.Component{
   state = {
-    count : 0
-
-  }
+    isLoading:true
 
 
-  add = () =>{
-    console.log("add")
-  }
-  minus = () =>{
-    console.log("minus")
   };
+
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({isLoading:false});
+    },2000);
+  }
+
+  
   render(){
-    // return <h1> im a class component</h1 >;
+    const{isLoading} = this.state;
     return(
       <div>
-        {/* render에서 count를 사용하는 방법 */}
-        <h1> The number is : {this.state.count}</h1 > 
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Minus</button>
+        {/* {
+        this.state.isLoading ? "loading..." : "we are ready"
+        } */}
+
+        
+        {isLoading ? "loading " : "we are ready"}
+
+        
       </div>
     )
   }
 }
 
 export default App;
-
-

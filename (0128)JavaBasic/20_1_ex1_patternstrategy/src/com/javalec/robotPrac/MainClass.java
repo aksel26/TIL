@@ -4,7 +4,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("½´ÆÛ·Îº¿À» ¸¸µé¾î ÁÖ¼¼¿ä");
+		System.out.println("ë¡œë´‡ì„ë§Œë“¤ì–´ì£¼ì„¸ìš”");
 		
 		
 		

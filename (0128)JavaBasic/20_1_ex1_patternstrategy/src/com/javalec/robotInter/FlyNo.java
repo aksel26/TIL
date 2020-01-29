@@ -5,7 +5,8 @@ public class FlyNo implements IFly {
 	@Override
 	public void fly() {
 		// TODO Auto-generated method stub
-		System.out.println("³¯ ¼ö ¾ø´Ù.");
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.");
 	}
 
 }
+

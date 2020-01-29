@@ -8,3 +8,4 @@ public class KnifeWood implements Iknife {
 	}
 
 }
+

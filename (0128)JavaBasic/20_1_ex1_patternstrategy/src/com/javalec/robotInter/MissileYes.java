@@ -8,3 +8,4 @@ public class MissileYes implements Imissile {
 	}
 
 }
+

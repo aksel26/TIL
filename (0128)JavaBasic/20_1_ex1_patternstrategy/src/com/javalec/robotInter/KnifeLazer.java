@@ -8,3 +8,4 @@ public class KnifeLazer implements Iknife {
 	}
 
 }
+

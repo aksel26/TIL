@@ -4,7 +4,7 @@ public class KnifeLazer implements Iknife {
 
 	@Override
 	public void knife() {	
-		System.out.println("·¹ÀÌÀú°ËÀÌÀÖ´Ù.");
+		System.out.println("ê´‘ì„ ê²€ì´ ìˆë‹¤");
 	}
 
 }

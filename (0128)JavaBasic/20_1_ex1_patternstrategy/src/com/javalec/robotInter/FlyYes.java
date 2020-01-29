@@ -4,7 +4,7 @@ public class FlyYes implements IFly {
 
 	@Override
 	public void fly() {
-		System.out.println("³¯ ¼ö ÀÖ´Ù.");
+		System.out.println("ë‚  ìˆ˜ ìžˆë‹¤.");
 	}
 
 }

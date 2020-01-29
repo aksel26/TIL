@@ -23,10 +23,10 @@ public abstract class Robot {
 	}
 
 	public abstract void shape();
-
- 
-
+	
+	
 	public void setFly(IFly fly) {
+		
 		this.fly = fly;
 	}
 
@@ -37,8 +37,7 @@ public abstract class Robot {
 	public void setKnife(Iknife knife) {
 		this.knife = knife;
 	}
-	
-	
+
 	public void actionknife() {
 		this.knife.knife();
 

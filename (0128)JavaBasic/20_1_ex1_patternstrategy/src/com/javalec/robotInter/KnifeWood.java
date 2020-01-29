@@ -4,7 +4,7 @@ public class KnifeWood implements Iknife {
 
 	@Override
 	public void knife() {
-		System.out.println("¸ñ°ËÀÌ ÀÖ´Ù.");
+		System.out.println("ëª©ê²€ ì…ë‹ˆë‹¤.");
 	}
 
 }

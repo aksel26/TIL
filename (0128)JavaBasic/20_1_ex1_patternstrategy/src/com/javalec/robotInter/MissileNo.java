@@ -4,7 +4,7 @@ public class MissileNo implements Imissile {
 
 	@Override
 	public void missile() {
-		System.out.println("¹Ì»çÀÏ ½ò ¼ö ¾ø´Ù.");
+		System.out.println("ë¯¸ì‚¬ì¼ì´ ì—†ìŠµë‹ˆë‹¤.");
 	}
 
 }

@@ -15,11 +15,11 @@ public abstract class Robot {
 	}
 
 	public void actionWalk() {
-		System.out.println("°ÉÀ» ¼ö ÀÖ´Ù");
+		System.out.println("ê±¸ì„ ìˆ˜ ìˆë‹¤.");
 	}
 
 	public void actionRun() {
-		System.out.println("¶Û ¼ö ÀÖ´Ù");
+		System.out.println("ë›¸ ìˆ˜ ìˆë‹¤.");
 	}
 
 	public abstract void shape();

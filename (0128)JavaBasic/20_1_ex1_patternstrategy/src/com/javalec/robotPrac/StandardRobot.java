@@ -11,7 +11,7 @@ public class StandardRobot extends Robot {
 	
 	@Override
 	public void shape() {
-		System.out.println("½ºÅÄ´Ùµå ·Îº¿ÀÔ´Ï´Ù.");
+		System.out.println("StandartRobotìž…ë‹ˆë‹¤.");
 	}
 	
 	

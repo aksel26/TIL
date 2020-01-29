@@ -4,7 +4,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("로봇을만들어주세요");
+		System.out.println("로봇을 만들어 주세요");
 		
 		
 		

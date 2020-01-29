@@ -9,7 +9,7 @@ public class LowRobot extends Robot {
 	}
 	@Override
 	public void shape() {
-		System.out.println("·Î¿ì ·Îº¿ÀÔ´Ï´Ù.");
+		System.out.println("LowRobotìž…ë‹ˆë‹¤.");
 	}
 
 }

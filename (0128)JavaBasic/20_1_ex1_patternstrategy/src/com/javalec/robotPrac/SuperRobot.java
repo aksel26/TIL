@@ -17,7 +17,7 @@ public class SuperRobot extends Robot {
 	}
 	@Override
 	public void shape() {
-		System.out.println("½´ÆÛ·Îº¿ÀÔ´Ï´Ù.");
+		System.out.println("SuperRobotìž…ë‹ˆë‹¤.");
 	}
 
 

@@ -9,7 +9,7 @@
 
 ![Java-7](Readme.assets/Java-7.jpg)
 
-![Java-8 2](Readme.assets/Java-8 2-0373861.jpg)
+![Java-8](Readme.assets/Java-8.jpg)
 
 ![Java-9](Readme.assets/Java-9.jpg)
 

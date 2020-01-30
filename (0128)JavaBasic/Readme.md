@@ -7,7 +7,7 @@
 ![Java-5](https://user-images.githubusercontent.com/50945713/73249489-54e1cb00-41f8-11ea-8443-e9070fbb0da0.jpg)
 ![Java-6](https://user-images.githubusercontent.com/50945713/73249490-54e1cb00-41f8-11ea-8e46-29bf6d9439e0.jpg)
 
-<img src="Readme.assets/73344909-78734700-42c6-11ea-9310-4bc490980b27.jpg" alt="Java-7" style="zoom:150%;" />
+![Java-7](Readme.assets/Java-7.jpg)
 
 ![Java-8 2](Readme.assets/Java-8 2-0373861.jpg)
 

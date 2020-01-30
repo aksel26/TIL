@@ -15,7 +15,7 @@ public class ThrowsExClass {
 									 //actionB·Î °£´Ù. 
 		
 		System.out.println("actionAA");
-	}
+	} 
 	
 	private void actionB() {
 		System.out.println("actionB");

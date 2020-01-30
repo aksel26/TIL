@@ -2,7 +2,7 @@ package com.javalecextemp;
 
 import java.util.ArrayList;
 
-public class MainClass {
+public class arrayList {
 	public static void main(String[] args) {
 		
 		ArrayList<String> arrayList = new ArrayList<String>();

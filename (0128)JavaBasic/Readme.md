@@ -1,3 +1,5 @@
+
+
 ![Java-1](https://user-images.githubusercontent.com/50945713/73249483-54493480-41f8-11ea-98f4-fa6800b79c17.jpg)
 ![Java-2](https://user-images.githubusercontent.com/50945713/73249484-54493480-41f8-11ea-9e11-f4467dc1a48b.jpg)
 ![Java-3](https://user-images.githubusercontent.com/50945713/73249485-54493480-41f8-11ea-9314-57e814c7d2d4.jpg)
@@ -5,5 +7,10 @@
 ![Java-5](https://user-images.githubusercontent.com/50945713/73249489-54e1cb00-41f8-11ea-8443-e9070fbb0da0.jpg)
 ![Java-6](https://user-images.githubusercontent.com/50945713/73249490-54e1cb00-41f8-11ea-8e46-29bf6d9439e0.jpg)
 
-![Java-7](Readme.assets/73344909-78734700-42c6-11ea-9310-4bc490980b27.jpg)
+<img src="Readme.assets/73344909-78734700-42c6-11ea-9310-4bc490980b27.jpg" alt="Java-7" style="zoom:150%;" />
 
+![Java-8 2](Readme.assets/Java-8 2-0373861.jpg)
+
+![Java-9](Readme.assets/Java-9.jpg)
+
+<img src="Readme.assets/Java-10.jpg" alt="Java-10" style="zoom:150%;" />

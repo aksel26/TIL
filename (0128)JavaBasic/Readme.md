@@ -7,4 +7,3 @@
 
 ![Java-7](Readme.assets/73344909-78734700-42c6-11ea-9310-4bc490980b27.jpg)
 
-![Java-8](Readme.assets/73344908-78734700-42c6-11ea-97b7-0afa8c83da16.jpg)

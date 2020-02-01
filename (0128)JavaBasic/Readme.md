@@ -1,8 +1,7 @@
 
 
-![Java-1](https://user-images.githubusercontent.com/50945713/73249483-54493480-41f8-11ea-98f4-fa6800b79c17.jpg)
-![Java-2](https://user-images.githubusercontent.com/50945713/73249484-54493480-41f8-11ea-9e11-f4467dc1a48b.jpg)
-![Java-3](https://user-images.githubusercontent.com/50945713/73249485-54493480-41f8-11ea-9314-57e814c7d2d4.jpg)
+![Java-1](Readme.assets/Java-1.jpg)
+![Java-2](Readme.assets/Java-2.jpg)
 ![Java-4](https://user-images.githubusercontent.com/50945713/73249488-54e1cb00-41f8-11ea-8778-7a8c8d7977ae.jpg)
 ![Java-5](https://user-images.githubusercontent.com/50945713/73249489-54e1cb00-41f8-11ea-8443-e9070fbb0da0.jpg)
 ![Java-6](https://user-images.githubusercontent.com/50945713/73249490-54e1cb00-41f8-11ea-8e46-29bf6d9439e0.jpg)

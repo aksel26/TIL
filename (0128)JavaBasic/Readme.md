@@ -2,7 +2,6 @@
 
 ![Java-1](Readme.assets/Java-1.jpg)
 ![Java-2](Readme.assets/Java-2.jpg)
-![Java-4](https://user-images.githubusercontent.com/50945713/73249488-54e1cb00-41f8-11ea-8778-7a8c8d7977ae.jpg)
 ![Java-3](Readme.assets/Java-3.jpg)
 ![Java-4](Readme.assets/Java-4.jpg)
 

@@ -17,8 +17,8 @@
 
 ![Java-12](Readme.assets/Java-12.jpg)
 
-![Java-11 2](Readme.assets/Java-11 2.jpg)
+![Java-112](Readme.assets/Java-112.jpg)
 
-![Java-12 2](Readme.assets/Java-12 2.jpg)
+![Java-122](Readme.assets/Java-122.jpg)
 
 ![Java-13](Readme.assets/Java-13.jpg)

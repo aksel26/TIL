@@ -32,7 +32,7 @@
 
    1. 모듈 path 충돌 (/kids)
 
-      
+      ![1](momsmap.assets/1-0802390.png)
 
       --> module 하나를 지우거나 변경해서 중복되지 않게 한다. ( /kids 하나만 남게끔 )
 

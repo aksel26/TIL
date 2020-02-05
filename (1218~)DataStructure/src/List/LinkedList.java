@@ -29,6 +29,19 @@ public class LinkedList<E> {
 		Node<E> ptr = head; // 삽입 전의 머리 노드
 		head = crnt = new Node<E>(obj, ptr);
 	}
+	
+	public E search(E obj, Comparator<? super E> c) {
+		Node<E> ptr = head;	//현재 스캔중인 노드
+		
+		while(ptr!= null) {
+			if(c.compare(obj, ptr.data)==0) { //검색 성공
+				crnt = ptr;
+				return ptr.data;
+			}
+			ptr = ptr.next;	//다음 노드 선택
+		}
+		return null; //검색 실패
+	}
 
 	public void addLast(E obj) {
 		if (head == null) { // 리스트가 비어있으면 머리에 삽입
@@ -136,20 +149,10 @@ public class LinkedList<E> {
 					
 		}
 	}
-	public E search(E obj, Comparator<? super E> c) {
-		Node<E> ptr = head; // 현재 스캔중인 노드
-		while (ptr != null) {
-			if (c.compare(obj, ptr.data) == 0) {
-				crnt = ptr;
-				return ptr.data;
-			}
-			ptr = ptr.next;
-		}
-		return null;
-	}
+
 
 	public static void main(String[] args) {
-
+		
 	}
 
 }

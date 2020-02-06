@@ -69,7 +69,7 @@ public class ArrayList_Test {
 //	arrayList : [20, 10, 15, 20, 4]
 //	arrayList2 : [10, 15, 20]
 //	
-//	arrayList : [4, 10, 15, 20, 20]
+//	arrayList : [4, 10, 15, 20, 20] -->> Á¤·ÄµÊ (sort())
 //	arrayList2 : [10, 15, 20]
 //	
 //	arrayList1.containsAll(arrayList2) : true

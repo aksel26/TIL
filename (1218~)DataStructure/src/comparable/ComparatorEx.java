@@ -10,12 +10,12 @@ public class ComparatorEx {
 //		System.out.println("strArr = " + Arrays.toString(strArr));
 //		strArr = [Cow, cat, dog, horse]
 
-//		Arrays.sort(strArr, String.CASE_INSENSITIVE_ORDER); // ´ë¼Ò¹®ÀÚ ±¸ºĞ ¾ÈÇÔ
+//		Arrays.sort(strArr, String.CASE_INSENSITIVE_ORDER); // ëŒ€ì†Œë¬¸ì êµ¬ë¶„ ì•ˆí•¨
 //		System.out.println("strArr = " + Arrays.toString(strArr));
 //		strArr = [cat, Cow, dog, horse]
 
-		Arrays.sort(strArr, new Descending()); // ¿ª¼ø Á¤·Ä // ÁöÁ¤ÇÑ comparator¿¡ ÀÇÇØ Á¤·Ä
-		//Arrays.sort(strArr, new Descending()//comparator ÀÚ¸®);
+		Arrays.sort(strArr, new Descending()); // ì—­ìˆœ ì •ë ¬ // ì§€ì •í•œ comparatorì— ì˜í•´ ì •ë ¬
+		//Arrays.sort(strArr, new Descending()//comparator ìë¦¬);
 		
 		
 		System.out.println("strArr = " + Arrays.toString(strArr));
@@ -40,7 +40,7 @@ class Descending implements Comparator {
 //			System.out.println("c2:"+c2);
 //			System.out.println(c1.compareTo(c2));
 			
-			return c1.compareTo(c2) ; // -1À» °öÇØ¼­ ±âº» Á¤·Ä¹æ½ÄÀÇ ¿ªÀ¸·Î º¯°æÇÑ´Ù.
+			return c1.compareTo(c2) * -1; // -1ì„ ê³±í•´ì„œ ê¸°ë³¸ ì •ë ¬ë°©ì‹ì˜ ì—­ìœ¼ë¡œ ë³€ê²½í•œë‹¤.
 		}
 		return -1;
 	}

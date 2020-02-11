@@ -1,0 +1,5 @@
+#Properties Example
+#Wed Feb 12 04:04:40 KST 2020
+autoSave=5
+timeout=10
+language=korean

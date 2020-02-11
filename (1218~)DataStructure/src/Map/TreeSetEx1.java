@@ -33,10 +33,12 @@ public class TreeSetEx1 {
 
 
 
-//	Ãâ·Â
+//	ì¶œë ¥
 
-//	[Car, abc, alien, bat, disc, dizzy, dzzzz, elevator, fan, flower]	// ´ë¹®ÀÚ°¡ ¼Ò¹®ÀÚº¸´Ù ¿ì¼±ÀÌ±â ¶§¹®¿¡ Car°¡ ¸ÕÀú ³ª¿È, ´ë¹®ÀÚ ¼Ò¹®ÀÚ ±ï°¢ÅëÀÏÇÏ´Â °ÍÀÌ ÁÁÀ½. ¾Æ´Ï¸é comparator¸¦ ¾´´Ù.
+//	[Car, abc, alien, bat, disc, dizzy, dzzzz, elevator, fan, flower]	// ëŒ€ë¬¸ìê°€ ì†Œë¬¸ìë³´ë‹¤ ìš°ì„ ì´ê¸° ë•Œë¬¸ì— Carê°€ ë¨¼ì € ë‚˜ì˜´,
+										// ëŒ€ë¬¸ì ì†Œë¬¸ì ê°ê° í†µì¼í•˜ëŠ” ê²ƒì´ ì¢‹ìŒ.
+										// ì•„ë‹ˆë©´ comparatorë¥¼ ì“´ë‹¤.
 //	rangeSearch : from b to d	
-//	result1 : [bat]		// Ã³À½Àº Æ÷ÇÔµÇÁö¸¸ ³¡¹üÀ§´Â Æ÷ÇÔµÇÁö ¾ÊÀ¸¹Ç·Î bat¸¸ ³ª¿È
-//	result2 : [bat, disc, dizzy]	//"zzz"¸¦ ºÙ¿©ÁÜÀ¸·Î½á ³¡ ¹üÀ§±îÁö °Ë»ö °¡´É
+//	result1 : [bat]		// ì²˜ìŒì€ í¬í•¨ë˜ì§€ë§Œ ëë²”ìœ„ëŠ” í¬í•¨ë˜ì§€ ì•Šìœ¼ë¯€ë¡œ batë§Œ ë‚˜ì˜´
+//	result2 : [bat, disc, dizzy]	//"zzz"ë¥¼ ë¶™ì—¬ì¤Œìœ¼ë¡œì¨ ë ë²”ìœ„ê¹Œì§€ ê²€ìƒ‰ ê°€ëŠ¥
 

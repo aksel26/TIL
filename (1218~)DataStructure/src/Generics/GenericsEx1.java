@@ -68,7 +68,7 @@ public class GenericsEx1 {
 		fruitBox.add(new Grape());
 		appleBox.add(new Apple());
 		grapeBox.add(new Grape());
-//		appleBox.add(new Grape());	//Grape´Â AppleÀÇ ÀÚ¼ÕÀÌ ¾Æ´Ô
+//		appleBox.add(new Grape());	//GrapeëŠ” Appleì˜ ìì†ì´ ì•„ë‹˜
 		
 		
 		System.out.println("fruitBox - : " + fruitBox);
@@ -80,7 +80,7 @@ public class GenericsEx1 {
 }
 
 
-//	Ãâ·Â
+//	
 
 //	fruitBox - : [Fruit, Apple, Grape]
 //	appleBox - : [Apple]

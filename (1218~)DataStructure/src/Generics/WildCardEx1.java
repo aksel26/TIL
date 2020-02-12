@@ -60,7 +60,7 @@ public class WildCardEx1 {
 
 
 
-//	출력.....
+//	출력
 
 //	Apple Grape Juice
 //	Apple Apple Juice

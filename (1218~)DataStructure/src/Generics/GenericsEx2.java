@@ -17,7 +17,7 @@ public class GenericsEx2 {
 		
 		appleBox.add(new Apple());
 		appleBox.add(new Apple());
-//		appleBox.add(new Toy());	//	Box<Apple>에는 Apple만 들어갈 수 있다
+//		appleBox.add(new Toy());	//	Box<Apple>에는 Apple만 들어갈 수 있다...
 		
 		toy.add(new Toy());
 //		toy.add(new Apple());

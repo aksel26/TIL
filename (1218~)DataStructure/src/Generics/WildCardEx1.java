@@ -16,7 +16,7 @@ class Juice{
 
 class Juicer{
 	static Juice makeJuice(FruitBox<? extends Fruit> box) {
-//		String tmp="";
+		String tmp="";
 		for(Fruit f:box.getList()) {
 			tmp+=f+" ";
 		}
@@ -60,7 +60,7 @@ public class WildCardEx1 {
 
 
 
-//	출력
+//	출력 
 
 //	Apple Grape Juice
 //	Apple Apple Juice

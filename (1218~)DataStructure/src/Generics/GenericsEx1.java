@@ -69,7 +69,6 @@ public class GenericsEx1 {
 		appleBox.add(new Apple());
 		grapeBox.add(new Grape());
 //		appleBox.add(new Grape());	//Grape는 Apple의 자손이 아님
-	
 		
 		System.out.println("fruitBox - : " + fruitBox);
 		System.out.println("appleBox - : " + appleBox);
@@ -80,7 +79,7 @@ public class GenericsEx1 {
 }
 
 
-// 출	
+// 출력	
 
 //	fruitBox - : [Fruit, Apple, Grape]
 //	appleBox - : [Apple]

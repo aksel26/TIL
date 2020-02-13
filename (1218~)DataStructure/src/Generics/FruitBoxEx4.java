@@ -114,6 +114,20 @@ class Box<T> {
 }
 
 
+//		====== Collections.sort() ====== 
+//		static <T> void sort(List<T> list, Comparator<? super T> c)
+//		
+//				sort(정렬할 리스트 대상, 비교 방법(정의된comparator))
+//				
+//				
+//		여기서 타입매개변수 T 대신 Apple이 들어가게 되면 comparpator<Apple>이 필요하게 된다.
+//		그렇다면 Grape를 위해서 또 comparator<Grape>를 만들어야 하게 된다. ===> 중복
+//		
+//		그래서 항상 static <T> void sort(List<T> list, Comparator<? super T> 에서 <? super T>가 따라 붙게 된다.
+//				
+
+
+
 //	출력
 
 //	[GreenApple(300), GreenApple(200), GreenApple(100)]

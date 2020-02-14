@@ -63,12 +63,12 @@ public class GenericsEx1 {
 		FruitBox<Apple> appleBox = new FruitBox<Apple>();
 		FruitBox<Grape> grapeBox = new FruitBox<Grape>();
 
-		fruitBox.add(new Fruit());
-		fruitBox.add(new Apple());
-		fruitBox.add(new Grape());
-		appleBox.add(new Apple());
-		grapeBox.add(new Grape());
-//		appleBox.add(new Grape());	//Grape는 Apple의 자손이 아님
+//		fruitBox.add(new Fruit());
+//		fruitBox.add(new Apple());
+//		fruitBox.add(new Grape());
+//		appleBox.add(new Apple());
+//		grapeBox.add(new Grape());
+//		appleBox.add(new Grape());	//Grape�뒗 Apple�쓽 �옄�넀�씠 �븘�떂
 		
 		System.out.println("fruitBox - : " + fruitBox);
 		System.out.println("appleBox - : " + appleBox);
@@ -79,7 +79,7 @@ public class GenericsEx1 {
 }
 
 
-// 출력...
+// 異쒕젰...
 
 //	fruitBox - : [Fruit, Apple, Grape]
 //	appleBox - : [Apple]

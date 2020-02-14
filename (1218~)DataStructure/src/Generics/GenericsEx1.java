@@ -79,7 +79,7 @@ public class GenericsEx1 {
 }
 
 
-// 異쒕젰...
+// 출력
 
 //	fruitBox - : [Fruit, Apple, Grape]
 //	appleBox - : [Apple]

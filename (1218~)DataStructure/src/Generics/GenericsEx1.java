@@ -68,7 +68,7 @@ public class GenericsEx1 {
 //		fruitBox.add(new Grape());
 //		appleBox.add(new Apple());
 //		grapeBox.add(new Grape());
-//		appleBox.add(new Grape());	//Grape�뒗 Apple�쓽 �옄�넀�씠 �븘�떂
+//		appleBox.add(new Grape());	//Grape는 Apple타입과 같이들어갈 수 없다.
 		
 		System.out.println("fruitBox - : " + fruitBox);
 		System.out.println("appleBox - : " + appleBox);

@@ -13,7 +13,7 @@ public class ThreadTest implements Runnable {
 			}
 			System.out.println("Thread Name : " + Thread.currentThread().getName() + ", testNum : " + testNum);
 			try {
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (Exception e) {}
 		}
 	}

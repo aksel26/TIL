@@ -22,7 +22,7 @@ public class PropertiesEx {
 		
 		System.out.println(prop.getProperty("autoSave","0"));
 //		5
-//		autoSave¶ó´Â Å°°¡ ¾øÀ»¶§ 0ÀÌÃâ·ÂµÇ´Â°Í
+//		autoSaveë¼ëŠ” í‚¤ê°€ ì—†ì„ë•Œ 0ì´ì¶œë ¥ë˜ëŠ”ê²ƒ
 		
 		System.out.println(prop.getProperty("autoSave2","0"));
 //		0
@@ -46,14 +46,14 @@ public class PropertiesEx {
 			prop.storeToXML(new FileOutputStream("ouput.xml"), "Properties Example");
 			
 			
-			//ÇÑ±ÛÀ» ÀÔ·ÂÇØ¾ß ÇÑ´Ù¸é xml ÇüÅÂ·Î ¸¹ÀÌ »ç¿ëÇÑ´Ù. ±úÁö±â ¶§¹®
+			//í•œê¸€ì„ ì…ë ¥í•´ì•¼ í•œë‹¤ë©´ xml í˜•íƒœë¡œ ë§ì´ ì‚¬ìš©í•œë‹¤. í•œê¸€ì´ ê¹¨ì§€ëŠ”ê²Œ ë” ëœ ë•Œë¬¸
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-//		hashmap°ú ´Ş¸® ÆÄÀÏ¿¡ ÀĞ°í ¾²´Â°ÍÀÌ Æí¸®ÇÏ±â ¶§¹®¿¡ properties¸¦ »ç¿ëÇÑ´Ù.
+//		hashmapê³¼ ë‹¬ë¦¬ íŒŒì¼ì— ì½ê³  ì“°ëŠ”ê²ƒì´ í¸ë¦¬í•˜ê¸° ë•Œë¬¸ì— propertiesë¥¼ ì‚¬ìš©í•œë‹¤.
 	}
 
 }

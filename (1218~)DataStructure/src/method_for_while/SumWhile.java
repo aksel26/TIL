@@ -21,7 +21,7 @@ public class SumWhile {
 			sum+=i;
 			i++;
 		}
-		System.out.println("1부터 n까지으 ㅣ합은" + sum +" 입니다");
+		System.out.println("1부터 n까지의 합은" + sum +" 입니다");
 		
 		//연습문제 Q6. 
 		// while문 종료 시 변수 i 값이 n+1이 됨을 확인하기 

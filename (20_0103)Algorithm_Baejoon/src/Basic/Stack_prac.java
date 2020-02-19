@@ -12,7 +12,7 @@ public class Stack_prac {
 
 	
 	
-	//°ýÈ£ 
+	//ê´„í˜¸ 
 	
 	public static String isValid(String s) {
 		int n = s.length();
@@ -37,7 +37,7 @@ public class Stack_prac {
 	
 	public static void main(String[] args) throws IOException {
 
-//		½ºÅÃÀÇ ±¸Çö
+//		ìŠ¤íƒì˜ êµ¬í˜„
 //		void push(int data) {
 //			stack[size] = data;
 //			size +=1;
@@ -48,21 +48,21 @@ public class Stack_prac {
 //			size -=1;
 //		}
 
-//		10828¹ø
-//		Á¤¼ö¸¦ ÀúÀåÇÏ´Â ½ºÅÃÀ» ±¸ÇöÇÑ ´ÙÀ½, ÀÔ·ÂÀ¸·Î ÁÖ¾îÁö´Â ¸í·ÉÀ» Ã³¸®ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
+//		10828ë²ˆ
+//		ì •ìˆ˜ë¥¼ ì €ìž¥í•˜ëŠ” ìŠ¤íƒì„ êµ¬í˜„í•œ ë‹¤ìŒ, ìž…ë ¥ìœ¼ë¡œ ì£¼ì–´ì§€ëŠ” ëª…ë ¹ì„ ì²˜ë¦¬í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤.
 //
-//		¸í·ÉÀº ÃÑ ´Ù¼¸ °¡ÁöÀÌ´Ù.
+//		ëª…ë ¹ì€ ì´ ë‹¤ì„¯ ê°€ì§€ì´ë‹¤.
 //
-//		push X: Á¤¼ö X¸¦ ½ºÅÃ¿¡ ³Ö´Â ¿¬»êÀÌ´Ù.
-//		pop: ½ºÅÃ¿¡¼­ °¡Àå À§¿¡ ÀÖ´Â Á¤¼ö¸¦ »©°í, ±× ¼ö¸¦ Ãâ·ÂÇÑ´Ù. ¸¸¾à ½ºÅÃ¿¡ µé¾îÀÖ´Â Á¤¼ö°¡ ¾ø´Â °æ¿ì¿¡´Â -1À» Ãâ·ÂÇÑ´Ù.
-//		size: ½ºÅÃ¿¡ µé¾îÀÖ´Â Á¤¼öÀÇ °³¼ö¸¦ Ãâ·ÂÇÑ´Ù.
-//		empty: ½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é 1, ¾Æ´Ï¸é 0À» Ãâ·ÂÇÑ´Ù.
-//		top: ½ºÅÃÀÇ °¡Àå À§¿¡ ÀÖ´Â Á¤¼ö¸¦ Ãâ·ÂÇÑ´Ù. ¸¸¾à ½ºÅÃ¿¡ µé¾îÀÖ´Â Á¤¼ö°¡ ¾ø´Â °æ¿ì¿¡´Â -1À» Ãâ·ÂÇÑ´Ù.
-//		ÀÔ·Â
-//		Ã¹Â° ÁÙ¿¡ ÁÖ¾îÁö´Â ¸í·ÉÀÇ ¼ö N (1 ¡Â N ¡Â 10,000)ÀÌ ÁÖ¾îÁø´Ù. µÑÂ° ÁÙºÎÅÍ N°³ÀÇ ÁÙ¿¡´Â ¸í·ÉÀÌ ÇÏ³ª¾¿ ÁÖ¾îÁø´Ù. ÁÖ¾îÁö´Â Á¤¼ö´Â 1º¸´Ù Å©°Å³ª °°°í, 100,000º¸´Ù ÀÛ°Å³ª °°´Ù. ¹®Á¦¿¡ ³ª¿ÍÀÖÁö ¾ÊÀº ¸í·ÉÀÌ ÁÖ¾îÁö´Â °æ¿ì´Â ¾ø´Ù.
+//		push X: ì •ìˆ˜ Xë¥¼ ìŠ¤íƒì— ë„£ëŠ” ì—°ì‚°ì´ë‹¤.
+//		pop: ìŠ¤íƒì—ì„œ ê°€ìž¥ ìœ„ì— ìžˆëŠ” ì •ìˆ˜ë¥¼ ë¹¼ê³ , ê·¸ ìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤. ë§Œì•½ ìŠ¤íƒì— ë“¤ì–´ìžˆëŠ” ì •ìˆ˜ê°€ ì—†ëŠ” ê²½ìš°ì—ëŠ” -1ì„ ì¶œë ¥í•œë‹¤.
+//		size: ìŠ¤íƒì— ë“¤ì–´ìžˆëŠ” ì •ìˆ˜ì˜ ê°œìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.
+//		empty: ìŠ¤íƒì´ ë¹„ì–´ìžˆìœ¼ë©´ 1, ì•„ë‹ˆë©´ 0ì„ ì¶œë ¥í•œë‹¤.
+//		top: ìŠ¤íƒì˜ ê°€ìž¥ ìœ„ì— ìžˆëŠ” ì •ìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤. ë§Œì•½ ìŠ¤íƒì— ë“¤ì–´ìžˆëŠ” ì •ìˆ˜ê°€ ì—†ëŠ” ê²½ìš°ì—ëŠ” -1ì„ ì¶œë ¥í•œë‹¤.
+//		ìž…ë ¥
+//		ì²«ì§¸ ì¤„ì— ì£¼ì–´ì§€ëŠ” ëª…ë ¹ì˜ ìˆ˜ N (1 â‰¤ N â‰¤ 10,000)ì´ ì£¼ì–´ì§„ë‹¤. ë‘˜ì§¸ ì¤„ë¶€í„° Nê°œì˜ ì¤„ì—ëŠ” ëª…ë ¹ì´ í•˜ë‚˜ì”© ì£¼ì–´ì§„ë‹¤. ì£¼ì–´ì§€ëŠ” ì •ìˆ˜ëŠ” 1ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ê³ , 100,000ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ë‹¤. ë¬¸ì œì— ë‚˜ì™€ìžˆì§€ ì•Šì€ ëª…ë ¹ì´ ì£¼ì–´ì§€ëŠ” ê²½ìš°ëŠ” ì—†ë‹¤.
 //
-//		Ãâ·Â
-//		Ãâ·ÂÇØ¾ßÇÏ´Â ¸í·ÉÀÌ ÁÖ¾îÁú ¶§¸¶´Ù, ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿ Ãâ·ÂÇÑ´Ù.
+//		ì¶œë ¥
+//		ì¶œë ¥í•´ì•¼í•˜ëŠ” ëª…ë ¹ì´ ì£¼ì–´ì§ˆ ë•Œë§ˆë‹¤, í•œ ì¤„ì— í•˜ë‚˜ì”© ì¶œë ¥í•œë‹¤.
 //		
 //		Scanner scn = new Scanner(System.in);
 //
@@ -103,83 +103,83 @@ public class Stack_prac {
 
 
 
-//		#######  bufferdReader »ç¿ë¹ý  #######
-//		¼±¾ð
+//		#######  bufferdReader ì‚¬ìš©ë²•  #######
+//		ì„ ì–¸
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //		String s = br.readLine(); //String
 //		int i = Integer.parseInt(br.readLine()); //Int
 //
-//		ÀÔ·Â : readLine(); ¸Þ¼­µå È°¿ë
+//		ìž…ë ¥ : readLine(); ë©”ì„œë“œ í™œìš©
 //			
-//		ÁÖÀÇ 1 ) ¸®ÅÏ °ªÀº String À¸·Î °íÁ¤ Áï, ´Ù¸¥ Å¸ÀÔÀ» ¿øÇÑ´Ù¸é Çüº¯È¯ ÇÊ¼ö
-//		ÁÖÀÇ 2 ) ²À ¿¹¿ÜÃ³¸®¸¦ ÇØÁÖ¾î¾ß ÇÑ´Ù.
+//		ì£¼ì˜ 1 ) ë¦¬í„´ ê°’ì€ String ìœ¼ë¡œ ê³ ì • ì¦‰, ë‹¤ë¥¸ íƒ€ìž…ì„ ì›í•œë‹¤ë©´ í˜•ë³€í™˜ í•„ìˆ˜
+//		ì£¼ì˜ 2 ) ê¼­ ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•´ì£¼ì–´ì•¼ í•œë‹¤.
 //			
-//		ReadÇÑ µ¥ÀÌÅÍ °¡°ø
-//			Line´ÜÀ§·Î¸¸ ³ª´©¾îÁö±â ¶§¹®¿¡ °¡°øÇÏ·Á¸é 
-//			1) StringTokenizerÀÇ nextToken()À» ¾²¸é readLine()À» ÅëÇØ ÀÔ·Â¹ÞÀº °ªÀÌ °ø¹é´ÜÀ§·Î ±¸ºÐ	ÇØ ¼ø¼­´ë·Î È£ÃâÇÒ ¼ö ÀÖ´Ù.
-//			2) String.Split() : ¹è¿­¿¡ °ø¹é´ÜÀ§·Î ²÷¾î µ¥ÀÌÅÍ¸¦ ³Ö°í »ç¿ëÇÏ´Â ¹æ¹ý.
+//		Readí•œ ë°ì´í„° ê°€ê³µ
+//			Lineë‹¨ìœ„ë¡œë§Œ ë‚˜ëˆ„ì–´ì§€ê¸° ë•Œë¬¸ì— ê°€ê³µí•˜ë ¤ë©´ 
+//			1) StringTokenizerì˜ nextToken()ì„ ì“°ë©´ readLine()ì„ í†µí•´ ìž…ë ¥ë°›ì€ ê°’ì´ ê³µë°±ë‹¨ìœ„ë¡œ êµ¬ë¶„	í•´ ìˆœì„œëŒ€ë¡œ í˜¸ì¶œí•  ìˆ˜ ìžˆë‹¤.
+//			2) String.Split() : ë°°ì—´ì— ê³µë°±ë‹¨ìœ„ë¡œ ëŠì–´ ë°ì´í„°ë¥¼ ë„£ê³  ì‚¬ìš©í•˜ëŠ” ë°©ë²•.
 
-//		####### BufferdWriter »ç¿ë ########
-//			: ÀÏ¹ÝÀûÀ¸·Î System.out.println("");¸¦ ¾²´Âµ¥, ¾çÀÌ ¸¹¾ÆÁö¸é ¼º´É¿¡¼­ Â÷ÀÌ°¡ ³ª¹Ç·Î Buffer¸¦ È°¿ëÇÏ´Â°Ô ÁÁ´Ù.
+//		####### BufferdWriter ì‚¬ìš© ########
+//			: ì¼ë°˜ì ìœ¼ë¡œ System.out.println("");ë¥¼ ì“°ëŠ”ë°, ì–‘ì´ ë§Žì•„ì§€ë©´ ì„±ëŠ¥ì—ì„œ ì°¨ì´ê°€ ë‚˜ë¯€ë¡œ Bufferë¥¼ í™œìš©í•˜ëŠ”ê²Œ ì¢‹ë‹¤.
 //		
-//		»ç¿ë¹ý & ¼±¾ð
-//		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));//¼±¾ð
-//		String s = "abcdefg";  --->  Ãâ·ÂÇÒ ¹®ÀÚ¿­
-//		bw.write(s+"\n"); ----> Ãâ·Â
-//		bw.flush(); ----> ³²¾ÆÀÖ´Â µ¥ÀÌÅÍ¸¦ ¸ðµÎ Ãâ·Â½ÃÅ´
-//		bw.close(); ----> ½ºÆ®¸²À» ´ÝÀ½
+//		ì‚¬ìš©ë²• & ì„ ì–¸
+//		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));//ì„ ì–¸
+//		String s = "abcdefg";  --->  ì¶œë ¥í•  ë¬¸ìžì—´
+//		bw.write(s+"\n"); ----> ì¶œë ¥
+//		bw.flush(); ----> ë‚¨ì•„ìžˆëŠ” ë°ì´í„°ë¥¼ ëª¨ë‘ ì¶œë ¥ì‹œí‚´
+//		bw.close(); ----> ìŠ¤íŠ¸ë¦¼ì„ ë‹«ìŒ
 //		
-//		ÀÚµ¿ °³Çà ±â´ÉÀÌ ¾ø±â ¶§¹®¿¡ \nÀ¸·Î µû·Î Ã³¸®¸¦ ÇØÁÖ¾î¾ß ÇÑ´Ù.
+//		ìžë™ ê°œí–‰ ê¸°ëŠ¥ì´ ì—†ê¸° ë•Œë¬¸ì— \nìœ¼ë¡œ ë”°ë¡œ ì²˜ë¦¬ë¥¼ í•´ì£¼ì–´ì•¼ í•œë‹¤.
 		
 		
 		
-//		9098¹ø
-//		¹®ÀåÀÌ ÁÖ¾îÁ³À» ¶§, ´Ü¾î¸¦ ¸ðµÎ µÚÁý¾î¼­ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À. ´Ü, ´Ü¾îÀÇ ¼ø¼­´Â ¹Ù²Ü ¼ö ¾ø´Ù. ´Ü¾î´Â ¿µ¾î ¾ËÆÄºªÀ¸·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ´Ù.
+//		9098ë²ˆ
+//		ë¬¸ìž¥ì´ ì£¼ì–´ì¡Œì„ ë•Œ, ë‹¨ì–´ë¥¼ ëª¨ë‘ ë’¤ì§‘ì–´ì„œ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤. ë‹¨, ë‹¨ì–´ì˜ ìˆœì„œëŠ” ë°”ê¿€ ìˆ˜ ì—†ë‹¤. ë‹¨ì–´ëŠ” ì˜ì–´ ì•ŒíŒŒë²³ìœ¼ë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆë‹¤.
 //
-//		ÀÔ·Â
-//		Ã¹Â° ÁÙ¿¡ Å×½ºÆ® ÄÉÀÌ½ºÀÇ °³¼ö T°¡ ÁÖ¾îÁø´Ù. °¢ Å×½ºÆ® ÄÉÀÌ½º´Â ÇÑ ÁÙ·Î ÀÌ·ç¾îÁ® ÀÖÀ¸¸ç, ¹®ÀåÀÌ ÇÏ³ª ÁÖ¾îÁø´Ù. ´Ü¾îÀÇ ±æÀÌ´Â ÃÖ´ë 20, ¹®ÀåÀÇ ±æÀÌ´Â ÃÖ´ë 1000ÀÌ´Ù. ´Ü¾î¿Í ´Ü¾î »çÀÌ¿¡´Â °ø¹éÀÌ ÇÏ³ª ÀÖ´Ù.
+//		ìž…ë ¥
+//		ì²«ì§¸ ì¤„ì— í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì˜ ê°œìˆ˜ Tê°€ ì£¼ì–´ì§„ë‹¤. ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ëŠ” í•œ ì¤„ë¡œ ì´ë£¨ì–´ì ¸ ìžˆìœ¼ë©°, ë¬¸ìž¥ì´ í•˜ë‚˜ ì£¼ì–´ì§„ë‹¤. ë‹¨ì–´ì˜ ê¸¸ì´ëŠ” ìµœëŒ€ 20, ë¬¸ìž¥ì˜ ê¸¸ì´ëŠ” ìµœëŒ€ 1000ì´ë‹¤. ë‹¨ì–´ì™€ ë‹¨ì–´ ì‚¬ì´ì—ëŠ” ê³µë°±ì´ í•˜ë‚˜ ìžˆë‹¤.
 //
-//		Ãâ·Â
-//		°¢ Å×½ºÆ® ÄÉÀÌ½º¿¡ ´ëÇØ¼­, ÀÔ·ÂÀ¸·Î ÁÖ¾îÁø ¹®ÀåÀÇ ´Ü¾î¸¦ ¸ðµÎ µÚÁý¾î Ãâ·ÂÇÑ´Ù.
+//		ì¶œë ¥
+//		ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œ, ìž…ë ¥ìœ¼ë¡œ ì£¼ì–´ì§„ ë¬¸ìž¥ì˜ ë‹¨ì–´ë¥¼ ëª¨ë‘ ë’¤ì§‘ì–´ ì¶œë ¥í•œë‹¤.
 
-//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//		int i = Integer.parseInt(br.readLine());
-//		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//		while (i-- > 0) {
-//			String str = br.readLine() + "\n";
-//			Stack<Character> s = new Stack<>();
-//			for (char ch : str.toCharArray()) {
-//				if (ch == '\n' || ch == ' ') {
-//					while (!s.isEmpty()) {
-//						bw.write(s.pop());
-//					}
-//					bw.write(ch);
-//				} else {
-//					s.push(ch);
-//				}
-//			}
-//
-//		}
-//
-//		bw.flush();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int i = Integer.parseInt(br.readLine());
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		while (i-- > 0) {
+			String str = br.readLine() + "\n";
+			Stack<Character> s = new Stack<>();
+			for (char ch : str.toCharArray()) {
+				if (ch == '\n' || ch == ' ') {
+					while (!s.isEmpty()) {
+						bw.write(s.pop());
+					}
+					bw.write(ch);
+				} else {
+					s.push(ch);
+				}
+			}
+
+		}
+
+		bw.flush();
 
 		
 		
-//		9012¹ø
-//		°ýÈ£ ¹®ÀÚ¿­(Parenthesis String, PS)Àº µÎ °³ÀÇ °ýÈ£ ±âÈ£ÀÎ ¡®(¡¯ ¿Í ¡®)¡¯ ¸¸À¸·Î ±¸¼ºµÇ¾î ÀÖ´Â ¹®ÀÚ¿­ÀÌ´Ù. 
-//		±× Áß¿¡¼­ °ýÈ£ÀÇ ¸ð¾çÀÌ ¹Ù¸£°Ô ±¸¼ºµÈ ¹®ÀÚ¿­À» ¿Ã¹Ù¸¥ °ýÈ£ ¹®ÀÚ¿­(Valid PS, VPS)ÀÌ¶ó°í ºÎ¸¥´Ù. 
-//		ÇÑ ½ÖÀÇ °ýÈ£ ±âÈ£·Î µÈ ¡°( )¡± ¹®ÀÚ¿­Àº ±âº» VPS ÀÌ¶ó°í ºÎ¸¥´Ù. 
-//		¸¸ÀÏ x °¡ VPS ¶ó¸é ÀÌ°ÍÀ» ÇÏ³ªÀÇ °ýÈ£¿¡ ³ÖÀº »õ·Î¿î ¹®ÀÚ¿­ ¡°(x)¡±µµ VPS °¡ µÈ´Ù. ±×¸®°í µÎ VPS x ¿Í y¸¦ Á¢ÇÕ(concatenation)½ÃÅ² »õ·Î¿î ¹®ÀÚ¿­ xyµµ VPS °¡ µÈ´Ù. 
-//		¿¹¸¦ µé¾î ¡°(())()¡±¿Í ¡°((()))¡± ´Â VPS ÀÌÁö¸¸ ¡°(()(¡±, ¡°(())()))¡± , ±×¸®°í ¡°(()¡± ´Â ¸ðµÎ VPS °¡ ¾Æ´Ñ ¹®ÀÚ¿­ÀÌ´Ù. 
+//		9012ë²ˆ
+//		ê´„í˜¸ ë¬¸ìžì—´(Parenthesis String, PS)ì€ ë‘ ê°œì˜ ê´„í˜¸ ê¸°í˜¸ì¸ â€˜(â€™ ì™€ â€˜)â€™ ë§Œìœ¼ë¡œ êµ¬ì„±ë˜ì–´ ìžˆëŠ” ë¬¸ìžì—´ì´ë‹¤. 
+//		ê·¸ ì¤‘ì—ì„œ ê´„í˜¸ì˜ ëª¨ì–‘ì´ ë°”ë¥´ê²Œ êµ¬ì„±ëœ ë¬¸ìžì—´ì„ ì˜¬ë°”ë¥¸ ê´„í˜¸ ë¬¸ìžì—´(Valid PS, VPS)ì´ë¼ê³  ë¶€ë¥¸ë‹¤. 
+//		í•œ ìŒì˜ ê´„í˜¸ ê¸°í˜¸ë¡œ ëœ â€œ( )â€ ë¬¸ìžì—´ì€ ê¸°ë³¸ VPS ì´ë¼ê³  ë¶€ë¥¸ë‹¤. 
+//		ë§Œì¼ x ê°€ VPS ë¼ë©´ ì´ê²ƒì„ í•˜ë‚˜ì˜ ê´„í˜¸ì— ë„£ì€ ìƒˆë¡œìš´ ë¬¸ìžì—´ â€œ(x)â€ë„ VPS ê°€ ëœë‹¤. ê·¸ë¦¬ê³  ë‘ VPS x ì™€ yë¥¼ ì ‘í•©(concatenation)ì‹œí‚¨ ìƒˆë¡œìš´ ë¬¸ìžì—´ xyë„ VPS ê°€ ëœë‹¤. 
+//		ì˜ˆë¥¼ ë“¤ì–´ â€œ(())()â€ì™€ â€œ((()))â€ ëŠ” VPS ì´ì§€ë§Œ â€œ(()(â€, â€œ(())()))â€ , ê·¸ë¦¬ê³  â€œ(()â€ ëŠ” ëª¨ë‘ VPS ê°€ ì•„ë‹Œ ë¬¸ìžì—´ì´ë‹¤. 
 //
-//		¿©·¯ºÐÀº ÀÔ·ÂÀ¸·Î ÁÖ¾îÁø °ýÈ£ ¹®ÀÚ¿­ÀÌ VPS ÀÎÁö ¾Æ´ÑÁö¸¦ ÆÇ´ÜÇØ¼­ ±× °á°ú¸¦ YES ¿Í NO ·Î ³ªÅ¸³»¾î¾ß ÇÑ´Ù. 
+//		ì—¬ëŸ¬ë¶„ì€ ìž…ë ¥ìœ¼ë¡œ ì£¼ì–´ì§„ ê´„í˜¸ ë¬¸ìžì—´ì´ VPS ì¸ì§€ ì•„ë‹Œì§€ë¥¼ íŒë‹¨í•´ì„œ ê·¸ ê²°ê³¼ë¥¼ YES ì™€ NO ë¡œ ë‚˜íƒ€ë‚´ì–´ì•¼ í•œë‹¤. 
 //		
-//		ÀÔ·Â
-//		ÀÔ·Â µ¥ÀÌÅÍ´Â Ç¥ÁØ ÀÔ·ÂÀ» »ç¿ëÇÑ´Ù. ÀÔ·ÂÀº T°³ÀÇ Å×½ºÆ® µ¥ÀÌÅÍ·Î ÁÖ¾îÁø´Ù. ÀÔ·ÂÀÇ Ã¹ ¹øÂ° ÁÙ¿¡´Â ÀÔ·Â µ¥ÀÌÅÍÀÇ ¼ö¸¦ ³ªÅ¸³»´Â Á¤¼ö T°¡ ÁÖ¾îÁø´Ù. 
-//		°¢ Å×½ºÆ® µ¥ÀÌÅÍÀÇ Ã¹Â° ÁÙ¿¡´Â °ýÈ£ ¹®ÀÚ¿­ÀÌ ÇÑ ÁÙ¿¡ ÁÖ¾îÁø´Ù. ÇÏ³ªÀÇ °ýÈ£ ¹®ÀÚ¿­ÀÇ ±æÀÌ´Â 2 ÀÌ»ó 50 ÀÌÇÏÀÌ´Ù. 
+//		ìž…ë ¥
+//		ìž…ë ¥ ë°ì´í„°ëŠ” í‘œì¤€ ìž…ë ¥ì„ ì‚¬ìš©í•œë‹¤. ìž…ë ¥ì€ Tê°œì˜ í…ŒìŠ¤íŠ¸ ë°ì´í„°ë¡œ ì£¼ì–´ì§„ë‹¤. ìž…ë ¥ì˜ ì²« ë²ˆì§¸ ì¤„ì—ëŠ” ìž…ë ¥ ë°ì´í„°ì˜ ìˆ˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ì •ìˆ˜ Tê°€ ì£¼ì–´ì§„ë‹¤. 
+//		ê° í…ŒìŠ¤íŠ¸ ë°ì´í„°ì˜ ì²«ì§¸ ì¤„ì—ëŠ” ê´„í˜¸ ë¬¸ìžì—´ì´ í•œ ì¤„ì— ì£¼ì–´ì§„ë‹¤. í•˜ë‚˜ì˜ ê´„í˜¸ ë¬¸ìžì—´ì˜ ê¸¸ì´ëŠ” 2 ì´ìƒ 50 ì´í•˜ì´ë‹¤. 
 //		
-//		Ãâ·Â
-//		Ãâ·ÂÀº Ç¥ÁØ Ãâ·ÂÀ» »ç¿ëÇÑ´Ù. ¸¸ÀÏ ÀÔ·Â °ýÈ£ ¹®ÀÚ¿­ÀÌ ¿Ã¹Ù¸¥ °ýÈ£ ¹®ÀÚ¿­(VPS)ÀÌ¸é ¡°YES¡±, ¾Æ´Ï¸é ¡°NO¡±¸¦ ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿ Â÷·Ê´ë·Î Ãâ·ÂÇØ¾ß ÇÑ´Ù. 
+//		ì¶œë ¥
+//		ì¶œë ¥ì€ í‘œì¤€ ì¶œë ¥ì„ ì‚¬ìš©í•œë‹¤. ë§Œì¼ ìž…ë ¥ ê´„í˜¸ ë¬¸ìžì—´ì´ ì˜¬ë°”ë¥¸ ê´„í˜¸ ë¬¸ìžì—´(VPS)ì´ë©´ â€œYESâ€, ì•„ë‹ˆë©´ â€œNOâ€ë¥¼ í•œ ì¤„ì— í•˜ë‚˜ì”© ì°¨ë¡€ëŒ€ë¡œ ì¶œë ¥í•´ì•¼ í•œë‹¤. 
 		
 		Scanner scn = new Scanner(System.in);
 		int n = scn.nextInt();

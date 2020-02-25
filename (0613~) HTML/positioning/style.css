@@ -1,0 +1,22 @@
+.env-div {
+    width: 500px;
+    height: 232px;
+    position:relative;
+  }
+  
+  .address {
+    font-family: cursive;
+  }
+  
+  .stamp{
+    position:absolute;
+    right:30px;
+      top:30px;
+  }
+  .address{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+  }
+ 
+  

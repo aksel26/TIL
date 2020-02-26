@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 992px;
+  font-family: "Helvetica";
+}
+
+/* navbar */
+#menu{
+  float:right;
+  padding-right:30px;
+}
+#menu li{
+  list-style:none;
+  float:right;
+    margin-left:30px;
+font-family: "Helvetica";
+  font-size:13px;
+  font-weight:bold;
+  
+
+}
+#menu a{
+    text-decoration:none;
+  color:black;
+
+}
+
+#navbar img{
+  padding-left:30px;
+ 
+}
+#navbar{
+  vertical-align:middle; 
+}
+
+.helper{
+  vertical-align:middle; 
+}
+/* hero header */
+
+/* products */
+
+#info{
+  margin-top:60px;
+  margin-bottom:60px;
+  text-align:center;
+  font-size:24px;
+    color:#545454;
+  font-family: "Helvetica";
+    font-weight:bold;
+}
+
+
+#products-container{
+
+width:715px;
+
+margin-left:auto;
+  margin-right:auto;
+}
+
+#product1{
+  float:left;
+	text-align:center;
+    text-decoration:none;
+  color:black;
+
+}
+#product2{
+  float:left;
+  margin-left:20px;
+
+  	text-align:center;
+    text-decoration:none;
+  color:black;
+  
+}
+#product3{
+    margin-left:20px;
+  	margin-right:0;
+    float:left;
+  	text-align:center;
+    text-decoration:none;
+  color:black;
+}
+
+
+.sunglasses{
+    margin-top:20px;
+  margin-bottom:4px;
+}
+.tassel_loafer{
+      margin-top:20px;
+  margin-bottom:4px;
+}
+.beige_bag{
+      margin-top:20px;
+   margin-bottom:4px;
+  
+}
+.clearfix{
+  clear:left;
+}
+/* footer */

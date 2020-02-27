@@ -9,6 +9,21 @@ body {
 }
 
 /* navbar */
+
+.navbar{
+  height:50px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.navbar #logo{
+  
+  line-height: 60px;
+}
+
+.navbar #logo imt{
+  vertical-align: middle;
+}
 #menu{
   float:right;
   padding-right:30px;
@@ -29,11 +44,11 @@ font-family: "Helvetica";
 
 }
 
-#navbar img{
+.class img{
   padding-left:30px;
  
 }
-#navbar{
+.class{
   vertical-align:middle; 
 }
 
@@ -57,10 +72,11 @@ font-family: "Helvetica";
 
 #products-container{
 
-width:715px;
+width:725px;
 
 margin-left:auto;
   margin-right:auto;
+  margin-bottom: 120px;
 }
 
 #product1{
@@ -73,7 +89,6 @@ margin-left:auto;
 #product2{
   float:left;
   margin-left:20px;
-
   	text-align:center;
     text-decoration:none;
   color:black;
@@ -86,9 +101,54 @@ margin-left:auto;
   	text-align:center;
     text-decoration:none;
   color:black;
+  margin-bottom: 80px;
 }
 
+#product4{
+float: left;
 
+text-align:center;
+    text-decoration:none;
+  color:black;
+}
+
+#product5{
+  float: left;
+  margin-left:20px;
+  text-align:center;
+      text-decoration:none;
+    color:black;
+  
+  }
+#product6{
+  margin-left:20px;
+  float: left;
+  text-align:center;
+      text-decoration:none;
+    color:black;
+    margin-bottom: 80px;
+  }
+#product7{
+  float: left;
+  
+  text-align:center;
+      text-decoration:none;
+    color:black;
+  }
+#product8{
+float: left;
+margin-left:20px;
+text-align:center;
+    text-decoration:none;
+  color:black;
+}
+#product9{
+  float: left;
+  margin-left:20px;
+  text-align:center;
+      text-decoration:none;
+    color:black;
+  }
 .sunglasses{
     margin-top:20px;
   margin-bottom:4px;
@@ -99,10 +159,53 @@ margin-left:auto;
 }
 .beige_bag{
       margin-top:20px;
-   margin-bottom:4px;
-  
+   margin-bottom:4px;  
 }
+.sneakers{
+  margin-top:20px;
+  margin-bottom:4px;
+}
+
+.slippers{
+  margin-top:20px;
+  margin-bottom:4px;
+}
+.wrist_watch{
+  margin-top:20px;
+  margin-bottom:4px;
+}
+.fedora_hat{
+  margin-top:20px;
+  margin-bottom:4px;
+}
+.classic_loafer{
+  margin-top:20px;
+  margin-bottom:4px;
+}
+
+
+.pink_bag{
+  margin-top:20px;
+  margin-bottom:4px;
+}
+
 .clearfix{
   clear:left;
 }
+
+
 /* footer */
+
+
+.link {
+ text-align: center;
+ margin-bottom: 80px;
+}
+
+#facebook{
+  margin-right: 20px;
+}
+
+#instagram{
+  margin-right: 20px;
+}

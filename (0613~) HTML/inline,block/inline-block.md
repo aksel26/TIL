@@ -4,7 +4,7 @@
 
 ### inline display ( 같은 줄에 있으려는 성질)
 
-1. span
+1.span
 2. a
 3. b
 4. i
@@ -12,9 +12,9 @@
 6. button
 
 
-inline은 width, height 값 변경을 주어도 auto 로 표시된다...
+inline은 width, height 값 변경을 주어도 auto 로 표시돔
 
-방법은? `display : inline-block;` 을 입력한다.
+방법은 `display : inline-block;` 을 입력한다.
 
 ### block display (줄이 바뀌려는 성질을 가짐)
 

@@ -1,0 +1,26 @@
+h1{
+    font-size: 12px;
+}
+p{
+    font-size: 12px;
+}
+
+@media(min-width:768px){
+    h1{
+        font-size:36px;
+    }
+    p{
+        font-size: 24px;
+    }
+
+}
+
+@media(min-width:993px){
+    h1{
+        font-size:55;
+    }
+    p{
+        font-size: 54px;
+    }
+
+}

@@ -30,7 +30,14 @@ img{
 #content{
   padding-left: 30px;
   padding-right: 30px;
- 
+  height:300px;
+  line-height: 300px;
+  
+}
+#content .info{
+  vertical-align: middle;
+  line-height: normal;
+  display: inline-block;
 }
 
 #content h2{
@@ -60,7 +67,7 @@ img{
   background-image: url(../images/img2.jpg);
   background-size: cover;
   height: 300px;
-  line-height: 200px;
+  line-height: 300px;
   text-align: center;
   background-position: center center;
 }
@@ -71,7 +78,9 @@ img{
   color: white;
   font-size: 16px;
   border : 4px solid white;
+
   line-height: normal;
+  display: inline-block;
 }
 #div3{
   background-image: url(../images/img3.jpg);

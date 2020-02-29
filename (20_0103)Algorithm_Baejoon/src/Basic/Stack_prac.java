@@ -119,6 +119,9 @@ public class Stack_prac {
 //			1) StringTokenizer의 nextToken()을 쓰면 readLine()을 통해 입력받은 값이 공백단위로 구분	해 순서대로 호출할 수 있다.
 //			2) String.Split() : 배열에 공백단위로 끊어 데이터를 넣고 사용하는 방법.
 
+
+		
+		
 //		####### BufferdWriter 사용 ########
 //			: 일반적으로 System.out.println("");를 쓰는데, 양이 많아지면 성능에서 차이가 나므로 Buffer를 활용하는게 좋다.
 //		

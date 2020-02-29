@@ -1,0 +1,87 @@
+
+
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+.carousel-item{
+    
+    height: 400px;
+    background-size: cover;
+}
+
+.helper{
+     display: inline-block;
+     height: 100%;
+     vertical-align: middle;
+}
+.content{
+    color: white;
+    display: inline-block; 
+    vertical-align: middle;
+    
+}
+.content h2{
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+.content p{
+    font-size: 22px;
+    margin-bottom: 48px;
+}
+.content a{
+    text-decoration: none;
+    color:white;
+    background-color: #5900e7;
+    padding: 10px 30px;
+    font-size: 16px;
+    
+}
+
+
+.carousel-item.item1{
+    background-image: url('../images/course1.jpg');
+    background-position: left center;
+    text-align: center;
+}
+
+
+.carousel-item.item2{
+    background-image: url('../images/course2.jpg');
+    background-position: center top;
+    text-align: center;
+    
+}
+.carousel-item.item3{
+    background-image: url('../images/course3.jpg');
+    background-position: center center;
+    text-align: center;
+    
+}
+
+
+.container{
+    margin-top: 50px;
+    margin-bottom: 16px;
+}
+.row{
+    
+}
+.row h1{
+    font-size: 18px;
+    color: #4a4a4a;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.name{
+    padding-bottom: 10px;
+}
+.col-3{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}

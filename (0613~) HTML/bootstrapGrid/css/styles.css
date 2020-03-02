@@ -64,9 +64,7 @@ body {
     margin-top: 50px;
     margin-bottom: 16px;
 }
-.row{
-    
-}
+
 .row h1{
     font-size: 18px;
     color: #4a4a4a;
@@ -78,10 +76,42 @@ body {
 }
 .name{
     padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.row{
+    width: 1110px;
+    margin: 0;
 }
 .col-3{
-    padding-left: 15px;
-    padding-right: 15px;
+    
+    width: 230px;
+    
+}
+.course1{
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
     margin-bottom: 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    width:230px;
+    margin-right: 0px;
+    
+}
+.course2{
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    width:230px;
+}
+.course3{
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    width:230px;
+}
+.course4{
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    width:230px;
 }

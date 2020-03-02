@@ -62,56 +62,40 @@ body {
 
 .container{
     margin-top: 50px;
-    margin-bottom: 16px;
+    margin-bottom: 50px;
+}
+.course{
+    
+    margin-bottom: 20px;
+    display: block;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
-.row h1{
+.course .course-img{
+    display: block;
+}
+
+.course .info{
+    padding: 10px;
+}
+
+.course:hover{
+    text-decoration: none;
+}
+
+.course .info h4{
     font-size: 18px;
     color: #4a4a4a;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
     margin-bottom: 10px;
-    
-}
-.name{
-    padding-bottom: 10px;
-    padding-left: 10px;
+    margin-top: 0;
 }
 
-.row{
-    width: 1110px;
-    margin: 0;
+.course .info .lecture{
+    font-size: 13px;
+    color: #4a4a4a;
 }
-.col-3{
-    
-    width: 230px;
-    
-}
-.course1{
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-    width:230px;
-    margin-right: 0px;
-    
-}
-.course2{
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-    width:230px;
-}
-.course3{
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-    width:230px;
-}
-.course4{
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-    width:230px;
+
+.course .info .lecture img,
+.course .info .lecture .name{
+vertical-align: middle;
 }

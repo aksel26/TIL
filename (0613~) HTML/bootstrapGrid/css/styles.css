@@ -38,13 +38,11 @@ body {
     
 }
 
-
 .carousel-item.item1{
     background-image: url('../images/course1.jpg');
     background-position: left center;
     text-align: center;
 }
-
 
 .carousel-item.item2{
     background-image: url('../images/course2.jpg');
@@ -52,13 +50,13 @@ body {
     text-align: center;
     
 }
+
 .carousel-item.item3{
     background-image: url('../images/course3.jpg');
     background-position: center center;
     text-align: center;
     
 }
-
 
 .container{
     margin-top: 50px;

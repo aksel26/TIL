@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Hello JSP!</h1>
-<p> hihihi</p>
+<h1>plz</h1>
 </body>
 </html>

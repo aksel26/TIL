@@ -44,7 +44,8 @@
     <script>
       
       $('#calculate').on('click',check);
-
+      $(document).on('keydown',processKeyEvent);
+      
       function check(){
         var nowDate = new Date();
         var startDate = new Date($('#start').val());

@@ -97,3 +97,39 @@
 
 
 
+### HTML 요소 추가
+
+- after
+
+  `$('li').after('<li class='item"> 새로운 아이템</li>')`
+
+  각각의 태그 뒤에 다 생겨버림
+
+  
+
+  `$('#todo-list li:last-child').after('<li class='item"> 새로운 아이템</li>')`
+
+  마지막 태그 뒤에만 생긴다.
+
+- before
+
+  ----> **형제 관계**가 된다.
+
+---
+
+
+
+- append (**자식관계**)
+
+  `$('ul').append('<li class='item"> 새로운 아이템</li>')`
+
+  마지막 자식으로 들어감
+
+  
+
+- prepend
+
+  `$('ul').prepend('<li class='item"> 새로운 아이템</li>')`
+
+  첫번째 자식으로 들어감
+

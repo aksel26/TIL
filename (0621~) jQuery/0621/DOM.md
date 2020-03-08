@@ -208,6 +208,52 @@ function keboardInput(e){
 
 
 
+### $(document).ready
+
+```html
+<script>
+$(document).ready(whenReady){
+	function whenReady(){
+		$('#hello').on('click',sayHello);
+			function sayHello(){
+				alert($('#hello').text();
+				$('#hello').css('background','red');
+}
+}
+</script>
+<body>
+
+  ~ 내용 ~
+  
+</body>
+```
+
+#### 1. $(document).ready 사용을 하는 이유 ? 
+
+>  보통 body태그 아래에 script코드를 입력하는데 그 위에 입력하게 되면 body객체가 호출되기 전에 scipt코드가 호출되고, 아무 반응도 일어나지 않는다.
+
+​		--> <u>#hello 버튼 이벤트를 발생시키려고 하지만 hello객체는 생성되지 않았기 때문.</u>
+
+​			이럴 때, **$(document).ready**를 사용하게 된다.
+
+#### 2. 익명함수 ?
+
+​	ready()를 사용하기 위해 억지로 whenReady함수를 만들어 주었다. (굳이 만들 필요 없는 함수) 이를 방지하기 위해 일회성 함수로 익명함수를 사용한다.
+
+```javascript
+$(document).ready(function(){ // 익명함수 부분
+  	$('#hello').on('click',sayHello);
+			function sayHello(){
+				alert($('#hello').text();
+				$('#hello').css('background','red');
+}
+});
+```
+
+
+
+
+
 
 
 

@@ -30,17 +30,65 @@
 
 ##### 		선택(요소 받아오기)
 
-- `$('#아이디')` : 아이디
+- CSS선택자와 동일한 방식
+  - `$('#아이디')` : 아이디
+  - `$('li')` : 태그
+  - `$('.클래스')` : 클래스
+  - `$('ul li:last-child')` :li태그 중 마지막 자식
 
-- `$('li')` : 태그
 
-- `$('.클래스')` : 클래스
 
-- `$('ul li:last-child')` :li태그 중 마지막 자식
+- jQuery에서 제공하는 방식
 
-  
+  - **filter**
 
-  ##### 동작
+    > 선택된 요소를 한번 더 걸러주는 메서드
+
+    `$('button').filter('.color-3').text('SELECTED');`
+
+  - **not**
+
+    > filter의 반대. 선택된 요소 중에서 조건에 해당되는 것들을 제외
+
+    `$('button').not('.color-3').text('selected');`
+
+  - **eq**
+
+    > 선택된 요소들 중 n번째 요소 하나만 골라낸다. 0부터 시작!
+
+    `$('button').eq(1).text(selected);`
+
+  - **parent**
+
+    > 부모 요소를 찾아준다.
+
+    `$('button').parent().css('background-color','black');`
+
+  - **children**
+
+    > 선택된 요소의 자녀요소를 모두 골라준다.
+
+    `$('#box1').children().css('background-color','black');`
+
+    *children(안에 조건을 넣으면 filter 역할도 함께 가능)*
+
+  - **find**
+
+    > 선택된 요소의 자녀, 자녀의 자녀 를 골라주되 조건에 맞는 요소만 찾아준다.
+
+    `$('#box1').find('.color-2').css('background-music','black');`
+
+    **children**은 한 단계 아래(<u>직속 자녀)만 찾아</u>주는 반면 **find**<u>모든 자녀</u>를 찾는데에 차이가 있다.
+
+  - **siblings**
+
+    > 선택된 요소의 이웃 요소를 골라준다.
+
+    `$(#btn-1).siblings().text('selected');`
+
+    
+
+##### 동작
 
 - 클래스 관련
 
@@ -134,4 +182,35 @@
   `$('ul').prepend('<li class='item"> 새로운 아이템</li>')`
 
   첫번째 자식으로 들어감
+
+
+
+### 이벤트 객체 파라미터
+
+#### 이벤트 핸들러
+
+`$(document).on('keydown',keyboardInput);`
+
+```javascript
+// 이벤트 객체 사용
+function keboardInput(e){
+
+console.log(e);
+
+}
+//안하면 비워두면 됨
+function keboardInput(e){
+
+
+
+}
+```
+
+
+
+
+
+
+
+
 

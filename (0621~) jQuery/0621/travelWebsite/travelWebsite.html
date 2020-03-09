@@ -71,7 +71,9 @@
 
 
     // $('#photo').attr('src','images/seoul.png')  기존 
+    $('#photo').hide();
     $('#photo').attr('src','images/' + targetId + '.png'); //개선
+    $('#photo').fadeIn(1000);
     $('#menu a').css('font-weight','normal');
     $('#'+targetId).css('font-weight','bold');
     

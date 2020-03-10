@@ -110,6 +110,8 @@
 <img src="Readme.assets/image-20200311013408859.png" alt="image-20200311013408859" style="zoom:25%;" />
 </br>
 </br>
+</br>
+</br>
 
 ### JSP 주요 스크립트
 
@@ -118,15 +120,21 @@
 - 선언 : `<%!   ~~ 자바 언어 ~~  %>`
 </br>
 </br>
-#### 스크립트릿 태그
+</br>
+</br>
 
+
+#### 스크립트릿 태그
 <img src="Readme.assets/image-20200311014352344.png" alt="image-20200311014352344" style="zoom:25%;" />
 
 - *java와 html코드가 뒤섞이게 되어 뷰페이지만을 만드는데 쓰일 수 밖에 없다.*
 
 </br>
 </br>
-#### 지시어
+</br>
+</br>
 
+
+#### 지시어
 <img src="Readme.assets/image-20200311020100922.png" alt="image-20200311020100922" style="zoom:25%;" />
 

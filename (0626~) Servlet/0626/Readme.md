@@ -81,10 +81,47 @@
 
 <img src="Readme.assets/image-20200311010806301.png" alt="image-20200311010806301" style="zoom:33%;" />
 
+
+
+
+
 ### doGet
 
 <img src="Readme.assets/image-20200311010944589.png" alt="image-20200311010944589" style="zoom:33%;" />
 
+
+
+
+
 ### doPost
 
 <img src="Readme.assets/image-20200311011008318.png" alt="image-20200311011008318" style="zoom:33%;" />
+
+- 맵핑정보만 나올 뿐만 아니라 <u>헤더파일에 암호화되어 전송</u>되어 보안에 강하다.
+
+
+
+
+
+## JSP 스크립트
+
+- Servlet / JSP 차이점
+
+<img src="Readme.assets/image-20200311013408859.png" alt="image-20200311013408859" style="zoom:25%;" />
+
+### JSP 주요 스크립트
+
+<img src="Readme.assets/image-20200311013925717.png" alt="image-20200311013925717" style="zoom:25%;" />
+
+- 선언 : `<%!   ~~ 자바 언어 ~~  %>`
+
+#### 스크립트릿 태그
+
+<img src="Readme.assets/image-20200311014352344.png" alt="image-20200311014352344" style="zoom:25%;" />
+
+- *java와 html코드가 뒤섞이게 되어 뷰페이지만을 만드는데 쓰일 수 밖에 없다.*
+
+#### 지시어
+
+<img src="Readme.assets/image-20200311020100922.png" alt="image-20200311020100922" style="zoom:25%;" />
+

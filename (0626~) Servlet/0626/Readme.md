@@ -30,7 +30,7 @@
 
 
 
-### mapping을 어떻게 할까?
+## mapping을 어떻게 할까?
 
 - 방법1. web.xml을 이용하는 방법
 
@@ -55,9 +55,9 @@
 
   - test로도 매핑이 되고, ts로도 매핑이 되서 각각 모두 출력이 된다.
 
-### Response, Request
+## Response, Request
 
-#### httpServlet, httpServletRequest, httpServletResponse
+### httpServlet, httpServletRequest, httpServletResponse
 
 > 추상클래스
 >
@@ -67,7 +67,7 @@
 
 - servlet을 만들면 자동적으로 httpServlet을 상속받음
 
-### Servlet Life-Cycle
+## Servlet Life-Cycle
 
 - 콜백 메서드
 - **WebContainer**가 호출해준다.
@@ -77,3 +77,14 @@
 `@PostConstructor` : init()하기 위해 준비, 로그인 아이디 및 패스워드를 변수에 담는다는 등 공통적인 업무를 주로 사용
 `@PreDestroy` : 정리, 데이터베이스 사용 후 반납 시 사용
 
+## Form 데이터 처리
+
+<img src="Readme.assets/image-20200311010806301.png" alt="image-20200311010806301" style="zoom:33%;" />
+
+### doGet
+
+<img src="Readme.assets/image-20200311010944589.png" alt="image-20200311010944589" style="zoom:33%;" />
+
+### doPost
+
+<img src="Readme.assets/image-20200311011008318.png" alt="image-20200311011008318" style="zoom:33%;" />

@@ -315,9 +315,7 @@ console.log($(this)); // each에 사용되는 선택자를 그대로 받아오�
 
 
 
+#### 높이설명
 
-
-
-
-
+<img src="DOM.assets/image-20200310172027294.png" alt="image-20200310172027294" style="zoom:33%;" />
 

@@ -57,7 +57,7 @@
 
 ### Response, Request
 
-1. #### httpServlet
+#### httpServlet, httpServletRequest, httpServletResponse
 
 > 추상클래스
 >
@@ -65,7 +65,15 @@
 
 <img src="Readme.assets/image-20200311002828927.png" alt="image-20200311002828927" style="zoom:33%;" />
 
+- servlet을 만들면 자동적으로 httpServlet을 상속받음
 
+### Servlet Life-Cycle
 
-1. httpServletRequest
-2. httpServletResponse
+- 콜백 메서드
+- **WebContainer**가 호출해준다.
+
+<img src="Readme.assets/image-20200311004545169.png" alt="image-20200311004545169" style="zoom:33%;" />
+
+`@PostConstructor` : init()하기 위해 준비, 로그인 아이디 및 패스워드를 변수에 담는다는 등 공통적인 업무를 주로 사용
+`@PreDestroy` : 정리, 데이터베이스 사용 후 반납 시 사용
+

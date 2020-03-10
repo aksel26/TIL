@@ -53,6 +53,19 @@
 
   `@WebServlet("/ts")`
 
-  
-
   - test로도 매핑이 되고, ts로도 매핑이 되서 각각 모두 출력이 된다.
+
+### Response, Request
+
+1. #### httpServlet
+
+> 추상클래스
+>
+> httpServlet만 상속받아서 사용하게 되면 아래에 많은 표준화된 기능들을 사용할 수 있게 편의기능을 이용 가능하다.
+
+<img src="Readme.assets/image-20200311002828927.png" alt="image-20200311002828927" style="zoom:33%;" />
+
+
+
+1. httpServletRequest
+2. httpServletResponse

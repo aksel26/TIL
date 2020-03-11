@@ -20,11 +20,33 @@ function scroll(){
             $(this).find('.vertical-center').animate({opacity:"1",top:"0"},600);
         }
     })
+
+
+    $('.skill .bar').each(function(){
+      
+      // var number = $(this).valueOf().innerText.replace("%","");
+      console.log(result)
+      if($(window).scrollTop() >= $(this).position().top){
+        var number = $(this).text().replace("%","");
+        var result = $('.bar').width() * (number/100);
+        $(this).find('.inner-bar').animate({width:result},1200);
+      }
+    })
 }
 
 
+// function percentage(){
+//   var per  = $('.percentage');
+//   console.log(per)
+//   for(var i = 0 ; i<per.length ; i++){
+//     var per2 =$('.percentage')[i].valueOf().innerText.replace("%","");
+//     console.log(per2);
+//     $('.inner-bar').animate({width:per2},600);
+//   }
+// }
 
 $(window).on('scroll',scroll);
+// $(window).on('scroll',percentage);
 
 //페이지 처음 로딩될 때
 scroll();
@@ -37,6 +59,7 @@ $('.menu-right button').on('click',function(){
     $('html,body').animate({scrollTop:$('.contact').position().top},500)
   }
 })
+
 
 
 

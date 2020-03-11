@@ -81,6 +81,8 @@
 
 <img src="Readme.assets/image-20200311010806301.png" alt="image-20200311010806301" style="zoom:33%;" />
 
+<br><br><br>
+
 
 
 
@@ -89,7 +91,7 @@
 
 <img src="Readme.assets/image-20200311010944589.png" alt="image-20200311010944589" style="zoom:33%;" />
 
-
+<br><br><br><br>
 
 
 
@@ -139,6 +141,12 @@
 
 #### 지시어
 <img src="Readme.assets/image-20200311020100922.png" alt="image-20200311020100922" style="zoom:25%;" />
+
+
+
+
+
+
 
 
 

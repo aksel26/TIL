@@ -23,8 +23,10 @@
 	%>
 
 	m_name =
-	<%= m_name%><br> m_password =
-	<%= m_password%><br> m_hobby =
+	<%= m_name%><br> 
+	m_password =
+	<%= m_password%><br>
+	m_hobby =
 	<% for(int i= 0 ; i< m_hobby.length ; i++){
 	%>
 	<%= m_hobby[i] %>

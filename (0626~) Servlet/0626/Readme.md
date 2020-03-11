@@ -146,3 +146,30 @@
 
 - *서블릿의 request,response객체와 동일*
 
+
+
+#### Request
+
+<img src="Readme.assets/image-20200311192935418.png" alt="image-20200311192935418" style="zoom:33%;" />
+
+1. `form action = "page1.jsp"` 로 `POST` 방식으로 요청
+
+2. `Request.getParamter("m_name");` 으로 `m_name`변수에 저장
+3. JSP스크립트 언어를 통해 화면에 보여줌.
+
+
+
+#### Response
+
+<img src="Readme.assets/image-20200311193644426.png" alt="image-20200311193644426" style="zoom:33%;" />
+
+1. firstPage.jsp를 불러오면
+2. `Response.sendRedirect("secondPage.jsp")` 때문에 secondPage.jsp가 불러와진다.
+3. secondPage문구 출력
+
+
+
+
+
+## JSP내장객체
+

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,25 +8,27 @@
 </head>
 <body>
 
-<%! int num = 10; %>
+	<%!int num = 10;%>
 
-<%
-	if(num>0){
-%>
+	<%
+		if (num > 0) {
+	%>
 
 	<p>num>0</p>
-<%
-}else{
-%>
+	<%
+		} else {
+	%>
 
-<p>num<=0</p>
+	<p>num<=0</p>
 
-<%
-} 
-%>
+	<%
+		}
+	%>
 
-<!--표현식 태그  -->
-<h3>num is <%= num %></h3>
+	<!--표현식 태그  -->
+	<h3>
+		num is
+		<%=num%></h3>
 
 </body>
 </html>

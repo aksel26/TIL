@@ -140,3 +140,9 @@
 #### 지시어
 <img src="Readme.assets/image-20200311020100922.png" alt="image-20200311020100922" style="zoom:25%;" />
 
+
+
+## JSP request, response
+
+- *서블릿의 request,response객체와 동일*
+

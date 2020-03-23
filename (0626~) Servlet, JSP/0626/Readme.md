@@ -219,56 +219,56 @@
 
 
 
-Cookie
+## Cookie
 
 - 보안에 취약할 수 있으므로 간단한 정보면 다루도록 한다.
 - 서버에 수많은 클라이언트가 접속하기 때문에 배열로 다룬다.
 
 1. loginJSP.jsp
 
-   ```java
-   <%@ page language="java" contentType="text/html; charset=UTF-8"
-       pageEncoding="UTF-8"%>
-   <!DOCTYPE html>
-   <html>
-   <head>
-   <meta charset="UTF-8">
-   <title>Insert title here</title>
-   </head>
-   <body>
-   
-     
-   // =========================================================================================    
-   // 쿠키 정보가 이미 있는 상황에서,  로그인 페이지 다시 불러오기를 방지하는 부분
-   // =========================================================================================
-   <%
-    Cookie[] cookies = request.getCookies();
-   System.out.println("cookies : " + cookies );
-   if(cookies != null){
-   	for(Cookie C : cookies){
-   		if(C.getName().equals("memberId")){
-   			response.sendRedirect("loginOK.jsp");
-   		}
-   	}
-   }
-   
-   %>
-     
-   // =========================================================================================    
-   // 폼 프레임 만들기
-   // =========================================================================================
-   	<form action= "loginCon" method = "post">
-   		ID : <input type="text" name="mID"></br>
-   		PW : <input type="password" name="mPW"></br>
-   		
-   		<input type="submit" value="login">
-   
-   	</form>
-   </body>
-   </html>
-   ```
+```java
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 
-   
+  
+// =========================================================================================    
+// 쿠키 정보가 이미 있는 상황에서,  로그인 페이지 다시 불러오기를 방지하는 부분
+// =========================================================================================
+<%
+ Cookie[] cookies = request.getCookies();
+System.out.println("cookies : " + cookies );
+if(cookies != null){
+	for(Cookie C : cookies){
+		if(C.getName().equals("memberId")){
+			response.sendRedirect("loginOK.jsp");
+		}
+	}
+}
+
+%>
+  
+// =========================================================================================    
+// 폼 프레임 만들기
+// =========================================================================================
+	<form action= "loginCon" method = "post">
+		ID : <input type="text" name="mID"></br>
+		PW : <input type="password" name="mPW"></br>
+		
+		<input type="submit" value="login">
+
+	</form>
+</body>
+</html>
+```
+
+
 
 2. loginConfirm 서블릿
 

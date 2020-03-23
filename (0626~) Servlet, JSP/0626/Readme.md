@@ -214,3 +214,157 @@
   - `<%@ page IserrorPage = true"%>` : 에러페이지 (errorPage.jsp) 에서도 설정해주어야 한다
 
   
+
+
+
+
+
+Cookie
+
+- 보안에 취약할 수 있으므로 간단한 정보면 다루도록 한다.
+- 서버에 수많은 클라이언트가 접속하기 때문에 배열로 다룬다.
+
+1. loginJSP.jsp
+
+   ```java
+   <%@ page language="java" contentType="text/html; charset=UTF-8"
+       pageEncoding="UTF-8"%>
+   <!DOCTYPE html>
+   <html>
+   <head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   </head>
+   <body>
+   
+     
+   // =========================================================================================    
+   // 쿠키 정보가 이미 있는 상황에서,  로그인 페이지 다시 불러오기를 방지하는 부분
+   // =========================================================================================
+   <%
+    Cookie[] cookies = request.getCookies();
+   System.out.println("cookies : " + cookies );
+   if(cookies != null){
+   	for(Cookie C : cookies){
+   		if(C.getName().equals("memberId")){
+   			response.sendRedirect("loginOK.jsp");
+   		}
+   	}
+   }
+   
+   %>
+     
+   // =========================================================================================    
+   // 폼 프레임 만들기
+   // =========================================================================================
+   	<form action= "loginCon" method = "post">
+   		ID : <input type="text" name="mID"></br>
+   		PW : <input type="password" name="mPW"></br>
+   		
+   		<input type="submit" value="login">
+   
+   	</form>
+   </body>
+   </html>
+   ```
+
+   
+
+2. loginConfirm 서블릿
+
+```java
+package com.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class loginCon
+ */
+@WebServlet("/loginCon")
+public class loginCon extends HttpServlet {
+	
+   
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+// ==========================================================================================    
+// 폼 정보 출력
+// ==========================================================================================
+    PrintWriter out = response.getWriter();
+		
+		String mid = request.getParameter("mID");
+		String mpw = request.getParameter("mPW");
+				
+		out.print("<p> id = " + mid + "</p>");
+		out.print("<p> pw = " + mpw + "</p>");
+
+    
+// ==========================================================================================
+// 쿠키 정보 만들기
+// ==========================================================================================
+		
+		Cookie[] cookies=request.getCookies(); //사용자의 request에서 쿠키가 발생하므로 request
+		Cookie cookie = null;
+		for(Cookie C : cookies) {
+			System.out.println("C.getName = " + C.getName() +"C.getValue = "+ C.getValue());
+			
+			if(C.getName().equals("memberId")) {
+				cookie=C;
+			}
+		}
+		
+		if(cookie==null) {
+			System.out.println("cookie is null");
+			cookie= new Cookie("memberId",mid);	//쿠키 정보 객체 생성
+		}
+		
+		response.addCookie(cookie);
+		cookie.setMaxAge(60 * 60);; //유효 쿠키 1시간 
+		
+		response.sendRedirect("loginJsp.jsp");
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+```
+
+
+
+3. loginOK.jsp
+
+```java
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+<%
+Cookie[] cookies = request.getCookies();
+for(Cookie C : cookies){
+	out.print("name = " + C.getName() +"</br>");
+	out.print("value = " + C.getValue() +"</br>");
+}
+%>
+</body>
+</html>
+```
+

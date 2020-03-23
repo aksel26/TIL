@@ -16,12 +16,15 @@
 	<servlet>
 		<servlet-name>testServlet</servlet-name>
 		<servlet-class>com.testPjt.testServlet</servlet-class>
+				
+	
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>testServlet</servlet-name>
+		<servlet-name >testServlet</servlet-name>
 		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
+
 
 
 </web-app>

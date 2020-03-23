@@ -177,7 +177,24 @@
 
 
 
+JSP내장 객체
 
+confing객체
 
+##### <img src="Readme.assets/image-20200323161003922.png" alt="image-20200323161003922" style="zoom:33%;" />
 
+- getInitParameter("xml에서 정의한 파라미터 이름")
+- <img src="Readme.assets/image-20200323165315994.png" alt="image-20200323165315994" style="zoom:33%;" />
+
+- 지정해준 서블릿 안에서만 사용 가능하다.
+  - 하나의 서블릿이 아닌 모든 서블릿에서 접근 가능하려면 ? **application 객체 활용**
+
+application 객체
+
+<img src="Readme.assets/image-20200323170340480.png" alt="image-20200323170340480" style="zoom:33%;" />
+
+- application에서 공통적으로 사용하는 정보를 다룰 때 사용한다.
+- `application.getInitParameter("param-name이름")`
+
+- `setAttribute() / getAttribute()`
 

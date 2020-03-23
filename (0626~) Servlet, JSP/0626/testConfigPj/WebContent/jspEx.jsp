@@ -34,8 +34,16 @@ realServerIP = application.getInitParameter("realServerIP");
 
 %>
 
+<%
+application.setAttribute("badGateWay", "reject");
+application.setAttribute("granted", "good");
+%>
+
 <P> imgDir : <%=imgDir %> </P>
 <p> testServerIP : <%=testServerIP %> </p>
 <p> realServerIP : <%=realServerIP %> </p>
+
+
+<button onclick="location.href='jspExGet.jsp' "> result</button>
 	</body>
 </html>

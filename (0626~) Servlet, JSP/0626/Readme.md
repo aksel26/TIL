@@ -177,19 +177,19 @@
 
 
 
-JSP내장 객체
+## JSP내장 객체
 
-confing객체
+### confing객체
 
 ##### <img src="Readme.assets/image-20200323161003922.png" alt="image-20200323161003922" style="zoom:33%;" />
 
-- getInitParameter("xml에서 정의한 파라미터 이름")
+- `getInitParameter("xml에서 정의한 파라미터 이름")`
 - <img src="Readme.assets/image-20200323165315994.png" alt="image-20200323165315994" style="zoom:33%;" />
 
 - 지정해준 서블릿 안에서만 사용 가능하다.
   - 하나의 서블릿이 아닌 모든 서블릿에서 접근 가능하려면 ? **application 객체 활용**
 
-application 객체
+### application 객체
 
 <img src="Readme.assets/image-20200323170340480.png" alt="image-20200323170340480" style="zoom:33%;" />
 
@@ -197,4 +197,20 @@ application 객체
 - `application.getInitParameter("param-name이름")`
 
 - `setAttribute() / getAttribute()`
+  - `getAttribute()` : <u>String형변환</u>을 잊지 말 것.
 
+### out객체
+
+-  `out.print("html코드")`
+
+
+
+### exception객체
+
+- 에러 발생시 사용
+
+- `<%@ page errorPage="errorPage.jsp" %>`
+
+  - `<%@ page IserrorPage = true"%>` : 에러페이지 (errorPage.jsp) 에서도 설정해주어야 한다
+
+  

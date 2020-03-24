@@ -372,7 +372,7 @@ for(Cookie C : cookies){
 
 
 
-session
+## Session
 
 - 서버에서 (Web Container)에서 생성과 저장이 된다는 것이 쿠키와의 차이점
 - <u>request, response를 하고 나면 연결이 해제</u> 된다*(http 프로토콜의 특징)*는 것은 공통점
@@ -532,7 +532,7 @@ public class logoutCon extends HttpServlet {
 
 
 
-한글 처리
+## 한글 처리
 
 <img src="Readme.assets/image-20200324200137061.png" alt="image-20200324200137061" style="zoom:33%;" />
 
@@ -681,4 +681,40 @@ public class registForm extends HttpServlet {
 - Init, doFilter, destroy
 - 클래스에서 작성한 후, `web.xml`에 등록을 해 주어야 한다.
 - name과 value가 같이 묶여 돌아가는 체인 기법.
+
+
+
+
+
+## JDBC
+
+<img src="Readme.assets/image-20200324205110285.png" alt="image-20200324205110285" style="zoom:33%;" />
+
+Select 일때만 executeQuery,
+
+반환형이 int가 아님 (updateQuery만 int)
+
+
+
+### preparedStatement 
+
+> 쿼리문을 좀 더 보기 좋게 하기 위함.
+
+쿼리문 작성 후 preparedStatement호출
+
+
+
+적용할 값을 ? 로 표현, 순서대로 적용
+
+
+
+
+
+## DAO, DTO
+
+<img src="Readme.assets/image-20200324211550299.png" alt="image-20200324211550299" style="zoom:33%;" />
+
+DAO 부분만 객체로 따로 떼어내어 모듈화 시킨 것.
+
+java, sql언어 호환이 안되기 때문에 java 형태로 가공을 해야한다. 중간 매개체 역할이 DTO (VO)
 

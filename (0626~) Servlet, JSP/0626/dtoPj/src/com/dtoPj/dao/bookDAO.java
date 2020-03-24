@@ -6,21 +6,40 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+//
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.jsp.el.ELParseException;
+import javax.sql.DataSource;
 
 import com.dtoPj.dto.bookDTO;
 
 public class bookDAO {
 
-	String driver = "oracle.jdbc.driver.OracleDriver";
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	String id = "hr";
-	String pw = "oracle";
+	
+//	======== 1. connection pool을 이용하게 되면 필요 없게 된다. ======== 
+//	String driver = "oracle.jdbc.driver.OracleDriver";
+//	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+//	String id = "hr";
+//	String pw = "oracle";
+	
+//	2. dataSourc를 사용한다.
+	DataSource dataSource;
 
+	
+	
 	public bookDAO() {
 
 		try {
-			Class.forName(driver);
+//	======== 3. connection pool을 이용하게 되면 필요 없게 된다. ======== 
+//			Class.forName(driver);
+			
+//	==== 컨테이너로부터 커넥션 풀을 찾음 ====
+			Context context = new InitialContext();
+			dataSource = (DataSource)context.lookup("java:comp/env/jdbc/oracle11g");
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,7 +55,12 @@ public class bookDAO {
 		
 		try {
 			
-			con = DriverManager.getConnection(url,id,pw);
+			
+//	======== 4. connection pool을 이용하게 되면 필요 없게 된다. ======== 
+//			con = DriverManager.getConnection(url,id,pw);
+			con = dataSource.getConnection();
+			
+			
 			String sql = "SELECT * FROM book";
 			pstmt = con.prepareStatement(sql);
 			

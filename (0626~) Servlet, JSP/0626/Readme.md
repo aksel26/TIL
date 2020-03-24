@@ -734,4 +734,18 @@ java, sql언어 호환이 안되기 때문에 java 형태로 가공을 해야한
 
 tomcat에 커넥션 풀 설정
 
-`context.xml` 파일에 지정 <Resource>~~~~</resource>
+`context.xml` 파일에 지정 
+
+```xml
+<Resource 
+	  auth = "Container"
+	  driverClassName="oracle.jdbc.driver.OracleDriver"
+	  url="jdbc:oracle:thin:@localhost:1521:xe"
+	  username = "scott"
+	  password ="tiger"
+	  name="jdbc/Oracle11g"
+	  type="javax.sql.DataSource"
+	  maxActive="4"
+	  maxWait="10000"/>
+```
+

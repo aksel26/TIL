@@ -376,5 +376,163 @@ session
 
 - 서버에서 (Web Container)에서 생성과 저장이 된다는 것이 쿠키와의 차이점
 - <u>request, response를 하고 나면 연결이 해제</u> 된다*(http 프로토콜의 특징)*는 것은 공통점
-- 
+
+1. loginJSP.jsp : 로그인 폼 페이지
+
+```java
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<%
+		//	기존의 session의 유무를 판단하기 위함
+		if (session.getAttribute("memberId") != null) {
+			response.sendRedirect("loginOK.jsp");
+
+		}
+	%>
+
+
+	<form action="loginCon" method="post">
+
+		ID : <input type="text" name="mId"></br> PW : <input
+			type="password" name="mPw"></br> <input type="submit"
+			value="login"></input>
+
+	</form>
+
+</body>
+</html>
+```
+
+2. loginCon 서블릿 생성
+
+```java
+
+package com.sessionPj;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/loginCon")
+public class loginCon extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+    
+		PrintWriter out = response.getWriter();
+
+		String mId = request.getParameter("mId");
+		String mPw = request.getParameter("mPw");
+
+		out.print("mid : " + mId);
+		out.print("mPw : " + mPw);
+    
+ // ==========================================================================================
+ // 세선 부분
+ // ==========================================================================================
+
+		HttpSession Session = request.getSession(); // 해당 인터페이스에 담는다
+
+		Session.setAttribute("memberId", mId);
+ // ==========================================================================================
+
+		response.sendRedirect("loginOK.jsp");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+}
+```
+
+
+
+3. loginOK.jsp
+
+```java
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<%
+		session = request.getSession();
+		out.print("memberId : " + session.getAttribute("memberId") + "</br>");
+	%>
+
+
+	<form action="logoutCon" method="post">
+		<input type="submit" value="logout"> //로그아웃 버튼
+	</form>
+</body>
+</html>
+```
+
+
+
+4. logoutCon 서블릿
+
+```java
+package com.sessionPj;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/logoutCon")
+public class logoutCon extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+    
+		HttpSession session = request.getSession();
+    
+		session.invalidate(); // 해당 세션 삭제하는 메서드
+
+		response.sendRedirect("loginJSP.jsp");
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		doGet(request, response);
+	}
+
+}
+
+```
+
+
+
+
+
+한글 처리
+
+
 

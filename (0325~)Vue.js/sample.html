@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <!-- 1. VUE 인스턴스 생성과 인스턴스 옵션 -->
+        {{ message }}
+        <button>컴포넌트 등록</button>
+        <my-componenXt></my-component>   <!--my-component가 div태그로 바뀌게 될 것.-->
+    <!-- ========================================== -->
+
+    
+
+    <!-- 2. 컴포넌트 (전역 / 지역) -->
+
+        <h3>첫번째 인스턴스 영역</h3>
+        <my-global-component></my-global-component>
+        <my-local-component></my-local-component>
+    </div>
+    
+    <hr>
+
+    <div id="app2">
+        <h3>두번째 인스턴스 영역</h3>
+        <my-global-component></my-global-component>
+        <my-local-component></my-local-component> 
+    </div>
+
+    <!-- ========================================== -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        Vue.component('my-component',{
+            template:'<div>컴포넌트 입니다.</div>'
+        });
+
+
+    // 2. 인스턴스 유효 범위
+
+        Vue.component('my-global-component',{
+            template:'<div>전역 컴포넌트 입니다.</div>'
+        });
+
+
+
+        var component={
+            template:'<div>지역컴포넌트 입니다</div>'
+        };
+
+        
+
+        new Vue({
+            el: '#app',
+            data : {
+                message:'Hello Vue.js!'
+
+    // 3. lifeCycle
+            },beforeCreate:function(){
+                console.log("beforeCreate")
+            },created:function(){
+                console.log("Created")
+            },mounted : function(){
+                console.log("mounted")
+                this.message="Hello Vue!";
+            },updated : function(){
+                console.log("updated")
+            },
+            components:{
+                'my-local-component' : component
+            }
+        });
+
+
+        new Vue({
+            el:'#app2',
+          
+        })
+
+    </script>
+</body>
+</html>

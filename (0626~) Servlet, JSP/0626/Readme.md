@@ -534,5 +534,151 @@ public class logoutCon extends HttpServlet {
 
 한글 처리
 
+<img src="Readme.assets/image-20200324200137061.png" alt="image-20200324200137061" style="zoom:33%;" />
 
+방법1. 
+
+- Post 와 Get방식 각각 다른 방식으로 처리
+
+빙법2. 
+
+- Filter 사용하여 처리
+
+
+
+1-1. POST 방식 (jsp 에서 servlet으로 전달할 경우)
+
+- registForm.jsp
+
+```java
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="registForm" method="post">
+
+	이름 : <input type="text" name="name">
+	별명 : <input type="text" name="nickName">
+	
+	<input type="submit" value="가입">
+</form>
+
+</body>
+</html>
+```
+
+- registForm 서블릿
+
+```java
+package com.encodingPj;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/registForm")
+public class registForm extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+// =========================================================================================
+// 엔코딩 부분
+// =========================================================================================
+    
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+// =========================================================================================
+    
+    
+    
+		PrintWriter out = response.getWriter();
+		String name = request.getParameter("name");
+		String nickName = request.getParameter("nickName");
+		
+		out.print("name : " + name + "</br>");
+		out.print("nickName : " + nickName);
+		
+		
+		
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+```
+
+
+
+- jsp--> jsp페이지 이동에서의 인코딩
+
+  - signUp.jsp
+
+  ```java
+  // =========================================================================================
+  // 엔코딩 부분
+  
+  <%
+  	request.setCharacterEncoding("UTF-8");
+  %>
+    
+  // =========================================================================================
+    
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
+  	pageEncoding="UTF-8"%>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  </head>
+  <body>
+  	<%!String mName;
+  	String mNickName;%>
+  
+  
+  	<%
+  		mName = request.getParameter("name");
+  		mNickName = request.getParameter("nickName");
+  	%>
+  
+  	이름 :
+  	<%=mName%></br> 별명 :
+  	<%=mNickName%>
+  </body>
+  </html>
+  ```
+
+
+
+​	1-2. GET 방식일 경우 사용하는 서버에 server.xml에 입력하면 끝
+
+```xml
+<Connector  URIEncoding="UTF-8" connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+```
+
+
+
+2. Filter
+
+<img src="Readme.assets/image-20200324203152286.png" alt="image-20200324203152286" style="zoom:33%;" />
+
+- <u>인터페이스</u>이므로 구현해야 한다.
+- Init, doFilter, destroy
+- 클래스에서 작성한 후, `web.xml`에 등록을 해 주어야 한다.
+- name과 value가 같이 묶여 돌아가는 체인 기법.
 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <!--========= 1. 상위 컴포넌트 -> 하위 컴포넌트 =========-->
+        <!-- <child-component v-bind:propsdata="message"></child-component> -->
+    <!-- ============================================= -->
+
+
+    <!--========= 2. 하위 컴포넌트 -> 상위 컴포넌트 이벤트 발생 =========-->
+        <child-component v-on:show-log="printText"></child-component>
+    <!-- ============================================= -->
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+// ========= 2. 하위 컴포넌트 -> 상위 컴포넌트 이벤트 발생 =========
+    Vue.component('child-component',{
+        template:'<button v-on:click="showlog">show</button>',
+        methods:{
+            showlog:function(){
+                this.$emit('show-log');
+            }
+        }
+    })
+
+// ========= 1. 상위컴포넌트에서 하위 컴포넌트로 =========
+    Vue.component('child-component',{
+        props:['propsdata'],
+        template: '<p>{{ propsdata}} </p>',
+    });
+// ==============================================
+
+
+    // new Vue({
+    //     el:'#app',
+    //     data:{
+    //         message: 'Hello Vue! passed from Parent Component!'
+    //     },
+
+
+    // ========= 2. 하위 컴포넌트 -> 상위 컴포넌트 이벤트 발생 =========
+        // methods:{
+        //     printText:function(){
+        //         console.log("recieved the event!")
+        //     }
+        // }
+    // ==============================================
+    // });
+    
+
+    var eventBus = new Vue();
+
+    Vue.component('child-component',{
+        template:'<div>하위 컴포넌트 영역입니다. <button v-on:click="showLog">show</button></div>',
+        methods:{
+            showLog:function(){
+                eventBus.$emit('triggerEventBus',100);
+            }
+        }
+
+    })
+
+
+    new Vue({
+        el:'#app',
+        created:function(){
+            eventBus.$on('triggerEventBus',function(value){
+                console.log('이벤트를 전달 받음 , 전달받은 값 : ' + value)
+            })
+        }
+    })
+   
+
+
+</script>
+
+</body>
+</html>

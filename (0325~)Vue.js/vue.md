@@ -1,4 +1,4 @@
-Vue
+# Vue
 
 
 
@@ -55,6 +55,8 @@ Vue.component('child-component',{
   - 뷰엑스라는 상태관리도구가 필요함.
 
   ```javascript
+  // ===============  기본 형식  ===============
+  
   // 이벤트버스를 위한 추가 인스턴스를 별개로 만들어 준다.
   var eventBus = new Vue();
   
@@ -103,7 +105,201 @@ Vue.component('child-component',{
       })
   ```
 
-- 
+  
+
+
+
+뷰라우터
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+    <h3>Router 예제</h3>
+    <p>
+      
+  <!-- ==================== 1 ====================-->
+        <router-link to="/main">Main Component로 이동</router-link>
+        <router-link to="/login">Login Component로 이동</router-link>
+    </p>
+      
+      
+ <!-- ==================== 2 ====================-->
+    <router-view></router-view>
+</div>
+
+</body>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+  
+  // ==================== 3 ====================
+  // Main, Login 컴포넌트 정의
+    var Main = {
+        template: '<div>main</div>'
+    };
+    var Login = {
+        template: '<div>Login</div>'
+    }
+
+    
+  // ==================== 4 ====================
+    var routes = [
+        {
+            path: '/main',
+            component: Main
+        },
+        {
+            path: '/login',
+            component: Login
+        }
+    ];
+
+  // ==================== 5 ====================
+
+    var route = new VueRouter({
+        routes
+    });
+
+  
+ // ==================== 6 ====================
+    var app = new Vue({
+        router
+    }).$mount('#app');
+
+
+</script>
+
+</html>
+```
+
+
+
+네스티드 라우터
+
+최소 2개 이상의 컴포넌트를 화면에 나타낼 수 있다.
+
+
+
+네임드 뷰
+
+>  여러개의 컴포넌트를 동시에 표시하는 라우팅 방식
+
+
+
+네스티드 라우터 vs 네임드뷰 ?
+
+> 네스티드 라우터는 자식 관계로 하위 컴포넌트가 표시되는 것,
+>
+> 네임드 뷰는 같은 레벨에서 여러개가 표시되는 것.	
+
+
+
+
+
+뷰 HTTP 통신
+
+1. 뷰 리소스
+
+   ```javascript
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+   </head>
+   <body>
+       <div id ="app">
+           <button v-on:click="getData">프레임워크 목록 가져오기</button>
+       </div>
+   
+   
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+   
+   <script>
+        new Vue({
+            el:'#app',
+            methods:{
+                getData:function(){
+                    this.$http.get(`https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json`).then(function(response){
+                        console.log(response);
+                      
+                      //문자열 형태로 받아오기 때문에 JSON parsing이 필요하다.
+                        console.log(JSON.parse(response.data));
+                    });
+                }
+            }
+        })
+   
+   </script>
+   </body>
+   </html>
+   ```
+
+   <img src="vue.assets/image-20200325221559195.png" alt="image-20200325221559195" style="zoom:33%;" />
+
+   2. 엑시오스
+
+      뷰 커뮤니티에서 가장 많이 사용되는 http 라이브러리
+
+      <u>Promise 기반</u>의 API형식
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <button v-on:click="getData">프레임워크 목록 가져오기</button>
+    </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <script>
+
+        new Vue({
+            el:'#app',
+            methods:{
+                getData:function(){
+                    axios.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json').then(function(response){
+                      
+                      //객체 형태로 받아오기 때문에 JSON파싱이 필요 없다.
+                        console.log(response);
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+```
+
+
+
+<img src="vue.assets/image-20200325222355437.png" alt="image-20200325222355437" style="zoom:33%;" />
 
 
 

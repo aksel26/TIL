@@ -188,19 +188,19 @@ Vue.component('child-component',{
 
 
 
-네스티드 라우터
+### 네스티드 라우터
 
 최소 2개 이상의 컴포넌트를 화면에 나타낼 수 있다.
 
 
 
-네임드 뷰
+### 네임드 뷰
 
 >  여러개의 컴포넌트를 동시에 표시하는 라우팅 방식
 
 
 
-네스티드 라우터 vs 네임드뷰 ?
+#### 네스티드 라우터 vs 네임드뷰 ?
 
 > 네스티드 라우터는 자식 관계로 하위 컴포넌트가 표시되는 것,
 >
@@ -210,9 +210,9 @@ Vue.component('child-component',{
 
 
 
-뷰 HTTP 통신
+## 뷰 HTTP 통신
 
-1. 뷰 리소스
+1. ### 뷰 리소스
 
    ```javascript
    <!DOCTYPE html>
@@ -253,11 +253,11 @@ Vue.component('child-component',{
 
    <img src="vue.assets/image-20200325221559195.png" alt="image-20200325221559195" style="zoom:33%;" />
 
-   2. 엑시오스
+2. ### 엑시오스
 
-      뷰 커뮤니티에서 가장 많이 사용되는 http 라이브러리
+   뷰 커뮤니티에서 가장 많이 사용되는 http 라이브러리
 
-      <u>Promise 기반</u>의 API형식
+   <u>Promise 기반</u>의 API형식
 
 ```javascript
 <!DOCTYPE html>
@@ -306,7 +306,7 @@ Vue.component('child-component',{
 
 
 
-뷰 템플릿
+## 뷰 템플릿
 
 > HTML, CSS 속성 ----- (연결) ----- 뷰 인스턴스에서 정의한 데이터 및 로직
 >
@@ -314,13 +314,13 @@ Vue.component('child-component',{
 
 
 
-1. 특징
+1. ### 특징
 
    Template --> `render()` --> HTML : render함수로 변환되는 과정이 있다. ( 뷰의 반응성이 더해짐 
 
    )
 
-2. 사용 방법 
+2. ### 사용 방법 
 
    1. ES5 에서 뷰 인스턴스의 template속성 활용
 
@@ -344,9 +344,9 @@ Vue.component('child-component',{
       </template>
       ```
 
-3. *템플릿에서 사용*하는 뷰의 속성과 문법.
+3. ### *템플릿에서 사용*하는 뷰의 속성과 문법.
 
-   - 데이터바인딩
+   - #### 데이터바인딩
 
      - HTML화면 요소 --- **(연결)** --- 뷰 인스턴스의 데이터 // {{ }}, `v-bind `
 
@@ -389,7 +389,7 @@ Vue.component('child-component',{
 
        
 
-   - 자바스크립트 표현식
+   - #### 자바스크립트 표현식
 
      ```html
      <div id="app">
@@ -424,7 +424,7 @@ Vue.component('child-component',{
 
        3. 복잡한 연산은 인스턴스 안에서 처리하고 화면에는 처리 결과를 나타낼 것.
 
-   - 디렉티브
+   - #### 디렉티브
 
      - 화면 요소를 더 쉽게 조작하기 위해 사용
 
@@ -468,8 +468,8 @@ Vue.component('child-component',{
 
        - <img src="vue.assets/image-20200326165119073.png" alt="image-20200326165119073" style="zoom:33%;" />
 
-   - 이벤트 처리
+   - #### 이벤트 처리
 
-   - 고급 템플릿 기법
+   - #### 고급 템플릿 기법
 
      

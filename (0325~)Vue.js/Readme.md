@@ -93,26 +93,24 @@ Vue.component('child-component',{
           }
     
       })
+   	
+   new Vue({
+         el:'#app',
+         created:function(){
+             eventBus.$on('triggerEventBus',function(value){
+                 console.log('이벤트를 전달 받음 , 전달받은 값 : ' + value)
+             })
+         }
+     })
    ```
 
 
-      new Vue({
-          el:'#app',
-          created:function(){
-              eventBus.$on('triggerEventBus',function(value){
-                  console.log('이벤트를 전달 받음 , 전달받은 값 : ' + value)
-              })
-          }
-      })
-  ```
-
-  
 
 
 
-뷰라우터
+## 뷰라우터
 
-​```html
+  ```html
 <!DOCTYPE html>
 <html lang="en">
 

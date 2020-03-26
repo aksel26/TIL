@@ -83,7 +83,7 @@ Vue.component('child-component',{
 
 - ```javascript
    var eventBus = new Vue();
-  
+    
       Vue.component('child-component',{
           template:'<div>하위 컴포넌트 영역입니다. <button v-on:click="showLog">show</button></div>',
           methods:{
@@ -91,10 +91,11 @@ Vue.component('child-component',{
                   eventBus.$emit('triggerEventBus',100);
               }
           }
-  
+    
       })
-  
-  
+   ```
+
+
       new Vue({
           el:'#app',
           created:function(){
@@ -111,7 +112,7 @@ Vue.component('child-component',{
 
 뷰라우터
 
-```html
+​```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -183,7 +184,7 @@ Vue.component('child-component',{
 </script>
 
 </html>
-```
+  ```
 
 
 
@@ -303,3 +304,172 @@ Vue.component('child-component',{
 
 
 
+
+
+뷰 템플릿
+
+> HTML, CSS 속성 ----- (연결) ----- 뷰 인스턴스에서 정의한 데이터 및 로직
+>
+> 사용자가 볼 수 있는 HTML 로 변환해주는 속성
+
+
+
+1. 특징
+
+   Template --> `render()` --> HTML : render함수로 변환되는 과정이 있다. ( 뷰의 반응성이 더해짐 
+
+   )
+
+2. 사용 방법 
+
+   1. ES5 에서 뷰 인스턴스의 template속성 활용
+
+      ```html
+      <script>
+      new Vue({
+        template:'<p> Hello {{message}}</p>'
+      });
+      </script>
+      ```
+
+      
+
+   2. ES6에서 싱글파일 컴포넌트체계의 `<template>`
+
+      ```html
+      <template>
+      	<p>
+          hello {{message}}
+        </p>
+      </template>
+      ```
+
+3. *템플릿에서 사용*하는 뷰의 속성과 문법.
+
+   - 데이터바인딩
+
+     - HTML화면 요소 --- **(연결)** --- 뷰 인스턴스의 데이터 // {{ }}, `v-bind `
+
+     - {{ }} : 텍스트 삽입 방식
+
+     - `v-bind` : 아이디, 클래스, 스타일 등의 (HTML 속성) 연결
+
+       ```html
+       <!DOCTYPE html>
+       <html lang="en">
+       <head>
+           <meta charset="UTF-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <title>Document</title>
+       </head>
+       <body>
+       
+       <div id="app">
+           <p v-bind:id="idA">아이디 바인딩</p>
+           <p v-bind:class = "classA">클래스 바인딩</p>
+           <p v-bind:style="styleA">스타일 바인딩</p>
+       
+       </div>
+       
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+       <script>
+           new Vue({
+               el:'#app',
+               data: {
+                   idA : 10,
+                   classA : 'container',
+                   styleA : 'color:blue'
+               }
+           });
+       
+       </script>
+       </body>
+       </html>
+       ```
+
+       
+
+   - 자바스크립트 표현식
+
+     ```html
+     <div id="app">
+         <p> {{message}} </p>
+         <p> {{message + "!!!"}}</p>
+         <p> {{message.split('').reverse().join('') }}</p>
+     </div>
+     
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script>
+         new Vue({
+             el:'#app',
+             data: {
+                 message:'Hello Vue.js!'
+             }
+         });
+     
+     </script>
+     ```
+
+     <img src="vue.assets/image-20200326163543393.png" alt="image-20200326163543393" style="zoom:33%;" />
+
+     - 주의사항 !
+
+       1. JS의 선언문 불가
+
+       2. 분기 구문 사용 불가
+
+          - `{{if (true) {return 100} }}` --> `{{ true ? 100 : 0}}`
+
+            <img src="vue.assets/image-20200326164021959.png" alt="image-20200326164021959" style="zoom:33%;" />
+
+       3. 복잡한 연산은 인스턴스 안에서 처리하고 화면에는 처리 결과를 나타낼 것.
+
+   - 디렉티브
+
+     - 화면 요소를 더 쉽게 조작하기 위해 사용
+
+     - HTML 태그 안에 v- 접두사를 가지는 모든 속성
+
+     - `v-if`,  `v-for`,  `v-show`, `v-bind`, `v-on`,  `v-model`
+
+       - `v-show` : `v-if`와 참 거짓에 따라서 나타낼 것인지 정하지만, if는 태그를 완전 삭제하지만 show는 감추기만 할 뿐.
+       - `v-model` : form에서 주로 사용되는 속성, 입력 값을 뷰 인스턴스 데이터와 즉시 동기화함. `<input>`, `<select>`,`<textarea>`태그에만 사용 가능하다.
+
+     - ```html
+       <div id="app">
+           <a v-if="flag"> 두잇 Vue.js</a>
+           <ul>
+               <li v-for="systems in systems">{{systems}}</li>
+           </ul>
+           <p v-show="flag"> 참이면 보인다</p>
+           <h5 v-bind:id="uid">v-bind:id=uid</h5>
+           <button v-on:click="popupAlert">팝업 버튼 v-on:click</button>
+       </div>
+       
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+       <script>
+           new Vue({
+               el:'#app',
+               data: {
+                   flag:true,
+                   systems:['android', 'ios', 'windows'],
+                   uid:10
+       
+               },
+               methods:{
+                   popupAlert:function(){
+                       return alert("경고창!")
+                   }
+               }
+           });
+       
+       </script>
+       ```
+
+       - <img src="vue.assets/image-20200326165119073.png" alt="image-20200326165119073" style="zoom:33%;" />
+
+   - 이벤트 처리
+
+   - 고급 템플릿 기법
+
+     

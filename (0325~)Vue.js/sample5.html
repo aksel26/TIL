@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <a v-if="flag"> 두잇 Vue.js</a>
+    <ul>
+        <li v-for="systems in systems">{{systems}}</li>
+    </ul>
+    <p v-show="flag"> 참이면 보인다</p>
+    <h5 v-bind:id="uid">v-bind:id=uid</h5>
+    <button v-on:click="popupAlert">팝업 버튼 v-on:click</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            flag:false,
+            systems:['android', 'ios', 'windows'],
+            uid:10
+
+        },
+        methods:{
+            popupAlert:function(){
+                return alert("경고창!")
+            }
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

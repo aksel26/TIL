@@ -468,6 +468,126 @@ Vue.component('child-component',{
 
    - #### 이벤트 처리
 
-   - #### 고급 템플릿 기법
+     - `v-on`
+
+     - `methods`
+
+       - 기본 이벤트 처리
+
+         ```html
+         <button v-on:click="clickBtn">클릭</button>
+         
+         <script>
+         clickBtn : function(){
+                         return alert('clicked!')
+                     },
+         </script>
+         ```
+
+       - 인자를 받아 오는 경우
+
+         ```html
+         <button v-on:click="clickBtn(10)">
+           클릭
+         </button>
+         
+         <script>
+         clickBtn : function(num){
+           return alert('clicked' + num + ' times');
+         }
+         </script>
+         ```
+
+       - event 인자 받아오는 경우
+
+         ```html
+         <button v-on:click="clickBtn(10)">
+           클릭
+         </button>
+         
+         <script>
+         clickBtn : function(event){
+         	console.log(event)
+         }
+         </script>
+         ```
+
+         <img src="Readme.assets/image-20200327173519969.png" alt="image-20200327173519969" style="zoom:50%;" />
 
      
+
+   - #### 고급 템플릿 기법
+
+     - ##### computed속성
+
+       > 데이터 연산들을 정의하는 영역
+
+       - 장점
+         1.  data속성 값의 변화에 따라 자동으로 다시 연산한다.
+         2. 캐싱 : 화면의 여러곳에 표시해야 할 경우 연산 결과를 가지고 있다가 결과만 표시한다.
+
+       
+
+       - Methods 속성과 computedt속성의 차이
+
+         **methods속성** : 호출할 때만 로직이 실행된다 (수동적 갱신)
+         **computed 속성** : 데이터의 값이 변경되면 자동으로 수행된다. (능동적 갱신), 복잡한 반복연산 수행시 유리하다.
+
+     - ##### watch속성
+
+       > 데이터 변화를 감지해 자동으로 특정 로직을 수행.
+
+       **computed** : 내장API 활용 간단한 연산 수행에 적합
+       **watch** : 데이터 호출과 같이 시간이 소요되는 비동기 처리에 적합.
+
+
+
+## 뷰 프로젝트 구성방법
+
+### 싱글파일 컴포넌트 체계
+
+> `.vue` 파일로 프로젝트 구조를 구성하는 방식.
+
+- 기본구조
+
+  ```vue
+  <template>
+   HTML태그 적용
+  </template>
+  
+  <script>
+    export default{
+  		  자바스크립트 내용
+      }
+  </script>
+  
+  <style>
+    Css스타일 적용
+  </style>
+  ```
+
+### 뷰 CLI
+
+- 설치
+
+  `sudo npm install -g @vue/cli`
+
+- 뷰 CLI로 프로젝트 생성하기
+
+  `vue init webpack-simple`
+
+  <img src="Readme.assets/image-20200327185307172.png" alt="image-20200327185307172" style="zoom:50%;" />
+
+- `npm insatll`  후, `npm run dev`
+
+  <img src="Readme.assets/image-20200327185346604.png" alt="image-20200327185346604" style="zoom:50%;" />	
+
+- 구조
+
+  <img src="Readme.assets/image-20200327185513985.png" alt="image-20200327185513985" style="zoom:50%;" />
+
+### 뷰 로더
+
+> 웹팩 라이브러리, `.vue` 파일의 내용을 HTML, CSS로 변환해준다.
+
+<img src="Readme.assets/image-20200327185815218.png" alt="image-20200327185815218" style="zoom:50%;" />

@@ -576,15 +576,15 @@ Vue.component('child-component',{
 
   `vue init webpack-simple`
 
-  <img src="Readme.assets/image-20200327185307172.png" alt="image-20200327185307172" style="zoom:50%;" />
+  <img src="Readme.assets/image-20200327185307172.png" alt="image-20200327185307172" width="70%" />
 
 - `npm insatll`  후, `npm run dev`
 
-  <img src="Readme.assets/image-20200327185346604.png" alt="image-20200327185346604" style="zoom:50%;" />	
+  <img src="Readme.assets/image-20200327185346604.png" alt="image-20200327185346604" width="30%" />	
 
 - 구조
 
-  <img src="Readme.assets/image-20200327185513985.png" alt="image-20200327185513985" style="zoom:50%;" />
+  <img src="Readme.assets/image-20200327185513985.png" alt="image-20200327185513985" width="40%" />
 
 ### 뷰 로더
 

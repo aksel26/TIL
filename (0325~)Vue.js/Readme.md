@@ -590,5 +590,5 @@ Vue.component('child-component',{
 
 > 웹팩 라이브러리, `.vue` 파일의 내용을 HTML, CSS로 변환해준다.
 
-![image-20200327190342399](Readme.assets/image-20200327190342399.png =385x)
+<img src="Readme.assets/image-20200327190342399.png" alt="image-20200327190342399" width="60%" />
 

@@ -1,24 +1,24 @@
 
 
-![Java-1](Readme.assets/Java-1.jpg)
-![Java-2](Readme.assets/Java-2.jpg)
-![Java-3](Readme.assets/Java-3.jpg)
-![Java-4](Readme.assets/Java-4.jpg)
+<img src="Readme.assets/Java-1.jpg" alt="Java-1" width="70%" />
+<img src="Readme.assets/Java-2.jpg" alt="Java-2" width="70%" />
+<img src="Readme.assets/Java-3.jpg" alt="Java-3" width="70%" />
+<img src="Readme.assets/Java-4.jpg" alt="Java-4" width="70%" />
 
-![Java-7](Readme.assets/Java-7.jpg)
+<img src="Readme.assets/Java-7.jpg" alt="Java-7" width="70%" />
 
-![Java-8](Readme.assets/Java-8.jpg)
+<img src="Readme.assets/Java-8.jpg" alt="Java-8" width="70%" />
 
-![Java-9](Readme.assets/Java-9.jpg)
+<img src="Readme.assets/Java-9.jpg" alt="Java-9" width="70%" />
 
-<img src="Readme.assets/Java-10.jpg" alt="Java-10" style="zoom:150%;" />
+<img src="Readme.assets/Java-10.jpg" alt="Java-10" width="70%" />
 
-![Java-11](Readme.assets/Java-11.jpg)
+<img src="Readme.assets/Java-11.jpg" alt="Java-11" width="70%" />
 
-![Java-12](Readme.assets/Java-12.jpg)
+<img src="Readme.assets/Java-12.jpg" alt="Java-12" width="70%" />
 
-![Java-112](Readme.assets/Java-112.jpg)
+<img src="Readme.assets/Java-112.jpg" alt="Java-112" width="70%" />
 
-![Java-122](Readme.assets/Java-122.jpg)
+<img src="Readme.assets/Java-122.jpg" alt="Java-122" width="70%" />
 
-![Java-13](Readme.assets/Java-13.jpg)
+<img src="Readme.assets/Java-13.jpg" alt="Java-13" width="70%" />

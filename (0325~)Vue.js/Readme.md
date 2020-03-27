@@ -584,7 +584,7 @@ Vue.component('child-component',{
 
 - 구조
 
-  <img src="Readme.assets/image-20200327185513985.png" alt="image-20200327185513985" width="40%" />
+  <img src="Readme.assets/image-20200327185513985.png" alt="image-20200327185513985" width="20%" />
 
 ### 뷰 로더
 

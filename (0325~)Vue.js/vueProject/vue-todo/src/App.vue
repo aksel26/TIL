@@ -1,22 +1,21 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput><TodoInput>
-    <TodoList><TodoList>
-    <TodoFooter><TodoFooter>
+    <TodoInput></TodoInput>
+    <TodoList></TodoList>
+    <TodoFooter></TodoFooter>
+    
   </div>
 
 </template>
 
 
 <script> //ES6 방식
-import TodoHeader from './components/TodoHeader.vue'
-import TodoFooter from './components/TodoFooter.vue'
-import TodoInput from './components/TodoInput.vue'
-import TodoList from './components/TodoList.vue'
-</script>
+import TodoHeader from './components/TodoHeader'
+import TodoFooter from './components/TodoFooter'
+import TodoInput from './components/TodoInput'
+import TodoList from './components/TodoList'
 
-<script>
 export default {
   components:{
     'TodoHeader' : TodoHeader,
@@ -27,6 +26,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+body{
+        text-align: center;
+        background-color: #f6f6f6;
+    }
 </style>

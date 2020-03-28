@@ -592,3 +592,60 @@ Vue.component('child-component',{
 
 <img src="Readme.assets/image-20200327190342399.png" alt="image-20200327190342399" width="60%" />
 
+
+
+### 프로젝트 초기 설정
+
+#### 반응형 웹 디자인 태그 설정
+
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+viewport : 모바일, 웹에서 레이아웃이 깨지지 않고 보인다.
+content=width=device-width : 너비대로 출력
+initial-scale=1.0 : 줌의 정도
+
+### 컴포넌트 생성 & 등록
+
+#### 컴포넌트 생성
+
+#### 컴포넌트 등록
+
+```html
+<template>
+  <div id="app">
+    <TodoHeader></TodoHeader>
+    <TodoInput><TodoInput>
+    <TodoList><TodoList>
+    <TodoFooter><TodoFooter>
+  </div>
+
+</template>
+
+
+<script> //ES6 방식 import 해서 컴포넌트에 대입한다. // ES5방식은 var변수에 직접 대입한다.
+import TodoHeader from './components/TodoHeader.vue'
+import TodoFooter from './components/TodoFooter.vue'
+import TodoInput from './components/TodoInput.vue'
+import TodoList from './components/TodoList.vue'
+</script>
+
+<script>
+export default {
+  components:{
+    'TodoHeader' : TodoHeader,
+    'TodoInput' : TodoInput,
+    'TodoFooter' : TodoFooter,
+    'TodoList' : TodoList
+  }  
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+
+
+
+
+

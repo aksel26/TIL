@@ -10,13 +10,17 @@
 
 > DI, AOP, MVC, JDBC
 
+
+
 - DI 
 
-> 주입
+> ​	주입
+
+
 
 - AOP 
 
-> 관점 지향 프로그래밍 , 공통 부분을 뽑아내 주요 부분만 작업
+> ​	관점 지향 프로그래밍 , 공통 부분을 뽑아내 주요 부분만 작업
 
 
 
@@ -27,10 +31,18 @@
 과거에는 모듈을 개별적으로 다운받았지만 <u>xml을 이용하면 자동으로 다운로드</u> 받게 된다.
 
 - **spring-core** : DI, IoC제공
+
 - **spring-aop** : AOP구현
+
 - **spring-jdbc**
+
 - **spring-tx** : 트랜잭션 관련 기능 제공
+
 - **spring-webmvc** : MVC구현 기능 제공
+
+  
+
+---
 
 
 
@@ -64,7 +76,7 @@
 
 
 
-모듈.. pom.xml이용 
+모듈..  `applicationContext.xml`이용해 빈 생성하기
 
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
@@ -81,6 +93,14 @@
 ```
 
 
+
+---
+
+### DI (Dependency Injection)
+
+<img src="readme.assets/image-20200401170801647.png" alt="image-20200401170801647" width="60%" />
+
+*객체 안에 객체가 있다.  = 의존성이 형성되어 있다.*
 
 
 

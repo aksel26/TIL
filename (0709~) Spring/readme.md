@@ -104,6 +104,114 @@
 
 
 
+---
+
+### 다양한 의존객체 주입
+
+1. #### 생성자를 이용
+
+   `<constructor-arg>` 키워드를 사용
+
+   ```xml
+   <bean id="studentDao" class="ems.member.dao.StudentDao"></bean>  //Bean객체 생성
+   
+   <bean id =" registerService" class="ems.member.service.StudentRegisterService">
+   	<constructor-arg ref="studentDao"></constructor-arg>
+   </bean>
+   ```
+
+   
+
+2. #### setter
+
+   ```xml
+   <bean id= " dataBaseConnectionInfoDev" class="ems.member.dao.StudentDao">
+   	<property name="jdbcUrl" value = "jdbc:oracle:thin:@localhost:1521:xe"> </property>
+   	<property name="userId" value = "scott"> </property>
+   	<property name="userPw" value = "tiger"> </property>
+    </bean>
+   ```
+
+   <img src="readme.assets/image-20200402193200162.png" alt="image-20200402193200162" width="70%" />
+
+   
+
+3. #### list타입 (여러개의 value를 입력해야할 때)
+
+   ```xml
+   <property name="developers">
+   	<list>
+     	<value> John</value>
+     	<value> Zaniac</value>
+     </list>
+   </property>
+   ```
+
+   <img src="readme.assets/image-20200402193337337.png" alt="image-20200402193337337" WIDTH="60%" />
+
+4. #### map타입 (key, value로 이루어져 있다.)
+
+   ```xml
+   <property name="adminstartors">
+   <map>
+     <entry>
+     	<key>
+       	<value>Cheney</value>
+       </key>
+       <value>Cheney@springPjt.org</value>
+     </entry>
+     <entry>
+     	<key>
+       	<value>Jasper</value>
+       </key>
+       	<value>Jasper@springPjt.org</value>
+     </entry>
+     </map>
+   </property>
+   ```
+
+   <img src="readme.assets/image-20200402193743690.png" alt="image-20200402193743690" width="60%" />
+
+   
+
+
+
+---
+
+### 스프링 설정 파일 분리
+
+<img src="readme.assets/image-20200402195935198.png" alt="image-20200402195935198" width="50%" />
+
+1. 방법1
+
+- 하나의 xml내용이 너무 길어지면 관리효율 및 가독성이 떨어진다.
+
+- 일반적인 분리 방법은 <u>기능별로</u>
+
+- 분리된 파일들은 **배열형식**으로 모아져 컨테이너가 만들어진다.
+
+  ```java
+  String[] appCtxs = {"classpath:appCtx1.xml", "classpath:appCtx2.xml", "classpath:appCtx3.xml"};
+  
+  GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(appCtxs);
+  
+  EMSInformation informationService = appctx.getBean("InformationService",EMSInformationService.class);
+  
+  InformationService.outputEMSInformation();
+  ```
+
+  
+
+2. 방법2. *import*하는 방법.
+
+appCtx1에 studentDao내용이 있다고 가정하면 `<import resource="classpath:appCtx2.xml"/>`, `<import resource="classpath:appCtx3.xml"/>` 하면 하나의 파일만 사용하면 된다.
+
+
+
+### 빈 (Bean)의 범위
+
+<img src="readme.assets/image-20200402200101609.png" alt="image-20200402200101609" width="70%" />
+
 
 
 

@@ -4,31 +4,31 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Solution8 {
-	 public String solution(String s) {
-		 
-		 
-	      String answer = "";
-	      int oddCenter =  s.length()/2;
-	      int evenCenter = s.length()/2-1;
-	    		  
-	      
-	      if(s.length()%2==1) {
-	    	  String result = s.substring(oddCenter,oddCenter+1);
-	    	  
-	    	  answer =result;
-	      }else if(s.length()%2==0) {
-	    	  String result =s.substring(evenCenter,evenCenter+2);
-	    	  System.out.println(result);
-	    	  answer =result;
-	      }
-	      
-//	      System.out.print(answer);
-	      return answer;
-	  }
-	 public static void main(String[] args) {
-		Solution8 sol8 = new Solution8();
-		sol8.solution("abcdefgf");
-//		sol8.solution("abcde");
+	public long solution(int a, int b) {
+
+		long answer = 0;
+		if (a <= b) {
+			for (int i = a; i <= b; i++) {
+
+				answer += a;
+				++a;
+
+			}
+		} else if (a > b) {
+			for (int i = b; i <= a; i++) {
+
+				answer += b;
+				++b;
+
+			}
+
+		}
+		System.out.println(answer);
+		return answer;
 	}
-	
+
+	public static void main(String[] args) {
+		Solution8 sol8 = new Solution8();
+		sol8.solution(3, 3);
+	}
 }

@@ -28,9 +28,19 @@
 
 
 
+
+
 ### 소프트웨어 공학
 
-<img src="readme.assets/image-20200406132839897.png" alt="image-20200406132839897" width="70%" />
+- 개발 프로세스
+
+  <img src="readme.assets/image-20200406132839897.png" alt="image-20200406132839897" width="60%" />
+
+
+
+
+
+
 
 
 
@@ -38,7 +48,7 @@
 
 1. #### 폭포수방식 (Waterfall)
 
-   <img src="readme.assets/image-20200406133050384.png" alt="image-20200406133050384" width="70%" />
+   <img src="readme.assets/image-20200406133050384.png" alt="image-20200406133050384" width="60%" />
 
    - 단점 : 각 단계를 완벽하게 끝내기 힘들 수 있다.
 
@@ -46,7 +56,11 @@
 
      
 
-2. #### 애자일 (Agile)
+     
+
+
+
+1. #### 애자일 (Agile)
 
 > 적당하게 빠르게 만들고 소통을 통해 개선해나간다.
 >
@@ -56,7 +70,9 @@
 
 3. #### 애자일 VS 폭포수
 
-<img src="readme.assets/image-20200406133333975.png" alt="image-20200406133333975" width="70%" />
+<img src="readme.assets/image-20200406133333975.png" alt="image-20200406133333975" width="60%" />
+
+
 
 
 
@@ -78,5 +94,67 @@
 
 
 
-- 
+
+
+
+
+### IDE
+
+- intelliJ
+- Eclipse
+- VisualStudio Code
+
+
+
+***
+
+
+
+
+
+### 트렌드를 읽는 방법 1. (활발한 기술)
+
+- 언어 기술 선택 기준 
+
+  : 많은 사용자가 있는지, 활발한지 --> 고민 해결에 유리하다.
+
+  > Redmonk 통계
+
+  <img src="readme.assets/image-20200406135547326.png" alt="image-20200406135547326"  width="60%" />
+
+
+
+
+
+### 트렌드를 읽는 방법 2. (인정받는 기술)
+
+### 트렌드를 읽는 방법 3. (유망한기술)
+
+> 가트너 발표 자료
+
+​		<img src="readme.assets/image-20200406135857905.png" alt="image-20200406135857905" width="60%" />
+
+
+
+
+
+
+
+---
+
+
+
+## 1. 컴파일러와 인터프리터
+
+
+
+### 1-1. 다양한 애플리케이션
+
+>  	사용자 (End-User) 가 사용.
+>
+> 
+
+
+
+
 

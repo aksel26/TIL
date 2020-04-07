@@ -1,7 +1,7 @@
-package test;
+package test.solution11;
 
 import java.util.*;
-import java.util.regex.Pattern;
+
 
 
 public class Solution11 {
@@ -12,17 +12,20 @@ public class Solution11 {
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] % divisor == 0) {
 				al.add(arr[i]);
+				
 			}
 		}
 		if(al.isEmpty()) {
 			al.add(-1);
 		}
+		
 		answer = new int[al.size()];
 		
 		for(int i = 0 ; i<al.size(); i++) {
 			answer[i] = al.get(i);
-		
+			
 		}
+		Arrays.sort(answer);
 		
 		
 		return answer;
@@ -31,7 +34,7 @@ public class Solution11 {
 
 	public static void main(String[] args) {
 		Solution11 sol11 = new Solution11();
-		int[] arr = { 5, 9, 7, 10 };
-		sol11.solution(arr, 5);
+		int[] arr = { 2, 36, 1, 3 };
+		sol11.solution(arr, 1);
 	}
 }

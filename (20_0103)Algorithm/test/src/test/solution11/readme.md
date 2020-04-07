@@ -30,7 +30,7 @@ public class Solution11 {
 		
 		}
 		
-		
+		Arrays.sort(answer);
 		return answer;
 
 	}
@@ -65,3 +65,19 @@ public class Solution11 {
   - **ArrayList를 떠올림.**
   - add메서드를 사용하자!
   - 그 후, get메서드로 int형 배열로 맞춰주자
+
+
+
+다른 사람 해결방법
+
+- Stream 사용
+
+```java
+class Solution {
+      public int[] solution(int[] arr, int divisor) {
+ 
+       return Arrays.stream(arr).filter(element -> element%divisor==0).toArray();
+      }
+}
+```
+

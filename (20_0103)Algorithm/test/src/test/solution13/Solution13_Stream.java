@@ -24,6 +24,8 @@ public class Solution13_Stream {
 		}
 		
 		
+		
+		//Stream 사용 후
 		Stream<String> listStream = strList.stream();
 		Stream<String> arrayStream  = Arrays.stream(strArr);
 		

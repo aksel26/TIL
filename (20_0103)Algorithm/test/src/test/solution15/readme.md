@@ -67,3 +67,34 @@ public class solution15 {
   4. 그후, answer에 추가
 
 `split("")`을 보기만하고 제대로 사용한 적은 없어서 떠올리지 못했던 것 같다.
+
+
+
+
+
+- 다른 사람의 코드
+
+  ```java
+   String answer = "";
+            char ch = 0;
+            int index = 0;
+            
+            for(int i=0; i<s.length(); i++) {
+                if(s.charAt(i) == ' ') {
+                    ch = s.charAt(i);
+                    index = 0;
+                } else {
+                    index += 1;
+                    if(index%2!=0) {
+                        ch = Character.toUpperCase(s.charAt(i));
+                    } else {
+                        ch = Character.toLowerCase(s.charAt(i));
+                    }
+                }
+                
+                answer += ch;
+            }
+  ```
+
+  - charAt을 사용하는게 더 맞는 것 같다.
+  - split 배열을 하면 runtime오류가난다....

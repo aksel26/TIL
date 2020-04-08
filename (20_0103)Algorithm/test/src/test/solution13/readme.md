@@ -83,3 +83,70 @@ public class Solution13_1 {
 - 접근
 
   : Stream, 
+
+
+
+---
+
+### Stream
+
+```java
+package test.solution13;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class Solution13_Stream {
+
+
+	public static void main(String[] args) {
+		String[] strArr = {"mash-up", "backend", "frontend"};
+		
+		List<String> strList = Arrays.asList(strArr);
+		Arrays.sort(strArr);
+		Collections.sort(strList);
+		
+		for(String str:strArr) {
+			System.out.println(str);
+		}
+		
+		for(String str:strList) {
+			System.out.println(str);
+		}
+		
+		
+		
+		//Stream 사용 후
+		
+		Stream<String> listStream = strList.stream();
+		Stream<String> arrayStream  = Arrays.stream(strArr);
+		
+		listStream.sorted().forEach(System.out::println);
+		arrayStream.sorted().forEach(System.out::println);
+	}
+}
+```
+
+- Stream sort정렬한다고 정렬이 정말로 되는 것은 아니고, 보여주는 것일 뿐 (스트림의 특징)
+
+
+
+#### 스트림의 특징
+
+- 데이터소스를 변경하지 않는다.
+- 일회용이다
+- 내부 반복
+
+#### 스트림의 연산
+
+- 중간연산 : 연산 후 스트림으로 반환되기 때문에 다시 연산 연결이 가능하다.
+  - `map()`, `flatmap()`
+- 최종연산 : 스트림의 요소 소모. 단 한번만 가능
+  - `reduce()`, `collect()`
+
+
+
+
+

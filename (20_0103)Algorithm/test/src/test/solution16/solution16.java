@@ -21,7 +21,7 @@ public class solution16 {
 						if (num % 2 == 1) {
 							
 							if( num ==1 ) {
-								System.out.println(num);
+								
 								break;
 							}
 							

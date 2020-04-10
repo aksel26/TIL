@@ -2,7 +2,7 @@ package test.solution16;
 
 public class solution16_1 {
 	public int solution(int num) {
-	int answer = 0 ;
+	
 	
 	long n = (long)num ;
 	for(int i = 0 ;i < 500 ; i++) {

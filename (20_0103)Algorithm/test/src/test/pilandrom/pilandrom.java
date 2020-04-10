@@ -19,7 +19,7 @@ public class pilandrom {
 			answer = true;
 
 		}
-		System.out.println(answer);
+
 		return answer;
 	}
 

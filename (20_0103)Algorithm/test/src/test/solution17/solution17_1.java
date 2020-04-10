@@ -33,9 +33,7 @@ public class solution17_1 {
 		// 33= false
 		
 		
-	List<String> list = Arrays.asList("홍길동", "신용권", "김남준");	
-	Stream<String> stream = list.stream();
-	stream.forEach(name -> System.out.println(name));
+	
 
 	}
 }

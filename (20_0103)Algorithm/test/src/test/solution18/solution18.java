@@ -3,10 +3,10 @@ package test.solution18;
 import java.util.*;
 
 public class solution18 {
-	public int solution(int x) {
+	public int solution(int n) {
 		int answer = 0;
 
-		String x1 = Integer.toString(x);
+		String x1 = Integer.toString(n);
 
 		String x2[] = x1.split("");
 
@@ -14,13 +14,10 @@ public class solution18 {
 
 		for (int i = 0; i < x3.length; i++) {
 			x3[i] = Integer.parseInt(x2[i]);
-		
+
 		}
-		
+
 		answer = Arrays.stream(x3).sum();
-		System.out.println(answer);
-		
-		
 
 		return answer;
 	}

@@ -12,7 +12,7 @@ public class Stack_prac {
 
 	
 	
-	//괄호 
+	//괄호 문제
 	
 	public static String isValid(String s) {
 		int n = s.length();

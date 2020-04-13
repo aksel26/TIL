@@ -1,4 +1,4 @@
-package test.reverseList;
+package test.recursion;
 
 import java.util.List;
 

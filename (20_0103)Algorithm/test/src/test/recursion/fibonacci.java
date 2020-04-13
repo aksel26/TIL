@@ -1,6 +1,6 @@
 package test.recursion;
 
-public class recursion {
+public class fibonacci {
 	public int solution(int x) {
 		int answer = 0;
 
@@ -18,7 +18,7 @@ public class recursion {
 	}
 
 	public static void main(String[] args) {
-		recursion sol = new recursion();
+		fibonacci sol = new fibonacci();
 		for (int i = 0; i < 10; i++) {
 			System.out.println(sol.fib(i));
 		}

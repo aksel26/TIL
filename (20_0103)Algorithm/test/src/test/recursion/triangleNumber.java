@@ -1,4 +1,4 @@
-package test.triangleNumber;
+package test.recursion;
 
 public class triangleNumber {
 

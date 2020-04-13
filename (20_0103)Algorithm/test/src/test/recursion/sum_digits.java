@@ -1,4 +1,4 @@
-package test.sum_digits;
+package test.recursion;
 
 public class sum_digits {
 

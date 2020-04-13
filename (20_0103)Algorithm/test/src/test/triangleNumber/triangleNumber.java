@@ -4,15 +4,15 @@ public class triangleNumber {
 
 	public static int triangle_number(int n) {
 		
-		if(n==1) {
+		if(n<=1) {
 			return 1;
 		}
 	 	  
 		else{
-//			System.out.println(triangle_number(n-1));
-			int tmp = n+triangle_number(n-1);
+			return n + triangle_number(n-1);
 			
-	 		 return tmp;
+//			return triangle_number(n-1) + triangle_number(n);
+			
 			
 		}
 	}

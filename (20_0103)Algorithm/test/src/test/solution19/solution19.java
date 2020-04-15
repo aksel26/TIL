@@ -17,33 +17,42 @@ public class solution19 {
 
 		else if (arr.length > 1) {
 
+			answer = new int[arr.length];
 			for (int i = 0; i < arr.length; i++) {
-
-				answer = new int[arr.length+1];
 
 				answer[i] = arr[i];
 				
 				
-			if(answer[i]<answer[i+1]) {
 				
-				int tmp = answer[i+1];
-				answer[i+1] = answer[i];
-				answer[i] = tmp;
 				
 			}
 			
-			System.out.println(Integer.min(answer[i], 4));
-			
-//			System.out.println(answer[i+1]);
-					
+			for (int i = 0; i < (answer.length)/2; i++) {
+				
+				 int max = answer.length- i -1; //6-0-1 , 6-1-1, 6-2-1
+		         int temp = 0;
+		         temp = answer[i];
+		         answer[i] = answer[max];
+		         answer[max] = temp;
+				
+				
+				
+				
+				
 				
 			}
 			
+			for (int i = 0; i < answer.length; i++) {
+				System.out.println(answer[i]);
+			}
 			
 		
 			
-
+		
 			
+			
+			
+
 		}
 
 		return answer;
@@ -52,7 +61,7 @@ public class solution19 {
 
 	public static void main(String[] args) {
 		solution19 sol19 = new solution19();
-		int[] arr = { 1, 2, 3, 5 ,4};
+		int[] arr = { 1, 2, 3, 5, 4 };
 		sol19.solution(arr);
 		// 33= false
 

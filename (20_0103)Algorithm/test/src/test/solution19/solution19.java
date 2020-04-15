@@ -27,24 +27,7 @@ public class solution19 {
 				
 			}
 			
-			for (int i = 0; i < (answer.length)/2; i++) {
-				
-				 int max = answer.length- i -1; //6-0-1 , 6-1-1, 6-2-1
-		         int temp = 0;
-		         temp = answer[i];
-		         answer[i] = answer[max];
-		         answer[max] = temp;
-				
-				
-				
-				
-				
-				
-			}
 			
-			for (int i = 0; i < answer.length; i++) {
-				System.out.println(answer[i]);
-			}
 			
 		
 			

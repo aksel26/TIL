@@ -2,7 +2,7 @@ package test.solution23;
 
 import java.util.*;
 
-public class solution23 {
+public class Solution23 {
 	public int[] solution(long n) {
 		int[] answer = {};
 
@@ -17,6 +17,7 @@ public class solution23 {
 
 		
 		// string[] -> int[] 배열에 넣기
+		
 		
 		// 방법1. for문 사용
 		answer = new int[str2.length];
@@ -33,7 +34,7 @@ public class solution23 {
 	}
 
 	public static void main(String[] args) {
-		solution23 sol23 = new solution23();
+		Solution23 sol23 = new Solution23();
 		sol23.solution(12345);
 
 	}

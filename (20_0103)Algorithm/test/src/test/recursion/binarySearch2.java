@@ -29,9 +29,8 @@ public class binarySearch2 {
 	public static void main(String[] args) {
 		binarySearch2 bs = new binarySearch2();
 
-		int[] some_list = { 1 , 4, 21, 34, 35 };
+		int[] some_list = { 1, 4, 21, 34, 35 };
 
-
-		System.out.println(bs.binary_search(35, 0, some_list.length-1, some_list));
+		System.out.println(bs.binary_search(35, 0, some_list.length - 1, some_list));
 	}
 }

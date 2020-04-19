@@ -18,7 +18,7 @@ class LamdaEx1 {
 	}
 
 	public static void main(String[] args) {
-		
+
 		MyFunction f1 = () -> System.out.println("f1.run()");
 
 		MyFunction f2 = new MyFunction() {

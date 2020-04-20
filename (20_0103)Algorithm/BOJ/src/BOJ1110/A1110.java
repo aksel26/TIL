@@ -1,4 +1,4 @@
-package test.BOJ.Q1110;
+package BOJ1110;
 
 import java.util.Scanner;
 

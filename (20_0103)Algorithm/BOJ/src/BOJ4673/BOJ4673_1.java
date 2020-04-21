@@ -6,11 +6,9 @@ public class BOJ4673_1 {
 		int result = value;
 
 		while (value > 0) {
-			
+
 			result += value % 10;
-			value /=10;
-			
-//			result = value + value / 10 + value % 10;
+			value /= 10;
 
 		}
 
@@ -29,7 +27,7 @@ public class BOJ4673_1 {
 			}
 
 		}
-		
+
 		for (int i = 1; i < array.length; i++) {
 			if (array[i] != 1) {
 				System.out.println(i);

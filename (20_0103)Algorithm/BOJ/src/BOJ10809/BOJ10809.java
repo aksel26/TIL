@@ -23,15 +23,14 @@ public class BOJ10809 {
 		for (int i = 0; i < alphabet.length; i++) {
 			for (int j = 0; j < words.length; j++) {
 				if (alphabet[i].equals(words[j])) {
-					
-					if(alphabet[i].equals("o")) {
-						System.out.println("@222");
+
+					if (alphabet[i].equals("o")) {
 						j = 5;
 						result[i] = j;
 						break;
 					}
 					result[i] = j;
-					
+
 					continue;
 				}
 			}
@@ -39,7 +38,7 @@ public class BOJ10809 {
 		}
 
 		for (int i = 0; i < result.length; i++) {
-			
+
 			System.out.print(result[i] + " ");
 		}
 
@@ -47,8 +46,6 @@ public class BOJ10809 {
 
 }
 
-
-
-
 //	baekjoon
-//	1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 6 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
+//	1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
+//	1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1

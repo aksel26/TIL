@@ -12,8 +12,6 @@ public class BOJ2908 {
 		String[] num1 = scn.nextLine().split("");
 		String[] num2 = scn.nextLine().split("");
 
-//			for (int i = 0; i < num1.length; i++) {
-
 		String temp = num1[num1.length - 1];
 		num1[num1.length - 1] = num1[0];
 		num1[0] = temp;
@@ -31,8 +29,6 @@ public class BOJ2908 {
 		int res2 = Integer.parseInt(result2);
 
 		System.out.println(Math.max(res, res2));
-
-//			}			
 
 	}
 

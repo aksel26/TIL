@@ -2,7 +2,7 @@
 
 - 문제
 
-  <img src="/Users/hxmkim/Library/Application Support/typora-user-images/image-20200423152430386.png" alt="image-20200423152430386" width="70%" />
+  <img src="readme.assets/image-20200423152430386.png" alt="image-20200423152430386" width="70%" />
 
 - ### 내꺼
 

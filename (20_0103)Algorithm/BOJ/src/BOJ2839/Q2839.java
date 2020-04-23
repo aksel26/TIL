@@ -8,29 +8,27 @@ public class Q2839 {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 
-		int weight = scn.nextInt(); // 설탕 무게
+		int[] burger = new int[3];
+		int[] drink = new int[2];
 
-		if (weight % 5 == 0) {
-			System.out.println(weight / 5);
-			return;
-
-		} else {
-			int quotient = weight / 5;
-			for (int i = quotient; i > 0; i--) {
-				int temp = weight - (i * 5);
-
-				if (temp % 3 == 0) {
-					System.out.println(i + (temp / 3));
-					return;
-				}
-			}
+		System.out.println("버거 입력");
+		for (int i = 0; i < burger.length; i++) {
+			burger[i] = scn.nextInt();
 		}
-		if (weight % 3 == 0) {
-			System.out.println(weight / 3);
-		} else {
-			System.out.println(-1);
+		Arrays.sort(burger);
+		int burgerMin = burger[0];
+
+		Math.min(burger[0], burger[1]);
+		System.out.println("음료 입력");
+		for (int i = 0; i < drink.length; i++) {
+			drink[i] = scn.nextInt();
 		}
-		return;
+		Arrays.sort(drink);
+		int drinkMin = drink[0];
+
+		int setPrice = burgerMin + drinkMin - 50;
+		
+		System.out.println(setPrice);
 
 	}
 

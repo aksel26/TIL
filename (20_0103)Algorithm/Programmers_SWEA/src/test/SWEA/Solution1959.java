@@ -19,10 +19,8 @@ class Solution1959 {
 
 			// 연산결과
 			int resultLength = A.length - B.length;
-			int sum[] = new int[Math.abs(resultLength)];
-//			int sum[] = new int[10];
+			int sum[] = new int[Math.abs(resultLength) + 1];
 
-			
 			for (int j = 0; j < A.length; j++) {
 				A[j] = sc.nextInt();
 
@@ -32,29 +30,46 @@ class Solution1959 {
 
 			}
 
-			int idx= 0;
+			int idx = 0;
 			int temp = 0;
-			
+
 //			 합 배열
-			
-			for (int j = 0; j <= A.length; j++) {
-					
-				// 곱
-				for (int k = idx, l = 0; k<= A.length; l++,k++) {
+			if (A.length < B.length) {
+				for (int j = 0; j < sum.length; j++) {
 
-					temp += A[l] * B[k];
-					System.out.println(A[l]);
+					// 곱
+					for (int k = idx, l = 0; k < j + A.length; l++, k++) {
+
+						temp += A[l] * B[k];
+					}
+
+					idx++;
+					sum[j] = temp;
+					temp = 0;
+
 				}
-				
-				idx++;
-				sum[j] = temp;
-				System.out.println(sum[j]);
-				
-			}
 
-//			for (int j = 0; j < sum.length; j++) {
-//				System.out.println(sum[j]);
-//			}
+				Arrays.sort(sum);
+
+				System.out.println("#" + i + " " + sum[sum.length - 1]);
+			} else {
+
+				for (int j = 0; j < sum.length; j++) {
+
+					// 곱
+					for (int k = idx, l = 0; k < j + B.length; k++, l++) {
+						temp += A[k] * B[l];
+					}
+
+					idx++;
+					sum[j] = temp;
+					temp = 0;
+				}
+
+				Arrays.sort(sum);
+				System.out.println("#" + i + " " + sum[sum.length - 1]);
+
+			}
 
 		}
 	}

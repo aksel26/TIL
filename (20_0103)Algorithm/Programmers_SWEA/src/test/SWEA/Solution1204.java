@@ -10,8 +10,8 @@ class Solution1204 {
 
 		T = sc.nextInt();
 
-
 		for (int i = 1; i <= T; i++) {
+			
 			int Tcase = sc.nextInt();
 
 //			점수

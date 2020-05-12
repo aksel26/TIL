@@ -9,37 +9,40 @@ class Solution29 {
 		String arr = "";
 
 //		자르기 위해 string으로 변환
-//		for (int i = 0; i < array.length; i++) {
-//
-//			arr += Integer.toString(array[i]);
-//
-//		}
+		for (int i = 0; i < array.length; i++) {
+
+			arr += Integer.toString(array[i]);
+
+		}
 		
 		
 
 		for (int i = 0; i < commands.length; i++) {
 
 //		substring을 위해 beginIndex, endIndex를 구함
-//			int beginIndex = commands[i][0];
-//			int endIndex = commands[i][1];
+			int beginIndex = commands[i][0];
+			int endIndex = commands[i][1];
 
 //		substring
-//			String arr_sub = arr.substring(beginIndex - 1, endIndex);
-//			String arr_str[] = arr_sub.split("");
+			String arr_sub = arr.substring(beginIndex - 1, endIndex);
+			String arr_str[] = arr_sub.split("");
 
 			
-			int[] arr_str = Arrays.copyOfRange(array, commands[i][0]-1, commands[i][1]);
+//			int[] arr_str = Arrays.copyOfRange(array, commands[i][0]-1, commands[i][1]);
+			
 //		정렬
 			Arrays.sort(arr_str);
 
 //		k값
-//			int select = commands[i][2];
+			int select = commands[i][2];
 
 //		int값으로 변환
-//			int result = Integer.parseInt(arr_str[select - 1]);
+			int result = Integer.parseInt(arr_str[select - 1]);
 
 //		answer배열에 넣기
-			answer[i] = arr_str[commands[i][2]-1];
+			answer[i] = result;
+			
+//			answer[i] = arr_str[commands[i][2]-1];
 			
 		}
 

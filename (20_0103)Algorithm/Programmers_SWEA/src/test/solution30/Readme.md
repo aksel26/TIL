@@ -6,7 +6,7 @@
 
 - 소스
 
-  ```java
+```java
   package test.solution30;
   
 import java.util.*;
@@ -54,7 +54,7 @@ import java.util.*;
   		sol30.solution(numbers);
   	}
   }
-  ```
+ ```
   
   - *접근*
   

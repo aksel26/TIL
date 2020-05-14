@@ -14,6 +14,7 @@ public class BOJ2908_1 {
 		for (int i = num1.length()-1; i >=0; i--) {
 			result += num1.charAt(i);
 		}
+
 		num1 = result;
 		
 		result = "";
@@ -27,7 +28,8 @@ public class BOJ2908_1 {
 		
 		if (number1>number2) {
 			System.out.println(number1);
-		}else {
+		}else 
+		{
 			System.out.println(number2);
 		}
 	}

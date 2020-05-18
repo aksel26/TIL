@@ -2,7 +2,7 @@
 
 - 문제
 
-  <img src="무제.assets/image-20200518165802252.png" alt="image-20200518165802252" width="80%" />
+  <img src="Solution1255.assets/image-20200518170158329.png" alt="image-20200518170158329" width="80%" />
 
 - 코드
 

@@ -9,12 +9,7 @@ public class Solution1255 {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 
-		
-
-		
-
 		Queue<Integer> que = new LinkedList<Integer>();
-
 
 		for (int i = 0; i < 10; i++) {
 			int temp = 1;
@@ -25,17 +20,17 @@ public class Solution1255 {
 			}
 
 //			수 빼기 사이클
-			while(temp!=0) {
-				
+			while (temp != 0) {
+
 				for (int j = 1; j < 6; j++) {
-					
+
 					temp = que.poll();
 					temp = temp - j;
-					
+
 					if (temp < 0) {
 						temp = 0;
 					}
-					
+
 					que.add(temp);
 					if (temp == 0) {
 						break;
@@ -44,11 +39,10 @@ public class Solution1255 {
 			}
 
 			System.out.print("#" + T + " ");
-			
-			
+
 			for (int j = 0; j < 8; j++) {
 				temp = que.poll();
-				System.out.print(temp+ " ");
+				System.out.print(temp + " ");
 			}
 			System.out.println();
 

@@ -207,7 +207,47 @@ int main(void) {
 //    YES
     
     
+//    지수 출력하기
+//    int A, B ,i, num=1;
+//    scanf("%d %d", &A, &B);
+//    for (i = 0; i < B; i++) {
+//        num = num * A ;
+//
+//    }
+//    printf("%d", num);
+//    3 5
+//    243
     
+//    최소값 구하기
+//    int a,i, min= 21470000;
+//    for (i =0; i<7; i++) {
+//        scanf("%d", &a);
+//        if(min>a){
+//            min = a;
+//        }
+//    }
+//    printf("%d", min);
+//    5 3 7 11 2 15 17
+//    2
+    
+//    26.홀수
+//    int a, i, sum =0 , min = 21470000;
+//    for (i = 0 ; i< 7; i++) {
+//        scanf("%d", &a);
+//        if(a % 2 ==1 ){
+//            sum += a;
+//            if(min> a){
+//                min  = a;
+//            }
+//        }
+//
+//    }
+//    printf("%d\n%d", sum,min);
+//    입력
+//    12 77 38 41 53 92 85
+//    출력
+//    256
+//    41
     
     
     return 0;

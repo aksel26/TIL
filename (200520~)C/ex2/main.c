@@ -66,19 +66,148 @@ int main(void) {
 //    15
     
     
+//    최솟값 구하기
+//    int num1, num2;
+//
+//    scanf("%d %d", &num1, &num2);
+//
+//    if(num1<num2){
+//        printf("%d", num1);
+//    }else{
+//        printf("%d", num2);
+//    }
+//    12 11
+//    11
     
-    int a = 3, b = 12, k;
-    if( a>0){
-        b++;
-        k = a + b;
-    }
-    else{
-        b--;
-        k = a +b;
-    }
+    
+//    짝수인가?
+//    int num;
+//    scanf("%d", &num);
+//
+//    if(num % 2 ==0 ){
+//        printf("YES");
+//    }else{
+//        printf("NO");
+//    }
+//    13
+//    NO
+    
+//    홀수, 짝수, 제로
+//    int num;
+//    scanf("%d", &num);
+//    if(num  ==0 ){
+//        printf("zero");
+//    }else if(num % 2==0){
+//        printf("even");
+//    }else if(num%2!=0){
+//        printf("odd");
+//    }
+//    22
+//    even
+    
+    
+//    놀이기구 키 제한
+//    int height ;
+//    scanf("%d",&height);
+//    if(height >= 120 && height<= 150){
+//        printf("YES");
+//    }else{
+//        printf("NO");
+//    }
+//    155
+//    NO
+    
+//    세 수 중 최솟값
+//    int a, b, c;
+//    scanf("%d %d %d", &a,&b,&c);
+//    if(a>b){
+//        if(b>c){
+//            printf("%d", c);
+//        }else{
+//            printf("%d", b);
+//        }
+//    }else{
+//        if(a<c){
+//            printf("%d", a);
+//        }else{
+//            printf("%d", c);
+//        }
+//    }
+//    19 23 11
+//    11
 
+//    삼각형 판별하기
+//    int a,b,c, max;
+//    scanf("%d %d %d", &a, &b, &c);
+//
+//    if(a>b){
+//        if(a>c){
+//            max = a;
+//            if(max < b + c){
+//                printf("YES");
+//            }else{
+//                printf("NO");
+//            }
+//        }else{
+//            max = c;
+//            if(max < a + c){
+//                printf("YES");
+//            }else{
+//                printf("NO");
+//            }
+//        }
+//
+//    }else{
+//        if(b<c){
+//            max = c;
+//            if(max < b + a){
+//                printf("YES");
+//            }else{
+//                printf("NO");
+//            }
+//
+//        }else{
+//            max = b;
+//            if(max < a + c){
+//                printf("YES");
+//            }else{
+//                printf("NO");
+//            }
+//        }
+//    }
+//    11 19 23
+//    YES
     
-    printf("%d\n", k );
+    
+//    N의 약수 구하기
+//    int num,i ;
+//    scanf("%d", &num);
+//    for (i = 1; i <= num ; i++) {
+//        if(num % i == 0){
+//            printf("%d " , i);
+//        }
+//    }
+//    30
+//    1 2 3 5 6 10 15 30
+    
+//    소수 판별하기
+//    int num,i,cnt=0;
+//    scanf("%d",&num);
+//    for (i = 1; i<=num; i++) {
+//        if(num % i == 0){
+//            cnt++;
+//        }
+//    }
+//    if(cnt<=2){
+//        printf("YES");
+//    }else{
+//        printf("NO");
+//    }
+//    53
+//    YES
+    
+    
+    
     
     
     return 0;

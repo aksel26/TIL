@@ -270,9 +270,37 @@ int main(void) {
     
     
     
+//    10부제
+//
+//    int date, cars, i , cnt = 0  ;
+//
+//    scanf("%d", &date);
+//
+//    for (i= 0; i < 7; i++) {
+//
+//    scanf("%d", &cars);
+//        if(cars % 10 == date){
+//            cnt ++;
+//
+//        }
+//
+//    }
+//    printf("%d",cnt );
+//    입력
+//    0
+//    12 20 54 30 87 91 30
+//    출력
+//    3
+    
+    
+    
+    
+    
     
     
     return 0;
 }
+
+
 
 

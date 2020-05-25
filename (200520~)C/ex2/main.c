@@ -270,7 +270,7 @@ int main(void) {
     
     
     
-//    10부제
+//   27. 10부제
 //
 //    int date, cars, i , cnt = 0  ;
 //
@@ -291,6 +291,28 @@ int main(void) {
 //    12 20 54 30 87 91 30
 //    출력
 //    3
+    
+    
+//    28. 사과
+//    int school, students, apples, i, sum=0;
+//
+//    scanf("%d", &school);
+//
+//    for(i = 0; i<school; i++){
+//        scanf("%d %d", &students, &apples);
+//        sum += apples % students;
+//
+//    }
+//    printf("%d", sum);
+//    입력
+//    5
+//    24 52
+//    13 22
+//    5 53
+//    23 10
+//    7 70
+//    출력
+//    26
     
     
     

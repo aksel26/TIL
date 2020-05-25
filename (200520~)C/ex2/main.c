@@ -249,6 +249,28 @@ int main(void) {
 //    256
 //    41
     
+//    동물 다리 수
+//    int total, legs,legs2 = 0, i, j;
+//
+//
+//    scanf("%d %d", &total, &legs);
+//    for (i = 1, j = total-1 ; i <= total; i++,j--) {
+//
+//        legs2 = (i * 4) + (j* 2) ;
+//        if(legs == legs2 ){
+//            printf("%d %d\n", i, j);
+//            break;
+//
+//        }
+//    }
+//    입력
+//    26 74
+//    출력
+//    11 15
+    
+    
+    
+    
     
     return 0;
 }

@@ -372,6 +372,56 @@ int main(void) {
     
 // 삼각형 출력3
 
+    int num , i, j;
+
+    scanf("%d", &num);
+
+    for ( i = 0;  i < num; i++)
+    {
+
+        if( i <=num / 2){
+        for ( j = 0; j < num/2 - i  ; j++)
+        {
+            printf(" ");
+        }
+        for ( j = 0; j < i + 1; j++)
+        {
+            printf("@");
+        }
+        
+        printf("\n");
+        }
+        else{
+            for ( j = 0; j < i - num/2 ; j++)
+            {
+                printf(" ");
+            }
+
+            for ( j = 0; j < num -i   ; j++)
+            {
+                printf("@");
+                
+            }
+            
+        printf("\n");
+            
+        }
+    }
+    // 입력
+    //     7
+    // 출력
+    // @
+    // @@
+    // @@@
+    // @@@@
+    // @@@
+    // @@
+    // @
+
+    
+
+
+
 
 
     

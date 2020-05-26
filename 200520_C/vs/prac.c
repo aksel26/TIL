@@ -407,20 +407,20 @@ int main(void)
 
     // 주사위의 수
 
-    int num1, i, result, j;
-    scanf("%d", &num1);
+    // int num1, i, result, j;
+    // scanf("%d", &num1);
 
-    for (i = 1; i <= 6; i++)
-    {
-        for (j = 1; j <= 6; j++)
-        {
-            result = i + j;
-            if (result == num1)
-            {
-                printf("%d %d\n", i, j);
-            }
-        }
-    }
+    // for (i = 1; i <= 6; i++)
+    // {
+    //     for (j = 1; j <= 6; j++)
+    //     {
+    //         result = i + j;
+    //         if (result == num1)
+    //         {
+    //             printf("%d %d\n", i, j);
+    //         }
+    //     }
+    // }
     // 입력
     // 9
     // 출력
@@ -428,6 +428,102 @@ int main(void)
     // 4 5
     // 5 4
     // 6 3
+
+
+    // 두자리 숫자 만들기
+    // int num, i ,j;
+    // scanf("%d", &num);
+    // for ( i = 1; i <= num; i++)
+    // {
+    //     for ( j = 1; j <= num; j++)
+    //     {
+    //         if(i == j){
+    //             continue;
+    //         }else{
+    //             printf("%d%d\n", i, j)   ;
+    //         }
+         
+    //     }
+        
+    // }
+
+    // 입력
+    // 5
+    // 출력
+    // 12
+    // 13
+    // 14
+    // 15
+    // 21
+    // 23
+    // 24
+    // 25
+    // 31
+    // 32
+    // 34
+    // 35
+    // 41
+    // 42
+    // 43
+    // 45
+    // 51
+    // 52
+    // 53
+    // 54
+    
+    // 특정 두자리수 만들기
+    // int num,i , j,cnt =0; 
+    // scanf("%d", & num);
+
+    // if(num % 10 ==0){
+    // for ( i = 1; i < num / 10 ; i++)
+    //     {
+    //         for ( j = 1; j < num/ 10 ; j++)
+    //         {
+    //             if(i<=j){
+    //                 continue;
+    //             }else{
+    //                 cnt ++;
+    //                 printf("%d%d\n",i,j);
+                    
+
+    //             } 
+
+    //         }
+            
+    //     }
+    // }else{
+    //     for ( i = 1; i <= num/10; i++)
+    //     {
+    //         for ( j = 1; j <= num % 10; j++)
+    //         {
+    //             if(i<= j){
+    //                 continue;
+    //             }else{
+    //                 cnt++;
+    //                 printf("%d%d\n",i,j);
+    //             }
+    //         }
+            
+    //     }
+        
+    // }
+    // printf("%d", cnt);
+    
+    // 입력
+    // 53
+    // 출력
+    // 21
+    // 31
+    // 32
+    // 41
+    // 42
+    // 43
+    // 51
+    // 52
+    // 53
+    // 9
+
 
 
 

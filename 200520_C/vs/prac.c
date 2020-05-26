@@ -83,7 +83,7 @@ int main(void) {
 //    짝수인가?
 //    int num;
 //    scanf("%d", &num);
-//
+
 //    if(num % 2 ==0 ){
 //        printf("YES");
 //    }else{
@@ -293,15 +293,15 @@ int main(void) {
 //    3
     
     
-//    28. 사과
+//    28. 사과∫
 //    int school, students, apples, i, sum=0;
-//
+
 //    scanf("%d", &school);
-//
+
 //    for(i = 0; i<school; i++){
 //        scanf("%d %d", &students, &apples);
 //        sum += apples % students;
-//
+
 //    }
 //    printf("%d", sum);
 //    입력
@@ -315,6 +315,65 @@ int main(void) {
 //    26
     
     
+// 삼각형 출력
+
+    // int num, i = 0, j = 0 ;
+    // scanf("%d", &num);
+
+    // for (i = 0; i < num; i++){
+    //     for (j  = 0;j < num-i; j++){
+    //         printf("@");
+    //     }
+    //     printf("\n");
+        
+    // }
+
+    // 입력
+    // 6
+    // 출력
+    // @@@@@@
+    // @@@@@
+    // @@@@
+    // @@@
+    // @@
+    // @
+
+
+// 삼각형 출력2
+
+// int num, i,j;
+
+// scanf("%d", &num);
+
+// for ( i = 0; i < num; i++)
+// {
+
+//     for ( j = 0 ; j <num-i-1  ; j++)
+//     {
+//         printf(" ");
+//     }
+//     for ( j = 0; j < i + 1 ; j++)
+//     {
+//             printf("@");
+//     }
+    
+//     printf("\n");
+// }
+    // 입력
+    // 5
+    // 출력
+    //     @
+    // @@
+    // @@@
+    // @@@@
+    // @@@@@
+
+
+    
+// 삼각형 출력3
+
+
+
     
     
     

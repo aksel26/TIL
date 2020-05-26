@@ -472,43 +472,43 @@ int main(void)
     // 54
     
     // 특정 두자리수 만들기
-    // int num,i , j,cnt =0; 
-    // scanf("%d", & num);
+    int num,i , j,cnt =0; 
+    scanf("%d", & num);
 
-    // if(num % 10 ==0){
-    // for ( i = 1; i < num / 10 ; i++)
-    //     {
-    //         for ( j = 1; j < num/ 10 ; j++)
-    //         {
-    //             if(i<=j){
-    //                 continue;
-    //             }else{
-    //                 cnt ++;
-    //                 printf("%d%d\n",i,j);
+    if(num % 10 ==0){
+    for ( i = 1; i < num / 10 ; i++)
+        {
+            for ( j = 1; j < num/ 10 ; j++)
+            {
+                if(i<=j){
+                    continue;
+                }else{
+                    cnt ++;
+                    printf("%d%d\n",i,j);
                     
 
-    //             } 
+                } 
 
-    //         }
+            }
             
-    //     }
-    // }else{
-    //     for ( i = 1; i <= num/10; i++)
-    //     {
-    //         for ( j = 1; j <= num % 10; j++)
-    //         {
-    //             if(i<= j){
-    //                 continue;
-    //             }else{
-    //                 cnt++;
-    //                 printf("%d%d\n",i,j);
-    //             }
-    //         }
+        }
+    }else{
+        for ( i = 1; i <= num/10; i++)
+        {
+            for ( j = 1; j <= num % 10; j++)
+            {
+                if(i<= j){
+                    continue;
+                }else{
+                    cnt++;
+                    printf("%d%d\n",i,j);
+                }
+            }
             
-    //     }
+        }
         
-    // }
-    // printf("%d", cnt);
+    }
+    printf("%d", cnt);
     
     // 입력
     // 53

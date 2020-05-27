@@ -38,13 +38,12 @@ int main(void)
     //     tmp = a[0];
     //     a[0] = a[9];
     //     a[9] = tmp;
-        
+
     //     for ( j = 0; j < 9; j++)
     //     {
-    //         a[j] = a[j + 1];    
+    //         a[j] = a[j + 1];
     //     }
-        
-        
+
     // }
     // for ( i = 0; i < 9; i++)
     // {
@@ -54,8 +53,74 @@ int main(void)
     // 5 9 6 11 33 21 66 15 35
     // 3(회전수)
     // 출력
-    // 11 33 21 66 15 35 5 9 6 
-    
+    // 11 33 21 66 15 35 5 9 6
+
+
+
+
+    // 38. 자리찾기
+
+    // int size, input, i, length;
+
+    // scanf("%d", &size);
+    // int a[size + 1];
+    // length = sizeof(a) / sizeof(a[0]);
+
+    // for (i = 0; i < size; i++)
+    // {
+    //     scanf("%d", &a[i]);
+    // }
+
+    // scanf("%d", &input);
+
+    // for (i = 0; i <= length; i++)
+    // {
+    //     if (a[i] < input && a[i + 1] > input)
+    //     {
+    //         a[i + 3] = a[i + 2];
+    //         a[i + 2] = a[i + 1];
+    //         a[i + 1] = input;
+    //     }
+    // }
+
+    // for (i = 0; i < length; i++)
+    // {
+    //     printf("%d ", a[i]);
+    // }
+
+    // 해설지 참고
+    // int n, tmp, i, arr[101];
+    // scanf("%d", &n);
+
+    // for (i = 1; i <= n; i++)
+    // {
+    //     scanf("%d", &arr[i]);
+    // }
+
+    // scanf("%d", &tmp);
+
+    // for (i = n; i >= 1; i--)
+    // {
+    //     if (arr[i] > tmp)
+    //     {
+    //         arr[i + 1] = arr[i];
+    //     }
+    //     else
+    //     {
+    //         break;
+    //     }
+    // }
+    // arr[i + 1] = tmp;
+    // for (i = 1; i <= n + 1; i++)
+    // {
+    //     printf("%d ", arr[i]);
+    // }
+    // 입력
+    // 7
+    // 11 15 19 23 27 32 36
+    // 21
+    // 출력
+    // 11 15 19 21 23 27 32 36 
 
     return 0;
 }

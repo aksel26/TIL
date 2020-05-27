@@ -55,9 +55,6 @@ int main(void)
     // 출력
     // 11 33 21 66 15 35 5 9 6
 
-
-
-
     // 38. 자리찾기
 
     // int size, input, i, length;
@@ -120,7 +117,39 @@ int main(void)
     // 11 15 19 23 27 32 36
     // 21
     // 출력
-    // 11 15 19 21 23 27 32 36 
+    // 11 15 19 21 23 27 32 36
+
+    // 일곱난장이
+
+    int members[101], i, sum, tmp, j;
+
+    for (i = 0; i < 9; i++)
+    {
+        scanf("%d", &members[i]);
+
+        sum += members[i];
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        for (j = i + 1; j < 9; j++)
+        {
+            tmp = sum - (members[i] + members[i + 1]);
+            if (tmp == 100)
+            {
+                members[i] = -1;
+                members[j] = -1;
+                break;
+            }
+        }
+        if (tmp == 100)
+            break;
+    }
+    for (i = 0; i < 9; i++)
+    {
+        if (members[i] > 0)
+            printf("%d ", members[i]);
+    }
 
     return 0;
 }

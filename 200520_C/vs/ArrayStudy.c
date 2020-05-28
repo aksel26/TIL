@@ -165,6 +165,36 @@ int main(void)
     // 7
     // 출력
     // 34
+    // 경우의 수와 피보나치 수열문제였다.
+
+
+    // ============ A를 #으로 ============
+
+    // char str[100];
+    // int i, n;
+    // scanf("%s", str);;
+    // n = strlen(str);
+    // for ( i = 0; i < n; i++)
+    // {
+    //     if(str[i] =='A') str[i] = '#';
+    // }
+    // printf("%s\n", str);
+    // 입력
+    // BANANA
+    // 출력
+    // B#N#N#
+   
+
+    
+
+    
+    
+
+    
+    
+
+
+
 
     return 0;
 }

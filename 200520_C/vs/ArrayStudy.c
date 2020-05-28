@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    // ============ 배열의 역순 출력 ============ 
+    // ============ 배열의 역순 출력 ============
     // int size, i, num;
     // scanf("%d", &size);
     // int a[size];
@@ -25,7 +25,7 @@ int main(void)
     // 출력
     // 5948736
 
-    // ============ 배열의 회전 ============ 
+    // ============ 배열의 회전 ============
     // int a[101], rotate, tmp,j ,i;
 
     // for (i = 0; i < 9; i++)
@@ -55,7 +55,7 @@ int main(void)
     // 출력
     // 11 33 21 66 15 35 5 9 6
 
-    // ============ 38. 자리찾기 ============ 
+    // ============ 38. 자리찾기 ============
 
     // int size, input, i, length;
 
@@ -119,36 +119,52 @@ int main(void)
     // 출력
     // 11 15 19 21 23 27 32 36
 
-    // ============ 39.일곱난장이 ============ 
-    int members[101], i, sum, tmp, j;
+    // ============ 39.일곱난장이 ============
+    // int members[101], i, sum, tmp, j;
 
-    for (i = 0; i < 9; i++)
-    {
-        scanf("%d", &members[i]);
+    // for (i = 0; i < 9; i++)
+    // {
+    //     scanf("%d", &members[i]);
 
-        sum += members[i];
-    }
+    //     sum += members[i];
+    // }
 
-    for (i = 0; i < 8; i++)
-    {
-        for (j = i + 1; j < 9; j++)
-        {
-            tmp = sum - (members[i] + members[i + 1]);
-            if (tmp == 100)
-            {
-                members[i] = -1;
-                members[j] = -1;
-                break;
-            }
-        }
-        if (tmp == 100)
-            break;
-    }
-    for (i = 0; i < 9; i++)
-    {
-        if (members[i] > 0)
-            printf("%d ", members[i]);
-    }
+    // for (i = 0; i < 8; i++)
+    // {
+    //     for (j = i + 1; j < 9; j++)
+    //     {
+    //         tmp = sum - (members[i] + members[i + 1]);
+    //         if (tmp == 100)
+    //         {
+    //             members[i] = -1;
+    //             members[j] = -1;
+    //             break;
+    //         }
+    //     }
+    //     if (tmp == 100)
+    //         break;
+    // }
+    // for (i = 0; i < 9; i++)
+    // {
+    //     if (members[i] > 0)
+    //         printf("%d ", members[i]);
+    // }
+
+    // ============ 개울건너기 ============
+    // int num, i;
+    // scanf("%d", &num);
+    // int rocks[num];
+    // rocks[0] = 1;
+    // rocks[1] = 1;
+    // for (i = 2; i <= num + 1; i++)
+    // {
+    //     rocks[i] = rocks[i - 2] + rocks[i - 1];
+    // }
+    // printf("%d ", rocks[num + 1]);
+    // 입력
+    // 7
+    // 출력
+    // 34
 
     return 0;
 }

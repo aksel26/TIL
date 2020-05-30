@@ -250,39 +250,37 @@ int main(void)
     //     1  8 15 22 29 36 43
 
     // ============ 2차원 배열 출력 2.============
-    int i, j, num, k = 1, l = 1;
+    // int i, j, num, k = 1, l = 1;
 
-    scanf("%d", &num);
+    // scanf("%d", &num);
 
-    int a[num+1][num+1];
+    // int a[num + 1][num + 1];
 
-    // int a[6][6];
+    // for (i = 0; i < num; i++)
 
-    for (i = 0; i < num; i++)
+    // {
+    //     for (j = i; j >= 0; j--)
+    //     {
+    //         a[i][j] = k;
+    //         k++;
+    //     }
 
-    {
-        for (j = i;  j>=0; j--)
-        {
-            a[i][j] = k;
-            k++;
-            
-        }
+    //     for (j = l; j < num; j++)
+    //     {
+    //         a[i][j] = 0;
+    //     }
+    //     l++;
+    // }
 
-        for ( j= l; j < num; j++)
-        {
-            a[i][j] = 0;
-        }
-        l++;
-    }
+    // for (i = 0; i < num; i++)
+    // {
+    //     for (j = 0; j < num; j++)
+    //     {
+    //         printf("%3d", a[i][j]);
+    //     }
+    //     printf("\n");
 
-    for (i = 0; i < num; i++)
-    {
-        for (j = 0; j < num; j++)
-        {
-            printf("%3d", a[i][j]);
-        }
-        printf("\n");
-    }
+    // }
     // 입력
     // 5
     // 출력
@@ -291,6 +289,59 @@ int main(void)
     // 6  5  4  0  0
     // 10  9  8  7  0
     // 15 14 13 12 11
+
+    // ============ 2차원 배열 출력 3.============
+
+    int i, j, k = 1, l = 2, m;
+    
+    int a[6][6];
+
+    for (i = 0; i < 5; i++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            a[i][j] = 0;
+
+            if (i == j)
+            {
+                a[i][j] = k;
+                k = k + 2;
+            }
+
+            if (i < 5 / 2)
+            {
+                if (j == 4 - i)
+
+                {
+                     
+                    for (m = 0; m <= 1; m++)
+                    {
+                        a[i][j] = a[m][m] + 1;
+
+                        
+                    }
+                   
+                }
+            }
+            else if (i > 5 / 2 )
+            {
+                if (j == 4 - i)
+                {
+
+                    a[i][j] = a[3][3] -1;
+                }
+            }
+        }
+    }
+
+    for (i = 0; i < 5; i++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            printf("%7d", a[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }

@@ -2,6 +2,9 @@
 
 // 문자열의 길이를 구하기 위해 추가
 #include <string.h>
+#include <math.h>
+int a[6][6];
+int st[2][7];
 
 int main(void)
 {
@@ -292,56 +295,89 @@ int main(void)
 
     // ============ 2차원 배열 출력 3.============
 
-    int i, j, k = 1, l = 2, m;
+    // int i, j, k = 1, l = 2, m;
     
-    int a[6][6];
+    // int a[6][6];
 
-    for (i = 0; i < 5; i++)
-    {
-        for (j = 0; j < 5; j++)
-        {
-            a[i][j] = 0;
+    // for (i = 0; i < 5; i++)
+    // {
+    //     for (j = 0; j < 5; j++)
+    //     {
+    //         a[i][j] = 0;
 
-            if (i == j)
-            {
-                a[i][j] = k;
-                k = k + 2;
-            }
+    //         if (i == j)
+    //         {
+    //             a[i][j] = k;
+    //             k = k + 2;
+    //         }
 
-            if (i < 5 / 2)
-            {
-                if (j == 4 - i)
+    //         if (i < 5 / 2)
+    //         {
+    //             if (j == 4 - i)
 
-                {
+    //             {
                      
-                    for (m = 0; m <= 1; m++)
-                    {
-                        a[i][j] = a[m][m] + 1;
+    //                 for (m = 0; m <= 1; m++)
+    //                 {
+    //                     a[i][j] = a[m][m] + 1;
 
                         
-                    }
+    //                 }
                    
-                }
-            }
-            else if (i > 5 / 2 )
-            {
-                if (j == 4 - i)
-                {
+    //             }
+    //         }
+    //         else if (i > 5 / 2 )
+    //         {
+    //             if (j == 4 - i)
+    //             {
+    //                 a[i][j] = a[3][3] -1;
+    //                 printf("%d", a[4][4]);
+    //             }
+    //         }
+    //     }
+    // }
 
-                    a[i][j] = a[3][3] -1;
-                }
-            }
-        }
-    }
+    // for (i = 0; i < 5; i++)
+    // {
+    //     for (j = 0; j < 5; j++)
+    //     {
+    //         printf("%7d", a[i][j]);
+    //     }
+    //     printf("\n");
+    // }
 
-    for (i = 0; i < 5; i++)
-    {
-        for (j = 0; j < 5; j++)
-        {
-            printf("%7d", a[i][j]);
-        }
-        printf("\n");
-    }
+// ============ 방 배정 ============
+    
+    // int members, div, S, Y,i,j;
+    // double sum=0;
+
+    // // int st[2][7];
+    // scanf("%d %d", &members, &div);
+    
+
+    // for ( i = 1; i <= members; i++)
+    // {
+    //     scanf("%d %d", &S, &Y);
+    //     st[S][Y]++;
+
+    // }
+    // for ( i = 0; i <=1; i++)
+    // {
+    //     for ( j = 1; j <= 6; j++)
+    //     {
+    //         sum = sum + (ceil(st[i][j] / (double)div));
+    //     }
+        
+    // }
+
+    // printf("%d\n", (int)sum);
+    
+
+
+
+
+
 
     return 0;
 }
+

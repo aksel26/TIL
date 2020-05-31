@@ -296,7 +296,7 @@ int main(void)
     // ============ 2차원 배열 출력 3.============
 
     // int i, j, k = 1, l = 2, m;
-    
+
     // int a[6][6];
 
     // for (i = 0; i < 5; i++)
@@ -316,14 +316,13 @@ int main(void)
     //             if (j == 4 - i)
 
     //             {
-                     
+
     //                 for (m = 0; m <= 1; m++)
     //                 {
     //                     a[i][j] = a[m][m] + 1;
 
-                        
     //                 }
-                   
+
     //             }
     //         }
     //         else if (i > 5 / 2 )
@@ -331,7 +330,7 @@ int main(void)
     //             if (j == 4 - i)
     //             {
     //                 a[i][j] = a[3][3] -1;
-                   
+
     //             }
     //         }
     //     }
@@ -359,29 +358,29 @@ int main(void)
     // 문제 해결의 Key :
     //      j == i, i + j ==4 (5x5행렬일 경우)
 
-    int i, j, k = 1, num;
-    scanf("%d", &num);
-    for ( i = 0; i < num; i++)
-    {
-        for ( j = 0; j < num; j++)
-        {
-            if(i == j  || i + j == num - 1){
-                a[i][j] = k ; 
-                k++;
-            }
-        }
-        
-    }
+    // int i, j, k = 1, num;
+    // scanf("%d", &num);
+    // for ( i = 0; i < num; i++)
+    // {
+    //     for ( j = 0; j < num; j++)
+    //     {
+    //         if(i == j  || i + j == num - 1){
+    //             a[i][j] = k ;
+    //             k++;
+    //         }
+    //     }
 
-    for ( i = 0; i < num; i++)
-    {
-        for ( j = 0; j < num; j++)
-        {
-            printf("%3d",a[i][j]);
-        }
-        printf("\n");
-        
-    }
+    // }
+
+    // for ( i = 0; i < num; i++)
+    // {
+    //     for ( j = 0; j < num; j++)
+    //     {
+    //         printf("%3d",a[i][j]);
+    //     }
+    //     printf("\n");
+
+    // }
     // 입력
     // 5
     // 출력
@@ -390,21 +389,14 @@ int main(void)
     //   0  0  5  0  0
     //   0  6  0  7  0
     //   8  0  0  0  9
-    
 
+    // ============ 방 배정 1. ============
 
-
-
-    
-
-// ============ 방 배정 ============
-    
     // int members, div, S, Y,i,j;
     // double sum=0;
 
     // // int st[2][7];
     // scanf("%d %d", &members, &div);
-    
 
     // for ( i = 1; i <= members; i++)
     // {
@@ -418,18 +410,47 @@ int main(void)
     //     {
     //         sum = sum + (ceil(st[i][j] / (double)div));
     //     }
-        
+
     // }
 
     // printf("%d\n", (int)sum);
-    
-    
-    
 
+    // ============ 방 배정 2. ============
 
+    int s, y, members, div, i, j, tmp;
+    double sum = 0;
 
+    scanf("%d %d", &members, &div);
 
+    for (i = 1; i <= members; i++)
+    {
+        scanf("%d %d", &s, &y);
+        st[s][y]++;
+    }
+
+    tmp = 0;
+
+    for (i = 0; i <= 1; i++)
+    {
+        for (j = 1; j <= 2; j++)
+        {
+            tmp = tmp + st[i][j];
+        }
+    }
+
+    sum = sum + ceil(tmp / (double)div);
+
+    for (i = 0; i <= 1; i++)
+    {
+        for (j = 3; j <= 5; j=j+2)
+        {
+            tmp = 0;
+            tmp = tmp + st[i][j];
+            tmp = tmp + st[i][j + 1];
+            sum = sum + ceil(tmp / (double)div);
+        }
+    }
+    printf("%d\n", (int)sum);
 
     return 0;
 }
-

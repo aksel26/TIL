@@ -1,63 +1,41 @@
+
+
+// 링크드 리스트 구현
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#define MAX 10
+struct Node
+{
+    struct Node *next;
+    int data;
+};
 
 int main()
 {
 
-    typedef struct member
+    struct Node *head = malloc(sizeof(struct Node)); // 머리 노드 생성
+    //머리 노드는 데이터를 저장하지 않음
+
+    struct Node *node1 = malloc(sizeof(struct Node)); // 첫 노드 생성
+    head->next = node1;                               // 머리 노드 다음은 첫번째 노드
+    node1->data = 10;                                 //첫 노드에 10 저장
+
+    struct Node *node2 = malloc(sizeof(struct Node)); //두번째 노드 생성
+    node1->next = node2;
+    node2->data = 20;
+
+    node2->next = NULL;
+
+    struct Node *curr = head->next; //연결 리스트 순회용 포인터에 첫 노드의 주소 저장
+    while (curr != NULL)
     {
-        int id;
-        char name[20];
-        struct member* next;
-
-    } MTYPE;
-
-    MTYPE* HEAD,* temp,* lptemp;
-
-    HEAD = NULL;
-
-    while (1)
-    {
-        temp = (MTYPE*) malloc(sizeof(MTYPE));
-        if (temp == NULL)
-        {
-            printf("메모리할당 실패\n");
-            return 1;
-        }
-        printf("ID : ");
-        scanf("%d%*c", &temp->id);
-        if (temp->id == -1)
-        {
-            break;
-        }
-        printf("이름 : ");
-        gets(temp->name);
-        temp->next=HEAD; // 새 노드를 연결리스트에 연결
-        HEAD=temp;
+        printf("%d\n", curr->data);
+        curr = curr->next;
     }
 
-        free(temp); 
-        temp=HEAD;    //temp 연결리스트에 가장 최신의 노드를 가리킴
-        while (temp)
-        {
-            printf("id = %d, name = %s\n", temp->id, temp->name);
-            temp = temp->next;
-        }
+    free(node2);
+    free(node1);
+    free(head);
 
-        // 동적할당 메모리 반납
-        temp = HEAD;
-        while (temp)
-        {   
-            // lptemp를 사용하는 이유 ?
-            // temp가 가리키는 메모리를 반납하면 그안의 멤버는 사용불가하므로 
-            // free함수 이전에 변수를 저장해야하기 때문.
-            lptemp = temp->next;
-            free(temp);
-            temp = lptemp;
-        }
-    
     return 0;
-
 }

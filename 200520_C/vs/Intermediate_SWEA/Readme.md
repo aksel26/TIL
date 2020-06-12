@@ -1,6 +1,75 @@
 
 
+## Array
 
+### Array순회
+
+- N x M 행렬의 원소를 빠짐없이 조사하는 방법
+
+  1. 행 우선 선회
+
+     - 행을 우선으로 Array의 원소를 조사하는 방법
+
+       가로로 쭈우우우우욱
+
+  2. 열 우선 선회
+
+     - 열을 우선으로 Array의 원소를 조사하는 방법
+
+       세로로 쭈우우우우욱
+
+  3. 지그재그 순회
+
+     - 첫행은 우측, 다음행은 좌측으 조사
+
+     - ```c
+       int i; // 행으 좌표
+       int j; // 열의 좌표
+       
+       for i from 0 to n-1
+         for j from - to m-1
+           Array[i][j+(m-1-2*j) *(i %2)];
+       
+       ```
+
+### 델타를 이용한 2차 Array탐색
+
+- 2차 Array의 한 좌표에서 네 방향의 인접 Array 요소를 탐색할  때 사용하는 방법
+
+- **델타값** ; 한 좦에서  네 방향의 자표와 x, y의 차이를 저장한 Array
+
+- 델타값을 이용해 특정 원소의 상하좌우에 위치한 원소에 접근
+
+- ```c
+  dx[] <- {0,0,-1,1};
+  dy[] <- {-1,1,0,0};
+  
+  for x,y from 0. to n-1
+    for i from.0 to 3{
+      testX <- x + dx[mode];
+      testY <- y + dy[mode];
+      test(ary[testX][testY]);
+    }
+  ```
+
+
+
+### 전치 행렬
+
+- 행과 열의 값이 반대인 행렬
+
+- ```c
+  int arr[3][3];
+  int i;
+  int j;
+  
+  for i from 0 to 2
+    for j from 0 to 2
+      if(i<j)
+        swap(arr[i][j], arr[j][i]);
+  ```
+
+- 모든 좌표에 대해 행과 열의 값을 바꾸면 원래상태로 돌아온다.!
 
 ## DP (동적계획법) Dynamic Programming
 

@@ -208,8 +208,68 @@
   2. 중앙원소 값과 목표값 비교
   3. 목표값<중앙원소값 : 왼쪽 반에 대해 새로 검색 수행
      목표값>중앙원소값 : 오른쪽 반에 대해 새로 검색 수행
+  
 - 검색범위의 **시작점**과 **종료점**을 이용
+
 - 자료 삽입 또는 삭제가 되면 항상 정렬을 다시 해줘야함
+
+- 예제 소스
+
+  - ```c
+    #include <stdio.h>
+    
+    int main()
+    {
+        int target, mid, high, low;
+    
+        int data[10] = {2, 3, 4, 5, 6, 7, 8, 9, 13, 24, 55};
+    
+        scanf("%d", &target);
+    
+        low = 0;
+        high = 9;
+    
+        while(1)
+        {
+            if (low <= high)
+            {
+    
+                mid = (low + high) / 2;
+                if (target == data[mid])
+                {
+                    printf("%d는 %d번째에 있습니다.", target, mid);
+                    break;
+                }
+    
+                if (target <= data[mid])
+                {
+                    high = mid;
+                }
+                else
+                {
+                    low = mid;
+                }
+            }
+            else
+            {
+                printf("%d는 존재하지 않는다", target);
+                break;
+            }
+        }
+    
+        return 0;
+    }
+    ```
+
+  
+
+  
+
+  </br>
+
+  
+
+  
 
 ### 인덱스
 

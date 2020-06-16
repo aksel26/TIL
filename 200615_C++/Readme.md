@@ -119,17 +119,65 @@
 - 기본 자료형
 
   - 논리, 문자, 정수, 실수
+  - C++에서 추가된 자료형
+    - 논리형 (bool)
+    - 문자형 (wchar_t : 2 or 4 byte (플랫폼에 따라 크기가 다름))
+  - 플랫폼에 따라 크기가 다른 자료형
+    - 정수형( long, unsigned long  4(32bit) or 8 byte((64bit)))
+    - 실수형 ( long double 8 or 10 or 16 byte )
+- 자료형의 크기 확인 방법
+  - `sizeof()`
+
+- 정수형 기본 자료형의 크기
+  - signed
+    - **부호비트** 추가, 표현범위 : **-32768 ~ 32767** (short 형)
+  - unsigned
+    - 음수의 데이터가 없는 경우
+    - 표현범위 : **0 ~ 65535** (short 형)
+  - **데이터 오버 플로우**가 일어날 수 있기 때문에 자료형의 크기 선택을 고려해야한다.
 
 - 사용자 정의 자료형
 
-  - 열거형
+  - 열거형 (enum)
   - 문자열
   - 포인터
   - 배열
-  - 구조체
-  - 공용체
-  - 클래스
+  - 구조체 (struct)
+  - 공용체 (union)
+  - 클래스 (class)
+  - typedef
 
-- 자료형의 크기 확인 방법
+  
 
-  운영체제에 따라 크기가 다를 수 있으므로 `sizeof()` 연산자로 크기를 확인하고 사용한다.
+- Typedef
+
+  > 사용자가 이름을 부여함.
+
+  왜 ?
+
+  1. 가독성
+
+  2. 다양한 플랫폼에 포팅이 가능한 프로그램 작성 가능
+
+     Ex) 
+
+     ```c
+     
+     unsigned int num1, num2;
+     unsigned int get_addr(char* add);
+     char* put_addr(unsigned int addr);
+     --> 모든 줄의 int형을 long형으로 바꾸어야해서 번거롭다
+     
+     typedef unsigned int unit32;
+     unit32 num1, num2;
+     unit32 get_addr(char* add);
+     char* put_addr(unit32 addr);
+     --> 맨위에 형변환만 해주면 된다.
+       
+     전제조건
+     : 32비트 정수? int형 크기 4바이트(32bit) 플랫폼 : int형 사용
+        				   int형 크기 2바이트(16bit) 플랫폼 : 4바이트 자료형은 long형
+     ```
+
+     
+

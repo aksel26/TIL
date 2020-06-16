@@ -125,16 +125,24 @@
   - 플랫폼에 따라 크기가 다른 자료형
     - 정수형( long, unsigned long  4(32bit) or 8 byte((64bit)))
     - 실수형 ( long double 8 or 10 or 16 byte )
+    - </br>
+
 - 자료형의 크기 확인 방법
+
   - `sizeof()`
 
+  </br>
+
 - 정수형 기본 자료형의 크기
+
   - signed
     - **부호비트** 추가, 표현범위 : **-32768 ~ 32767** (short 형)
   - unsigned
     - 음수의 데이터가 없는 경우
     - 표현범위 : **0 ~ 65535** (short 형)
   - **데이터 오버 플로우**가 일어날 수 있기 때문에 자료형의 크기 선택을 고려해야한다.
+
+  </br>
 
 - 사용자 정의 자료형
 
@@ -149,7 +157,7 @@
 
   
 
-- Typedef
+- ### Typedef
 
   > 사용자가 이름을 부여함.
 
@@ -166,13 +174,16 @@
      unsigned int num1, num2;
      unsigned int get_addr(char* add);
      char* put_addr(unsigned int addr);
-     --> 모든 줄의 int형을 long형으로 바꾸어야해서 번거롭다
+     
+     // --> 모든 줄의 int형을 long형으로 바꾸어야해서 번거롭다
+     
      
      typedef unsigned int unit32;
      unit32 num1, num2;
      unit32 get_addr(char* add);
      char* put_addr(unit32 addr);
-     --> 맨위에 형변환만 해주면 된다.
+     
+     // --> 맨위에 형변환만 해주면 된다.
        
      전제조건
      : 32비트 정수? int형 크기 4바이트(32bit) 플랫폼 : int형 사용
@@ -180,4 +191,47 @@
      ```
 
      
+
+- ### Enum
+
+  > 하나 이상의 정수형 상수를 원소로 갖는 열거형의 enum
+
+   `enum colors {red, blue, yellow, green, white, black} mycolor;`
+
+  `mycolor = red ` : mycolor 변수에 **0대입**
+
+  `mycolor == blue` : mycolor변수의 값이 blue, **1인지 비교**
+
+  </br>
+
+  왜 ?
+
+  - 가독성
+  - 수가 상징하는 의미를 문자로 작성하면 분석이 용이하다.
+
+  ```c
+  enum color {red=10, blue=20, yellow, green, white, black} mycolor;
+  
+  /* yellow는 30이 아니다
+    값이 부여된 blue부터 순차적으로 증가함
+    yellow 는 21, green은 22
+    
+   */
+  ```
+
+  </br>
+
+## 변수
+
+1. ### 변수 선언
+
+`int num1 = 0, num2(-1);`
+
+**C++에서는 변수도 객체의 한 종류로로 생각한다.**
+
+2. 지역변수, 전역변수
+   1. 함수 내 선언 : 지역변수 
+   2. 함수 외부 선언 : 전역변수
+   3. <img src="Readme.assets/image-20200616163354838.png" alt="image-20200616163354838" width="70%" />
+3. 
 

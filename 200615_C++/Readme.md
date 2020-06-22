@@ -778,8 +778,120 @@ struct [구조체 이름]{
   `p = &s;`
   : 포인터변수 p 사용가능
 
+- #### 구조체 포인터 변수를 통한 메모리의 멤버 접근
+
+  - 화살표 `->` 연산자 이용
+
+    - `p -> name`
+
+    <img src="Readme.assets/image-20200621005256022.png" alt="image-20200621005256022" width="60%"/>
+
+  - ```c++
+    MEMINFO person[10];
+    MEMINFO* ptr;//구조체 포인터 변수
+    
+    // ptr포인터 변수는 person배열의 첫번째 원소를 가리킴
+    // 구조체 배열 person의 시작주소 대입
+    ptr = person;
+    ```
+
+  - 구조체 배열도 **연속적인 메모리 할당**을 받기 때문에 일밴배열처럼 **포인터 변수의 연산**을 통해 접근이 가능하다.
+
+  - 예제
+
+    ```c++
+    #include <iostream>
+    #include <cstring>
+    
+    using namespace std;
+    #define MAX 10
+    
+    int main()
+    {
+    
+        struct meminfo
+        {
+            char name[20];
+            int salary;
+        };
+    
+        meminfo person[MAX] = {
+            {"김대표", 100000},
+            {"이부장", 70000},
+            {"홍과장", 40000},
+    
+        };
+    
+        meminfo *ptr;
+    
+        ptr = person;
+    
+        int count = 3;
+    
+        for (; count < MAX; count++)
+        {
+            cout << "이름은 ? ";
+            cin >> (ptr + count)->name;
+            // 프로그램 종료
+            if (strcmp((ptr + count)->name, "end") == 0)
+                break;
+            cout << "연봉은 ? ";
+            cin >> (ptr + count)->salary;
+        }
+    
+        for (count--; count >= 0; count--)
+        {
+            cout << (ptr + count)->name << "의 연봉은 "
+                 << (ptr + count)->salary << "입니다 " << endl;
+        }
+    
+        //출력 시 count변수에 마지막에 입력된 원소의 위치가 저장되어 있으므로 마지막 원소부터 첫번째 원소의 순서로 출력돔.
+        return 0;
+    }
+    
+    // 입력
+    이름은 ? 광수
+    연봉은 ? 222
+    이름은 ? end
+     
+    // 출력
+    광수의 연봉은 222입니다 
+    홍과장의 연봉은 40000입니다 
+    이부장의 연봉은 70000입니다 
+    김대표의 연봉은 100000입니다
+    ```
+
+    
+
 </br>
 
 ### 구조체와 동적할당
+
+> 구조체 포인터 변수는 정적 메모리를 지정하는 용도로 이용
+>
+> 하지만, **동적 메모리 할당** 시 더 많이 이용
+
+- `MEMINFO* ptr = new MEMINFO;`
+  - 시작 주소를 ptr포인터 변수에 대입
+  - 포인터 변수가 새로 할당된 메모리를 가리킴
+  - `ptr ->name` , `ptr->salary`
+
+- **동적 VS 정적**
+
+  - 메모리가 컴파일 시 할당되는지, 실행하는 동안 할당되는지의 차이
+
+  - 동적 구조체 배열의 선언
+
+    - `MEMINFO *ptr=new MEMINFO[10];`
+
+  - 동적 배열의 크기 실행
+
+    - ```c++
+      int size;
+      cin>>size;
+      MEMEINFO *parray = new MEMINFO[size];
+      ```
+
+      
 
 </br>

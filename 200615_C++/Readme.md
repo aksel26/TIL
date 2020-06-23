@@ -895,3 +895,33 @@ struct [구조체 이름]{
       
 
 </br>
+
+
+
+### 공용체
+
+> 같은 메모리 공간(멤버 변수 중 가장 **큰 자료형**에 맞추어 할당) 을 여러 멤버가 함께 공유하는 자료형
+
+- 선언형식
+
+  - ```c++
+    union[자료형이름]{
+      [자료형 멤버변수 이름;]
+    }[변수명];
+    
+    
+    union KEY{
+      unsigned int input
+      unsinged short code[2];
+    }key;
+    
+    key.input (정수형 번수와 동일처리)
+    ```
+
+- 바이트 순서
+
+  - CPU아키텍처에 따라 short, int, long형의 자료형의 바이트 순서는 서로 달라질 수 있다.
+
+    <img src="Readme.assets/image-20200623140856350.png" alt="image-20200623140856350" width="60%" />
+
+ 

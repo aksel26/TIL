@@ -924,4 +924,43 @@ struct [구조체 이름]{
 
     <img src="Readme.assets/image-20200623140856350.png" alt="image-20200623140856350" width="60%" />
 
- 
+- *예)*
+
+  ```c++
+  #include <iostream>
+  
+  using namespace std;
+  
+  int main()
+  {
+  
+      union KEY {
+          // 전체 크기는 4바이트로 전체는 input멤버로 각 한바이트마다 byte배열 멤버로 접근
+          unsigned int input;
+          unsigned char byte[4];
+      };
+  
+      KEY key;
+      key.input = 0xc0a86401;
+  
+      int i;
+  
+      for (i = 3; i >= 0; i--)
+      {
+          cout << (int)key.byte[i] << endl;
+      }
+  
+      return 0;
+  }
+  
+  
+  //출력
+  192   (0xc0)
+  168		(0xa8)
+  100		(0x64)
+  1			(0x01)
+    
+    
+  ```
+
+  

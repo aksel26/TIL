@@ -1133,8 +1133,83 @@ struct [구조체 이름]{
     > 함수 템플릿이 정상적으로 처리될 수 없는 특별한 상황에서 함수 템플릿 대신 사용될 수 있는 함를 정의하는 것.
 
     - <u>같은 이름</u>의 함수 템플릿과 일반함수가 있다면 ?
+
       - 사용된 인자의 자료형이 정확히 일치하면 **일반함수**가 호출된다.
+
     - 컴파일러의 함수 호출 순서 
+
       - **일반 -> 기본 함수 템플릿 -> 특수 함수 템플릿**
       - 자료형이 정확히 일치하는 일반 함수 및 함수 템플릿을 통해 특수화 구현
 
+    - ```c++
+      #include <iostream>
+      #include <cstring>
+      #include <string.h>
+      
+      using namespace std;
+      
+      struct Type
+      {
+          int no;
+          char name[20];
+      };
+      
+      //기본 함수 템플ㄹ릿
+      template <typename T>
+      T max(T &x, T &y);
+      
+      //특수 함수 템플릿
+      template <>
+      Type max(Type &x, Type &y);
+      
+      //일반함수
+      char *max(char *x, char *y);
+      
+      int main()
+      {
+          cout << "max(10,20) = " << max(10, 20) << endl;
+          cout << "max(7.5,6.8) = " << max(7.5, 6.8) << endl;
+          cout << "max(\"hello\",\"hi\") = " << max((char *)"hello", (char *)"hi") << endl;
+      
+          Type x;
+          strcpy(x.name, "Kim");
+          x.no = 10;
+      
+          Type y;
+          strcpy(y.name, "Lee");
+          y.no = 20;
+      
+          Type z = max(x, y);
+          cout << "max(Type x, Type y) = " << z.no << ", " << z.name << endl;
+          return 0;
+      }
+      
+      //기본 함수 템플ㄹ릿
+      template <typename T>
+      T max(T &x, T &y)
+      {
+          return (x > y) ? x : y;
+      }
+      
+      //일반함수
+      char *max(char *x, char *y)
+      {
+          return (strcmp(x, y) > 0) ? x : y;
+      }
+      
+      //특수 함수 템플릿
+      template <>
+      Type max(Type &x, Type &y)
+      {
+          return (x.no > y.no) ? x : y;
+      }
+      
+      
+      // 출력
+      max(10,20) = 20
+      max(7.5,6.8) = 7.5
+      max("hello","hi") = hi
+      max(Type x, Type y) = 20, Lee
+      ```
+
+    - 

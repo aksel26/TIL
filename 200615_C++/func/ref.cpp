@@ -18,7 +18,7 @@ int main()
     swap(x, y);
 
     cout << "main : x = " << x << " y = " << y << endl;
-
+ 
     return 0;
 }
 
@@ -39,5 +39,5 @@ void swap(int &x, int &y)
 // 입력
 // 4 6
 // 출력
-// swap : x = 6 y = 4
+// swap : x = 6 y = 4 
 // main : x = 6 y = 4

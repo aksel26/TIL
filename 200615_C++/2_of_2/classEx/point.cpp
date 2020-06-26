@@ -32,7 +32,7 @@ int main(){
     
     // SetX, SetY전에 Print를 호출하면?? 
     // x, y변수에 초기화 되어 있지 않으므로 쓰레기 값이 나온다.
-    // obj.Print();
+    // obj.Print ();
     // x = -468170712, y = 32766
     obj.SetX(5);
     obj.SetY(10);

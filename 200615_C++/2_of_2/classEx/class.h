@@ -10,6 +10,10 @@ class Point{
         int y;
 
     public:
+        Point();
+        // Point(int xpos, int ypos);
+        // Point(int xpos = 0, int ypos = 0);//디폺트 매개변수 생성자 함수 선언
+        ~Point();
         void Print();
         int GetX(); //return x
         int GetY(); //return y

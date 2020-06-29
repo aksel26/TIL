@@ -583,5 +583,122 @@
 
   <img src="Readme.assets/image-20200629164311611.png" alt="image-20200629164311611" width="60%" />
 
-- 
+  </br>
+
+- *Example*
+
+  - *Header 파일*
+
+    ```c++
+    #ifndef PERSON_H
+    #define PERSON_H
+    
+    class Person
+    {
+    private:
+        char *name; // 멤버변수 name은 포인터변수 (동적메모리를 할당받아 사용하는 멤버)
+        int age;
+    
+    public:
+        Person();
+        Person(const char *name, int age);
+        Person(const Person &arg);
+        ~Person();
+        void Show() const;
+    };
+    
+    #endif
+    ```
+
+    </br>
+
+  - *cpp파일*
+
+    ```c++
+    #include "thisPointer.h"
+    #include <iostream>
+    #include <cstring>
+    
+    using namespace std;
+    
+    // 디폴트 생성자
+    Person::Person()
+    {
+        name = new char[20];
+        strcpy(name, "");
+        age = 0;
+        cout << "디폴트 생성자" << endl;
+    }
+    
+    // 인자있는 생성자
+    Person::Person(const char *name, int age)
+    {
+        this->name = new char[20];
+        strcpy(this->name, name);
+        this->age = age;
+        cout << "인자 있는 생성자" << endl;
+    }
+    
+    //복사 생성자
+    Person::Person(const Person &arg)
+    {
+    
+        // 동적 메모리 할당 받음 (new)
+        name = new char[20];
+    
+        // 메모리 복사, 주소 복사가 아닌 메모리의 내용이 복사됨
+        strcpy(name, arg.name);
+        age = arg.age;
+        cout << "복사 생성자" << endl;
+    }
+    
+    Person::~Person()
+    {
+        //메모리 해제
+        delete[] name;
+        cout << "소멸자" << endl;
+    }
+    
+    void Person::Show() const
+    {
+        cout << "name : " << name << ", age : " << age << endl;
+    }
+    
+    int main()
+    {
+        Person p1("홍길동", 24);
+    
+        Person p2(p1); //Person p2 = p1; // 복사 생성자로 객체 생성
+        p2.Show();
+    
+        Person *ptr1 = new Person("허균", 59);
+        Person *ptr2 = new Person(*ptr1); // 복사 생성자로 객체 생성
+    
+        ptr2->Show();
+    
+        delete ptr1;
+        delete ptr2;
+    
+        return 0;
+    }
+    ```
+
+    </br>
+
+  - *결과*
+
+    ```
+    인자 있는 생성자
+    복사 생성자
+    name : 홍길동, age : 24
+    인자 있는 생성자
+    복사 생성자
+    name : 허균, age : 59
+    소멸자
+    소멸자
+    소멸자
+    소멸자
+    ```
+
+    
 

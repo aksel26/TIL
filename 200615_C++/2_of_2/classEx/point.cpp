@@ -13,7 +13,7 @@ Point::Point(){
 //인자있는 생성자
 // Point::Point(int xpos, int ypos)
 // {
-//     x = xpos;
+//     x = xpos;ㅂ
 //     y = ypos;
 //     cout<<"인자있는 생성자"<<endl;
 // }

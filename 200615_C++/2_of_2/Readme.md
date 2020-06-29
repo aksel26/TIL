@@ -709,9 +709,13 @@
 ### String 클래스
 
 - 연산자를 이용해 **문자열 복사, 추가**등을 자유롭게 수행
+
 - 다양한 멤버함수들을 이용한 문자열 처리가 매우 용이함.
+
 - `#include <string>`
+
 - 기능
+
   - `size(), length()` : 문자열 길이
   - `c_str()` : C 스타일 문자열로 변환
   - `substr`: 문자열 중 일부 추출
@@ -720,3 +724,68 @@
   - `>>` , ``getline()` : 스트림으로부터 문자열 입력, 공백 문자 포함 입력은 `getline`함수 이용
   - `<<` : 스트링으로 문자열 출력
   - `[]` : 첨자 위치의 문자로 접근
+
+- *Example*
+
+  ```c++
+  #include <iostream>
+  #include <string>
+  #include <cstring> //strcpy 사용
+  
+  using namespace std;
+  
+  int main()
+  {
+  
+      //string 객체 생성
+      string s1, s2;
+  
+      cout << "문자열을 입력하세요 : ";
+      getline(cin, s1);
+      cout << "문자열을 입력하세요 : ";
+      cin >> s2;
+  
+      if (s1 == s2)
+      {
+  
+          cout << "두 문자가 동일합니다" << endl;
+      }
+      else
+      {
+          cout << "두문자가 다릅니다" << endl;
+      }
+  
+  //  결합
+      cout << "s1 + s2 : " << s1 + s2 << endl;
+   
+  // 대입
+      s1 = s2;
+      cout << "s1 = s2 : " << s1  << endl;
+  
+      char *ptr = new char[s1.size() + 1];
+      strcpy(ptr, s1.c_str());
+      cout << "ptr : " << ptr << endl;
+  
+      cout << "ll 단어의 시작 위치 " << s1.find("i") << endl;
+      cout << "before s2 : " << s2 << endl;
+  
+      s2.erase();
+      s2 = s2 + "C++";
+      cout << "after s2 : " << s2 << endl;
+  
+      return 0;
+  }
+  
+  
+  문자열을 입력하세요 : hello c++
+  문자열을 입력하세요 : hi
+  두문자가 다릅니다
+  s1 + s2 : hello c++hi
+  s1 = s2 : hi
+  ptr : hi
+  ll 단어의 시작 위치 1
+  before s2 : hi
+  after s2 : C++
+  ```
+
+  

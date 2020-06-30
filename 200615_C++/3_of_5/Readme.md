@@ -135,15 +135,15 @@
 
 - **객체와 포인터 관계**
 
-  - `Shape* ptr = new Shaep;`
+  - `Shape* ptr = new Shape;`
 
     - `ptr`
 
       1. Shape 객체를 가리키는 객체 포인터,
 
       2. *Shape를 상속받은* Rectangle 클래스 객체를 가리키는 포인터
-         	=> Shape 클래스 멤버 모두 Rectangle 클래스에서도 **접근 가능**하기 때문
-         		**`Shape *ptr = new Rectangle;` 로 표현 가능.**
+         	=> Shape 클래스 멤버 모두 Rectangle 클래스에서도 **접근 가능**하기 때문</br>
+         		**`Shape *ptr = new Rectangle;` 로 표현 가능.**</br>
          		 	*Circle, Triangle 클래스 객체도 가능( 상속받았다면 )*
 
       

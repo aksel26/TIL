@@ -39,7 +39,7 @@ public:
         cout << "사각형 위치 (" << x << ", " << y << ")" << endl;
         // Shape 클래스의 Draw함수를 직접 호출하는 방법
         // 기본 클래스에도 있고 파생 클래스에도 있다.
-        // ==> 재정의 되었다.(overloading)
+        // ==> 재정의 되었다.(override)
         Shape::Draw();
         cout << "가로 = " << width;
         cout << ", 세로= " << height << endl;

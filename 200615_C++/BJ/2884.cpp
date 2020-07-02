@@ -23,7 +23,9 @@ int main()
         }
 
         cout << h << " " << min << endl;
-    }else{
+    }
+    else
+    {
 
         cout << h << " " << temp << endl;
     }

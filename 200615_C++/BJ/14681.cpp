@@ -16,7 +16,7 @@ int main()
     }
     else if (x < 0 && y > 0)
     {
-        cout << 2 << endl
+        cout << 2 << endl;
     }
     else if (x > 0 && y < 0)
     {

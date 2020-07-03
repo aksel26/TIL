@@ -5,11 +5,14 @@ using namespace std;
 int main()
 {
 
-    int a, i;
-    cin >> a;
-    for ( i = a; i >0 ; i--)
+    int a, b, cnt = 0;
+
+    while (cnt > 5)
     {
-        cout << i << "\n";
+        cin >> a >> b;
+
+        cout << a + b << "\n";
+        cnt++;
     }
 
     return 0;

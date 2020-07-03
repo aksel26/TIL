@@ -5,15 +5,33 @@ using namespace std;
 int main()
 {
 
+    int a, b, c, tmp = 0;
 
-    int a, b, c, small = 0, big = 0,res = 0;
+    cin >> a >> b >> c;
 
-    cin>>a>>b>>c;
+    if (a > b)
+    {
+        tmp = a;
+        a = b;
+        b = tmp;
+    }
+    tmp = 0;
 
-    a > b ? big = a : small = b;
-    small > c ? res = big : res = small;
+    if (a > c)
+    {
+        tmp = a;
+        a = c;
+        c = tmp;
+    }
+    tmp = 0;
+    if (b > c)
+    {
+        tmp = b;
+        b = c;
+        c = tmp;
+    }
 
-    cout<<res<<endl;
+    cout << b << endl;
 
     return 0;
 }

@@ -5,18 +5,25 @@ using namespace std;
 int main()
 {
 
-    int burger, drinks, total = 0, result = 0;
+    int a, b, c, tmp = 0;
 
-    for (int i = 0; i < 3; i++)
+    cin >> a >> b >> c;
+
+    if (a < b)
     {
-        cin >> burger;
+        tmp = a;
+        a = b;
+        b = tmp;
+    }
+    tmp = 0;
+    if (b < c)
+    {
+        tmp = b;
+        b = c;
+        c = tmp;
     }
 
-    cout << burger << endl;
-    for (int j = 0; j < 2; j++)
-    {
-        cin >> drinks;
-    }
-    cout << drinks << endl;
+    cout << b << endl;
+
     return 0;
 }

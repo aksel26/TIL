@@ -5,15 +5,18 @@ using namespace std;
 int main()
 {
 
-    int a, b, cnt = 0;
+    int burger, drinks, total = 0, result = 0;
 
-    while (cnt > 5)
+    for (int i = 0; i < 3; i++)
     {
-        cin >> a >> b;
-
-        cout << a + b << "\n";
-        cnt++;
+        cin >> burger;
     }
 
+    cout << burger << endl;
+    for (int j = 0; j < 2; j++)
+    {
+        cin >> drinks;
+    }
+    cout << drinks << endl;
     return 0;
 }

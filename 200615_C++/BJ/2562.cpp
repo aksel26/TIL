@@ -6,7 +6,7 @@ int main()
 {
 
     int size, max = -100000, idx = 0;
-    
+
     int array1[9];
     for (int i = 0; i < 9; i++)
     {
@@ -15,7 +15,7 @@ int main()
         if (max < array1[i])
         {
             max = array1[i];
-            idx = i+1;
+            idx = i + 1;
         }
     }
 

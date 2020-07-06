@@ -1,29 +1,24 @@
-#include <iostream>
+i--)
+    // {
+    //     if (i == 8)
+    //     {
 
-using namespace std;
+    //         res = tmp / div;
+    //         cout<<"i==8일때"<<res<<endl;
+    //         arr[res]++;
+    //         div = div / 10;
+    //     }
+    //     else if (i < 8)
+    //     {
+    //         res = tmp % div / div2;
+    //         cout<<"i<8일때"<<res<<endl;
+    //         arr[res]++;
+    //         div = div / 10;
+    //         div2 = div2 / 10;
+    //     }
+    // }
 
-int main()
-{
-
-    int a, b, c, tmp = 0;
-
-    cin >> a >> b >> c;
-
-    if (a < b)
-    {
-        tmp = a;
-        a = b;
-        b = tmp;
-    }
-    tmp = 0;
-    if (b < c)
-    {
-        tmp = b;
-        b = c;
-        c = tmp;
-    }
-
-    cout << b << endl;
-
-    return 0;
-}
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     cout << arr[i] << endl;
+    // }

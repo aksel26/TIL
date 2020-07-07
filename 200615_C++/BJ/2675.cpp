@@ -23,6 +23,7 @@ int main()
 
         int idx = 0, strt = 0;
 
+        
         while (idx < tSize)
         {
             //substr 함수로 tmp배열에 담기
@@ -52,4 +53,5 @@ int main()
     }
 
     return 0;
+    
 }

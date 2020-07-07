@@ -1,35 +1,38 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
+
 int main()
 {
 
-    int tcase, size, total, avg;
-    double cnt, result;
+    int tcase, length;
+    string str;
     cin >> tcase;
 
     for (int i = 0; i < tcase; i++)
     {
-        cin >> size;
-        int arr[size];
-        for (int i = 0; i < size; i++)
+        cin >> length >> str;
+        int tSize = length * str.length();
+        int idx = 0, strt = 0;
+        string tmp[tSize];
+
+        while (idx < tSize)
         {
 
-            cin >> arr[i];
-            total += arr[i];
-        }
-        avg = total / size;
+            tmp[idx] = str.substr(strt, 1);
 
-        for (int i = 0; i < size; i++)
-        {
-            if (avg < arr[i])
+            idx++;
+
+            if (idx == length || idx == length * 2 || idx == length * 3 || idx == length * 4)
             {
-                cnt++;
+                strt++;
             }
         }
-        result = cnt / size * 100;
-        cout << fixed;
-        cout << result << endl;
+
+        for (int i = 0; i < tSize; i++)
+        {
+            cout << tmp[i];
+        }
     }
 
     return 0;

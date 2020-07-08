@@ -1,55 +1,55 @@
-#include <iostream>
-#include <string>
-using namespace std;
+    #include <iostream>
+    #include <string>
+    using namespace std;
 
-int main()
-{
-
-    //문제 조건
-    int tcase, length;
-    string str;
-
-    // 테스크 케이스
-    cin >> tcase;
-
-    for (int i = 0; i < tcase; i++)
+    int main()
     {
-        //길이와 문자열 입력
-        cin >> length >> str;
 
-        //string배열 크기
-        int tSize = length * str.length();
-        string tmp[1000];
+        //문제 조건
+        int tcase, length;
+        string str;
 
-        int idx = 0, strt = 0;
+        // 테스크 케이스
+        cin >> tcase;
 
-        while (idx < tSize)
+        for (int i = 0; i < tcase; i++)
         {
-            //substr 함수로 tmp배열에 담기
-            tmp[idx] = str.substr(strt, 1);
+            //길이와 문자열 입력
+            cin >> length >> str;
 
-            idx++;
+            //string배열 크기
+            int tSize = length * str.length();
+            string tmp[1000];
 
-            // idx와 처음 입력한 length의 길이 * 1, 2, 3 ... 이 같으면
-            // substr의 인자 strt수를 증가시킴
-            for (int i = 1; i <= length + 1; i++)
+            int idx = 0, strt = 0;
+
+            while (idx < tSize)
             {
-                if (idx == length * i)
+                //substr 함수로 tmp배열에 담기
+                tmp[idx] = str.substr(strt, 1);
+
+                idx++;
+
+                // idx와 처음 입력한 length의 길이 * 1, 2, 3 ... 이 같으면
+                // substr의 인자 strt수를 증가시킴
+                for (int i = 1; i <= length + 1; i++)
                 {
-                    strt++;
+                    if (idx == length * i)
+                    {
+                        strt++;
+                    }
                 }
             }
+
+            for (int i = 0; i < tSize; i++)
+            {
+                cout << tmp[i];
+            }
+            str = "";
+
+            //줄바꿈
+            cout << "\n";
         }
 
-        for (int i = 0; i < tSize; i++)
-        {
-            cout << tmp[i];
-        }
-        str = "";
-
-        //줄바꿈
-        cout << "\n";
+        return 0;
     }
-
-    return 0;
-}

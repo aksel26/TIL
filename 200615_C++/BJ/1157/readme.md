@@ -1,3 +1,18 @@
+# BOJ 2675
+
+## 단어공부
+
+### 문제
+
+<img src="readme.assets/image-20200708184807060.png" alt="image-20200708184807060" width="70%"/>
+
+</br>
+
+### 소스코드
+
+*아스키코드 이용*
+
+```c++
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -71,3 +86,5 @@ int main()
 
     return 0;
 }
+```
+

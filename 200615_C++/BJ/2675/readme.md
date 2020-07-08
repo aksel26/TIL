@@ -1,3 +1,14 @@
+# BOJ 2675
+
+## 문자열 반복
+
+### 문제
+
+<img src="readme.assets/image-20200708161438527.png" alt="image-20200708161438527" width="70%" />
+
+### 소스코드
+
+```c++
 #include <iostream>
 #include <string>
 using namespace std;
@@ -53,3 +64,14 @@ int main()
 
     return 0;
 }
+
+결과
+3
+1 ABC
+ABC
+2 ABC
+AABBCC
+5 ABC
+AAAAABBBBBCCCCC
+```
+

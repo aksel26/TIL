@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "__locale": "cpp",
         "string": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "algorithm": "cpp"
     }
 }

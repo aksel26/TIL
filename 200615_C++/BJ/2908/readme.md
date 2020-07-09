@@ -4,7 +4,7 @@
 
 ### 문제
 
-<img src="2908.assets/image-20200709114133938.png" alt="image-20200709114133938" width="70%"/>
+<img src="2908.assets/image-20200709114424109.png" alt="image-20200709114424109" width="70%" />
 
 </br>
 

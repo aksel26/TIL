@@ -164,6 +164,7 @@ setInterval(function(){
 
 1. [`innerHTML `](#HTML요소의-`innerHTML`-프로퍼티로-읽고-쓰기)
 2. [`value()`](#폼-컨트롤의-입력-값-얻기--`value()`)
+3. [`document.write()`](#document.write())
 
 ### HTML요소의 `innerHTML` 프로퍼티로 읽고 쓰기
 
@@ -260,4 +261,36 @@ setInterval(function(){
 
 
 
+</br>
+
+### `document.write()`
+
+- 인수로 받은 문자열을 **HTML문서의 body요소 안에 출력**한다.
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+  </head>
+  <body>
+      <script>
+  var now = new Date();
+  var month = now.getMonth() +1;
+  var day = now.getDay();
+  
+  document.write("<p>오늘은 " + month + "월 " + day + "일 입니다.</p>");
+  
+      </script>
+  </body>
+  </html>
+  ```
+
+- 이벤트처리기로 등록한 함수 안에서 `document.write` 를 사용하면 안된다.
+
+  - HTML문서 전체 내용이 `document.write`로 출력한 값으로 바뀌게 된다.
+  - **`document.write` 를 사용한 다음에 호출한 함수에서는 HTML문서를 동적으로 수정할 수 없다.**
+    - **DOM**을 이용해야 한다.
 

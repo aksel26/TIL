@@ -165,8 +165,8 @@ setInterval(function(){
 ## HTML 요소를 동적으로 읽고 쓰기
 
 1. [`innerHTML `](#html요소의-innerhtml-프로퍼티로-읽고-쓰기)
-2. [`value()`](#폼-컨트롤의-입력-값-얻기--value())
-3. [`document.write()`](#document.write())
+2. [`value()`](#폼-컨트롤의-입력-값-얻기-value)
+3. [`document.write()`](#documentwrite)
 
 </br>
 

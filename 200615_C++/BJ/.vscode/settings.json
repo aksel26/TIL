@@ -5,6 +5,7 @@
         "__locale": "cpp",
         "string": "cpp",
         "ratio": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "sstream": "cpp"
     }
 }

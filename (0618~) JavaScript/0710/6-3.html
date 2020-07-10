@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var startButton = document.getElementById("start");
+            var endButton = document.getElementById("end");
+            var display = document.getElementById("display");
+            var startTime, timer;
+
+            startButton.onclick = start;
+
+            function start() {
+                startButton.onclick = null;
+                endButton.onclick = stop;
+                startTime = new Date();
+                timer = setInterval(function () {
+                    var now = new Date();
+                    display.innerHTML = ((now - startTime) / 1000).toFixed(2);
+                }, 10);
+            }
+            
+            function stop() {
+                clearInterval(timer);
+                startButton.onclick = start;
+            }
+        };
+
+
+    </script>
+</head>
+
+<body>
+    <p id="display">0.00</p>
+    <input type="button" id="start" value="start">
+    <input type="button" id="end" value="end">
+</body>
+
+</html>

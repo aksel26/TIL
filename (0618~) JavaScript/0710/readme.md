@@ -105,6 +105,7 @@
    </br>
 
    - DOM을 사용해서 `body` 요소 밖에서 `body` 요소 안에 있는 HTML요소를 조작할 수 있다.
+
    - 위에서부터 아래로 순차적으로 실행되고 `script` 요소를 만나면 `script` 요소가 모두 끝날 때 까지 `body` 요소를 읽어들이지 않는다.
      - 이벤트 처리기를 등록할 수 없다ㅏ.
      - 이를 위해, `window` 객체의`onload` 프로프티에 이벤트 처리기를 등록한다.
@@ -114,13 +115,15 @@
    - 이벤트가 등록된 이벤트 처리기를 제거할 때는 `null` 을 입력한다.
 
      </br>
+     
+     </br>
 
 ### 타이머
 
 1. `setTimeout`
 2. `setInterval`
 
-
+</br>
 
 #### `setTimeout` 
 
@@ -134,7 +137,7 @@ setTimeout(function(){
 
 `clearTimeout()`  : 함수 실행 취소
 
-
+</br>
 
 #### `setInterval`
 
@@ -153,9 +156,14 @@ setInterval(function(){
 
 </br>
 
+</br>
+
 
 
 ## HTML 요소를 동적으로 읽고 쓰기
+
+1. [`innerHTML `](#HTML요소의-`innerHTML`-프로퍼티로-읽고-쓰기)
+2. [`value()`](#폼-컨트롤의-입력-값-얻기--`value()`)
 
 ### HTML요소의 `innerHTML` 프로퍼티로 읽고 쓰기
 

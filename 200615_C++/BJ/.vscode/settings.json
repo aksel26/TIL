@@ -6,6 +6,7 @@
         "string": "cpp",
         "ratio": "cpp",
         "algorithm": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "stack": "cpp"
     }
 }

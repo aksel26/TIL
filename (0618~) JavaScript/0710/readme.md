@@ -374,6 +374,8 @@ console.log(n);
 
    `var s = square(5);`
 
+   </br>
+
 2. 메서드 호출 
 
    *객**체의 프로퍼티에 저장된 값이 함수타입**이면 그 프로퍼티를 메서드라고 부른다.*
@@ -382,9 +384,13 @@ console.log(n);
 
    `obj.m();`
 
+   </br>
+
 3. 생성자 호출( `new` )
 
    `var obj = new Object();`
+
+   </br>
 
 4. Call, apply 사용 간접호출
 

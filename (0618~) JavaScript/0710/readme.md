@@ -300,7 +300,9 @@ setInterval(function(){
 
 
 
+</br>
 
+</br>
 
 ## 함수 
 
@@ -331,3 +333,59 @@ setInterval(function(){
    `var square = x => x*x ;`
 
    </br>
+
+- **함수 선언문**으로 정의한 함수만 **Hoisting이 가능하다**
+  - 함수리터럴, Function 생성자, 화살표 함수는 불가능!
+
+</br>
+
+#### 중첩함수
+
+```javascript
+ function norm(x) {
+            var sum2 = sumSquare();
+            return Math.sqrt(sum2);
+
+            function sumSquare() {
+                sum = 0;
+                for (var i = 0; i < x.length; i++) sum += x[i] * x[i];
+                return sum;
+            }
+        }
+var a = [2, 1, 3, 5, 7];
+var n = norm(a);
+console.log(n);
+
+9.38083151964686
+```
+
+- 특징
+  - 중첩함수 참조는 **외부 함수 바깥에서는 읽거나 쓸수 없다**.
+  - 자신을 둘러싼 **외부함수의 인수와 지역 변수에 접근 가능하다.**
+    - 외부함수 `norm(x)` 에서 변수 `x`가 중첩함수에까지 영향을 미친다.(for문에서의 `x.length` 부분)
+
+</br>
+
+#### 함수 호출하기
+
+1. 함수 호출 ( `( )` )
+
+   `( )` 
+
+   `var s = square(5);`
+
+2. 메서드 호출 
+
+   *객**체의 프로퍼티에 저장된 값이 함수타입**이면 그 프로퍼티를 메서드라고 부른다.*
+
+   `obj.m = function() {...};`
+
+   `obj.m();`
+
+3. 생성자 호출( `new` )
+
+   `var obj = new Object();`
+
+4. Call, apply 사용 간접호출
+
+   

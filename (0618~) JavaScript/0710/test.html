@@ -5,17 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function displayDate() {
+            var date = Date();
+
+
+
+            console.log("현재 시각은 ? " + date + " 입니다.");
+        }
+
+        window.onclick = function () {
+
+            var date = document.getElementById("button");
+            
+
+            date.onclick = displayDate;
+        }
+
+
+
+
+    </script>
 </head>
 
 <body>
-    <script>
-        var now = new Date();
-        var month = now.getMonth() + 1;
-        var day = now.getDay();
-
-        document.write("<p>오늘은 " + month + "월 " + day + "일 입니다.</p>");
-
-    </script>
+    <input type="button" value="click" id="button">
 </body>
 
 </html>

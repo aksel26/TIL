@@ -298,3 +298,36 @@ setInterval(function(){
   - **`document.write` 를 사용한 다음에 호출한 함수에서는 HTML문서를 동적으로 수정할 수 없다.**
     - **DOM**을 이용해야 한다.
 
+
+
+
+
+## 함수 
+
+### 함수 정의하기
+
+#### 함수 정의 방법
+
+1. 함수 선언문
+
+   `function square(x) { return x*x; }`
+
+   </br>
+
+2. 함수 리터럴
+
+   `var square = function(x) {return x * x; };`
+
+   </br>
+
+3. Function 생성자로 정의
+
+   `var square = new function("x", " return x*x" );`
+
+   </br>
+
+4. 화살표 함수 표현식
+
+   `var square = x => x*x ;`
+
+   </br>

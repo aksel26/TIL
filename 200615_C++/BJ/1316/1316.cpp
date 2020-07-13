@@ -6,30 +6,41 @@ using namespace std;
 int main()
 {
 
-    int tcase;
+    int tcase, j, cnt = 0;
+
+    string str;
+    int arr[26];
+
     cin >> tcase;
-
-    string word;
-
-    int cnt = 0;
 
     for (int i = 0; i < tcase; i++)
     {
+        cin >> str;
+        fill_n(arr, 26, 0);
 
-        cin>>word;
-        string tmp;
-        
-        for (int i = 0; i < word.length(); i++)
+        arr[str[0] - 97] = 1;
+        for (j = 1; j < str.length(); j++)
         {
-            tmp = word[i];
-            
-            if (word.find(tmp, i + 1) == -1)
+            if (str[j - 1] != str[j])
             {
-                cnt++;
+
+                int idx = str[j] - 97;
+                if (arr[idx] == 0)
+                {
+                    arr[idx]++;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
-        cout<<cnt<<endl;
+        if (j == str.length())
+        {
+            cnt++;
+        }
     }
+    cout << cnt << endl;
 
     return 0;
 }

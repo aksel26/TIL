@@ -86,3 +86,76 @@ int main()
    2-1. 빈 배열을 만들어 알파멧에 해당하는 아스키코드 수에 맞춰 넣고, 이미 넣은 값이 없으면 수 증가 ( 인터넷 참고 )
 
    
+   
+   
+
+### 다른사람의 코드
+
+```c++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+
+    int tcase, j, cnt = 0;
+
+    string str;
+    int arr[26];
+
+    cin >> tcase;
+
+    for (int i = 0; i < tcase; i++)
+    {
+        cin >> str;
+      
+//      26자리를 0으로 초기화
+        fill_n(arr, 26, 0);
+
+//      첫번째 글부터 아스키코드 값을 뺀 수의 arr배열에 1을 대입
+        arr[str[0] - 97] = 1;
+        for (j = 1; j < str.length(); j++)
+        {
+            if (str[j - 1] != str[j])
+            {
+
+                int idx = str[j] - 97;
+//              인덱스 값에 0 (값이 없다는 의미)이면 ++
+                if (arr[idx] == 0)
+                {
+                    arr[idx]++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+      
+//	for문이 끝까지 돌았다면 그룹단어 수 증가
+        if (j == str.length())
+        {
+            cnt++;
+        }
+    }
+    cout << cnt << endl;
+
+    return 0;
+}
+
+```
+
+</br>
+
+- **새로 배운 함수**
+
+  - **`fill_n` : 배열 초기화**
+
+    - `std::fill_n(초기화 하려는 배열 이름, 배열의 자리수, 초기호 하려는 값)`
+
+      
+
+
+

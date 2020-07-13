@@ -18,6 +18,7 @@ int main()
         cin >> str;
         fill_n(arr, 26, 0);
 
+        
         arr[str[0] - 97] = 1;
         for (j = 1; j < str.length(); j++)
         {

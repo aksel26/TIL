@@ -20,30 +20,26 @@ int main()
     for (int i = 0; i <= card - 3; i++)
     {
 
-        for (int j = i + 1; j < card - 1; j++)
+        for (int j = i + 1; j <= card - 2; j++)
         {
 
-            for (int k = j+1 ; k <= card - 1; k++)
+            for (int k = j + 1; k <= card - 1; k++)
             {
-                sum = arr[i] + arr[i + j] + arr[i + j + k-1];
-                cout<<"arr[i]: "<< arr[i]<<"  arr[i+j]: "<< arr[i+j]<<" arr[i+j+k]: "<< arr[i+j+k-1]<<endl;
-                // cout << i << ", " << j << ", " << k
-                //      << " = " << sum << endl;
-                if (sum > max)
+                sum = arr[i] + arr[j] + arr[k];
+
+                if (sum <= limit)
                 {
 
-                    max = sum;
-                }
-                if (max <= limit)
-                {
-
-                    result = max;
+                    if (sum > max)
+                    {
+                        max = sum;
+                    }
                 }
             }
         }
     }
 
-    cout << result << endl;
+    cout << max << endl;
 
     return 0;
 }

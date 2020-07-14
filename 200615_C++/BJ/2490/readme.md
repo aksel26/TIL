@@ -4,7 +4,7 @@
 
 ### 문제
 
-<img src="무제.assets/image-20200714215607291.png" alt="image-20200714215607291" width="70%" />
+<img src="2490.assets/image-20200714220136897.png" alt="image-20200714220136897" width ="70%" />
 
 </br>
 

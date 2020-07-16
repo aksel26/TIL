@@ -395,3 +395,73 @@ console.log(n);
 4. Call, apply 사용 간접호출
 
    
+   
+   
+
+</br> 
+
+</br> 
+
+
+
+## 클로저(closure)
+
+내부함수가 외부함수의 맥락에 접근할 수 있는 것.
+
+</br> 
+
+### 내부함수
+
+```javascript
+function outter(){
+  function innner(){
+    var title = "inner Function";
+    alert(title); 
+  }
+  inner();
+}
+outer();
+
+// 내부함수의 title변수를 외부함수의 인자로 꺼내보면 ?
+// 내부함수는 외부함수의 지역변수에 접근할 수 있다.
+function outter(){
+  
+  //바뀐 부분
+  var title = "inner Function";
+  
+  function innner(){
+
+    alert(title); 
+  }
+  inner();
+}
+outer();
+```
+
+</br>
+
+### 클로저
+
+```javascript
+function  outter(){
+  var title = "coding";
+  
+  return funtion(){
+    alert(title);
+  }
+}
+
+inner = outter();
+inner();
+```
+
+1. `outter`를 호출하면 이름없는 **함수가 `inner`에 담긴다.**
+
+2. `inner()`를 실행하면 `outter`함수는 실행이 끝났으므로 `title`변수가 없어져야 맞지만,
+
+3. *소멸되지 않았다.* 
+
+   **<u>즉, 클로저는</u>** 
+
+   - **내부함수가 외부함수의 지역변수에 접근 가능하고,**
+   - 외부함수는 외부함수의 지역변수를 사용하는 **내부함수가 소멸될 때까지 소멸되지 않는 특성**을 가진다.

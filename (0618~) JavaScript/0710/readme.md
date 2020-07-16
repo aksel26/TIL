@@ -543,3 +543,41 @@ matrix = factory_movie('Matrix');
   - `Factory_movie()` 외부함수의 인자 `title` 은 수명을 다해서 **내부함수에서만 접근 가능해지기 때문이다.**
   - `get_title` 또는 `set_title()` 로만 매개변수 `title` 을 참조할 수 있기 때문에 보다 안전하다.
 
+</br> 
+
+#### 클로저함수 응용
+
+```javascript
+var arr = [] 
+
+        for(var i = 0 ; i< 5 ; i++){
+
+            arr[i] = function(){
+               
+                return i;
+            }
+        }
+
+        for(var index in arr){
+            console.log(arr[index]());
+        }
+
+// 이때 값은 5 5 5 5 5 ( 5가 다섯번 ) 출력된다.
+```
+
+</br> 
+
+- *의도한 대로 0 1 2 3 4 를 출력하기 위해서는 ?*
+
+  ```javascript
+  	for (var i = 0; i < 5; i++) {
+          arr[i] = function (id) {
+              return function () {
+                  return id;
+              }
+          }(i);
+      }
+  ```
+  - 첫번째 코드에서는 반복문에서 정의한 `i` 가 함수의 **외부변수의 값이 아니기 때문**에 5가 반복 출력된다.
+  - 이를 위해, **클로저함수**를 이용해 **외부함수의 매개변수**로 **내부함수가 참조할 수 있는 지역변수를 설정**해 그 그 값을 리턴한다.
+

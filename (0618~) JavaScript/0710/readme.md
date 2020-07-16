@@ -465,3 +465,81 @@ inner();
 
    - **내부함수가 외부함수의 지역변수에 접근 가능하고,**
    - 외부함수는 외부함수의 지역변수를 사용하는 **내부함수가 소멸될 때까지 소멸되지 않는 특성**을 가진다.
+
+</br> 
+
+#### private variable
+
+```javascript
+function factory_movie(title){
+  return 
+// ---- 객체 ----
+  {
+    //메서드
+    get_title : function(){
+      return title;
+    },
+    //메서드 
+    set_title : function(_title){
+      title = _title;
+    }
+  }
+// --------------
+}
+
+ghost = factory_movie('Ghost in the shell');
+matrix = factory_movie('Matrix');
+```
+
+- **객체 안의 메서드부분에 해당하는 함수도 내부함수이다.**
+- `get_title` 메서드에서 `title`을 리턴해 주는데 이때 `title`은 `fattory_movie`의 매개변수다.
+  - **매개변수는 지역변수로 사용**되기 때문에 참조가 가능하다.
+
+</br> 
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        function factory_movie(title) {
+            return {
+                get_title: function () {
+                    return title;
+                },
+                set_title: function (_title) {
+                    return title = _title;
+                }
+            }
+        }
+
+        ghost = factory_movie('ghost in the shell');
+        matrix = factory_movie('Matrix');
+
+        alert(ghost.get_title());
+
+        ghost.set_title('공각기동대');
+
+        alert(ghost.get_title());
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+```
+
+- **의미 : 왜 private인가 ?**
+  - 외부에서 접근할 수 없게 된다.
+  - `Factory_movie()` 외부함수의 인자 `title` 은 수명을 다해서 **내부함수에서만 접근 가능해지기 때문이다.**
+  - `get_title` 또는 `set_title()` 로만 매개변수 `title` 을 참조할 수 있기 때문에 보다 안전하다.
+

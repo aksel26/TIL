@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+
+        var numbers = [20,10,9,8,7,6,5,4,3,2,1];
+
+        console.log(numbers.sort());
+        //함수 앞에 .이 있으면 그 앞의 변수umbers는 객체다
+        // sort()는 (내장)객체에 속해있기 때문에 메서드라고 부른다.
+        //결과
+        //1, 10, 2, 20, 3, 4, 5, 6, 7, 8, 9
+
+        // 배열에서의 array객체의 sort메서드
+        // array.sort(함수) 
+        // : 정렬 기준을 정하는 함수
+        var sortFunc = function(a,b){
+            // 빙법 1
+            // if(a>b){
+            //     return 1;
+
+            // }else if(a<b){
+            //     return -1;
+            // }else{
+            //     return 0;
+            // }
+            // 더 간단한 2번째 방법
+            // return a-b;
+            // 역으로는
+            return b-a;
+
+        }
+        console.log(numbers.sort(sortFunc));
+
+        // 이때 sortFunc는 콜백함수다.
+        // JS의 함수가 값으로써 처리되기 때문에 가능한 것.
+    </script>
+</head>
+
+<body>
+  
+
+</body>
+
+</html>

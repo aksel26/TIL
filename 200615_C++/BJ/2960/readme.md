@@ -1,6 +1,6 @@
 # BOJ 2960
 
-# 에라토스테네서의 체
+# 에라토스테네스의 체
 
 ### 문제
 
@@ -75,4 +75,47 @@ int main()
 
 - 소수를 판별해 삭제하는 작업은 완료하였다.
 - 하지만, 그 순서에 맞게 몇번째로 어떤 숫자가 삭제되었는지는 출력하지 못함...
+
+
+
+</br> 
+
+### 다른사람의 코드
+
+```c++
+#include <iostream>
+
+using namespace std;
+int arr[1001], n, k, cnt, ans;
+int main()
+{
+    cin >> n >> k;
+    
+    for (int i = 2; i <= n; i++)
+    {
+        for (int j = i; j <= n; j += i)
+        {
+            if (arr[j] == 0)
+            {
+                cnt++;
+                arr[j] = 1;
+            }
+            if (cnt == k)
+            {
+                ans = j;
+                break;
+            }
+        }
+        if (cnt == k)
+            break;
+    }
+
+    cout << ans << '\n';
+
+    return 0;
+}
+```
+
+- for문에서의 초기값과 증감식을 생각해내지 못함...
+  - **증감식을 유연하게 생각하자..**
 

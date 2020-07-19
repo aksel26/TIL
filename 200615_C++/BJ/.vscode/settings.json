@@ -7,6 +7,7 @@
         "ratio": "cpp",
         "algorithm": "cpp",
         "sstream": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "iosfwd": "cpp"
     }
 }

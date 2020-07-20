@@ -1,3 +1,16 @@
+# BOJ 2822
+
+## 점수계산
+
+### 문제
+
+<img src="readme.assets/image-20200720221511557.png" alt="image-20200720221511557" width="70%" />
+
+</br> 
+
+### 소스코드
+
+```c++
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -61,3 +74,5 @@ int main()
 
     return 0;
 }
+```
+

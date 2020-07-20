@@ -6,12 +6,7 @@ int main()
 {
     cin >> n >> k;
 
-    for (int i = 0; i <= n; i++)
-    {
-        cout<<arr[i]<<endl;
-    }
     
-
     for (int i = 2; i <= n; i++)
     {
         for (int j = i; j <= n; j += i)

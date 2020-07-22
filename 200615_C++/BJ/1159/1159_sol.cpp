@@ -26,7 +26,7 @@ int main()
     }
     vector<string>::iterator iter = v.begin();
 
-        for (iter; iter != v.end(); ++iter)
+    for (iter; iter != v.end(); ++iter)
     {
         arr[(int)(*iter)[0]] += 1;
     }

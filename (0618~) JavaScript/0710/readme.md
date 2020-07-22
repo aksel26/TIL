@@ -642,3 +642,75 @@ console.log(numbers.sort(sortFunc));
    - 여기서 `sortFunc` 부분이 **콜백함수**로, **인자로 전달된 함수에 따라 동작방법이 완전히 바뀌게 된다.**
    - **JS의 함수가 값으로써 처리**되기 때문에 가능한 것.
 
+</br> 
+
+### 비동기처리
+
+- 동기적 VS 비동기적 차이 ?
+
+  - 동기
+
+    : 글 작성 -> 발송 예약 -> 작성완료 (순차적, 3시간이 걸린다고 가정)
+
+  - 비동기
+
+    : 위의 과정과는 별개로 백그라운드에서 작업이 이루어짐 
+
+- 일반적으로,
+
+  - 클릭 -> 웹페이지 다운로드 -> 화면 표시 
+
+  - <img src="readme.assets/image-20200722220035387.png" alt="image-20200722220035387" width ="60%" />
+
+  - 이러한 내용들은 웹페이지에 없던 내용이다.
+
+  - 표시를 하기 위해서 서버에서 데이터를 가져와야 하는데 만약에라도 서버가 느리다면 완료될 때까지 웹페이지는 <u>Freezing될 위험</u>이 발생한다. 이를 방지하기 위해 Ajax가 유용하게 사용된다.
+
+    
+
+    </br> 
+
+- 사용 예제
+
+  - `Ajax_test.html`
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head><script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <body>
+        <script type = "text/javascript">
+            $.get('http://127.0.0.1:5500/data.json.js',function(result){
+                console.log(result);
+            },'json');
+        </script>
+    </body>
+    </html>
+    ```
+
+    </br> 
+
+    `data.json.js`
+
+    ```json
+    {"author":"kim", "title" : "javascript"}
+    ```
+
+    ----- *결과* ------
+
+    <img src="readme.assets/image-20200722220537751.png" alt="image-20200722220537751" width ="50%" />
+
+    
+
+    
+
+    </br> 
+
+    - 위의 `$.get`은 Ajax통신에 필요한 함수 (`jQuery` 에서 제공)
+    - get함수는 누구나 공통적으로 사용되는 함수이고 **그 안의 인자로 함수가 사용되었다.(콜백)**
+      - 즉, *인자로 들어간 함수는 사용자의 용도에 따라 바뀔 수 있다.* 
+

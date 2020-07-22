@@ -306,6 +306,8 @@ setInterval(function(){
 
 ## 함수 
 
+
+
 ### 함수 정의하기
 
 #### 함수 정의 방법
@@ -412,13 +414,13 @@ console.log(n);
 
 
 
-## 클로저(closure)
+### 클로저(closure)
 
 내부함수가 외부함수의 맥락에 접근할 수 있는 것.
 
 </br> 
 
-### 내부함수
+#### 내부함수
 
 ```javascript
 function outter(){
@@ -591,7 +593,49 @@ var arr = []
 
 </br> 
 
-## 콜백
+### arguments
+
+- 기본 사용
+
+```javascript
+function sum(){
+  var _sum = 0;
+  
+  for( var i. = 0 ; i < arguments.length ; i++){
+    _sum += arguments[i];
+    
+  }
+  return _sum;
+}
+
+documents.write('result : '+ sum(1,2,3,4));
+```
+
+- 위의 `sum()` 함수에서 매개변수 공간이 *비어있다.*
+  - 그런데 `arguments` 는 알 수 있다. **사용자가 전달한 인자에 접근하는 기능**
+
+</br> 
+
+- 응용되는 경우
+
+```javascript
+function one(arg){
+  console.log(
+  'one.length', one.length, ====> 1을 출력 (arg) 한개
+  'arguments', arguments.length ====> 2를 출력  (var1, var2)
+  );
+}
+
+one('var1', 'val2');
+```
+
+- 위 두개의 값을 비교해서 **매개변수의 갯수와 인자의 갯수가 다를 경우 경고**를 보내는 것처럼 사용할 수 있다.
+
+</br> 
+
+</br> 
+
+### 콜백
 
 ```javascript
 var numbers = [20,10,9,8,7,6,5,4,3,2,1];
@@ -644,7 +688,7 @@ console.log(numbers.sort(sortFunc));
 
 </br> 
 
-### 비동기처리
+#### 비동기처리
 
 - 동기적 VS 비동기적 차이 ?
 

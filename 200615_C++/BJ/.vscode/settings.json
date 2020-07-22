@@ -8,6 +8,7 @@
         "algorithm": "cpp",
         "sstream": "cpp",
         "stack": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "utility": "cpp"
     }
 }

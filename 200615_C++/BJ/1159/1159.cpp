@@ -3,42 +3,49 @@
 using namespace std;
 int main()
 {
-    int player ;   
+    int player;
     string name, result;
-    string arr[5];
-    int arr2[5] = {0,};
-    cin>>player;
+    string arr[4];
+    int arr2[4] = {
+        0,
+    };
+    cin >> player;
     for (int i = 0; i < player; i++)
     {
-        cin>>name;
-        
+        cin >> name;
 
+        arr[i] = name.substr(0, 1);
+    }
 
-        arr[i] = name.substr(0,2);
+    for (int i = 0; i < player; i++)
+    {
 
-        for (int j = 0; j < player; j++)
+        for (int j = i; j < player; j++)
         {
-            if(arr[i] == arr[j]){
+            if (arr[i] == arr[j+1])
+            {
                 arr2[i]++;
-            }else{
-                arr2[i+1]++;
+                if (i == 0)
+                    continue;
+                arr[j+1] = "@";
             }
         }
-        
-
     }
     
-
-
-    
-
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 4; i++)
     {
-        cout<<arr2[i]<<"  ";
+        cout << arr2[i] << "   ";
+        // if(arr2[i] >=5 ){
+        //     cout<<arr[i]<<"  ";
+        // }
     }
-    
+    cout << '\n';
+    for (int i = 0; i < 4; i++)
+    {
+        cout << arr[i] << "  ";
+    }
 
     // cout<<result<endl;
-  
+
     return 0;
 }

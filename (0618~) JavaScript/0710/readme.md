@@ -660,7 +660,7 @@ console.log(numbers.sort(sortFunc));
 
   - 클릭 -> 웹페이지 다운로드 -> 화면 표시 
 
-  - <img src="readme.assets/image-20200722220035387.png" alt="image-20200722220035387" width ="60%" />
+  - <img src="readme.assets/image-20200722220035387.png" alt="image-20200722220035387" width ="30%" />
 
   - 이러한 내용들은 웹페이지에 없던 내용이다.
 

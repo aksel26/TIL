@@ -758,3 +758,95 @@ console.log(numbers.sort(sortFunc));
     - get함수는 누구나 공통적으로 사용되는 함수이고 **그 안의 인자로 함수가 사용되었다.(콜백)**
       - 즉, *인자로 들어간 함수는 사용자의 용도에 따라 바뀔 수 있다.* 
 
+</br> </br> 
+
+## 객체
+
+### prototype
+
+- 생성자
+
+  : 기본적으로 **함수**다.
+
+- 함수를 호출할 때, **`new`** 를 붙여주면 단순한 함수가 아닌 **생성자**가 되는것. 
+
+- 새로운 객체를 만들어 변수에 저장하는 것.
+
+- 왜 만드냐 ? 객체가 가지고 있어야 하는 **프로퍼티 값**을 가지고 주어지기를 바라며 객체를 생성하는 것.
+
+- 이 때, 그 객체의 원형은 **`prototype`**이라는 프로퍼티에 저장되어 있다.
+
+  - 예제
+
+    ```javascript
+    function Ultra(){}
+    Ultra.prototype.ultraprop = true;
+    
+    function Super(){}
+    Super.prototype = new Ultra();
+    
+    function Sub(){}
+    Sub.prototype = new Super();
+    
+    var o = new Sub();
+    console.log(o.ultraprop);
+    
+    // 결과는 true
+    ```
+
+  - *변수 `o` 에는 ultraprop이라는 프로퍼티가 없는데 어떻게 가능한가?*
+
+    - 함수 원형에 포함되어 있는 특수한 프로퍼티인 `prototype` 이 있기 때문.
+    - `new`로  만든  `Super()` 라는 생성자를 `Sub.prototype` 에 넣으면  `Super()` 함수를 찾는다
+    - 똑같이 `Super()` 라는 함수는 `Ultra()` 라는 생성자를 프로토타입에 대입한다 (상속받는다)
+    - `Ultra()` 함수를 찾고 난 후, 그 안에 `ultrapop` 이라는 프로퍼가 존재하므로 true라는 값을 출력함.
+
+  - 이와같이 연결, 연결 되어있는 것을 **`prototype chain`** 이라고 부른다.
+
+  </br> 
+
+  - 예제2
+
+    ```javascript
+    function Ultra(){}
+    Ultra.prototype.ultraprop = true;
+    
+    function Super(){}
+    Super.prototype = new Ultra();
+    
+    function Sub(){}
+    Sub.prototype = new Super();
+    
+    var o = new Sub();
+    o.ultrapop = 1;
+    console.log(o.ultraprop);
+    
+    // 이때는 출력결과가 1이다.
+    ```
+
+    ```javascript
+    function Ultra(){}
+    Ultra.prototype.ultraprop = true;
+    
+    function Super(){}
+    Super.prototype = new Ultra();
+    
+    function Sub(){}
+    Sub.prototype = new Super();
+    Sub.prototype.ultrapop = 2;
+    
+    var o = new Sub();
+    console.log(o.ultraprop);
+    
+    // 이때는 출력결과가 2이다.
+    ```
+
+    - 이처럼 객체가 호출이 되면 객체로 정의되어 있는값을 우선 확인하고,
+    - 없으면, 생성자를 찾고 그안에 `prototype`을 찾는다
+    - `prototype`의 프로퍼티가 존재하면 출력, 없으면 다시 `생성자`를 찾고,` prototype`을 찾는다
+
+    </br> 
+
+    </br> 
+
+### 표준 내장 객체의 확장

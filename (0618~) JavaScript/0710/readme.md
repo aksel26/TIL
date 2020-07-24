@@ -850,3 +850,40 @@ console.log(numbers.sort(sortFunc));
     </br> 
 
 ### 표준 내장 객체의 확장
+
+- Array를 예로 들면,
+
+  ```javascript
+  var arr = new Array('seoul','new york','ladarkh','pusan', 'Tsukuba');
+  	function getRandom(city){
+      var index = Math.floor(city.length * Math.randon());
+      return city[index];
+    }
+  
+  console.log(getRandom(arr));
+  ```
+
+  </br> 
+
+  *이 코드를 `prototype`을 적용해보면 ?*
+
+  ```javascript
+   // var arr = new Array('seoul', 'new york', 'ladarkh', 'pusan', 'Tsukuba');
+          // function getRandom(city) {
+          //     var index = Math.floor(city.length * Math.random());
+          //     return city[index];
+          // }
+  
+          // console.log(getRandom(arr));
+  
+  
+          Array.prototype.rand = function(){
+              var index = Math.floor(this.length * Math.random());
+              return this[index];
+          }
+          var arr = new Array('seoul', 'new york', 'ladarkh', 'pusan', 'Tsukuba');
+  
+          console.log(arr.rand());
+  ```
+
+  - 이렇게 하면 Array객체의 프로토타입에 접근해 **마치 원래 Array 객체가 가지고 있는 메서드처럼 활용할 수 있게 된**다.

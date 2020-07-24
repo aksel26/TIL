@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // var arr = new Array('seoul', 'new york', 'ladarkh', 'pusan', 'Tsukuba');
+        // function getRandom(city) {
+        //     var index = Math.floor(city.length * Math.random());
+        //     return city[index];
+        // }
+
+        // console.log(getRandom(arr));
+
+
+        Array.prototype.rand = function(){
+            var index = Math.floor(this.length * Math.random());
+            return this[index];
+        }
+        var arr = new Array('seoul', 'new york', 'ladarkh', 'pusan', 'Tsukuba');
+
+        console.log(arr.rand());
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

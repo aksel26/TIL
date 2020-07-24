@@ -4,7 +4,7 @@
 
 ### 문제
 
-<img src="raadme.assets/image-20200724121819263.png" alt="image-20200724121819263" width ="70%" />
+<img src="readme.assets/image-20200724122136405.png" alt="image-20200724122136405" width ="70%" />
 
 </br> 
 

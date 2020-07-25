@@ -122,6 +122,63 @@
 
 </br> 
 
+
+
+## Variable
+
+- ` let` : 변수 선언
+
+  ```Javascript
+  'use strict';
+  let name = 'hyun';
+  console.log(name);
+  
+  name = "hello";
+  console.log(name);
+  
+  //출력
+  //hyun
+  //hello 
+  ```
+
+  선언하면 변수 메모리에 참조할 수 있는 포인터가 생김
+
+  </br> 
+
+- 전역변수, 지역변수
+
+  - 지역 scope `{ }`
+
+  ```javascript
+  'use strict';
+  let globalVar = "global";
+  {
+  let name = 'hyun';
+  console.log(name);
+  
+  name = "hello";
+  console.log(name);
+  
+  // 지역안에서는 전역변수 사용 가능.
+  console.log(globalVar);
+  }
+  
+  // 출력 X (공백)
+  console.log(name);
+  
+  ```
+
+  </br> 
+
+- **`var`  : 쓰지 말자!**
+
+  1. 선언도 하기 전에 호출이 가능하기 때문,, 비정상적이다. (**`hoisting`개념**) 
+  2. **블럭 scope 와 무관**하게 된다.
+
+</br> 
+
+</br> 
+
 ## 이벤트 처리기 등록하기와 타이머
 
 - [이벤트 처리기](#이벤트-처리기)

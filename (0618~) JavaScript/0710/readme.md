@@ -1,3 +1,125 @@
+## 콘솔 출력 
+
+1. 텍스트 편집기로 출력
+2. node.js로 출력
+   1. 프로젝트 폴더로 이동해 `node test.js` 실행
+
+</br> 
+
+## `async` , `defer`
+
+### HTML과 JS 파싱
+
+- 한줄한줄 파싱(해석)하면서 DOM요소로 변환한다.
+
+- 경우 1번
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    	<script src = "main.js"></script>
+  </head>
+  <body>
+  </body>
+  </html>
+  ```
+
+  - 이 과정에서 Script태그가 보이면 main.js를 fetching js , executing js 하고 나머지 html을 파싱한다.
+    - 단점 : 중간에 js과정을 거치는 과정에서 컨텐츠가 멈출 수 있다.
+
+</br> 
+
+- 경우 2번
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+  </head>
+  <body>
+      <div></div>
+  		<script srt = "main.js"></script>
+  </body>
+  </html>
+  ```
+
+  - 이 때는 컨텐츠가 전부 다운르드 된 후에 js를 불러오기 때문에 정보를 모두 볼 수 있다.
+    - 단점 : js에 매우 의존적인 경우 (서버와 견결하는 경우 등 )에는  단점이 될 수 있다
+
+</br> 
+
+- `async` 옵션
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    		<script async srt = "main.js"></script>
+       기본적으로 `true` 이기 때문에 그냥 적어주어도 된다.
+  </head>
+  <body>
+    <div></div>
+  </body>
+  </html>
+  ```
+
+  <img src="readme.assets/image-20200725173605440.png" alt="image-20200725173605440" width ="60%" />
+
+  - 장점 : 병렬적으로 js를 다운로드 해 시간을 절약할 수 있다.
+
+  - 단점 : querySelector 등으로 DOM요소를 조작하려고 할 경우 단점이 될 수 있다.
+
+    - 다운로드가 먼저 된 js부터 실행하기 때문에 실행 순서가 민감한 경우라면 큰 단점이 된다.
+
+      <img src="readme.assets/image-20200725174514295.png" alt="image-20200725174514295" width ="60%"/>
+
+  </br> 
+
+- `defer` 옵션
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    		<script defer srt = "main.js"></script>
+       기본적으로 `true` 이기 때문에 그냥 적어주어도 된다.
+  </head>
+  <body>
+    <div></div>
+  </body>
+  </html>
+  ```
+
+  <img src="readme.assets/image-20200725174308571.png" alt="image-20200725174308571" width ="60%" />
+
+  - 가장 BEST한 옵션
+
+  - 여러개의 js가 있어도 안정적
+
+    <img src="readme.assets/image-20200725174558488.png" alt="image-20200725174558488" width="60%" />
+
+- ### `'use strict';`
+
+  - JS는 매우 관대한 언어이기 때문에 문법적으로 맞지 않은 것들도 오류판별이 나지 않아 매우 위험할 수 있다.
+  - 이것을 방지하기 위한 선언문. ECMAScript5에 추가되어 있다.
+
+</br> 
+
+</br> 
+
 ## 이벤트 처리기 등록하기와 타이머
 
 - [이벤트 처리기](#이벤트-처리기)

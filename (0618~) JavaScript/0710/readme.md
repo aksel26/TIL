@@ -691,8 +691,20 @@ setInterval(function(){
 
 4. 화살표 함수 표현식
 
-   `var square = x => x*x ;`
+   - `var square = x => x*x ;`
 
+   - `const simplePrint = () => console.log('simple');`
+   
+   - `const add = (a,b ) => a+b;`
+   
+   - ```javascript
+     const simpleMultiply = (a,b) => {
+     	//logic..
+     	return a * b;
+     }
+     // 이런 경우에는 반드시 return을 써주어야 한다.
+     ```
+   
    </br>
 
 - **함수 선언문**으로 정의한 함수만 **Hoisting이 가능하다**
@@ -780,7 +792,28 @@ log(1234);	// 1234 출력 (string으로 변환되어서 출력됨)
   prntAll('dream','comes','true');
   ```
 
-  
+</br> 
+
+##### early return, early exit
+
+```javascript
+// bad  : if 안되면 else 를 쓰는 방법
+function upgradeUser(user){
+  if(user.point>10){
+    // login....
+  }
+}
+
+//good : 찾을 조건이 안되는 것들은 빨리 리턴을 하는 것.
+function upgradeUser(user){
+  if(user.point<=10){
+    return;
+  }
+		//  logic...
+}
+```
+
+
 
 </br> 
 

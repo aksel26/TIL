@@ -126,9 +126,11 @@
 
 ## Variable
 
-- ` let` : 변수 선언
+### let
 
-  ```Javascript
+- `let` : 변수 선언
+
+  ```javascript
   'use strict';
   let name = 'hyun';
   console.log(name);
@@ -143,7 +145,7 @@
 
   선언하면 변수 메모리에 참조할 수 있는 포인터가 생김
 
-  </br> 
+</br> 
 
 - 전역변수, 지역변수
 
@@ -174,6 +176,97 @@
 
   1. 선언도 하기 전에 호출이 가능하기 때문,, 비정상적이다. (**`hoisting`개념**) 
   2. **블럭 scope 와 무관**하게 된다.
+
+</br> 
+
+### constant
+
+- 상수
+
+- 사용하는 이유
+
+  1. 보안
+
+  2. Thread safety
+
+     : 프로그램이 실행되면 여러가지의 스레드가 실행되고 동시에 변수를 참조하는데 동시에 값을 변경할 수 있는데, 위험성이 존재함. 상수면 이런 위험을 없애준다.
+
+  3. 실수 가능성 감소
+
+</br> 
+
+### 변수 타입
+
+1. Primitive type (single item) 
+
+   : `number`, `string`,` boolean`, `null`, `undefined`, `symbol`
+
+2. Object 
+
+   : single. item들을 묶어서 한 박스로 관리할 수 있게 해줌 ( box container )
+
+3. function ( first - class function )
+
+</br> 
+
+#### 1-1. primitive type
+
+- `number`의 경우 
+
+  - C언어, Java의 경우 : 메모리할당을 미리 생각해 타입을 지정해 주어야 한다. (`double`, `float`, ....)
+
+  - JavaScript : <u>number하나면 퉁칠수 있다.</u> 
+
+    - `let a = 1.2;`
+    - `let b = 1;`
+
+    </br> 
+
+- `string` 의 경우
+
+  - 한글자(`c`)든 여러글자든 모두 `string` 타입
+
+  - ` +`  연산도 가능
+
+  - **Template literals  (backtick `)**
+
+    - ` ${변수}` 	
+
+    - 이용하면 일일이 `+` 연산을 붙어야하는 수고로움을 덜 수 있다.
+
+      </br> 
+
+- `symbol`
+
+  - 고유의 식별자
+
+  - 우선순위가 필요한 경우 사용됨
+
+    ```javascript
+    const symbol1 = Symbol('id');
+    const symbol2 = Symbol('id');
+    
+    console.log(symbol1 === symbol2);
+    // false
+    
+    // string이 똑같다면 동일한 symbol을 만들고 싶다? for이용
+    const gSymbol1 = Symbol.for('id');
+    const gSymbol2 = Symbol.for('id');
+    console.log(symbol1 === symbol2); 
+    //true
+    
+    console.log(`value : ${symbol1}`) ---> 오류발생
+    console.log(`value : ${symbol1.description}`) -- description을 사용해야한다.
+    ```
+
+  </br> 
+
+- Dynamic typing : dynamically typed language
+
+  - 선언 시 어떤 타입인지 선언하지 않고 런타임중에 값이 할당된 타입에 따라 그 타입이 변경된다.
+  - *C , Java는 statically typed language*
+  - 개발 중간에 타입이 바뀌게 되면 런타임오류가 발생하는 일이 빈번할 수 있다. ( 나의 코드 + 여러사람의 코드가 섞이게 되는 경우를 생각해보면 )
+    - 이를 보완하기 위해 만들어진 것이` typescript`
 
 </br> 
 

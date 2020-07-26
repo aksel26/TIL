@@ -195,15 +195,41 @@
 
 </br> 
 
+---
+
+<u>*참고*</u>
+
+- Immutable data types : primitive types, frozen objects(`object.freeze()`)
+
+  - primitive type이 변경 불가라는게 무슨말 ?
+
+    ```javascript
+    let str ='hello';
+    str = 'world';
+    ```
+
+    1. 메모리에 `hello`가 생성되고 `str`은 `hello` 의 **주소를 참조**한다.
+    2. 그 후, str이 <u>**수정되는 것이 아닌**</u> 새로 생성된 world의 주소를 참조하는 것이다. 즉, 참조하는 주소만 달라지는 것 뿐.
+
+- Mutable data types : `objects`  , *JS안의 거의 모든 object는 mutable*
+
+---
+
+</br> 
+
 ### 변수 타입
 
 1. Primitive type (single item) 
 
    : `number`, `string`,` boolean`, `null`, `undefined`, `symbol`
 
+   메모리에 바로 저장. (`value`로 값이 바로 저장)
+
 2. Object 
 
    : single. item들을 묶어서 한 박스로 관리할 수 있게 해줌 ( box container )
+
+   너무 커서 한번에 저장할 수 없음. `reference` 를 통해 오브젝트가 담긴 메모리를 가리키는 것.
 
 3. function ( first - class function )
 

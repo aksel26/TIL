@@ -296,6 +296,63 @@
 
 </br> 
 
+
+
+## operator
+
+### ==, ===
+
+1. *예제1*
+
+   ```javascript
+   console.log(0 == false); // T
+   console.log(0 === false); // F
+   console.log('' == false); // T
+   console.log('' === false); // F
+   console.log(null == undefined); // T
+   console.log(null === undefined); // F
+   ```
+
+2. *예제2*
+
+   ```javascript
+   const o1 = {name :'iron'};
+   const o2 = {name : 'iron'};
+   const o3 = o1;
+   
+   console.log(o1 == o2); // F
+   console.log(o1 === o2); // F
+   console.log(o1 === o3); // T
+   ```
+
+</br> 
+
+
+
+### ||, &&
+
+```javascript
+let t = true;
+let f = false;
+
+if(t||f||check());
+// t가 true이므로 뒤에 f, check()를 체크할 필요 없이 바로 true를 나타낸다.
+
+if(t&&f&&check());
+//t가 false면 뒤에 f, check()를 체크할 필요 없이 바로 false 를 출력한다.
+
+// 이를 이용해 null체크에 활용한다.
+
+function check(){
+  for(let i = 0; i< 10; i++){
+    
+  }
+  return true;
+}
+```
+
+
+
 </br> 
 
 ## 이벤트 처리기 등록하기와 타이머
@@ -606,7 +663,9 @@ setInterval(function(){
 
 ## 함수 
 
+- 웬만하면 **동사**로,
 
+- *One function = one thing*
 
 ### 함수 정의하기
 
@@ -640,6 +699,90 @@ setInterval(function(){
   - 함수리터럴, Function 생성자, 화살표 함수는 불가능!
 
 </br>
+
+#### Parameter
+
+##### parameters
+
+- premitive parameters : value
+- object parameters : reference
+
+```javascript
+function log(message){
+  console.log(message);
+}
+
+log("hello"); //hello 출력
+log(1234);	// 1234 출력 (string으로 변환되어서 출력됨)
+```
+
+- 매개변수가 타입이 **불분병**한 문제점이 있다.
+
+- 여기서  typescript와의 차이점.. 배워야 하는 이유
+
+  ```typescript
+  // function test(message:string (input 타입)): number (output타입)
+  function test(message:string): number {
+    console.log(message);
+    return 0;
+  }
+  ```
+
+</br> 
+
+##### Default parameters
+
+- 기존 방법
+
+  ```javascript
+  // 기존의 방법
+  function showMsg(message, from){
+    if(from === undefined){
+      from = 'unknown';
+    }
+    console.log(`${message} by ${from}`);
+  }
+  
+  showMsg('Hi');
+  ```
+
+- ES6 추가
+
+  ```javascript
+  // 기존의 방법
+  function showMsg(message, from='unknown'){
+     console.log(`${message} by ${from}`);
+  }
+  
+  showMsg('Hi');
+  ```
+
+</br> 
+
+##### Rest parameters
+
+- `...args` : **배열** 형태로 반환
+
+  ```javascript
+  function prntAll(...args){
+    
+  //  1. 첫번째 for문 방법
+    for(let i = 0; i< args.length ; i++){
+      console.log(args[i]);
+    }
+  //  2. 두번째 for문 방법 (of)
+    for(const arg of args){
+      console.log(arg);
+    }
+  //  3. 세번째 for문 방법 (forEach)
+    args.forEach((arg) => console.log(arg));
+  }
+  prntAll('dream','comes','true');
+  ```
+
+  
+
+</br> 
 
 #### 중첩함수
 

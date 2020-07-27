@@ -355,6 +355,133 @@ function check(){
 
 </br> 
 
+
+
+
+
+## Class , Object
+
+### class (ES6)
+
+```javascript
+class Person{
+name; 프로퍼티
+age;  프로퍼티 
+speak(); 메서드
+}
+```
+
+- 서로 연관있는 것들끼리 묶어 놓은 것. (fields 또는 methods가 묶여있다.)
+- *method가 없이* fields만 들어있는 경우 **`Data Class`**라고 불린다.
+- *특징*
+  - template(청사진)
+  - declare once
+  - no data in
+- *ES6부터 클래스 도입  전, 선언하지 않아도  object를 생성이 가능했다.*
+  - Prototype-based 문법만 클래스가 추가된 것. (syntatical sugar라고한다)
+
+</br> 
+
+### object
+
+- instance of a class
+- created many times
+- data in ( 메모리에도 올라간다는 의미 )
+
+</br> 
+
+---
+
+#### 1. class 선언
+
+```javascript
+'use strict';
+class Person {
+    //constructor
+    constructor(name, age) {
+        //fields
+        this.name = name;
+        this.age = age;
+    }
+
+    speak() {
+        console.log(`${this.name}: hello!`);
+    }
+}
+
+
+const Sam = new Person('Smith', 22);
+
+console.log(Sam.name);
+console.log(Sam.age);
+Sam.speak();
+```
+
+</br> 
+
+#### 2.  getter setter
+
+```javascript
+class User{
+    constructor(firstName,lastName, age){
+        this.firstName = firstName;
+        this.lastName =lastName;
+        this.age = age;
+    }
+    get age(){
+        return this.age;
+    }
+
+    set age(value){
+        this.age = value;
+    }
+}
+const user1 = new User('Steve','Jobs', -1);
+console.log(user1.age);
+```
+
+1. user1이라는 객체를 생성할 때, `age` 의 값이 -1이 나오면 안되지만 그대로 출력되는데, 이를 방지하기 위해 getter, setter 메서드가 존재한다.
+
+   </br> 
+
+2. `set` 메서드를 쓸때, 
+
+   ```javascript
+   set age(value){
+    	this.age = value;
+   }
+   ```
+
+   이렇게만 주면 <u>콜 스택 초과 오류</u>가 발생하게 된다. 
+
+   *왜?*
+
+   - 생성자에서 `this`부터 입력된 프로퍼티들은 **메모리에 바로 올라가는 것이 아니기 때문,**
+
+   - 이는 바로 get, set,메서드로 가고 set 메서드에서 this.age에 value를 업데이트 하는 것이 아니라 setter를 호출하게 된다. 이 작업이 계속 반복되기 때문에 오류가 발생하게 되는 것이다.
+   - 이를 해결하기 위해 **변수 지정을 다르게 해준다.**
+
+   ```javascript
+   get age(){
+           return this._age;
+       }
+   set age(value){
+           this._age = _value;
+       }
+   ```
+
+   
+
+
+
+
+
+
+
+
+
+</br> 
+
 ## 이벤트 처리기 등록하기와 타이머
 
 - [이벤트 처리기](#이벤트-처리기)

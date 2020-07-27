@@ -24,15 +24,17 @@ int main()
     int n;
     cin >> n;
 
- 초기값을 담을 벡터
+// 초기값을 담을 벡터
     vector<int> v;
- 삭제한 값들을 담을 벡터
+    
+// 삭제한 값들을 담을 벡터
     vector<int> v2;
- 크기 할당
+    
+// 크기 할당
     v.reserve(n);
     v2.reserve(n);
   
- 값 넣기
+// 값 넣기
     for (int i = 1; i <= n; i++)
     {
         v.push_back(i);

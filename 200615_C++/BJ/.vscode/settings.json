@@ -9,6 +9,7 @@
         "sstream": "cpp",
         "stack": "cpp",
         "iosfwd": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "vector": "cpp"
     }
 }

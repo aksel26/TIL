@@ -470,15 +470,55 @@ console.log(user1.age);
        }
    ```
 
-   
 
 
+</br> 
+
+### 상속 & 다형성
+
+```javascript
+Shape이라는 클래스 (공통점)
+class Shape {
+    constructor(width, height, color) {
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+    draw() {
+        console.log(`drawing ${this.color} color of`);
+    }
+    getArea() {
+        return this.width * this.height;
+    }
+}
+
+const test1 = new Shape(30, 20, 'blue');
+test1.draw(); //drawing blue color of
+console.log(test1.getArea()); //600
+
+// extends를 이용해 상속
+class Circle extends Shape{}
 
 
+class Triangle extends Shape {
+		// 오버라이딩
+    getArea() {
+        return (this.width * this.height) / 2;
+    }
 
+    draw() {
+      
+        // 부모의 메서드 호출
+	      	// : 오버라이딩 된 메서드만 출력하는게 아쉬울 때, 부모의 메서드를 호출하는 방법
+        super.draw();
+        console.log('triangle!');
+    }
+}
 
-
-
+const triangle = new Triangle(30, 20, 'red');
+triangle.draw();
+console.log(triangle.getArea());
+```
 
 </br> 
 

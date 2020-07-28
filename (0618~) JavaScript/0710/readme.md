@@ -606,8 +606,145 @@ console.log(triangle.getArea());
 #### 2. Computed properties ( object.[`'key'`] )
 
 - 프로퍼티로의 접근
+
   1. `console.log(sam.name);`
   2. `console.log(sam['name']);`  이때 프로퍼티의 Key는 String타입으로 해야한다. (`'name'`)
+
+- *예제*
+
+  ```javascript
+  console.log(sam.name);
+  console.log(sam['name']);
+  
+  function printValue(obj, key) {
+      console.log(obj.key);
+  }
+  
+  printValue(sam, 'name');
+  //결과
+  //undefined
+  ```
+
+  </br> 
+
+  <u>**왜 undefined?**</u>
+
+  | Obj.key                              | obj[key]                                                     |
+  | ------------------------------------ | ------------------------------------------------------------ |
+  | obj안에 key라는 프로퍼티가 있냐 없냐 | 사용자의 입력에 맞춤<br />동적으로 key의 value를 받아올 때 유용하게 사용 가능. |
+
+  ```javascript
+  function printValue(obj, key) {
+      console.log(obj[key]);
+  }
+  
+  printValue(sam,'name'); //smith
+  printValue(sam,'age');	//14
+  ```
+
+</br> 
+
+#### 3. Property value shorthand
+
+```javascript
+const person1 = {name : 'bob', age :13};
+const person2 = {name : 'Dave', age :12};
+const person3 = {name : 'Sam', age :14};
+const person4 = {name : 'chango', age :23};
+// const person5 = [nam...]// 너무 많아...
+```
+
+- 너무 많고 번거로운 작업..
+
+  - 동일한 key와 value를 반복하게 되는 단점 발생
+
+- ====> **함수**를 만들어보자
+
+  ```javascript
+  const person5 = makePerson('kkang', 32);
+  function makePerson(name,age){
+    return {
+      //매개변수의 key와 value가 같으면 this생략 가능하다
+      name,
+      age,
+    };
+  }
+  ```
+
+  </br> 
+
+#### 4. 생성자 함수 (Constructor Function)
+
+```javascript
+const person5 = new Person('kkang', 32); //클리스에서 object를 만드는 것처럼 
+console.log(person5);
+
+//function makePerson(name,age){
+  //return {
+    //매개변수의 key와 value가 같으면 this생략 가능하다
+    //name,
+    //age,
+  //};
+//}
+
+------>>>> // to Constructor Function ------------------------------------
+
+// 순수하게 Object를 만드는 함수들은 대문자로 시작한다. (makePerson -> Person)
+function Person(name, age){
+    //this = {}; 이 부분과
+    this.name = name;
+    this.age = age;
+    // return this; 이부분이 생략되었따.
+}
+```
+
+</br> 
+
+#### 5. `in` operator
+
+- key가 object 안에 있는지 여부를 확인할 수 있다.
+- `console.log('name' in sam);` => true;
+
+
+
+</br> 
+
+#### 6. for...in VS for... of
+
+1. for..in 
+
+   **`for(key in obj)`**
+
+   ```javascript
+   for(key in sam){
+     console.log(key);
+   }
+   
+   //출력
+   //name
+   //age
+   //Hasjob
+   ```
+
+   </br> 
+
+2. for...of
+
+    **`for(value of iterable)`**
+
+   ```javascript
+   const array = [1,2,3,4]
+   for(value of array){
+     console.log(value);
+   }
+   //출력
+   //1
+   //2
+   //3
+   //4
+   ```
+
+   
 
 
 

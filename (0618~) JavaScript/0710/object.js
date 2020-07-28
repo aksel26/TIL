@@ -54,3 +54,28 @@ const array = [1, 2, 3, 4];
 for (value of array) {
     console.log(value);
 } 
+
+
+const user = {name: 'user1', age: 20};
+const user2 = user;
+console.log(user2);
+
+const user3 = {};
+for(key in user){
+    user3[key] = user[key];
+}
+
+console.log(user3);
+
+const user5 = {};
+Object.assign(user5, user);
+console.log(user5);
+
+
+const fruit1 = {color:'blue'};
+const fruit2 = {color:'red', flavor : 'sweet'};
+
+const mixed = Object.assign({}, fruit1, fruit2);
+
+
+console.log(mixed.flavor, mixed.color);

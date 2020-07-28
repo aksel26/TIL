@@ -744,9 +744,55 @@ function Person(name, age){
    //4
    ```
 
-   
+   </br> 
+
+#### 7.Cloning (`Object.assign(dest,[obj1, obj2, ... ])`)
+
+- 엣날 방법 (assign을 사용하지 않을 경우)
+
+  ```javascript
+  const user = {name: 'user1', age: 20};
+  const user2 = user;
+  console.log(user2); //동일하게 된다
+  
+  //old way 수동적으로 일일이 user3에 대입.
+  const user3 = {};
+  for(key in user){
+      user3[key] = user[key];
+  }
+  console.log(user3);
+  ```
+
+  </br> 
+
+- `Object.assign()` 을 이용하는 방법
+
+  ```javascript
+  const user5 = {};
+  Object.assign(user5, user);
+  console.log(user5);
+  ```
+
+  </br> 
+
+- *예제*
+
+  ```javascript
+  const fruit1 = {color:'blue'};
+  const fruit2 = {color:'red', flavor : 'sweet'};
+  
+  // 동일한 프로퍼티가 있을경우 뒤에서부터 앞으로 값을 덮어 씌운다.
+  const mixed = Object.assign({}, fruit1, fruit2);
+  
+  console.log(mixed.flavor, mixed.color);
+  //sweet, red
+  ```
 
 
+
+</br> 
+
+---
 
 </br> 
 

@@ -361,6 +361,10 @@ function check(){
 
 ## Class , Object
 
+[Class](#class-es6)
+
+[Object](#objects)
+
 ### class (ES6)
 
 ```javascript

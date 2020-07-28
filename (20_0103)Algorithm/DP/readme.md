@@ -1,6 +1,12 @@
 # Dynamic Programming
 
+규칙성을 찾아서 **점화식**을 세우는 것이 중요!
 
+---
+
+
+
+## 1. 피보나치
 
 피보나치 수열을 예로 들면
 
@@ -67,6 +73,46 @@ int main()
 
     printf("%d\n", dp(50));
     //-298632863 오버플로우 발생 (정수형 표현 범위 초과)
+    return 0;
+}
+```
+
+</br> 
+
+
+
+## 2. 타일링 문제
+
+<img src="readme.assets/image-20200728150123330.png" alt="image-20200728150123330" width ="70%" />
+
+</br> 
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int d[1001];
+
+int dp(int x)
+{
+    if (x == 1)
+        return 1;
+    if (x == 2)
+        return 3;
+    if (d[x] != 0)
+        return d[x];
+    return d[x] = (dp(x - 1) + 2 * dp(x - 2)) % 10007;
+    //10007은 오버플로우를 방지하기 위함.
+}
+int main()
+{
+
+    int x;
+    cin >> x;
+
+    cout << dp(x) << endl;
+
     return 0;
 }
 ```

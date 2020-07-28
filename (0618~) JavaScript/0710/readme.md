@@ -372,21 +372,27 @@ speak(); 메서드
 ```
 
 - 서로 연관있는 것들끼리 묶어 놓은 것. (fields 또는 methods가 묶여있다.)
+
 - *method가 없이* fields만 들어있는 경우 **`Data Class`**라고 불린다.
+
 - *특징*
   - template(청사진)
   - declare once
   - no data in
+  
 - *ES6부터 클래스 도입  전, 선언하지 않아도  object를 생성이 가능했다.*
+  
   - Prototype-based 문법만 클래스가 추가된 것. (syntatical sugar라고한다)
+  
+- **class VS object**
 
-</br> 
+  | class                                                        | object                                                       |
+  | :----------------------------------------------------------- | ------------------------------------------------------------ |
+  | 1. template(청사진)<br />2. declare once <br />3. no data in | 1. instance of a class <br />2. created many times <br />3. data in ( 메모리에도 올라간다는 의미 ) |
 
-### object
+  
 
-- instance of a class
-- created many times
-- data in ( 메모리에도 올라간다는 의미 )
+
 
 </br> 
 
@@ -519,6 +525,87 @@ const triangle = new Triangle(30, 20, 'red');
 triangle.draw();
 console.log(triangle.getArea());
 ```
+
+</br> 
+
+### objects
+
+#### 1. Literals & properties
+
+- <u>**`key`와 `value`의 집합체**</u>
+
+- 선언 방법
+
+  1. object literal
+
+     `const obj1 = {};`
+
+  2. object constructor -- `new`
+
+     `const obj2 = new Object();`
+
+- *사용 예*
+
+  ```javascript
+  const name = 'Sam';
+  const age = 14;
+  print(name, age);
+  function print(name,age){
+  	console.log(name);
+  		console.log(age);
+  }
+  ```
+
+  - 이런식으로 일일이 변수에 맞춰 설정을 해줘야 하는 불편함이 있다.
+
+    </br>
+
+  ```javascript
+  function print(person){
+      console.log(person.name);
+      console.log(person.age);
+  }
+  const sam  ={name : 'sam', age : 13};
+  print(sam);
+  
+  //출력
+  //sam
+  //13
+  ```
+
+  - js에서 클래스 없이도 객가 생성이 가능하다.
+  - print() 함수 호출시 매개변수에 름만 쳐도 되어 편리하다.
+
+</br> 
+
+- **뒤늦게 프로퍼티를 추가 및 삭제할 수 있다.**
+
+  - JS는 **Dynamic Type Language**로.**Runtime일때 타입이 결정**되기 때문
+
+  ```javascript
+  function print(person){
+      console.log(person.name);
+      console.log(person.age);
+  }
+  const sam  ={name : 'sam', age : 13};
+  print(sam);
+  
+  sam.hasJob = true;
+  console.log(sam.hasJob);
+  
+  delete sam.hasJob;
+  console.log(sam.hasJob); //undefined
+  ```
+
+</br> 
+
+#### 2. Computed properties ( object.[`'key'`] )
+
+- 프로퍼티로의 접근
+  1. `console.log(sam.name);`
+  2. `console.log(sam['name']);`  이때 프로퍼티의 Key는 String타입으로 해야한다. (`'name'`)
+
+
 
 </br> 
 

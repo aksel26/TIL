@@ -81,7 +81,7 @@ int main()
 
 
 
-## 2. 타일링 문제
+## 2. 타일링 문제2
 
 <img src="readme.assets/image-20200728150123330.png" alt="image-20200728150123330" width ="70%" />
 
@@ -104,6 +104,60 @@ int dp(int x)
         return d[x];
     return d[x] = (dp(x - 1) + 2 * dp(x - 2)) % 10007;
     //10007은 오버플로우를 방지하기 위함.
+}
+int main()
+{
+
+    int x;
+    cin >> x;
+
+    cout << dp(x) << endl;
+
+    return 0;
+}
+```
+
+</br> 
+
+## 3. 타일링문제 3
+
+<img src="readme.assets/image-20200728152534967.png" alt="image-20200728152534967" width ="70%" />
+
+- 조심해야 할 것.
+  - 짝수의 경우 2가지의 경우가 추가로 붙는다.
+
+</br> 
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int d[1001];
+
+int dp(int x)
+{
+    if (x == 0)
+        return 1;
+    if (x == 1)
+        return 0;
+
+    if (x == 2)
+        return 3;
+
+    if (d[x] != 0)
+        return d[x];
+
+    int result = 3 * dp(x - 2);
+    for (int i = 3; i <= x; i++)
+    {
+        if (i % 2 == 0)
+        {
+            result += 2 * dp(x - i);
+        }
+    }
+
+    return d[x] = result;
 }
 int main()
 {

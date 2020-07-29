@@ -75,6 +75,7 @@ console.log(user5);
 const fruit1 = {color:'blue'};
 const fruit2 = {color:'red', flavor : 'sweet'};
 
+// 동일한 프로퍼티가 있을경우 뒤에서부터 앞으로 값을 덮어 씌운다.
 const mixed = Object.assign({}, fruit1, fruit2);
 
 

@@ -45,9 +45,11 @@
    fruits.forEach((fruit) => console.log(fruit));
    ```
 
-   
+   </br> 
 
-## 3. [Addition](#3-1-addition), [Deletion](#3-2-deletion), Copy
+   </br> 
+
+## 3. [Addition](#3-1-addition), [Deletion](#3-2-deletion), [Copy](#3-3-copy)
 
 ### 3-1. Addition
 
@@ -55,6 +57,7 @@
   - 뒤에서 부터 추가하기 
 - `pop()`
   - 뒤 값들을 제거하기
+  - **pop된 요소를 리턴한다.**
 
 </br> 
 
@@ -118,3 +121,20 @@
 
 ## 4. Searching
 
+1. **`indexof()`** 
+
+   인자에 해당하는 **인덱스의 값**을 리턴, 존재하지 않으면 **`-1`** 을 리턴
+
+   </br> 
+
+2. **`includes()`**  
+
+   존재 여부를 판단 --> **T / F 리턴**
+
+   </br> 
+
+3. **`lastIndexOf()`** 
+
+   : 배열 요소 중 중복된 값이 있을 때,
+     `indxeOf`는 가장 <u>최초의 요소</u><u>의 인덱스</u>를 출력
+     `lastIndexOf`는 가장 <u>나중의 요소의 인덱스</u>를 출력

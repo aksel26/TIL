@@ -47,7 +47,7 @@
 
    
 
-## 3. [Addition](#3-1.-Addition), [Deletion](#3-2.-Deletion), Copy
+## 3. [Addition](#3-1-addition), [Deletion](#3-2-deletion), Copy
 
 ### 3-1. Addition
 

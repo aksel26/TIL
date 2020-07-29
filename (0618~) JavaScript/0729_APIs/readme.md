@@ -47,7 +47,7 @@
 
    
 
-## 3. [Addition](#3-1.-Addition), Deletion, Copy
+## 3. [Addition](#3-1.-Addition), [Deletion](#3-2.-Deletion), Copy
 
 ### 3-1. Addition
 
@@ -67,7 +67,54 @@
   - 왜 ????
     - pop과 push는 기존의 데이터를 **이동할 필요가 없기 때문**이다.
 
-- 
+</br> 
 
+### 3-2. Deletion
 
+- `pop()`
+
+- **`splice()`** 
+
+  : 원하는 포지션에서 지우는 것
+
+  - *사용 예1*
+
+    ```javascript
+    fruits.splice(1,1);
+    console.log(fruits); 
+    ```
+
+    :  인덱스 1부터 1개만 삭제
+       splice(1,2)  : 1부터 2개 삭제
+
+    </br> 
+
+  - *사용 예2*
+
+    ```javascript
+    fruits.splice(1,1, 'a','b');
+    console.log(fruits);
+    ```
+
+    : 1부터 1개를 지우고 대신에 a와 b를 넣는다.
+
+    </br> 
+
+### 3-3. Copy
+
+- **`concat()`** 
+
+  : 두 배열을 이어 붙이는 것.
+
+  ```javascript
+  const fruits2 = ['add1', 'add2'];
+  const newFruits = fruits.concat(fruits2);
+  console.log(newFruits); 
+  ```
+
+  
+
+</br> 
+
+## 4. Searching
 

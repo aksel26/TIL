@@ -38,3 +38,28 @@ console.log(fruits);
 
 fruits.unshift('orange');
 console.log(fruits); 
+
+//그렇다면 지정된 포지션에서 지우는 건 ?
+// ===> splice
+
+
+fruits.push('peach','oracne',' strawberry');
+console.log(fruits); 
+
+fruits.splice(1,1);
+console.log(fruits); 
+
+fruits.splice(1,1, 'a','b');
+console.log(fruits);
+
+// combine two array
+
+const fruits2 = ['add1', 'add2'];
+const newFruits = fruits.concat(fruits2);
+console.log(newFruits); 
+
+
+// console.clear();
+console.log(fruits);
+console.log(fruits.indexOf('a'));
+console.log(fruits.includes('empty'));

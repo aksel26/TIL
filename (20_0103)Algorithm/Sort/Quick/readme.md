@@ -1,4 +1,4 @@
-# Quck Sort
+# Quick Sort
 
 - ### 개념
 

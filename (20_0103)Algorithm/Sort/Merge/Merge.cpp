@@ -10,7 +10,9 @@ void merge(int a[], int m, int middle, int n)
     int i = m;
     int j = middle + 1;
     int k = m;
-
+    printf("%s %d\n", "*****m = ", m);
+    printf("%s %d\n", "*****middle = ", middle);
+    printf("%s %d\n", "*****n = ", n);
     // 작은 순서대로 배열에 삽입
     while (i <= middle && j <= n)
     {
@@ -29,7 +31,7 @@ void merge(int a[], int m, int middle, int n)
     //남은 데이터도 삽입
     if (i > middle)
     {
-        for (int t = j; i <= n; i++)
+        for (int t = j; t <= n; t++)
         {
             sorted[k] = a[t];
             k++;
@@ -44,27 +46,30 @@ void merge(int a[], int m, int middle, int n)
         }
     }
 
-    // 정렬된 배열을 삽입
+    // 정렬된 배열을 삽입r
     for (int t = m; t <= n; t++)
     {
         a[t] = sorted[t];
     }
+
+    
 }
 
 void mergeSort(int a[], int m, int n)
 {
     if (m < n)
     {
-        int middle = (m + n) / 2;
-        
-        // printf("%s %d \n", "middle : ", middle);
-        printf("%s %s %d %s %d \n", "first :: ", "m = ",m," , middle = " ,middle);
+        int middle = m + (n - m) / 2;
+        printf("\n나누기 m = %d, n = %d, middle = %d", m, n,middle);
+
         mergeSort(a, m, middle);
-        // printf("%s %d \n", "n : ", n); // 7, 3, 1
-        printf("%s %d %s %d \n", "middle +1  = ",middle+1,", n = " ,n);
+        printf("%s %s %d %s %d %s %d\n", "first :: ", "m = ",m," , middle = " ,middle," ,n = ", n);
+        
         mergeSort(a, middle + 1, n);
-        printf("%s %s %d %s %d %s %d \n", "Merge :: ", "m = ",m," , middle = " ,middle," , n = ", n);
+        printf("%s %d %s %d \n", "middle +1  = ",middle+1,", n = " ,n);
+        
         merge(a, m, middle, n);
+        printf("%s %s %d %s %d %s %d \n", "Merge :: ", "m = ",m," , middle = " ,middle," , n = ", n);
     }
 }
 

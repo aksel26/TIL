@@ -128,3 +128,102 @@ int main()
 }
 ```
 
+</br> 
+
+## Pair Library
+
+--> *클래스를 정의하는 방식은 프로그래밍 속도에서는 불리하다.*
+
+**페어(Pair) 라이브러리**를 사용하면 더 효율적
+
+- **헤더파일**
+
+  `#include <vector>` <</br> 
+
+  *참고)* *벡터라이브러리 혹은 배열을 사용할 것인지의 선택은 자연스럽게 알게 된다.*
+
+</br> 
+
+- **정렬 기분이 1개일 경우**
+
+  ```c++
+  #include <iostream>
+  #include <algorithm>
+  #include <vector>
+  
+  using namespace std;
+  
+  int main()
+  {
+  
+      vector<pair<int, string>> v;
+  
+     // pair는 first(int부분), second(string부분) 의 정보를 갖고 있다.
+      v.push_back(pair<int, string>(90, "박명수"));
+      v.push_back(pair<int, string>(93, "유재석"));
+      v.push_back(pair<int, string>(91, "정준하"));
+      v.push_back(pair<int, string>(92, "노홍철"));
+  
+  
+      //벡터의 첫번째 값부터 마지막 값까지 정렬해라.
+      sort(v.begin(), v.end());
+      for (int i = 0; i < v.size(); i++)
+      {
+          cout << v[i].second << ' ';
+      }
+  
+      return 0;
+  }
+  ```
+
+  </br> 
+
+- **정렬 기준이 2개인 경우**
+
+  --> 이중 Pair
+
+  ```c++
+  #include <iostream>
+  #include <algorithm>
+  #include <vector>
+  
+  using namespace std;
+  
+  bool compare(pair<string, pair<int, int>> a,
+               pair<string, pair<int, int>> b)
+  {
+      if (a.second.first == b.second.first)
+      {
+          return a.second.second > b.second.second;
+      }
+      else
+      {
+          return a.second.first > b.second.first;
+      }
+  }
+  
+  int main()
+  {
+  
+      vector<pair<string, pair<int, int>>> v;
+  
+      v.push_back(pair<string, pair<int, int>>("박명수", make_pair(98, 19920912)));
+      v.push_back(pair<string, pair<int, int>>("유재석", make_pair(97, 19960913)));
+      v.push_back(pair<string, pair<int, int>>("하하", make_pair(95, 19930203)));
+      v.push_back(pair<string, pair<int, int>>("정형돈", make_pair(90, 19921207)));
+      v.push_back(pair<string, pair<int, int>>("노홍철", make_pair(88, 19900302)));
+  
+      sort(v.begin(), v.end(), compare);
+  
+      for (int i = 0; i < v.size(); i++)
+      {
+          cout << v[i].first << ' ';
+      }
+  
+      return 0;
+  }
+  ```
+
+  </br> 
+
+- *기준이 3개일 경우 클래스를 직접 정의하는게 효과적인 경우가 많다.*

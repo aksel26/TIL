@@ -41,44 +41,39 @@
 ### 코드
 
 ```c++
-
 #include <stdio.h>
 
-int main()
-{
+int main(){
 
-    int temp;
-    int count[5];
+
+    int size[6];
     int array[30] = {1, 3, 2, 4, 3, 2, 5, 3, 1, 2,
                      3, 4, 4, 3, 5, 1, 2, 3, 5, 2,
                      3, 1, 4, 3, 5, 1, 2, 1, 1, 1};
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 1; i <= 5; i++)
     {
-        count[i] = 0;
+        size[i] = 0;
     }
 
     for (int i = 0; i < 30; i++)
     {
-        count[array[i] - 1]++;
+        size[array[i]]++;
     }
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 1; i <= 5; i++)
     {
-        if (count[i] != 0)
-        {
-            for (int j = 0; j < count[i]; j++)
+        if(size[i] != 0 ){
+            for (int j = 0; j < size[i]; j++)
             {
-                printf("%d ", i + 1);
+                printf("%d ", i );
             }
+            
         }
     }
-
+    
     return 0;
+    
 }
-
-
-// 결과
-// 1 1 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 5 5 5 5
 ```
 

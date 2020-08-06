@@ -7,7 +7,7 @@ int heap[9] = {7, 6, 5, 8, 3, 5, 9, 1, 6};
 int main()
 {
     // 먼저 전체 트리 구조를 최대 힙 구조로 바꾼다.
-    for (int i = 0; i < number; i++)
+    for (int i = 1; i < number; i++)
     {
         int c = i;
         do
@@ -30,6 +30,7 @@ int main()
         int temp = heap[0];
         heap[0] = heap[i];
         heap[i] = temp;
+
         int root = 0;
         int c = 1;
         do
@@ -38,6 +39,7 @@ int main()
             // 자식중에 더 큰 값 찾기
             if (heap[c] < heap[c + 1] && c < i - 1)
             {
+                // 오른쪽으로 이동 ( 인덱스 오른쪽이 더 크다 )
                 c++;
             }
 

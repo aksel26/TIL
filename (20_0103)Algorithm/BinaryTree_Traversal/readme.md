@@ -14,6 +14,21 @@
 
 </br> 
 
+*참고*
+
+구조체와 클래스의 차이 ?
+
+1. 기본 접근 제어자
+
+   구조체 : `public`
+   클래스 : `private`
+
+   이 외에 차이점은 상속, 등등... 
+
+   *크게 차이가 없다.* 
+
+   </br> 
+
 ---
 
 ### 이론
@@ -43,6 +58,7 @@ int number = 15;
 
 // 구조체
 // 하나의 노드 정보를 선언합니다.
+
 typedef struct node *treePointer;
 typedef struct node
 {
@@ -88,7 +104,7 @@ int main()
     node nodes[number + 1];
   
   // 노드 안의 수 초기화(숫자 넣기)
-    for (int i = 0; i <= number; i++)
+    for (int i = 1; i <= number; i++)
     {
         nodes[i].data = i;
         nodes[i].leftChild = NULL;

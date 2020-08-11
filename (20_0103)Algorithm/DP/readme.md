@@ -64,6 +64,9 @@ int dp(int x)
         return 1;
     if (x == 2)
         return 1;
+  
+  // 메모이제이션 
+  // 이미 값이 있으면 skip한다.
     if (d[x] != 0)
         return d[x];
     return d[x] = dp(x - 1) + dp(x - 2);

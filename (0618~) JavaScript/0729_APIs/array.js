@@ -63,3 +63,56 @@ console.log(newFruits);
 console.log(fruits);
 console.log(fruits.indexOf('a'));
 console.log(fruits.includes('empty'));
+
+
+ 
+class Student {
+    constructor(name, age, enrolled, score) {
+        this.name = name;
+        this.age = age;
+        this.enrolled = enrolled;
+        this.score = score;
+    }
+}
+const students = [
+    new Student('A', 29, true, 45),
+    new Student('B', 28, false, 80),
+    new Student('C', 30, true, 90),
+    new Student('D', 40, false, 66),
+    new Student('E', 18, true, 88),
+];
+
+// console.clear();
+//  const result = students.find(function (student, index){
+//         return student.score === 90;
+//     })
+
+// const result = students.find((student) => student.score === 90);
+
+
+// const result = students.some((student) => student.score < 50);
+// console.log(result);
+// const result2 = students.every((student) => student.score < 50);
+// console.log(result2);
+
+// 평균 구하기 : 
+
+// reduce : 배열 내부의 누적 합
+
+// const result = students.reduce((prev,curr) => {
+//     console.log('---------');
+//     console.log(prev);
+//     console.log(curr);
+//     return prev + curr.score;
+// }, 0);
+
+// console.log(result);
+
+// const result = students.reduce((prev,curr) => prev+curr.score,0);
+// console.log(result/students.length);
+
+const result = students
+.map((student) => student.score)
+.filter((score) => score>=50)
+.join();
+console.log(result);

@@ -13,8 +13,8 @@ const arr = [5, 4, 3, 2, 1];
 {
     // split(구분자(필수), 제한범위(선택옵션));
     const fruits = 'carrot juice is not tasty';
-    const result = fruits.split(' ');
-    console.log(result);
+    const result1 = fruits.split(' ');
+    console.log(result1);
 }
 
 
@@ -72,8 +72,16 @@ const students = [
     // }
 
     // 답안
-    const result = students.find((student) => student.score === 90);
-    console.log(result);
+    
+    // const result = students.find(function (student, index){
+    //     return student.score === 90;
+    // })
+    // console.log(result);
+    console.clear();
+
+    const result2 = students.find((student) => student.score === 90);
+    console.log(result2);
+
 }
 
 
@@ -88,8 +96,8 @@ const students = [
     // }
 
     // 답안
-    const result = students.filter((student) => student.enrolled);
-    console.log(result);
+    const result3 = students.filter((student) => student.enrolled);
+    console.log(result3);
 }
 // for(let i = 0 ; i< enrolledStudents.length ; i++){
 //     console.log(enrolledStudents[i]);

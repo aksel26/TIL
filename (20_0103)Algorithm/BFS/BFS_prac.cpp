@@ -1,19 +1,21 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 vector<int> arr[1001];
 
 int m, n, start;
-int c[1001];
+int cDFS[1001];
+int cBFS[1001];
 
 void bfs(int start)
 {
 
     queue<int> q;
     q.push(start);
-    c[start] = 1;
+    cBFS[start] = 1;
 
     while (!q.empty())
     {
@@ -24,12 +26,29 @@ void bfs(int start)
         for (int i = 0; i < arr[v].size(); i++)
         {
             int next = arr[v][i];
-            if (c[next] == 0)
+            if (cBFS[next] == 0)
             {
-                c[next] = true;
+                cBFS[next] = true;
                 q.push(next);
             }
         }
+    }
+}
+
+void dfs(int x)
+{
+    if (cDFS[x])
+        return;
+
+    cDFS[x] = 1;
+
+    cout << x << ' ';
+
+    for (int i = 0; i < arr[x].size(); i++)
+    {
+        int y = arr[x][i];
+
+        dfs(y);
     }
 }
 int main()
@@ -50,7 +69,9 @@ int main()
         sort(arr[i].begin(), arr[i].end());
     }
 
+    dfs(start);
+    cout << '\n';
     bfs(start);
-
+    cout << '\n';
     return 0;
 }

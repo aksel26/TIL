@@ -1,3 +1,3 @@
-TIL
+GitBlog (prototype)
 
-[Linux](https://github.com/aksel26/TIL/tree/master/(0808~)Linux)
+https://aksel26.github.io/

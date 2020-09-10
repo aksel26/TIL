@@ -343,6 +343,182 @@ Complete binary tree에 있는 노드 중에서 키 값이 **가장 큰 노드�
 
 
 
+<br/>
+
+<br/>
+
+## Set, Map
+
+1. STL - map : `O(logN)`
+2. STL - unordered_map : `O(1)`
+
+3. 직접 구현 - 시험장에선 STL을 쓰자
+
+
+
+| 시퀀스 컨테이너     | 연관 컨테이너  |
+| ------------------- | -------------- |
+| vector, list, deque | Key-value 구조 |
+
+<br/>
+
+### 0. Map VS Set
+
+맵은 사용 메모리가 셋보다 더 크다 -> **키의 존재 유무만 궁금하다면 셋을 사용하는 것이 좋다.**
+
+<br/>
+
+### 1. set
+
+1. 시퀀스 컨테이너처럼 어디에 추가할 것인지에 대한 정보는 없다.
+
+   막 넣은것. (순서를 지키며 --> 접근부분과 연관)
+
+2. 위치가 중요한게 아니라 **있냐 없냐에 대한 정보**가 중요하기 때문.
+
+3. set에 접근하기 위해 **iterator 반복자**를 사용
+   1. `BidirectionalIterator` : 순차적으로 접근하는 것밖에 안됨.
+   2. 그렇다면 `10 30 20 50 40` 순으로 나와야 하는데 ?
+   3. 이는 **<u>내부에 정렬이 된 상태로 추가</u>**되기 때문. 
+   4. 내부에 **Tree 구조**로 구성이 되어있다. -> 비교적 빠르게 **O(logN)이 나올 수 있는 비결**이다.
+
+4. 중복 원소가 없다.
+
+<img src="Readme.assets/image-20200911004931824.png" alt="image-20200911004931824" width ="70%" />
+
+```c++
+#include <iostream>
+#include <set>
+
+using namespace std;
+template <typename T>
+void print(set<T> &s)
+{
+    cout << "[";
+
+    for (typename set<T>::iterator itr = s.begin(); itr != s.end(); itr++)
+    {
+        cout << *itr << " ";
+    }
+
+    cout << "]" << endl;
+}
+
+int main()
+{
+
+    set<int> s;
+
+    s.insert(10);
+    s.insert(30);
+    s.insert(20);
+    s.insert(50);
+    s.insert(40);
+
+    cout << "순서대로 정렬되서 나온다" << endl;
+
+    print(s);
+
+    cout << "20이 s의 원소인가 ?";
+    auto itr = s.find(20);
+    if (itr != s.end())
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
+```
+
+<br/> 
+
+### 2. map
+
+1. Set과 유사, 중복을 허락하지 않음
+2. **차이점**은 ? Set의 경우 키만 보관, **map의 경우 키와 값을 보관**
+3. **없는 키 값을 출력하면** default로 값이 출력되는데 이는 잘못된 정보이므로 확실하게 하려면 **`find()`함수를 활용**하자.
+
+```c++
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+template <typename K, typename V>
+void print(map<K, V> &m)
+{
+    for (auto itr = m.begin(); itr != m.end(); ++itr)
+    {
+        cout << itr->first << " " << itr->second << endl;
+    }
+}
+
+template <typename K, typename V>
+void search(map<K, V> &m, K key)
+{
+    auto itr = m.find(key);
+    if (itr != m.end())
+    {
+        cout << key << "-->" << itr->second << endl;
+    }
+    else
+    {
+        cout<<key << "은(는) 목록에 없다." << endl;
+    }
+}
+int main()
+{
+
+    map<string, double> pitcher_list;
+
+    pitcher_list.insert(pair<string, double>("박세웅", 2.23));
+    pitcher_list.insert(pair<string, double>("해커", 2.93));
+    pitcher_list.insert(pair<string, double>("피어밴드", 2.95));
+
+    pitcher_list.insert(make_pair("차우찬", 3.04));
+    pitcher_list.insert(make_pair("장원준", 3.05));
+    pitcher_list.insert(make_pair("핵터", 3.09));
+
+    pitcher_list["니퍼트"] = 3.56;
+    pitcher_list["박종훈"] = 3.76;
+    pitcher_list["켈리"] = 3.90;
+
+    print(pitcher_list);
+
+    cout << "박세웅의 방어율은 ? " << pitcher_list["박세웅"] << endl;
+
+    pitcher_list["오승환"] = 3.58;
+
+    // 없는 키를 출력하면 double의 default인 0이 출력된다. (잘못된 정보) --> find를 활용하자
+        // ---> cout << "류현진의 방어율은 ?" << pitcher_list["류현진"] << endl;
+
+    search(pitcher_list,string("오승환"));
+    search(pitcher_list,string("류현진"));
+
+    return 0;
+}
+
+니퍼트 3.56
+박세웅 2.23
+박종훈 3.76
+장원준 3.05
+차우찬 3.04
+켈리 3.9
+피어밴드 2.95
+해커 2.93
+핵터 3.09
+박세웅의 방어율은 ? 2.23
+오승환-->3.58
+류현진은(는) 목록에 없다.
+```
+
+
+
 
 
 

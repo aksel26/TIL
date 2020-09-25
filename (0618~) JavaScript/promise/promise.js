@@ -7,7 +7,7 @@
 // 2가지 포인트
 // 1. State
 // 2. Producer & Consumer의 차이점 알기
- 
+
 // ---------------------------------------------------
 
 // 1. State
@@ -29,21 +29,21 @@
 // --> 네트워크 요청을 사용자가 요구했을 때만 사용되야 한다면 ? 위처럼 하면 안된다는 것을 유의
 
 
-const promise = new Promise((resolve,reject) =>{
+const promise = new Promise((resolve, reject) => {
     console.log('doing something ...');
-    setTimeout(()=>{
+    setTimeout(() => {
         // resolve('nice work');
         reject(new Error(
             'no network'
         ));
-    },2000)
+    }, 2000)
 })
 
 
 // 2-2. consumer : then, catch, finally 를 통해 값을 받아올 수 있다.
 // 2-2-1. then
 // 위에 resolve가 잘 수행이 되어서 전달한 값이 value의 파라미터로 전달된 것. 
-promise.then((value) =>{
+promise.then((value) => {
     console.log(value);
 })
 // 반면 resolve말고 reject가 온다면 ?
@@ -51,32 +51,56 @@ promise.then((value) =>{
 // catch를 사용하자
 // then을 부르면 Promise가 불러와지고 리턴된 Promise에 catch를 등록하는 것.
 promise
-.then(value =>{
-    console.log(value);
-})
-.catch(error=>{
-    console.log(error);
-})
-.finally(()=>{
-    console.log('finally') //성공실패와 무관하게 무조건 실행
-});
+    .then(value => {
+        console.log(value);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+    .finally(() => {
+        console.log('finally') //성공실패와 무관하게 무조건 실행
+    });
 
 
 // 3. promise chaining
-const fetchNumber = new Promise((resolve,reject)=>{
-    setTimeout(() => resolve(1),1000);
+const fetchNumber = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(1), 1000);
 });
 
 //then 은 값 또는 promise를 전달할 수 있다.
 fetchNumber
-.then(num => num * 2)
-.then(num => num * 3)
-.then(num => {
-    return new Promise((resolve,reject)=>{
-        setTimeout(() => resolve(num -1), 1000);
+    .then(num => num * 2)
+    .then(num => num * 3)
+    .then(num => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => resolve(num - 1), 1000);
+        });
+    })
+
+    .then(num => console.log(num));
+
+// 4. Error Handling
+const getHen = () =>
+    new Promise((resolve, reject) => {
+        setTimeout(() => resolve('chicken'), 1000);
     });
-})
+const getEgg = hen =>
+    new Promise((resolve, reject) => {
+        // setTimeout(() => resolve(`${hen} => egg`), 1000);
+        setTimeout(() => reject(new Error(`error !${hen} => egg`)), 1000);
+    });
+const cook = egg =>
+    new Promise((resolve, reject) => {
+        setTimeout(() => resolve(`${egg} => coool`), 1000);
+    });
 
-.then(num => console.log(num));
 
-// 17:27
+getHen()
+    .then(hen => getEgg(hen))
+    // 다음 나오는 곳에 catch를 넣어 핸들링할 수 있다. (순서 변경)
+    .catch(error =>{
+        return 'bread';
+    })
+    .then(egg => cook(egg))
+    .then(meal => console.log(meal))
+    .catch(console.log);

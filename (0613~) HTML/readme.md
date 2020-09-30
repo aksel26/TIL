@@ -48,7 +48,7 @@ a[href $=".com"]{
 
 # Padding & Margin
 
-```c++
+```css
 .red{
   width : 100px;
   height: 100px;

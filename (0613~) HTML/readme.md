@@ -219,9 +219,9 @@ Position, float, table로 정렬했지만 한계가 있었다.
 
 - 각각의 아이템들에 적용할 수 있는 속성값 존재
 
-<img src="readme.assets/image-20201004005533861.png" alt="image-20201004005533861" width ="70%" />
+<img src="readme.assets/image-20201004005533861.png" alt="image-20201004005533861" width ="50%" />
 
-<img src="readme.assets/image-20201004005603827.png" alt="image-20201004005603827" width ="70%" />
+<img src="readme.assets/image-20201004005603827.png" alt="image-20201004005603827" width ="50%" />
 
 
 
@@ -229,13 +229,13 @@ Position, float, table로 정렬했지만 한계가 있었다.
 
 1. 수평 축 기준으로하면 수직축은 반대축이 된다.
 
-   <img src="readme.assets/image-20201004005657828.png" alt="image-20201004005657828" width ="70%" />
+   <img src="readme.assets/image-20201004005657828.png" alt="image-20201004005657828" width ="50%" />
 
    <br/> 
 
 2. 수직축이 기준이되면 수평축은 반대축이 된다.
 
-   <img src="readme.assets/image-20201004005751864.png" alt="image-20201004005751864" width= "70%" />
+   <img src="readme.assets/image-20201004005751864.png" alt="image-20201004005751864" width= "50%" />
 
  
 
@@ -282,11 +282,11 @@ Position, float, table로 정렬했지만 한계가 있었다.
 /*  5.justify-content */
 /*   기본값 */
 /*   justify-content :flex-start; */
-/*   									flex-end : 오른쪽 축으로 아이템들을 배치 */
-/*      							center : 가운데 */
-/*   									space-around :박스를 둘러싸게 공간을 줌. */
-/*				  					space-evenly : 똑같은 간격을 넣어줌  */
-/*    								space-between :  왼쪽과 오른쪽은 딱 맞게, 중간에만 공간
+/*   	 flex-end : 오른쪽 축으로 아이템들을 배치 */
+/*     center : 가운데 */
+/*   	 space-around :박스를 둘러싸게 공간을 줌. */
+/*		 space-evenly : 똑같은 간격을 넣어줌  */
+/*     pace-between :  왼쪽과 오른쪽은 딱 맞게, 중간에만 공간
 */
 /*------  /* main axis */ --------*/
   

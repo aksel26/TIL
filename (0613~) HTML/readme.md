@@ -205,7 +205,7 @@ Position, float, table로 정렬했지만 한계가 있었다.
 
 ## float
 
-<img src="readme.assets/image-20201004005356076.png" alt="image-20201004005356076" width ="70%"/>
+<img src="readme.assets/image-20201004005356076.png" alt="image-20201004005356076" width ="40%"/>
 
 
 

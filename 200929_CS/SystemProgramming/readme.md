@@ -1,3 +1,5 @@
+# 1번째 강의
+
 <img src="readme.assets/image-20200929153307332.png" alt="image-20200929153307332" width =" 70%" />
 
 ---
@@ -6,7 +8,7 @@
 
 
 
-### Computer System 구성
+## 1. Computer System 구성
 
 - Apllications
 - Operating systems(OS)
@@ -23,7 +25,7 @@
 
 <br/>
 
-### Embeded System 구성
+## 2. Embeded System 구성
 
 - User applications
   - Android, OS, ...
@@ -62,6 +64,7 @@
       - 실제 사용자에게 직접적으로 느껴지지 않는 부분. 프로세스는 컴퓨터 내부에서 이루어지기 때문.
 
     - I/O and device management 
+      
       - device관리
     - **Process management** (핵심)
       - OS는 내부적 동작 시 기본적 단위는 **프로세스**
@@ -89,7 +92,7 @@
 
 <img src="readme.assets/image-20200929160118493.png" alt="image-20200929160118493" width="70%" />
 
-### History of Microprocessors
+## 3. History of Microprocessors
 
 *하드웨어에 따라 OS가 달라지는 경우가 있기 때문에 Microprocessor에 대해 간단히 알 필요가 있다.*
 
@@ -119,7 +122,7 @@
 
 <img src="readme.assets/image-20200929160905936.png" alt="image-20200929160905936" width ="70%"/>
 
-### History of OS
+## 4. History of OS
 
 - **mainframes** (1950's)
 
@@ -219,7 +222,7 @@
 
 
 
-#### 컴파일 시 동작
+### 컴파일 시 동작
 
 1. Preprocessr 가 동작 (선처리)
    1. 실행되는 binary코드를 골라내고, 컴파일러에 **추가적인 정보**를 제공하기 위한 directives 영역( Ex.`#include <stdio.h>`) 존재
@@ -232,4 +235,352 @@
 4. Loader (실행파일 실행 )
    1. 5개 정도의메모리에 배치
 5. 메로리를 읽어와 CPU가 실행
+
+
+
+<br/> <br/>
+
+# 2번째 강의
+
+## 1. 텍스트 에디터
+
+### 종류
+
+- **vi**
+  - 가장 널리 쓰임
+  - Cross-platform
+- **gEdit**
+  - 윈도우즈와 비슷
+  - Cross-platform
+- **Nano editor**
+- **Emacs editor**
+  - 굉장히 오래된 에디터
+  - 전문가에게 적합
+
+<br/>
+
+#### Vi Editor
+
+- `vi {filename}`
+
+  예 )` vi new_text`
+
+  - 기존 파일 존재하면 Open
+  - 없으면 새로운 file생성
+  - **확장자라는것이 없다.**
+
+  <br/>
+
+##### 모드 (Vi Modes of Operation)
+
+1. Command mode ( 최초 실행시  동작 )
+
+   - 커서 이동
+
+     - 한줄한줄 그리고 페이지 이동도 가능
+
+   - 검색
+
+   - Command mode로 변환 : `ESC` 키 이용
+
+   - Editing mode로 변환 : `a` (append), `i`  (insert) 키 이용
+
+     <img src="readme.assets/image-20201004230001958.png" alt="image-20201004230001958" width ="40%" />
+
+2. Editing mode
+
+<br/>
+
+##### Vi command 명령어
+
+1. `:q` : 수정한게 없이 바로 나가는 경우
+
+   `:q!` : 수정한게 있더라도 저장하지 않고 나감
+
+   <br/>
+
+2. `wq` : 수정사항 저장 후 나가기
+
+   `w` : 수정사항 저장, 나가지 않음
+
+   <br/>
+
+3. h / j / k / l : 좌 하 상 우
+
+   편집중에 Edit mode와 command mode 왔다갔다하기 불편하므로 커서키로도 이동 가능
+
+   <br/>
+
+4. 삭제 관련 명령어
+
+   - `x` : 글자 삭제
+
+   - `2x` ( 10x ... etc) :  2글자 삭제 (10글자 삭제)
+
+   - `u` : 실행 취소
+
+   - `dd` : 커서가 위치해 있는 한 줄삭제
+
+   - `2dd `: 연속되어 있는 줄 삭제 ( 다음 2둘도 삭제 )
+
+   - `s` : 글자를 덮어쓰기로 수정 (대체)
+
+   - `d^ `: 커서 위치부터 그 줄에 맨 앞까지 삭제
+
+   - `d$` : 커서 위치부터 그 줄에 맨 뒤까지 삭제
+
+   - `dw` : 커서가 위치된 단어만 삭제
+
+   - `p` : 붙여넣기
+
+     - 복사를 안했는데 ?
+
+       : 어떤식으로 삭제 명령을 하게 된다면, 삭제와 동시에 클립보드에 copy가 된다.
+
+   - `yy` : 지우면서 복사를 하지 않고 그대로 copy기능을 수행
+
+     - 10줄 복사 ? `10yy`
+
+<br/>
+
+5. 이동 관련 명령어 ( `^` : control )
+   - `:linenum` : 해당하는 줄로 이동
+   - `^f ` : 바로 다음 페이지
+   - `^b` : 이전 페이지
+   - `w` : 다음 단어로 커서 이동
+     - `3w` : 3단어 뒤로 이동
+   - `b` : 이전 단어로 커서 이동
+   - `5G` : 5th 줄로 이동 (G : go)
+
+<br/>
+
+## 2. 컴파일
+
+### **GCC**
+
+> Linux환경에서 가장 널리 쓰이는 GNU컴파일러(오픈소스)
+
+- gcc : C 코드 컴파일러
+- g++ : C++ 코드 컴파일러
+- console-based 컴파일러
+  - Graphic 이 아닌 **콘솔창(터미널) 환경**
+
+- 실행하면
+  1. Preprocessing 
+  2. Compilation
+  3. Assembly
+  4. Linking 
+
+- 도움말 : `man gcc`
+
+<br/>
+
+####  GCC options (or Flags)
+
+- `-c`
+
+  : 링크는 하지 않고 컴파일하라
+
+  **Object 파일**로 ouput발생
+
+- `-o <filename>`
+
+  : 구체적으로 정해주지 않으면 default값의 파일명(Ex. a.out)으로 나온다.
+
+- `-g`
+
+  : 디버그 정보 추가
+
+  *디버깅 해야 하는 경우 ?*
+
+  *: 컴파일 및 링크까지 성공해서 실행시켰는데 오류 발생하는 경우 ( 메모리 문제 등 )*
+
+  gdb라는 디버거를 통해 디버깅을 할 수 있다.
+
+- `-Wall`
+
+  : 경고를 모두 표시
+
+- `-I <path>`
+
+  : 디렉토리로부터 header파일을 찾는 경우 경로를 지정
+
+- `-L <path>`
+
+  : 디렉토리로부터 Library를 찾는 경우 경로를 지정
+
+- `-l <library name>`
+
+  : 특정 라이브러리를 지정 
+
+- `-Werror`
+
+  : warning을 error로 표시해라
+
+  <br/>
+
+- *예시*
+
+  - `gcc hello_world.c`
+
+    : a.out 생성 (default값)
+
+  - `gcc -c hello_world.c`
+
+    : hello_world.o (링크를 하지 않은 오브젝트 파일 생성)
+
+  - `gcc hello_world.c -o hello_world`
+
+  - `gcc -g hello_world.c -o hello_world`
+
+  - `gcc hello_world.c -o hello_world -lmath`
+
+    : math라이브러리 사용
+
+  <br/>
+
+#### Makefile
+
+보통 프로젝트안에는 c코드 및 헤더파일이 매우 많다.
+
+프로젝트 빌드를 하면 컴파일 된 후 최종적 실행파일이 나온다.
+
+이러한 과정을 도와주는 것이 **Makefile**이다
+
+`make` 명령어로 makefile이라는 이름을 찾는다. 
+
+- Make
+  - 프로그램 빌딩을 간단하게 해줄 수 있는 Tool
+- CMake
+  - 대형 프로젝트인 경우 여러 컴퓨터에서 실행될 때, 다양한 환경에 맞출 수 있다.
+
+<br/>
+
+예시1)
+
+```makefile
+hello : main.o display.o hello.o #(--> dependency)
+	gcc main.o display.o hello.o -o hello #(--> link만 해준것)
+
+clean :
+	rm -rf *.o hello
+
+main.o : main.c
+	gcc -c main.c
+	  # : main.o파일이 생성 (hello rule로부터의 의존파일)
+	  
+display.o : display.c
+	gcc -c display.c
+		# : main.o파일이 생성 (hello rule로부터의 의존파일)
+		
+hello.o : hello.c
+	gcc -c hello.c
+		# : main.o파일이 생성 (hello rule로부터의 의존파일)
+```
+
+- make를 실행하면
+
+  **항상 첫번째 rule**을 실행한다.사실 항상 최종 명령이다.
+  밑에 있는 rule들이 하나하나 실행된다.
+
+  `make hello `
+
+  ​	: 특정 rule을 지정해서 실행 가능하다.
+
+- clean (`make clean`)은 ?
+  - 보통 프로그램 수정이 필요할 경우, 수정 후 컴파일을 다시해야 할 때, 그 전 빌드업 했던 데이터를 삭제하고 다시 하고 싶을 경우 사용.
+
+
+
+<br/>
+
+예시2) 
+
+매크로 사용해서 맵핑하는 방법 **`$(변수)`** 
+
+```makefile
+CC=gcc
+CFLAGS = -g -Wall
+OBJ:=main.o display.o hello.o
+EXE=hello
+
+all:$(EXE)
+
+$(EXE) : $(OBJ)
+	$(CC) $(OBJ) -o $(EXE)
+	
+hello.o : hello.h hello. c
+	$(CC) $(CFLAGS) -c hello.c
+	
+...
+```
+
+
+
+<br/> 
+
+##### Makefile의 구성요소
+
+- Comments ( `#` )
+
+- Rules
+
+  - 2줄로 구성
+
+    ```makefile
+    #룰 이름 : #dependency
+    hello.o : hello.c
+    	gcc -c hello.c
+    ```
+
+    <br/>
+
+- Dependency Lines
+
+  ```makefile
+  hello.exe : main. o hello.o #dependency line
+  	gcc main.o hello.o -o hello.exe #Shell Line
+  	
+  #	rule을 실행하기 위해 main.o, hello.o 가 필요하다
+  # 만약 main.o 혹은 hello.o가 상태가 변하였다면,
+  # 해당 rule은 다시 컴파일해야 한다.
+  # 컴파일 전 체크하게 된다.
+  ```
+
+  <br/>
+
+- Shell Lines
+
+  ```makefile
+  hello.exe : main. o hello.o #dependency line
+  	gcc main.o hello.o -o hello.exe #Shell Line
+  	
+  	#주의!!
+  	#		앞에 공백!
+  	# 	스페이스바로 인한 공백이 아닌 Tab키를 이용해 공백을 주어야한다.
+  ```
+
+  <br/>
+
+- Macros
+
+  ```makefile
+  HOME = /home/user1
+  PROJ = $(home) /my_project
+  CINC = $(PROJ)/include
+  LIB = $(PROC)/lib
+  INCL = -I$(PROJ) -I$(CINC) -L$(LIB)
+  ```
+
+  <br/>
+
+- Inference Rules (`%`)
+
+  wild card의 의미
+
+  ```makefile
+  %.o : %.c
+  ```
+
+  
 

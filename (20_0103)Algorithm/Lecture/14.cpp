@@ -4,19 +4,17 @@
 
 bool isPrime(int x)
 {
+    if (x == 1)
+        return false;
     int sqrtNum = (int)sqrt(x);
-    printf("%d ", sqrtNum);
     for (int i = 2; i <= sqrtNum; i++)
     {
-        if (sqrtNum % i != 0)
-        {
-            return true;
-        }
-        else
+        if (x % i == 0)
         {
             return false;
         }
     }
+    return true;
 }
 
 int reverse(int x)
@@ -42,12 +40,8 @@ int reverse(int x)
     }
 
     int res = atoi(a);
-    if (isPrime(res) == true)
-    {
-        return res;
-    }
 
-    // return res;
+    return res;
 }
 
 int main()
@@ -58,7 +52,11 @@ int main()
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &nums);
-        tmp = reverse(nums);
+        int tmp = reverse(nums);
+        if (isPrime(tmp))
+        {
+            printf("%d ", tmp);
+        }
     }
 
     return 0;

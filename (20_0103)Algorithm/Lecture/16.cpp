@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <time.h>
+#include <algorithm>
+int a[60], b[60];
+int main()
+{
+    clock_t start, end;
+    start = clock();
+    double result;
+
+    char str[100];
+    scanf("%s", &str);
+
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] >= 65 && str[i] <= 90)
+        {
+            a[str[i] - 64]++;
+        }
+        else
+        {
+            a[str[i] - 70]++;
+        }
+    }
+
+    scanf("%s", &str);
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] >= 65 && str[i] <= 90)
+        {
+            b[str[i] - 64]++;
+        }
+        else
+        {
+            b[str[i] - 70]++;
+        }
+    }
+
+    for (int i = 1; i <= 52; i++)
+    {
+        if (a[i] != b[i])
+        {
+            printf("%s", "NO");
+            exit(0);
+        }
+    }
+    printf("%s", "YES");
+
+    end = clock(); //시간 측정 끝
+    result = ((double)(end - start) / CLOCKS_PER_SEC);
+    printf("%f", result);
+    return 0;
+}

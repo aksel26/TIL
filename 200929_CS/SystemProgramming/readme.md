@@ -1,3 +1,15 @@
+# 목차
+
+[강의1](#1번째-강의)
+
+[강의2](#2번째-강의)
+
+[강의3](#3번째-강의)
+
+---
+
+<br/> 
+
 # 1번째 강의
 
 <img src="readme.assets/image-20200929153307332.png" alt="image-20200929153307332" width =" 70%" />
@@ -488,6 +500,7 @@ hello.o : hello.c
   ​	: 특정 rule을 지정해서 실행 가능하다.
 
 - clean (`make clean`)은 ?
+  
   - 보통 프로그램 수정이 필요할 경우, 수정 후 컴파일을 다시해야 할 때, 그 전 빌드업 했던 데이터를 삭제하고 다시 하고 싶을 경우 사용.
 
 
@@ -582,5 +595,220 @@ hello.o : hello.h hello. c
   %.o : %.c
   ```
 
+
+
+
+<br/>
+
+---
+
+<br/> 
+
+# 3번째 강의
+
+## C언어에서의 포인터의 사용
+
+### 포인터 
+
+> 변수의 값을 직접 다루는 것이 아니라 메모리의 주소 값을 다루는 것.
+>
+> 어떠한 변수의 메모리의 주소값이 필요할 경우가 있다.
+
+<br/> 
+
+- **Reference operator(&)**
+  - &a : a의 주소값
+
+- **Pointers**
+
+  - 선언하는 방법 : `int *b;` 
+
+    : b라는 변수를 포인터로 선언한다.
+
+- 메모리를 접근하거나 주소를 바꾸기(manipulate)위해 사용
+
+- `int a;` 
+  - 컴파일 - 실행파일 실행 -> int a가 실행이 될때, a는 메모리 주소와 맵핑이 된다. 맵핑되는 주소값으로 실행.
+
+<br/> i*nt 의 크기는 32비트, char 는 8비트*
+
+`int *b;`
+
+`char *c;`
+
+b,c  변수 안에 값이 할당되어 있는 것이 아닌 **주소**가 담겨있다.
+
+가리켜진(Pointing) 주소에 비로소 값이 있는 것.
+
+이때 **b의 크기는 32비트**
+
+- *왜 32비트 ?*
+  - 32비트 컴퓨터 기준으로 한 것. ( 2^32 (4GB) 만큼 가능한 주소번지 수, 64비트는 2^64)
+- 그렇다면 **c의 크기는 ?**
+  - **따라서 c의 크기는 8비트가 아닌 32비트이고, c가 가리키는 주소의 크기가 8비트가 된다.**
+
+<br/>
+
+*예1*
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int val = 10;
+
+    printf("val : %d, Address : %d \n", val, &val);
+    return 0;
+}
+
+//결과
+//  val : 10, Address : -489773288
+// address는 매번 실행할 때마다 변할 수 있다.
+```
+
+<br/> *예2*
+
+```c
+#include <stdio.h>
+
+int main()
+{
+
+    int *pv;
+    int num = 20;
+    printf("[pv] Adress : %d, Content : %d \n", pv, *pv);
+    // [pv] Adress : -431319248, Content : 0
+
+    printf("[num] Adress : %d, Content : %d \n", &num, num);
+    // [num] Adress : -292436212, Content : 20
+
+    pv = &num;
+    printf("[pv] Adress : %d, Content : %d \n", pv, *pv);
+    // [pv] Adress : -319117556, Content : 20
+    // pv가 num의 주소값에 간다. pv가 num의 주소에 가게 된다. (링크가 된다.)
+
+    num = 11;
+    printf("[pv] Adress : %d, Content : %d \n", pv, *pv);
+    // [pv] Adress : -345671924, Content : 11
+    // num의 값이 11로 바뀌었다. (링크된 num의 값이 변경)
+
+    *pv = 2;
+    printf("[num] Adress : %d, Content : %d \n", &num, num);
+    // [num] Adress : -508496116, Content : 2
+    // pv에 연결된(링크된) 것은 num이다.
+    // 이 pv가 연결된 num의 값을 2로 변경한다는 의미
+
+    return 0;
+}
+
+//결과
+//  val : 10, Address : -489773288
+// address는 매번 실행할 때마다 변할 수 있다.
+```
+
+<br/> *예3 ) 흔히 하는 실수*
+
+```c
+#include <stdio.h>
+
+int main()
+{
+
+    int *pv, val;
+  //1.
+    pv = val; // 오류
+	//2.
+    *pv = &val; // 오류 : pv가 따라간 값은 정수가 나오는데 val은 주소값이다. 
+	//3.
+    *pv = val; // Good
+	//4.
+    pv = &val; // Good 
+    return 0;
+}
+```
+
+*3번과 4번은 같은 것인가?*
+
+- 3번은 pv가 가리키는 주소에 해당하는 값을 val로 치환하는 것 (연결성X)
+- 4번은 pv의 주소값에 val의 주소값을 대입하는것 (연결성O)
+
+<br/> 
+
+*예4)*
+
+**address항상 byte로 이루어짐**
+
+char타입의 경우 (*8bit는 1byte*) **1byte씩 증가**
+
+int타입은 32비트를 차지하는데, 32비트는 **4바이트**임
+
+따라서 int타입의 경우 **index하나당 4바이트를 차지**한다.
+
+Index가 하나씩 증가할때마다 **주소는 4씩 증가.**
+
+<u>접근하려면 데이터 타입에 따라 +하는 바이트의 수가 달라져야 한다.</u>
+
+```c
+#include <stdio.h>
+
+int main()
+{
+
+    char c[4] = {'a','b','c','d'};
+    int d[4] = {5,6,7,8};
+
+    int i ;
+
+    for ( i = 0; i < 4; i++)
+    {
+        printf("Address of c[%d] = %x\n", i, &c[i]);
+        printf("&c[%d] = %x, (c+%d) = %x\n" , i , &c[i], i , (c + i));
+        printf("c[%d] = %c, *(c+%d) = %c\n" , i , c[i], i , *(c + i));
+    }
+
+    // Address of c[0] = e3d926f8
+    // &c[0] = e3d926f8, (c+0) = e3d926f8
+    // c[0] = a, *(c+0) = a
+    // Address of c[1] = e3d926f9
+    // &c[1] = e3d926f9, (c+1) = e3d926f9
+    // c[1] = b, *(c+1) = b
+    // Address of c[2] = e3d926fa
+    // &c[2] = e3d926fa, (c+2) = e3d926fa
+    // c[2] = c, *(c+2) = c
+    // Address of c[3] = e3d926fb
+    // &c[3] = e3d926fb, (c+3) = e3d926fb
+    // c[3] = d, *(c+3) = d
+		
+  	// 1씩 증가하는 것을 볼 수 있다.
+
+
+    for ( i = 0; i < 4; i++)
+    {
+        printf("Address of d[%d] = %x\n", i, &d[i]);
+        printf("&d[%d] = %x, (d+%d) = %x\n" , i , &d[i], i , (d + i));
+        printf("d[%d] = %d, *(d+%d) = %d\n" , i , d[i], i , *(d + i));
+    }    
+
+    // Address of d[0] = e3d92700
+    // &d[0] = e3d92700, (d+0) = e3d92700
+    // d[0] = 5, *(d+0) = 5
+    // Address of d[1] = e3d92704
+    // &d[1] = e3d92704, (d+1) = e3d92704
+    // d[1] = 6, *(d+1) = 6
+    // Address of d[2] = e3d92708
+    // &d[2] = e3d92708, (d+2) = e3d92708
+    // d[2] = 7, *(d+2) = 7
+    // Address of d[3] = e3d9270c
+    // &d[3] = e3d9270c, (d+3) = e3d9270c
+    // d[3] = 8, *(d+3) = 8
   
+  	// 4씩 증가하는 것을 볼 수 있다.
+    return 0;
+}
+```
+
+
+
+
 

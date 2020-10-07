@@ -10,6 +10,7 @@
         "bitset": "cpp",
         "chrono": "cpp",
         "unordered_map": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "__locale": "cpp"
     }
 }

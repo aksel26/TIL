@@ -655,7 +655,7 @@ b,c  변수 안에 값이 할당되어 있는 것이 아닌 **주소**가 담겨
 #include <stdio.h>
 
 int main()
-{
+{q
     int val = 10;
 
     printf("val : %d, Address : %d \n", val, &val);

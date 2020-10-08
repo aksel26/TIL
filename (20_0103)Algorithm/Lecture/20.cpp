@@ -20,39 +20,41 @@ int main()
         scanf("%d", &b[i]);
     }
 
-    for (int i = 0; i < n; i++)
-    {
-        if (a[i] == 1)
-        {
-            if (b[i] == 3)
-                printf("A\n");
-            else if (b[i] == 2)
-                printf("B\n");
-            else if (a[i] == b[i])
-                printf("D");
-        }
+// 내 코드
+    // for (int i = 0; i < n; i++)
+    // {
+    //     if (a[i] == 1)
+    //     {
+    //         if (b[i] == 3)
+    //             printf("A\n");
+    //         else if (b[i] == 2)
+    //             printf("B\n");
+    //         else if (a[i] == b[i])
+    //             printf("D");
+    //     }
 
-        else if (a[i] == 2)
-        {
-            if (b[i] == 1)
-                printf("A\n");
-            else if (b[i] == 3)
-                printf("B\n");
-            else if (a[i] == b[i])
-                printf("D");
-        }
+    //     else if (a[i] == 2)
+    //     {
+    //         if (b[i] == 1)
+    //             printf("A\n");
+    //         else if (b[i] == 3)
+    //             printf("B\n");
+    //         else if (a[i] == b[i])
+    //             printf("D");
+    //     }
 
-        else if (a[i] == 3)
-        {
-            if (b[i] == 2)
-                printf("A\n");
-            else if (b[i] == 1)
-                printf("B\n");
-            else if (a[i] == b[i])
-                printf("D\n");
-        }
-    }
+    //     else if (a[i] == 3)
+    //     {
+    //         if (b[i] == 2)
+    //             printf("A\n");
+    //         else if (b[i] == 1)
+    //             printf("B\n");
+    //         else if (a[i] == b[i])
+    //             printf("D\n");
+    //     }
+    // }
 
+// Solution
     for (int i = 0; i < n; i++)
     {
         if (a[i] == b[i])

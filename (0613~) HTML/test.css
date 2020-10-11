@@ -1,0 +1,31 @@
+body{
+    margin: 0px;
+}
+nav{
+    background-color: navy;
+    color:white;
+    height: 50px;
+    font-size: 20px;
+    margin: 0px;
+    
+}
+
+
+div{
+    display: inline;
+
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    align-content : center;
+}
+span{
+    text-align: right;
+}
+.SNS{
+    position: relative;
+    text-align: right;
+}

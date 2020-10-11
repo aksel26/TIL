@@ -23,16 +23,15 @@ int main()
     int res = 0;
     int idx = 0;
 
-    for (int i = 0; i < n - m; i++)
+    for (int i = 0; i < n - 1; i++)
     {
-        sum = 0;
-        for (int j = i; j < i + m; j++)
-        {
-            sum += temp[j];
-        }
+
+        sum = temp[i] + temp[i + 1];
 
         if (sum > max)
+        {
             max = sum;
+        }
     }
 
     printf("%d\n", max);

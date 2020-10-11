@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <vector>
 #include <time.h>
 
 int main()
@@ -8,29 +9,25 @@ int main()
     start = clock();
     double clockResult;
 
-    int n, m;
+    int n, k, sum = 0, max;
 
-    scanf("%d %d", &n, &m);
+    scanf("%d %d", &n, &k);
+    std::vector<int> a(n);
 
-    int temp[n];
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &temp[i]);
+        scanf("%d", &a[i]);
     }
 
-    int max = -2147000;
-    int sum;
-    int res = 0;
-    int idx = 0;
-
-    for (int i = 0; i < n - m; i++)
+    for (int i = 0; i < k; i++)
     {
-        sum = 0;
-        for (int j = i; j < i + m; j++)
-        {
-            sum += temp[j];
-        }
+        sum += a[i];
+    }
+    max = sum;
 
+    for (int i = k; i < n; i++)
+    {
+        sum = sum + (a[i] - a[i - k]);
         if (sum > max)
             max = sum;
     }

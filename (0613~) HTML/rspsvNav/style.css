@@ -38,6 +38,7 @@ body {
 
 .menu li:hover {
     background-color: lightgreen;
+    border-radius: 6px;
 }
 
 .sns {

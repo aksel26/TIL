@@ -6,6 +6,8 @@
 
 [강의3](#3번째-강의)
 
+[강의4](#4번째-강의)
+
 ---
 
 <br/> 
@@ -617,8 +619,9 @@ hello.o : hello.h hello. c
 <br/> 
 
 - **Reference operator(&)**
-  - &a : a의 주소값
-
+  
+- &a : a의 주소값
+  
 - **Pointers**
 
   - 선언하는 방법 : `int *b;` 
@@ -628,6 +631,7 @@ hello.o : hello.h hello. c
 - 메모리를 접근하거나 주소를 바꾸기(manipulate)위해 사용
 
 - `int a;` 
+  
   - 컴파일 - 실행파일 실행 -> int a가 실행이 될때, a는 메모리 주소와 맵핑이 된다. 맵핑되는 주소값으로 실행.
 
 <br/> i*nt 의 크기는 32비트, char 는 8비트*
@@ -810,5 +814,344 @@ int main()
 
 
 
+---
 
+ <br/> 
+
+# 4번째 강의
+
+## Structures in C 
+
+다양한 변수들이 모여 그룹을 이뤄 구조체를 이룬 것.
+
+```c
+Struct student{
+char * plastname}
+char *pFirstname;
+int i32StudentID;
+float fGPA;
+};
+
+int main(){
+  //선언
+  struct student student1;
+	
+  
+  // 배열로 선언할 경우
+ 	struct student classA[10]; 
+ 
+    
+  // 주소로 선언할 경우
+   struct *classB;
+}
+```
+
+<br/>
+
+- 선언
+
+  - 일반적인 경우
+
+    ```c
+    int main(){
+    struct student student1; 
+    }
+    ```
+    - student1이라는 이름으로 메모리에 구조체가 잡히게 된다.
+
+    - 이때, 사이즈는 ?
+
+      - student 구조체 사이즈와 동일하다
+
+    - 그럼 구조체 사이즈는 ? <u>128 bit</u>
+
+      char 32bit (주소이기 때문에)
+      int 32bit
+      float 32bit
+      32bit * 4개 = 128bit 의 크기를 가진다.
+
+      <br/>
+
+  - 배열로 선언할 경우
+
+    ```c
+     struct student classA[10]; 
+    ```
+
+    -  사이즈는 ?
+      - 128bit의 structure가 10개가 있다. <u>1280bit</u>
+
+  <br/> 
+
+  - 주소로 선언할 경우
+
+    ```c
+    struct student *classB;
+    ```
+
+    - pointer선언이기 때문에 <u>32bit</u>
+    - 주소를 담아야 한다.
+    - 그 주소를 따라가게 되면 그 구조체가 거기에 있다.
+
+
+
+<br/> 
+
+### Struct in another struct
+
+구조체의 멤버는 꼭 primitive type일 필요가 없이,
+
+구조체 변수를 멤버로 할 수 있다.
+
+```c
+struct club{
+  char *pName;
+//  크기 32
+  int f32Number;
+//  크기 32
+  struct student aMember[50];
+//  이 때의 사이즈는 128 * 50 
+}
+
+int main(){
+  struct club aClub[4];
+}
+```
+
+<br/> 
+
+## Arrays in C
+
+- Static memory allocation
+
+  - **정적**으로 메모리를 잡는다는 의미
+
+    ```c
+    void main(){
+      int i, p[10], n = 10;
+    }
+    ```
+
+  - 장점 : simple, 빠르다.
+
+  - 단점 ?
+    - Array의 사이즈를 얼마로 정해야할지 모를 경우
+    - 충분할 줄 알았는데 부족할 경우
+    - 일부만 사용되는 경우 -> 메모리 낭비
+
+
+
+<br/> 
+
+## Memory Allocation
+
+- **Code(Text) segment**
+  - 우리가 작성한 코드를 컴파일하면 컴피알러가 코드를 분석하고, 그 코드가 바이너리 형태로 변환된다.(object코드)
+  - 코드에 따라 사이즈가 정해진다.
+  - <u>read-only</u>의 성격을 가진다.
+    - 컴파일 후,  object file을 만들면 하드웨어가 code segment에 가서 읽어오기만 한다.
+- **Data segment** (Initialized data : 데이터 초기화)
+  - 데이터를 초기화 해야하는 경우
+  - 사이즈는 이미 컴파일된 순간 정해짐
+  - Global, static, constant, 그리고 외부 변수들
+
+- **Bss segment** (Initialized data : 데이터 비초기화)
+  - Global, static, constant, 그리고 외부 변수들 중 데이터를 초기화 하지 않아도 되는, 않은 경우
+    - *0으로 초기화된 변수들.*
+  - 사이즈는 이미 컴파일된 순간 정해짐
+
+---
+
+*Data segment, Bss segment를 나눠 놓은 이유 ?*
+
+*<u>Object코드에 Bss를 포함시키지 않게 하기 위해서</u>*
+
+*Object파일안에서, 초기화된 변수들은 Object 파일안에 저장을 해놔야한다.*
+
+*반면, 초기화를 해주지 않은 변수들은 Object팡리안에 저장을 할 필요가 없다. 단지 size만 있으면 된다.*
+
+---
+
+- **Heap**
+
+  - 컴파일 순간 사이즈가 정해지는 것이 아닌 메모리
+  - runtime때 메모리 사용
+  - <u>**동적 메모리 할당 시 사용된다**</u>
+  - 함수의 범위와 상관 없다.
+    - 함수 여러개에 걸쳐 사용 가능하다.
+  - **꼭 반납(Deallocation)을 해주어야 한다.**
+    - *반납되지 않으면 garbage collection으로 후처리가 필요하게 된다.*
+  - 할당 요구를 실패받을 경우도 있다. 
+
+- **Stack**
+
+  - 컴파일 순간 사이즈가 정해지는 것이 아닌 메모리
+
+  - runtime때 메모리 사용
+
+  - 스택 메모리에 저장되는 정보
+
+    - 지역변수
+
+      *참고로, 전역변수는 프로그램이 끝날때까지 계속 남아있게 된다.*
+
+      함수 사용에 따라 없어지거나 생기기 때문에 사이즈가 정해지지 않게 된다.
+
+    - 함수의 인자로 넘어갈 때의 인자(arguments)
+
+    - Return address : 복귀해아할 주소 값
+
+      - 서브루틴 시 돌아올 수 있기 위한 주소로 사용
+
+        
+
+<br/> 
+
+## Allocating Heap Memory
+
+1. **`malloc`**
+
+   `void *malloc(size_t size);` 
+
+   	- OS가 size만큼 메모리를 할당하게 해준다 (heap에서)
+   	- 항상 대표**주소값**을 받게 된다.
+
+2. **`calloc`** 
+
+   `void *calloc(size_t num_element, size_t element_size);`  
+
+   - 할당 받은 부분을 0으로 초기화
+
+3. **`realloc`** 
+
+   `void *realloc(void *ptr, size_t new_size);`
+
+   - `*ptr` : 원래의 주소
+   - 사이즈를 재조정해야하는 경우
+
+<br/> 
+
+- 3가지 모두 void 포인터이다.
+- 이를 사용하기 위해 **Casting을 해야 한다.**
+- 예를 들어 integer로 사용하고 싶다면 
+  - `int *pi = (int *)malloc(BUFFER_SIZE);`
+
+<br/> 
+
+## Deallocating Heap Memory
+
+**`free`** 
+
+`void free(void *pointer);`
+
+- 할당받은 메모리를 더이상 사용하지 않을 땐 꼭 반환해 주어야 한다.
+- 메모리가 leak 새게 된다.
+- debug하기가 어려워진다.
+
+
+
+---
+
+*예제1*
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+// 항상 포인터로 사용해야 한다.
+// 대표번지가 리턴되기 때문
+    int i, *p, n = 10, m = 20;
+
+
+
+// sizeof(int) : 32bit : 4byte 
+// n = 10
+// n * sizeof(int) = 40byte 할당
+// OS메모리 매니저가 실패할 경우가 존재하기 때문에 if문으로 에러 처리
+    if ((p = (int *)malloc(n * sizeof(int))) == NULL)
+    {
+        perror("malloc memory allocation failed.");
+        exit(0);
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        p[i] = i;
+    }
+
+    if ((p = (int *)realloc(p, (n + m) * sizeof(int))) == NULL)
+    {
+        perror("realloc memory allocation failed.");
+        exit(0);
+    }
+
+    for (i = n; i < n + m; i++)
+    {
+        p[i] = i;
+    }
+
+    for (i = 0; i < n + m; i++)
+    {
+        printf("%d\n", p[i]);
+    }
+
+    free(p);
+
+    return 0;
+}
+```
+
+
+
+
+
+<br/> 
+
+*예제2*
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+//-------------동적메모리 할당-------------
+  
+//bss Segment에 잡히게 된다.
+    int *Ps, j;
+
+// data segment에 잡히게 된다
+    int i32Num = 20;
+
+    // 런타임시 heap메모리에 잡히게 된다. --> static allocation과의 결정적인 차이
+    if ((Ps = (int *)malloc(i32Num * sizeof(int))) == NULL)
+    {
+        perror("malloc memory allocation failed.");
+        exit(0);
+    }
+
+    for (j = 0; j < i32Num; j++)
+    {
+        Ps[j] = j;
+    }
+
+    free(Ps);
+
+
+//-------------정적메모리 할당-------------
+  
+//bss Segment에 잡히게 된다.
+    int ps[20], j;
+    for ( j = 0; j < i32Num; j++)
+    {
+        pS[j] = j;
+    }
+    
+
+    return 0;
+}
+```
 

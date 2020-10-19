@@ -553,7 +553,7 @@ CPU가 여러개 (Multiprocessor)
   - CPU를 주어도 당장 instructiond를 수행할 수 없는 상태
   - Process 자신이 요청한 event(오래걸리는 I/O 작업) 가 즉시 만족되지 않아 이를 기다리는 상태
   - EX) 디스크에서 file을 읽어와야 하는 경우
-- [Suspended(stopped)](### 중기-스케줄러-때문에-추가된-프로세스의-상태)
+- [Suspended(stopped)](#중기-스케줄러-때문에-추가된-프로세스의-상태)
 
 - *New : 프로세스가 생성중인 상태*
 - *Terminated : 수행이 끝난 상태이지만 정리할게 남아 있는 상태*
@@ -603,8 +603,10 @@ CPU가 여러개 (Multiprocessor)
 
   -  <img src="readme.assets/image-20201019230043780.png" alt="image-20201019230043780" width="50%" />
     - Interrupt가 발생했지만 Kernel 모드에서 요청된 건을 수행 완료하고  다시 UserMode로 복귀한 것 (Switch X)
+    
   - <img src="readme.assets/image-20201019230137154.png" alt="image-20201019230137154" width ="50%" />
     - timer interrupt는 CPU를 다른 프로세스로 넘기기 위한 의도를 가진 인터럽트
+    
   - (1)의 경우에도 메모리 <--> kernel 사이에 CPU컨텍스트를 위한 PCB 저장이 필요하지만 (2) 경우보다 오버헤드가 덜 하다.
   - Ex. Cache Memory flush
     - CPU - (<u>Cache Memory</u>) - 메인메모리

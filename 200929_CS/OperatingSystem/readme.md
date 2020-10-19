@@ -612,19 +612,13 @@ CPU가 여러개 (Multiprocessor)
   - <img src="readme.assets/image-20201019230137154.png" alt="image-20201019230137154" width ="50%" />
     - timer interrupt는 CPU를 다른 프로세스로 넘기기 위한 의도를 가진 인터럽트
 
-  
+  <br/> 
 
-=======
-    
-  - <img src="readme.assets/image-20201019230137154.png" alt="image-20201019230137154" width ="50%" />
-    - timer interrupt는 CPU를 다른 프로세스로 넘기기 위한 의도를 가진 인터럽트
-    
->>>>>>> 7629a3925a08dc4cc9e74f6a589e123d6eb9deff
-  - (1)의 경우에도 메모리 <--> kernel 사이에 CPU컨텍스트를 위한 PCB 저장이 필요하지만 (2) 경우보다 오버헤드가 덜 하다.
-  - Ex. Cache Memory flush
-    - CPU - (<u>Cache Memory</u>) - 메인메모리
-    - 문맥교환이 이루어지면 캐시 메모리는 모두 지워져야 한다.
-    - (1)번 경우에는 이렇게까지 할 필요는 없다.
+- (1)의 경우에도 메모리 <--> kernel 사이에 CPU컨텍스트를 위한 PCB 저장이 필요하지만 (2) 경우보다 오버헤드가 덜 하다.
+  - ex. Cache Memory flush
+- CPU - (<u>Cache Memory</u>) - 메인메모리
+  - 문맥교환이 이루어지면 캐시 메모리는 모두 지워져야 한다.
+  - (1)번 경우에는 이렇게까지 할 필요는 없다.
 
 <br/> 
 

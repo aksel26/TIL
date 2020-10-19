@@ -6,6 +6,8 @@
 
 [강의3](#3번째-수업)
 
+[강의4](#4번째-수업)
+
 <br/>
 
 # 1번째 수업
@@ -417,11 +419,13 @@ CPU가 여러개 (Multiprocessor)
 - 위로갈수록 빠르지만 비싸기 때문에 용량이 적다.
 - 휘발성 : 아래쪽 - 비활성, 위쪽 - 휘발성
 - CPU가 직접 접근해서 처리가능 - **Primary**
-  - CPU가 접근가능 ? **바이트** 단위로 접근 가능해야 한다.
-
+  
+- CPU가 접근가능 ? **바이트** 단위로 접근 가능해야 한다.
+  
 - CPU가 직접 접근해서 처리불가능 - **Secondary**
-  - 하드디스크의 경우 **섹터단위**로 접근하기 때문에 불가능
-
+  
+- 하드디스크의 경우 **섹터단위**로 접근하기 때문에 불가능
+  
 - Register와 Main Memory간 속도차이도 크다.
 
   - 이에 대해 완충역할을 하기 위해 Cache Memory가 존재하는데 용량이 더 작기 때문에 모든 정보를 담을 수 없어 필요한 정보만 담는다.
@@ -499,4 +503,167 @@ CPU가 여러개 (Multiprocessor)
 <img src="readme.assets/image-20201008165934958.png" alt="image-20201008165934958" width ="60%" />
 
 
+
+<br/> 
+
+---
+
+<br/> 
+
+# 4번째 수업
+
+## 프로세스
+
+> Process is a program in execution
+>
+> " 실행중인 프로그램 "
+
+<br/>
+
+- **프로세스의 Context(문맥)** **<중요>**
+  - CPU 수행 상태를 나타내는 하드웨어 문맥
+    - **PC** (Program Counter)
+    - 각종 **register**
+  - 프로세스의 주소 공간(메모리 관련)
+    - code, data, stack
+  - 프로세스 관련 커널 자료 구조
+    - PCB (Process Control Block)
+      - OS에서 프로세스가 실행될 때마다 PCB를 통해 올바른지 검사한다.
+    - Kenel Stack
+      - 각 프로세스가 본인이 할 수 없는 일을 대신 요청 (system call)하면 PC를 가리키는것이 아니라 커널 주소공간을 가리킴.
+      - 커널도 함수로 구성
+      - 커널의 코도를 실행하고 커널 주소공간의 stack에 정보를 저장한다
+      - 이때 프로세스별로 구분해서 저장한다.
+
+- *문맥을 모르면 다음 프로세스 진행 시 처음부터 다시 해야한다.*
+
+
+
+<br/> 
+
+## 프로세스의 상태
+
+프로세스는 상태가 변경되며 수행된다
+
+- **Running**
+  - CPU를 잡고 instruction을 수행중인 상태
+- **Ready**
+  - CPU를 기다리는 상태(메모리 등 다른 조건을 모두 만족하고 있다는 전제)
+- **Blocked(wait, sleep)**
+  - CPU를 주어도 당장 instructiond를 수행할 수 없는 상태
+  - Process 자신이 요청한 event(오래걸리는 I/O 작업) 가 즉시 만족되지 않아 이를 기다리는 상태
+  - EX) 디스크에서 file을 읽어와야 하는 경우
+- [Suspended(stopped)](### 중기-스케줄러-때문에-추가된-프로세스의-상태)
+
+- *New : 프로세스가 생성중인 상태*
+- *Terminated : 수행이 끝난 상태이지만 정리할게 남아 있는 상태*
+
+<img src="readme.assets/image-20201019221315875.png" alt="image-20201019221315875" width ="70%" />
+
+<img src="readme.assets/image-20201019221550497.png" alt="image-20201019221550497" width ="70%"/>
+
+<br/> 
+
+## PCB
+
+- 운영체제가 각 프로세스를 관리하기 위해 프로세스당 유지하는 정보
+
+- 구성 요소
+
+  1. OS가 관리상 사용하는 정보
+     - Process state, Process ID
+     - scheduling information, priority
+  2. CPU 수행 관련 하드웨어 값
+     - Program Counter, registers
+  3. 메모리 관련
+     - Code, data, stack의 위치 정보
+  4. 파일 관련
+     - Open file descriptors..
+
+  <img src="readme.assets/image-20201019224426022.png" alt="image-20201019224426022" width ="40%" />
+
+  
+
+<br/> 
+
+## 문맥 교환 (Context Switch)
+
+- CPU를 한 프로세스에서 다른 프로세스로 넘겨주는 과정
+
+- CPU가 다른 프로세스에게 넘어갈 때 운영체제는 다음을 수행
+
+  - CPU를 내어주는 프로세스의 상태를 그 프로세스의 PCB에 저장
+  - CPU를 새롭게 얻는 프로세스의 상태를 PCB에서 읽음
+
+  <img src="readme.assets/image-20201019224633980.png" alt="image-20201019224633980" width = 60% />
+
+  <br/> 
+
+- System call 이나 Interrupt 발생시 반드시 context switch가 일어나는 것은 아니다.
+
+  -  <img src="readme.assets/image-20201019230043780.png" alt="image-20201019230043780" width="50%" />
+    - Interrupt가 발생했지만 Kernel 모드에서 요청된 건을 수행 완료하고  다시 UserMode로 복귀한 것 (Switch X)
+  - <img src="readme.assets/image-20201019230137154.png" alt="image-20201019230137154" width ="50%" />
+    - timer interrupt는 CPU를 다른 프로세스로 넘기기 위한 의도를 가진 인터럽트
+  - (1)의 경우에도 메모리 <--> kernel 사이에 CPU컨텍스트를 위한 PCB 저장이 필요하지만 (2) 경우보다 오버헤드가 덜 하다.
+  - Ex. Cache Memory flush
+    - CPU - (<u>Cache Memory</u>) - 메인메모리
+    - 문맥교환이 이루어지면 캐시 메모리는 모두 지워져야 한다.
+    - (1)번 경우에는 이렇게까지 할 필요는 없다.
+
+<br/> 
+
+## 프로세스를 스케줄링하기 위한 큐
+
+- **Job Queue**
+  - 현재 시스템에 있는 모든 프로세스의 집합 가장 큰 범위
+- **Ready Queue**
+  - 현재 메모리 내에 있으면서 CPU를 잡아서 실행되기를 기다리는 프로세스의 짖ㅂ합
+- **Device Queue**
+  - I/O device의 처리를 기다리는 프로세스의 집합
+- 프로세스들은 각 큐들을 오가며 수행된다.
+- Ready Queue에 있으면 Device Queue에 없다. 반대도 마찬가지
+
+<br/> 
+
+## 스케줄러
+
+- **Long-term scheduler (장기 스케줄러 or Job scheduler)**
+  - 시작 프로세스 중 어느 것을 ready-queue로 보낼지 결정
+  - 프로세스에 memory(및 각종 자원) 을 주는 문제
+  - degree of Multiprogramming을 제어
+    - Multiprogramming : 메모리에 여러 프로그램이 동시에 올라가는 것
+    - <u>프로그램이 몇개 올라가 있는 프로세스의 수를 제어</u>
+  - time sharing system에는 보통 장기 스케줄러가 없음 (무조건 ready)
+- **Short-term scheduler (단기 스케줄러 or CPU scheduler)** 
+  - 짧은 시간단위로 스케줄링이 이러우점
+  - millisecode단위, 충분히 빨라야함
+  - 프로세스에 CPU를 주는 문제
+  - 어떤 프로세스를 다음번에 running시킬지를 결정
+- **Medium-term scheduler (중기 스케줄러 or swapper)** 
+  - 여유 공간을 마련하기 위해 일부 프로그램을 골라서 프로세스를 통째로 메모리에서 디스크로 쫓아냄
+  - 프로세스에게서 memory를 뺏는 문제
+  - Degree of multiprogramming 을 제어
+
+<br/> 
+
+### 중기 스케줄러 때문에 추가된 프로세스의 상태
+
+: **Suspended(stopped)**
+
+- 외부적인 이유로 프로세스의 수행이 정지된 상태
+- 프로세스는 통째로 디스크에 swap out된다.
+  - 사용자가 프로그램을 일시 정지시킨 경우 (break key)
+  - 시스템이 여러 이유로 프로세스를 잠시 중단시킴 (메모리에 너무 많은 프로세스가 올라와 있을 때)
+
+
+
+- *Blocked : 자신이 요청한 event가 만족되면 Ready*
+- *Suspended : 외부에서 resume해 주어야 Active*
+
+<br/> 
+
+**프로세스 상태도 ( User Mode 기준 )**
+
+<img src="readme.assets/image-20201019232955892.png" alt="image-20201019232955892" width ="50%" />
 

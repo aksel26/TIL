@@ -603,8 +603,16 @@ CPU가 여러개 (Multiprocessor)
 
   -  <img src="readme.assets/image-20201019230043780.png" alt="image-20201019230043780" width="50%" />
     - Interrupt가 발생했지만 Kernel 모드에서 요청된 건을 수행 완료하고  다시 UserMode로 복귀한 것 (Switch X)
+
+  <br/> 
+
+  
+
   - <img src="readme.assets/image-20201019230137154.png" alt="image-20201019230137154" width ="50%" />
     - timer interrupt는 CPU를 다른 프로세스로 넘기기 위한 의도를 가진 인터럽트
+
+  
+
   - (1)의 경우에도 메모리 <--> kernel 사이에 CPU컨텍스트를 위한 PCB 저장이 필요하지만 (2) 경우보다 오버헤드가 덜 하다.
   - Ex. Cache Memory flush
     - CPU - (<u>Cache Memory</u>) - 메인메모리

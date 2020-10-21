@@ -1,29 +1,29 @@
 #include <stdio.h>
-
 int a[100];
 int main()
 {
-    int n, tmp;
+
+    int n, i, j;
 
     scanf("%d", &n);
 
-    int idx;
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &a[i]);
     }
-    
-    for (int i = 0; i < n; i++)
+    int tmp;
+    for (i = 1; i < n; i++)
     {
-        idx = i;
-        while (a[idx - 1] > 0 && a[idx] < 0)
+        tmp = a[i];
+        for (j = i - 1; j >= 0; j--)
         {
 
-            tmp = a[idx - 1];
-            a[idx - 1] = a[idx];
-            a[idx] = tmp;
-            idx--;
+            if (a[j] > tmp)
+                a[j + 1] = a[j];
+            else
+                break;
         }
+        a[j + 1] = tmp;
     }
 
     for (int i = 0; i < n; i++)

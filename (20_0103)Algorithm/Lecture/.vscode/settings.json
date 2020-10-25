@@ -11,6 +11,7 @@
         "chrono": "cpp",
         "unordered_map": "cpp",
         "ratio": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "vector": "cpp"
     }
 }

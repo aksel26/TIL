@@ -6,6 +6,8 @@
 
 [강의3](#3번째-수업)
 
+[강의4](#4번째-수업)
+
 
 
 ---
@@ -316,7 +318,57 @@ HTTP가 TCP커넥션을 사용하는 방식에 따라 2가지로 나뉜다.
 
 # 3번째 수업
 
+# 4번째 수업
+
+## Application Layer2
 
 
 
+---
+
+*저번시간 요약*
+
+UDP 기능 2가지
+
+1. App에게 multiplexing 제공
+2. Error checking
+
+---
+
+<br/> 
+
+### TCP 
+
+> reliable data transer
+>
+> reliabe : 하나도 유실없이 전달되는 것
+
+
+
+<img src="readme.assets/image-20201028023856803.png" alt="image-20201028023856803" width ="60%"/>
+
+- reliable 한 것처럼 보이지만 사실 환경은 아래쪽 (unreliable)과 같으며, 이로인해 reliable한 것처럼 느껴지게 된다.
+
+- Unreliable 하면 ?
+  - Packet loss
+  - Packet error
+
+<br/> 
+
+#### rdt1.0
+
+만약 완벽히 reliable하면 딱히 할 일은 없다.
+
+#### rdt2.0 : packet error 발생 (no loss 전제)
+
+1. 에러 detection
+
+   checksum bits
+
+2. 에러가 있다면 ? **feedback** 필수
+
+   1. 잘 받았다 : ACKs (Acknowlegement)
+   2. 아니다 : NAKs (Negative Acknowlegement)
+
+3. Retransmission
 

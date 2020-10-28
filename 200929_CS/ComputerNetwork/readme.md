@@ -345,7 +345,7 @@ UDP 기능 2가지
 
 
 
-<img src="readme.assets/image-20201028023856803.png" alt="image-20201028023856803" width ="60%"/>
+<img src="readme.assets/image-20201028023856803.png" alt="image-20201028023856803" width ="40%"/>
 
 - reliable 한 것처럼 보이지만 사실 환경은 아래쪽 (unreliable)과 같으며, 이로인해 reliable한 것처럼 느껴지게 된다.
 
@@ -372,3 +372,129 @@ UDP 기능 2가지
 
 3. Retransmission
 
+
+
+<br/>
+
+---
+
+*이 방식이 정말 완전 (complete) 한가 ?*
+
+<u>그렇지 않다.</u>
+
+feedback이 잘못된 메세지일 경우때문
+
+sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거인지 중복(duplicate) 된 것인지 모른다.
+
+--> 이를 위해 구분하는 번호인 **Sequence Number**가 필요
+
+<img src="readme.assets/image-20201028185440838.png" alt="image-20201028185440838" width ="40%"/>
+
+---
+
+
+
+<br/> 
+
+#### rdt2.1
+
+- Seq# 는 패킷의 header부분에 들어간다  (부가정보니까 )
+- 이때, 시퀀스 넘버를 번호순으로 부여하게 되면 ?
+  -  패킷 헤더부분의 시퀀스넘버를 담는 부분이 매우매우 커지게 된다. 부가정보를 담는 부분이니까 최소화 해야하는데...
+  - 그럼 얼마나 최소화 가능한가 ?
+    - **사실 0과 1이면 충분함**
+      - 받았으면 0, 보내는건 1
+
+<img src="readme.assets/image-20201028191607282.png" alt="image-20201028191607282" width ="50%"/>
+
+- sender 
+  - 시퀀스넘버를 부여하고
+  - ACK/NAK 인지 체크
+  - NAK이면 재전송
+- revceiver
+  - duplicate인지 반드시 체크
+  - NAK 또는 ACK을 전송
+
+
+
+<br/> 
+
+#### rdt2.2
+
+> NAK을 없애는 protocol
+
+- Loss된 상황
+- 오직 ACK만 사용한다.
+
+<img src="readme.assets/image-20201028192829279.png" alt="image-20201028192829279" width ="40%" />
+
+
+
+1. NAK대신 receiver는 seq#를 보낸다 (가장 마지막으로 성공적으로 받은 seq#를 )
+2. 1번(PKT(1)) 보냈는데 성공했던 0번이 왔다. -> Nagative Feedback
+
+
+
+<br/> 
+
+#### rdt3.0
+
+- Loss & Error 상황
+
+- loss되면 receiver가 받지 못한다.
+
+  : 반응이 없게 됨을 의미
+
+- **Timer**로 해결
+
+  - Sender 는 packet을 보낼 때마다 timer를 함께 실행
+
+- Timer는 얼마나 맞춰야 하나 ?
+
+  - 산술적으로는 어려움..
+  - 매우 짧을 경우 
+    - 장점 : recovery reaction이 짧다.
+    - 단점 : 중복 패킷 발생
+  - 매우 긴 경우
+    - 단점 : loss반응이 느림
+
+<br/> 
+
+- **상황 1 : packet이 유실된 경우**
+
+  <img src="readme.assets/image-20201028194109007.png" alt="image-20201028194109007" width="50%" />
+
+  
+
+<br/> 
+
+- **상황 2 : ACK이 유실된 경우**
+
+  <img src="readme.assets/image-20201028194639826.png" alt="image-20201028194639826" width ="50%" />
+
+<br/> 
+
+- **상황 3 : 성급한 timeout**
+
+  <img src="readme.assets/image-20201028195210780.png" alt="image-20201028195210780" width ="50%" />
+
+  
+
+<br/>
+
+#### 마무리
+
+**packet** 
+
+: **|Header | Data|**
+
+**Header 부분**
+
+1. Error detection
+2. feedback
+3. retransmission
+4. Sequence Number
+
+<br/> UDP와는 다르게 많은 정보를 담고 있다.
+
+실제 TCP에서는 rdt와 다르게 한번에 보내고 한번에 받는 구조이다.

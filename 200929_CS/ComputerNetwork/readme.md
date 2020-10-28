@@ -426,7 +426,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 - Loss된 상황
 - 오직 ACK만 사용한다.
 
-<img src="readme.assets/image-20201028192829279.png" alt="image-20201028192829279" width ="40%" />
+<img src="readme.assets/image-20201028192829279.png" alt="image-20201028192829279" width ="20%" />
 
 
 
@@ -462,7 +462,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 - **상황 1 : packet이 유실된 경우**
 
-  <img src="readme.assets/image-20201028194109007.png" alt="image-20201028194109007" width="50%" />
+  <img src="readme.assets/image-20201028194109007.png" alt="image-20201028194109007" width="20%" />
 
   
 
@@ -470,13 +470,13 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 - **상황 2 : ACK이 유실된 경우**
 
-  <img src="readme.assets/image-20201028194639826.png" alt="image-20201028194639826" width ="50%" />
+  <img src="readme.assets/image-20201028194639826.png" alt="image-20201028194639826" width ="25%" />
 
 <br/> 
 
 - **상황 3 : 성급한 timeout**
 
-  <img src="readme.assets/image-20201028195210780.png" alt="image-20201028195210780" width ="50%" />
+  <img src="readme.assets/image-20201028195210780.png" alt="image-20201028195210780" width ="25%" />
 
   
 

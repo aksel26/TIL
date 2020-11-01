@@ -8,6 +8,8 @@
 
 [강의4](#4번째-강의)
 
+[강의5](#5번째-강의)
+
 ---
 
 <br/> 
@@ -1154,4 +1156,225 @@ int main()
     return 0;
 }
 ```
+
+<br/> 
+
+# 5번째 강의
+
+프로세스와 스레드
+
+## 프로세스
+
+- 코드의 일부를 수행하는 엔티티
+  - 그것들의 고유한 실행 스택을 보유하고 있다.
+  - 자신 고유의 메모리 영역을 가지고 있다.
+  - file descriptor  파일 입출력 을 가지고 있다.
+  - 고유의 프로세스 ID (PID) 를 가지고 있다.
+    - ps : 현재 리눅스에서 실행되고 있는 프로레스들을 보여준다.
+
+<br/>
+
+- 프로세스들이 어떻게 만들어지는가
+
+  - **fork()** 시스템 콜 함수
+
+    : 원래 있던 프로세스와 동일한 다른 프로세스를 새로 생성하게 됨, (자식 프로세스, 부모 프로세스)
+
+
+
+<br/> 
+
+### Fork()
+
+- 동일한 identical 한(소스코드, 사용되는 메모리 모두 동일) 프로세스 생성 
+- Return 값이 존재 (함수이므로)
+  - 부모 프로세스에서 fork 실행 -> 자식 프로세스 생성 -> 자식프로세스만의 **PID**가 리턴됨
+  - 자식 프로세스도 리턴값이 존재하게 된다. (부모와 모두 동일하므로)
+    - 자식 프로세스에서의 리턴값은 **0** 이다.
+- fork 함수가 실패하는 경우
+  - 이유 : 메모리 부족, too many 프로세스 등등..
+  - 리턴값은 **-1**
+
+
+
+<br/> 
+
+### Process Management
+
+#### Zombie Process
+
+프로세스 생성이 있으면 종료되는 시점이 존재한다.
+
+1. 프로세스가 만들어질 때 부모 프로세스를 통해 만들어지는 것임.
+2. 종료될때 자식 프로세스가 부모 프로세스에게 **SIGCHLD 시그널**을 준다. 
+3. 부모 프로세스는 이때, 데이터 콜렉션 ( 자식 프로세스가 사용하고 있던 메모리 등을 수거함 )에 반납 후 자식 프로세스 종료
+
+=====>>> **이 과정을 못한채 자식 프로세스가 죽으면 자식 프로세스가 사용하던 자원이 그대로 남게된다.**
+
+**이러면 시스템에서 사용을 못한다. 이 때 Zombie Process라고 한다.**
+
+<br/> 
+
+#### Orphan Process
+
+*Orphan : 고아*
+
+자식 프로세스가 먼저 종료될때 시그널을 부모에게 날리고, 부모가 자식이 사용한 자원들을 수거하고 종료
+
+1. 자식 프로세스가 살아있는데 부모가 먼저 죽는다면
+
+2. 자식이 종료될때, 자원을 수거해줄 부모가 존재하지 않게 된다.
+
+3. 이러면 Zombie Process가 될 수 있다.
+
+4. 부모가 먼저 죽을때는 자식 프로세스를 다른 부모에게 입양시켜야 한다.
+
+   1. 어느 부모 프로세스에게 ?
+
+      1. 프로세스에는 항상 1번 (init) 프로세스가 존재한다. 모든 프로세스의 부모인 셈.
+
+         *init 프로세스 : 가장 처음 부팅 시 최초의 실행되는 프로세스.* 
+
+<br/> 
+
+### Wait() 
+
+>  Wait() System Call
+
+자식이 죽을 시 부모가 인식을하고 클린업을 준비하는 시간
+
+
+
+<br/> 
+
+### Process States
+
+1. **New**
+
+   : OS 밑 커널(process management에서 프로세스 등록(admitted))
+
+2. **Ready** 
+
+   : 코드가 실행 가능한 상태 (실행 중 X ,  CPU실행중이 아님)
+
+3. **Scheduler**
+
+   : 조건에 의해 프로세스 선택 (**Dispatch**)
+
+4. **Running**
+
+   : 프로세스가 CPU를 사용해 실행중이라는 의미, 다른 프로그램도 실행하기 위한 interrupt도 발생
+
+5. 하드디스크 및 I/O device들을 사용하려면 CPU에 비해 매우 오래걸리기 때문에 **Waiting**() 으로 넘겨버려
+6. 끝나면 **Terminated**
+
+<img src="readme.assets/image-20201101222717006.png" alt="image-20201101222717006" width ="60%" />
+
+
+
+<br/> 
+
+
+
+### Process Control Block (PCB)
+
+Process management에서의 입장에서 프로세스들을 잘 관리하기 위해 
+
+Process가 생성될 때마다 Process Control Block이 생성된다
+
+각 프로세스에 대한 정보들을 담고 있다.
+
+<img src="readme.assets/image-20201101224023435.png" alt="image-20201101224023435" width ="50%" />
+
+- Process ID
+- Parent PID
+- Next Process block
+- Process State
+- 스레드  (TCBs)
+  - 스레드 안에서도 control block이 있다.
+
+- CPU information
+  - 싱글코어 하드웨어 상태를 기록한다.
+  - register들의 어떤 값들을 넣어 놨는지
+  - 이에 대한 상태를 보전하기 위한 Program Counter
+- Memory-management information
+- Additional Information
+  - Accounting information
+  - I/O status information
+
+<br/> 
+
+### Context Switching
+
+- Hardware 
+
+  - CPU는 단 하나, CPU register 세트도 단 하나
+
+  - 여러개 프로세스는 동시에 도는 것처럼 느끼고 싶다.
+
+  - 이를 위해, 필요한 Context Switching
+
+  - 어떻게 CPU를 공유하는 것이냐
+
+    - 시분할로 나눠 여러 프로세스가 CPU를 사용하는 것.
+    - 이러한 과정에서 프로세스끼리 Context Switching 이 이루어짐
+
+    - 프로세스 A 다 되면 interrupt발생 후 양보 
+      - CPU의 모든 상태의 PCB에 모두 저장 후 프로세스 B에 넘겨줌
+      - 프로세스 B는 PCB 기록이 있기 때문에 다시 읽는다.
+
+  <img src="readme.assets/image-20201101225351096.png" alt="image-20201101225351096" width ="50%"/>
+
+- OS 커널 부분에 의해서 이 과정이 이루어진다.
+
+- 순수하게 SW기능이다.
+
+- 문제점 ( 비효율적인 부분 ) ?
+
+  - 저장하고 로딩하는 부분에서 소요되는 시간만큼 CPU가 노는 시간이 발생하고 시간이 많이 걸린다.
+
+    : **Overhead** 
+
+<br/> 
+
+- 프로세스 (**protection**)
+  - 각 프로세스는 독립적으로 사용할 수 있는 리소스를 가진다 : **proctection**
+
+- 스레드 (**concurrency**)
+
+  - 프로세스 내부에 존재
+
+  - no protection between threads
+
+  - 한개의 프로세스가 한개의 스레드 또는 
+
+    한개의 프로세스가 여러개의 스레드 가능
+
+  - 실행을 하는 코드
+
+  - 코드가 서로 두개가 평행(병렬)하게 돌려고 하게 하기 위함. (**Concurrencty** )
+
+  - 모든 스레드는 address space, resources 를 공유하게 된다.
+
+- 하이퍼 스레드
+  - 하드웨어로 context switching을 도와주어 overhead를 최소화 시키는 방법
+
+
+
+
+
+<img src="readme.assets/image-20201101230806594.png" alt="image-20201101230806594" width ="60%"/>
+
+ *각 스레드마다 context switching 이 이루어져야 한다.*
+
+<br/>
+
+## 멀티 스레드 사용 예
+
+- 임베디드 시스템 
+  - 스마트폰, 노트북, 등등
+
+- 서버
+
+
 

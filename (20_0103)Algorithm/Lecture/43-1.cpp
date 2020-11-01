@@ -23,7 +23,7 @@ int Count(int s)
 int main()
 {
 
-    int m, i, lt = 1, rt = 0, mid, res;
+    int m, i, lt = 1, rt = 0, mid, res, max = -21470000;
 
     scanf("%d %d", &n, &m);
 
@@ -31,13 +31,17 @@ int main()
     {
         scanf("%d", &a[i]);
         rt = rt + a[i];
+        if (a[i] > max)
+        {
+            max = a[i];
+        }
     }
 
     while (lt <= rt)
     {
         mid = (lt + rt) / 2;
 
-        if (Count(mid) <= m)
+        if (mid >= max && Count(mid) <= m)
         {
             res = mid;
             rt = mid - 1;

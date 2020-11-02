@@ -8,6 +8,8 @@
 
 [강의4](#4번째-수업)
 
+[강의5](#5번째-수업)
+
 <br/>
 
 # 1번째 수업
@@ -361,7 +363,7 @@ CPU가 여러개 (Multiprocessor)
   - 구현 방법 1.
     - I/O가 끝날 때까지 CPU를 낭비시킴
     - 매 시점 하나의 I/O만 일어날 수 있음
-  - 구현 방법 2
+  - 구현 방법 2 .
     - I/O가 완료될 때까지 해당 프로그램에게서 CPU를 빼앗음
     - I/O가 처리를 기다리는 줄에 그 프로그램 줄을 세움
     - 다른 프로그램에게 CPU를 줌
@@ -615,6 +617,7 @@ CPU가 여러개 (Multiprocessor)
   <br/> 
 
 - (1)의 경우에도 메모리 <--> kernel 사이에 CPU컨텍스트를 위한 PCB 저장이 필요하지만 (2) 경우보다 오버헤드가 덜 하다.
+  
   - ex. Cache Memory flush
 - CPU - (<u>Cache Memory</u>) - 메인메모리
   - 문맥교환이 이루어지면 캐시 메모리는 모두 지워져야 한다.
@@ -651,7 +654,7 @@ CPU가 여러개 (Multiprocessor)
   - 어떤 프로세스를 다음번에 running시킬지를 결정
 - **Medium-term scheduler (중기 스케줄러 or swapper)** 
   - 여유 공간을 마련하기 위해 일부 프로그램을 골라서 프로세스를 통째로 메모리에서 디스크로 쫓아냄
-  - 프로세스에게서 memory를 뺏는 문제
+  - 프로세스에게서 **memory를 뺏는 문제**
   - Degree of multiprogramming 을 제어
 
 <br/> 
@@ -675,4 +678,93 @@ CPU가 여러개 (Multiprocessor)
 **프로세스 상태도 ( User Mode 기준 )**
 
 <img src="readme.assets/image-20201019232955892.png" alt="image-20201019232955892" width ="50%" />
+
+<br/> <br/> 
+
+# 5번째 수업
+
+## 스레드 ( Thread )
+
+> ' lightweight process ' 
+>
+> CPU를 수행하는 단위
+>
+>  하나의 CPU 안에 프로세스 내부에 실행 단위가 여러개 있는 것.
+
+<br/> 
+
+<img src="readme.assets/image-20201102203821016.png" alt="image-20201102203821016" width ="50%"/>
+
+<br/>
+
+<img src="readme.assets/image-20201102210449969.png" alt="image-20201102210449969" width ="50%" />
+
+
+
+
+
+<br/> 
+
+- **Thread 의 구성**
+  - Program Counter
+  - register set
+  - Stack space
+- **Thread가 동료 thread와 공유하는 부분** (= task)
+  - **code** section
+  - **data** section
+  - **OS** resources
+
+
+
+<br/> 
+
+- **장점**
+
+  1. **Responsiveness** (응답성)
+
+     : 스레드가 하나가 *blocked상태*일 때, 다른 스레드가 CPU를 잡아 빠른 응답처리가 가능하다.
+
+  2. **Resource Sharing**
+
+     : binary code, data, 프로세스 자원들을 공유할 수 있다.
+
+       똑같은 일을 반복하는 작업 시 스레드를 통해 장점이 발휘된다.
+
+  3. **Economy**
+
+     1. process를 만드는 것 자체는 오버헤드가 꽤 큰편이지만 대신에 thread를 만들면 가볍다.
+     2. CPU switching : context switching은 오버헤드가 상당히 큰 편이다. 대신 thread간 switching은 보다 간단함.
+     3. 병렬성 증가 (CPU가 여러개 달린 컴퓨터에서만 해당됨)
+     4. 동일한 일을 수행하는 **다중 스레드가 협력**하여 높은 처리율 (throughput)과 성능향상
+
+  *cpu가 하나일 경우*
+
+  ---
+
+  *MP일 경우*
+
+  4. **Utilization of MP(multi processor) Architectures**
+
+  
+
+<br/>
+
+- kernel에 의해 지원받는 경우
+  - **kernel Threads**
+  - 스레드가 여러개인 것을 **CPU가 알고** 있는 경우
+
+- library에 의해 지원받는 경우
+  - **User Threads**
+  - 커널 지원 X, 사용자 수준 ,약간의 제약점 존재 가능
+- real-time threads
+
+
+
+
+
+<br/> 
+
+
+
+
 

@@ -693,11 +693,11 @@ CPU가 여러개 (Multiprocessor)
 
 <br/> 
 
-<img src="readme.assets/image-20201102203821016.png" alt="image-20201102203821016" width ="50%"/>
+<img src="readme.assets/image-20201102211920247.png" alt="image-20201102211920247" width="60%"/>
 
 <br/>
 
-<img src="readme.assets/image-20201102210449969.png" alt="image-20201102210449969" width ="50%" />
+<img src="readme.assets/image-20201102210449969.png" alt="image-20201102210449969"  width="60%"/>
 
 
 
@@ -706,10 +706,15 @@ CPU가 여러개 (Multiprocessor)
 <br/> 
 
 - **Thread 의 구성**
+
   - Program Counter
   - register set
   - Stack space
+
+  <br/> 
+
 - **Thread가 동료 thread와 공유하는 부분** (= task)
+
   - **code** section
   - **data** section
   - **OS** resources

@@ -23,7 +23,7 @@ void push(int x)
 
     // if (isFull() == true)
     // {
-    //     printf("꽉 찼다.");
+    //     printf("꽉 찼다.");  
     // }
 
     stack[++top] = x;
@@ -51,7 +51,7 @@ int main()
     int n, a, i;
     
     char str[20] = "0123456789ABCDEF";
-    
+
     scanf("%d %d", &n, &a);
 
     int tmp;

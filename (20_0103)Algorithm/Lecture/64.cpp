@@ -17,6 +17,7 @@ void DFS(int v)
         {
             if (map[v][i] == 1 && ch[i] == 0)
             {
+                printf("v : %d, i : %d \n", v, i);
                 ch[i] = 1;
                 DFS(i);
                 ch[i] = 0;

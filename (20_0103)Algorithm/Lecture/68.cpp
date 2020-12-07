@@ -7,23 +7,27 @@
 using namespace std;
 int ch[30], cnt = 0, n, cost = 2147000000;
 
-vector<pair<int, int> > map[30];
+vector<pair<int, int>> map[30];
 
 void DFS(int v, int sum)
 {
     int i;
- 	if(v==n){
-		if(sum<cost) cost=sum;
-	}
+    if (v == n)
+    {
+        if (sum < cost)
+            cost = sum;
+    }
     else
     {
-       for(i=0; i<map[v].size(); i++){
-			if(ch[map[v][i].first]==0){
-				ch[map[v][i].first]=1;
-				DFS(map[v][i].first, sum+map[v][i].second);
-				ch[map[v][i].first]=0;
-			}
-		}
+        for (i = 0; i < map[v].size(); i++)
+        {
+            if (ch[map[v][i].first] == 0)
+            {
+                ch[map[v][i].first] = 1;
+                DFS(map[v][i].first, sum + map[v][i].second);
+                ch[map[v][i].first] = 0;
+            }
+        }
     }
 }
 int main()

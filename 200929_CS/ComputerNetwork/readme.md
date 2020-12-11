@@ -511,5 +511,84 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 # 5번째 수업
 
+## 전송계층
 
+### rdt 3.0 : stop -and - wait operation
+
+<img src="readme.assets/image-20201211230024830.png" alt="image-20201211230024830" width ="70%" />
+
+- 실제로는 RTT 시간이 매우 길어질 수 있기 때문에 이러한 경우 매우 비효율적
+
+
+
+<br/>
+
+### pipelined protocols 
+
+<img src="readme.assets/image-20201211230210942.png" alt="image-20201211230210942" width ="50%" />
+
+
+
+- Pipelined protocol 방식 (한번에 보내는) 을 지향해야 한다.
+
+<br/> 
+
+#### pipeline을 동작하게 하는 방식 
+
+1. go - Back - N
+2. selective repeat
+
+<br/> 
+
+##### 1. Go-Back-N
+
+- 한꺼번에 보낼것이다.
+
+  - 얼마나 많이 ? 에 대한 기준 : window
+  - Window size만큼은 피드백 받지않고 보낸다.
+
+- Go- Back-N에서의 ACK 의미
+
+  Ex ) ACK11
+
+  :  11번까지 모두 잘 받았다. 12번을 기다리고 있다.
+
+<img src="readme.assets/image-20201211234912125.png" alt="image-20201211234912125" width ="70%"/>
+
+<br/>
+
+- Window Size 만큼 버퍼에 저장하고 있어야 한다
+- 왜 ?
+  - Receiver가 받았는지 확인이 안된 데이터이기 때문에 버퍼에 가지고 있어야 한다.
+  - window밖에 데이터들은 확인이 된 상태
+- Window Size가 매우 커지면 비효율발생
+  - **--> Selective Repeat** 으로 보완
+
+- Receiver의 역할이 거의 없다
+
+<br/> 
+
+##### 2. Selective Repeat
+
+- Selective Repeat에서의 ACK의 의미
+
+  - ACK11 : 11번 잘 받았다. GBN과 다름
+
+  <img src="readme.assets/image-20201212002153520.png" alt="image-20201212002153520" width ="70%" />
+
+  - **전송** **순서**
+
+    : 0 1 <u>2</u> 3 4 5 <u>2</u> 6 7 8 9 
+
+<br/> 
+
+- Selective Repeat Dilemma
+
+  - Sequence Number
+
+    - 최소한의 범위를 가진 시퀀스 넘버가 고민
+
+    - 시퀀스넘버 범위를 늘린다.
+
+<br/> 
 

@@ -810,7 +810,7 @@ CPU가 여러개 (Multiprocessor)
 
     - 주소공간 할당
 
-      <img src="readme.assets/image-20201213164610620.png" alt="image-20201213164610620" width ="60%" />
+      <img src="readme.assets/image-20201213164610620.png" alt="image-20201213164610620" width ="80%" />
 
       - Parent process : pid > 0
       - Child process : pid = 0
@@ -923,7 +923,7 @@ CPU가 여러개 (Multiprocessor)
 
     : **message passing** : 커널을 통해 메시지 전달 (*직접전달하는 방법은 없다*)
 
-    <img src="readme.assets/image-20201213212753493.png" alt="image-20201213212753493" width ="50%" />
+    <img src="readme.assets/image-20201213212753493.png" alt="image-20201213212753493" width ="30%" />
 
     <br/> 
 
@@ -931,7 +931,7 @@ CPU가 여러개 (Multiprocessor)
 
     : **shared memory** : 서로 다른 프로세스 간에도 일부 주소 공간을 고유하게 하는 메커니즘
 
-    <img src="readme.assets/image-20201213212822298.png" alt="image-20201213212822298" width ="50%" />
+    <img src="readme.assets/image-20201213212822298.png" alt="image-20201213212822298" width ="30%" />
 
 <br/> 
 
@@ -945,7 +945,7 @@ CPU가 여러개 (Multiprocessor)
 
    : 통신하려는 프로세스의 이름을 명시적으로 표시
 
-   <img src="readme.assets/image-20201213192738968.png" alt="image-20201213192738968" width ="70%"/>
+   <img src="readme.assets/image-20201213192738968.png" alt="image-20201213192738968" width ="55%"/>
 
    
 

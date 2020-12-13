@@ -961,6 +961,40 @@ CPU가 여러개 (Multiprocessor)
 
    
 
-   
+<br/> 
 
-   
+## CPU Scheduling
+
+#### CPU and I/O Bursts in Program Execution
+
+<img src="readme.assets/image-20201213214841576.png" alt="image-20201213214841576" width ="40%" />
+
+- 프로그램의 종류에 따라 빈도 또는 길이가 다르다
+
+  - CPU 와 I/O간 교차(interaction)가 자주 이루어지는 작업은 주로 타이핑 할 때임
+
+    : **I/O bound job**
+
+  - 슈퍼컴퓨터에서의 연산은 CPU 를 주로 계속 사용된다.
+
+    : **CPU bound job**
+
+
+
+<br/> 
+
+#### CPU scheduler
+
+​	: Ready 상태의 프로세스 중에서 이번 CPU를 줄 프로세스를 고른다.
+
+​	*운영체제 안에 스케줄링을 하는 코드가 있는데 이 부분을 스케줄러라고 부르는 것임. dispatcher도 마찬가지*
+
+<br/>
+
+#### Dispatcher
+
+- 스케줄된 CPU를 넘겨주는 역할을 한다.
+- 이러한 과정을 문맥교환 (Context Switch)라고 한다.
+
+
+

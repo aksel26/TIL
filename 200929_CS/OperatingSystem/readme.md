@@ -967,7 +967,7 @@ CPU가 여러개 (Multiprocessor)
 
 #### CPU and I/O Bursts in Program Execution
 
-<img src="readme.assets/image-20201213214841576.png" alt="image-20201213214841576" width ="40%" />
+<img src="readme.assets/image-20201213214841576.png" alt="image-20201213214841576" width ="25%" />
 
 - 프로그램의 종류에 따라 빈도 또는 길이가 다르다
 

@@ -20,7 +20,7 @@
 
 
 
-<img src="readme.assets/image-20200930011225905.png" alt="image-20200930011225905" width ="50%" />
+<img src="readme.assets/image-20200930011225905.png" alt="image-20200930011225905" width ="20%" />
 
 
 

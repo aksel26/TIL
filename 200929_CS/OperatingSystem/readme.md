@@ -20,7 +20,7 @@
 
 
 
-<img src="readme.assets/image-20200930011225905.png" alt="image-20200930011225905" width ="50%" />
+<img src="readme.assets/image-20200930011225905.png" alt="image-20200930011225905" width ="20%" />
 
 
 
@@ -67,7 +67,7 @@
 
 #### 2. 사용자의 수
 
-<img src="readme.assets/image-20200930013556098.png" alt="image-20200930013556098" width ="70%" />
+<img src="readme.assets/image-20200930013556098.png" alt="image-20200930013556098" width ="40%" />
 
 - 단일 사용자
   - MS-DOS, MS Windows

@@ -62,6 +62,11 @@ int main()
 
     sort(Ve.begin(), Ve.end());
 
+    for (i = 0; i <= e; i++)
+    {
+        printf("sorted : %d %d %d\n", Ve[i].v1, Ve[i].v2, Ve[i].val);
+    }
+
     for (i = 0; i < e; i++)
     {
         int fa = find(Ve[i].v1);

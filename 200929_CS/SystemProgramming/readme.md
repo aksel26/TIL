@@ -1337,24 +1337,47 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 <br/> 
 
+### 정리
+
 - 프로세스 (**protection**)
+
   - 각 프로세스는 독립적으로 사용할 수 있는 리소스를 가진다 : **proctection**
 
-- 스레드 (**concurrency**)
+  <img src="readme.assets/image-20201217182543663.png" alt="image-20201217182543663" width ="60%"/>
 
-  - 프로세스 내부에 존재
+  - Code (executable)
 
-  - no protection between threads
+  - Address space
 
-  - 한개의 프로세스가 한개의 스레드 또는 
+  - Memory allocation
 
-    한개의 프로세스가 여러개의 스레드 가능
+  - Stack : 주로 지역변수 (수명이 짧은) 가 할당됨, 함수 인자, 복귀 주소
 
-  - 실행을 하는 코드
+  - I/O state
 
-  - 코드가 서로 두개가 평행(병렬)하게 돌려고 하게 하기 위함. (**Concurrencty** )
+  - CPU state : 여러 프로세스 사용 시 context switching이 이루어지기 위해 상태 저장
 
-  - 모든 스레드는 address space, resources 를 공유하게 된다.
+  - **멀티 프로세스**
+
+    <img src="readme.assets/image-20201217183049978.png" alt="image-20201217183049978" width="60%" />
+
+<br/> 
+
+## 스레드 (**concurrency**)
+
+- 프로세스 내부에 존재
+
+- no protection between threads
+
+- 한개의 프로세스가 한개의 스레드 또는 
+
+  한개의 프로세스가 여러개의 스레드 가능
+
+- 실행을 하는 코드
+
+- 코드가 서로 두개가 평행(**병렬**)하게 돌려고 하게 하기 위함. (**Concurrencty** )
+
+- 모든 스레드는 address space, resources 를 공유하게 된다.
 
 - 하이퍼 스레드
   - 하드웨어로 context switching을 도와주어 overhead를 최소화 시키는 방법
@@ -1369,12 +1392,85 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 <br/>
 
-## 멀티 스레드 사용 예
+### 멀티 스레드 
+
+#### Singlecore CPU인 상황
+
+<img src="readme.assets/image-20201217183621339.png" alt="image-20201217183621339" width ="70%" />
+
+- Memory & I/O state는 프로세스 소속임 (스레드 X)
+- 스레드 사이에 context switching이 이루어 진다고 가정하면 
+  - Regitser set 1번이 저장 (store)
+  - thread 2번이 그걸 불러온다 (load)
+  - *Stack, CPU state*만 해당 -> overhead가 적다는 장점
+
+
+
+<br/> 
+
+#### Multicore CPU인 상황
+
+<img src="readme.assets/image-20201217183945836.png" alt="image-20201217183945836" width ="70%"/>
+
+- 2개의 스레드가 동시에 돌 수 있다.
+- 운영체제가 지원해준다 (scheduler)
+
+<br/> 
+
+#### Hyper-Threading
+
+<img src="readme.assets/image-20201217184302632.png" alt="image-20201217184302632" width ="70%" />
+
+- 1개의 core가 register set 를 2개 가질 수 있다. (그림에서 총 4개가 있다.)
+  - 왜 ? 장점은 ? 
+    - thread 1 -> thread 2
+      - thread 1은 register set 1사용중 (store)
+      - thread 2 로 넘겨줌
+      - thread 2는 register set 2를 사용하게 된다.
+      - Register set1개밖에 없으면 1번저장후 2번 복원 작업시간이 필요 (준비작업)
+    - cpu core는 준비작업 없이 바로 register set2번이 사용 가능하다 (준비작업 필요 X)
+
+- 하드웨어에서 지원.
 
 - 임베디드 시스템 
   - 스마트폰, 노트북, 등등
-
 - 서버
 
 
 
+<br/> 
+
+### Thread Control Block
+
+- 1스레드 1Control Block
+
+- Thread ID
+
+- 속해진 프로세스 Control Block 포인터
+
+- 링크드 리스트로 묶인 여러개의 스레드에서 다음 스레드블럭을 가리키는 포인터
+
+- Thread state : running, waiting, etc
+
+- 스레드 간 컨텍스트 스위칭을 위한 CPU information
+
+  - Register contents
+  - Program Counter (PC)
+
+- Stack Pointer(SP)
+
+- thread priority
+
+  <img src="readme.assets/image-20201217193742751.png" alt="image-20201217193742751" width ="40%"/>
+
+<br/>
+
+#### PCB & Threads
+
+- PCB & TCB
+
+  <img src="readme.assets/image-20201217193722654.png" alt="image-20201217193722654" width ="70%" />
+
+  
+
+  

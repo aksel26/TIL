@@ -1343,7 +1343,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
   - 각 프로세스는 독립적으로 사용할 수 있는 리소스를 가진다 : **proctection**
 
-  <img src="readme.assets/image-20201217182543663.png" alt="image-20201217182543663" width ="60%"/>
+  <img src="readme.assets/image-20201217182543663.png" alt="image-20201217182543663" width ="40%"/>
 
   - Code (executable)
 
@@ -1359,7 +1359,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
   - **멀티 프로세스**
 
-    <img src="readme.assets/image-20201217183049978.png" alt="image-20201217183049978" width="60%" />
+    <img src="readme.assets/image-20201217183049978.png" alt="image-20201217183049978" width="50%" />
 
 <br/> 
 
@@ -1386,7 +1386,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 
 
-<img src="readme.assets/image-20201101230806594.png" alt="image-20201101230806594" width ="60%"/>
+<img src="readme.assets/image-20201101230806594.png" alt="image-20201101230806594" width ="50%"/>
 
  *각 스레드마다 context switching 이 이루어져야 한다.*
 
@@ -1396,7 +1396,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 #### Singlecore CPU인 상황
 
-<img src="readme.assets/image-20201217183621339.png" alt="image-20201217183621339" width ="70%" />
+<img src="readme.assets/image-20201217183621339.png" alt="image-20201217183621339" width ="50%" />
 
 - Memory & I/O state는 프로세스 소속임 (스레드 X)
 - 스레드 사이에 context switching이 이루어 진다고 가정하면 
@@ -1410,7 +1410,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 #### Multicore CPU인 상황
 
-<img src="readme.assets/image-20201217183945836.png" alt="image-20201217183945836" width ="70%"/>
+<img src="readme.assets/image-20201217183945836.png" alt="image-20201217183945836" width ="50%"/>
 
 - 2개의 스레드가 동시에 돌 수 있다.
 - 운영체제가 지원해준다 (scheduler)
@@ -1419,7 +1419,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 #### Hyper-Threading
 
-<img src="readme.assets/image-20201217184302632.png" alt="image-20201217184302632" width ="70%" />
+<img src="readme.assets/image-20201217184302632.png" alt="image-20201217184302632" width ="50%" />
 
 - 1개의 core가 register set 를 2개 가질 수 있다. (그림에서 총 4개가 있다.)
   - 왜 ? 장점은 ? 
@@ -1461,7 +1461,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 - thread priority
 
-  <img src="readme.assets/image-20201217193742751.png" alt="image-20201217193742751" width ="40%"/>
+  <img src="readme.assets/image-20201217193742751.png" alt="image-20201217193742751" width ="20%"/>
 
 <br/>
 

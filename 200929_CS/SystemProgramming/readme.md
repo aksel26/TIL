@@ -1471,6 +1471,130 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
   <img src="readme.assets/image-20201217193722654.png" alt="image-20201217193722654" width ="70%" />
 
-  
+<br/> 
 
-  
+#### Thread States
+
+<img src="readme.assets/image-20201217205812948.png" alt="image-20201217205812948" width ="50%" />
+
+- 한개의 프로세스 내부의 모든 스레드와 공유	
+  - 전역변수, 힙
+  - I/O state
+- 자기 고유의 영역
+  - CPU registers, Stack은 자기 고유의 영역을 가짐
+  - TCB
+- Execution Stack
+  - 임시적으로 사용되는 변수, 함수콜 변수, 리턴 어드레스 등등
+
+<br/> 
+
+#### Multiple Threads Running
+
+- dependency가 없는 경우 (서로 완전히 별개)
+
+- dependency가 존재하는 경우 (Cooperating threads)
+
+  <img src="readme.assets/image-20201217211926966.png" alt="image-20201217211926966" width = "60%" />
+
+  - 스레드가 언제 먼저 진행되냐에 따라 값이 달라진다.
+  - 우선순위가 어떤 스레드가 될지 & context switch가 언제 일어날지는 모른다.
+    - ***<u>Concurrency Problem</u>***
+
+<br/>
+
+#### Concurrency Problem
+
+- independent 하면 문제없다.
+
+- **Synchronization** : 가장 중요한 개념
+
+  - 서로 상관성 있느 스레드가 동시에 돌려고 할때 위의 문제 없이 항상 똑같은 결과를 원할 때
+
+  - Critical section
+
+    : 코드의 일부, 크리티컬 섹션으로 구분되는 코드는 한개의 스레드가 컨텍스트 스위칭이 이루어지지 않게 쭉 진행시킨다.
+
+  - Mutual Exclution
+
+    : 한개의 스레드만 시키도록(보호) 하는 장치
+
+  - *Example*
+
+    - Memory references and assignments (load and stores) of words
+
+      <img src="readme.assets/image-20201217214842208.png" alt="image-20201217214842208" width ="60%" />
+
+<br/> 
+
+#### Atomic Operation
+
+- Atomic : (원자적인 : 너무 작은, 쪼개지 못하는) 중간에 자를 수(**멈출 수) 없다**. 는 의미
+- State 또한 바뀔 수 없다.
+
+<br/> 
+
+#### "Too Much Milk" Problem
+
+- Solution 1.
+
+  ```c
+  if(milk == 0){
+    if(note == 0){
+      note = 1;
+      buyMilk();
+      note = 0;
+    }
+  }
+  ```
+
+  <img src="readme.assets/image-20201217221420978.png" alt="image-20201217221420978" width ="70%"/>
+
+  - **여전히 문제 발생** : Too much milk
+
+<br/> 
+
+- Solution 2.
+
+  <img src="readme.assets/image-20201217221722130.png" alt="image-20201217221722130" width ="70%" />
+
+  - **모두 우유를 마시지 못한다.** (Starving)
+
+<br/> 
+
+- Solution 3.
+
+  <img src="readme.assets/image-20201217222234453.png" alt="image-20201217222234453" width ="70%"/>
+
+  - **해결**,,하지만 
+
+    - 스레드가 더 많아지면 ? 복잡한 코드 
+
+      : 스레드다마 코드를 다르게 짜야한다.
+
+    - Thread 2 는 아무일도 안하게 된다. Busy waiting 발생
+
+  - <u>atomic operation & Synchronization을 이용해야 한다.</u>
+
+<br/> 
+
+- Solution 4 
+
+  - Lock
+
+    - Lock.Acquire() 
+    - Lock.Release()
+    - 위 두가지는 **atomic operation**이어야 한다.
+
+  - Thread 1 & Thread 2
+
+    ```c
+    lock.Acquire();
+    // ----  critical section ----
+    if(milk == 0){
+      buyMilk();
+    }
+    // ---------------------------
+    lock.Release();
+    ```
+
+    

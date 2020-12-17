@@ -1494,7 +1494,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 - dependency가 존재하는 경우 (Cooperating threads)
 
-  <img src="readme.assets/image-20201217211926966.png" alt="image-20201217211926966" width = "60%" />
+  <img src="readme.assets/image-20201217211926966.png" alt="image-20201217211926966" width = "80%" />
 
   - 스레드가 언제 먼저 진행되냐에 따라 값이 달라진다.
   - 우선순위가 어떤 스레드가 될지 & context switch가 언제 일어날지는 모른다.
@@ -1547,7 +1547,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
   }
   ```
 
-  <img src="readme.assets/image-20201217221420978.png" alt="image-20201217221420978" width ="70%"/>
+  <img src="readme.assets/image-20201217221420978.png" alt="image-20201217221420978" width ="50%"/>
 
   - **여전히 문제 발생** : Too much milk
 
@@ -1555,7 +1555,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 - Solution 2.
 
-  <img src="readme.assets/image-20201217221722130.png" alt="image-20201217221722130" width ="70%" />
+  <img src="readme.assets/image-20201217221722130.png" alt="image-20201217221722130" width ="50%" />
 
   - **모두 우유를 마시지 못한다.** (Starving)
 
@@ -1563,7 +1563,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 - Solution 3.
 
-  <img src="readme.assets/image-20201217222234453.png" alt="image-20201217222234453" width ="70%"/>
+  <img src="readme.assets/image-20201217222234453.png" alt="image-20201217222234453" width ="50%"/>
 
   - **해결**,,하지만 
 

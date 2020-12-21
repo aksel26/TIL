@@ -590,5 +590,48 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
     - 시퀀스넘버 범위를 늘린다.
 
-<br/> 
+<br/> <br/>
 
+
+
+# 6번째 수업 
+
+## TCP
+
+1. **point to point**
+
+   : one sender - one reciever (full duplex data)
+
+2. **Reliable**, in-order byte stream
+
+3. **pipelined**
+
+   : window size를 설정한다.
+
+4. **send & receiver buffers**
+
+   <img src="readme.assets/image-20201221225853660.png" alt="image-20201221225853660" width ="50%" />
+
+   
+
+5. **flow contorlled**
+
+   : reveiver buffer에 데이터를 부었을 때, 공간이 없는 경우 receiver가 받을 수 있을 만큼만 보내주는 것
+
+6. **congestioin control**
+
+
+
+<br/>
+
+*계층구조*
+
+<img src="readme.assets/image-20201221231416592.png" alt="image-20201221231416592" width ="50%"/>
+
+### TCP segement 구조
+
+<img src="readme.assets/image-20201221231517623.png" alt="image-20201221231517623" width ="70%" />
+
+- 이론상으로 한 컴퓨터내에서 동시에 동작할 수 있는 애플리케이션 네트워크 2^16 -1 개 (약 65500)
+
+  

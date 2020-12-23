@@ -19,7 +19,7 @@ void DFS(int L)
         if (send() + more() == money())
         {
             // 첫자리들이 0이 되면 안됨
-            if (a[2] == 0 || a[5] == 0)
+            if (a[2] == 0 || a[6] == 0)
                 return;
             printf("   %d %d %d %d\n", a[6], a[1], a[3], a[0]);
             printf("+  %d %d %d %d\n", a[2], a[4], a[5], a[1]);

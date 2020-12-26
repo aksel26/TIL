@@ -18,8 +18,6 @@ long long solution(int a, int b)
         answer += i;
     }
 
-    printf("%d\n", answer);
-
     return answer;
 }
 

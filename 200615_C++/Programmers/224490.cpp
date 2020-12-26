@@ -4,40 +4,19 @@ using namespace std;
 
 bool solution2(string s)
 {
-    bool answer;
 
-    char a[9];
+    if (s.length() != 4 && s.length() != 6)
+        return false;
 
-    for (int i = 0; i < s.size(); i++)
-    {
-        a[i] = s[i];
-    }
-
-    if (s.size() >= 4 && s.size() <= 6)
+    for (int i = 0; i < s.length(); i++)
     {
 
-        for (int i = 0; i < s.size(); i++)
+        if (s[i] < 48 || s[i] > 57)
         {
-
-            if (a[i] < 48 || a[i] > 57)
-            {
-                answer = false;
-                break;
-            }
-            else
-            {
-                answer = true;
-            }
+            return false;
         }
     }
-    else
-    {
-        answer = false;
-    }
-
-    printf("%d\n", answer);
-
-    return answer;
+    return true;
 }
 bool solution(string s)
 {
@@ -70,7 +49,7 @@ bool solution(string s)
 
 int main(int argc, char const *argv[])
 {
-    string s = "2334";
+    string s = "123456z";
 
     // solution(s);
     solution2(s);

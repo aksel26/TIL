@@ -271,7 +271,7 @@ Transport Layer(현재의 TCP) 에서 제공하는 서비스는 **Data Integrity
 
 그 밖의 서비스들
 
-- timig
+- timing
 - throughput
 - security
 

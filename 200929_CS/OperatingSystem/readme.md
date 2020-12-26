@@ -782,6 +782,7 @@ CPU가 여러개 (Multiprocessor)
 > : 내용이 바뀔때(write) copy한다(물리적인 메모리에 할당된 정보만) 는 의미
 
 - 부모 프로세스가 자식 프로세스를 생성한다 (복제 생성)
+  
   - Parent(1) -> children (n)
 - 프로세스의 트리(계층구조) 형성
 - 프로세스는 자원을 필요로한다.
@@ -965,7 +966,7 @@ CPU가 여러개 (Multiprocessor)
 
 ## CPU Scheduling
 
-#### CPU and I/O Bursts in Program Execution
+### CPU and I/O Bursts in Program Execution
 
 <img src="readme.assets/image-20201213214841576.png" alt="image-20201213214841576" width ="25%" />
 
@@ -983,7 +984,7 @@ CPU가 여러개 (Multiprocessor)
 
 <br/> 
 
-#### CPU scheduler
+### CPU scheduler
 
 ​	: Ready 상태의 프로세스 중에서 이번 CPU를 줄 프로세스를 고른다.
 
@@ -991,10 +992,58 @@ CPU가 여러개 (Multiprocessor)
 
 <br/>
 
-#### Dispatcher
+### Dispatcher
 
 - 스케줄된 CPU를 넘겨주는 역할을 한다.
 - 이러한 과정을 문맥교환 (Context Switch)라고 한다.
+
+
+
+<br/> 
+
+- **Preemptive ( 선점형 )**
+
+  : 강제로 빼앗음
+
+- **Nonpreemptive  (비 선점형)**
+
+  : 강제로 빼앗지 않음
+
+
+
+<br/> 
+
+### Scheduling algorithm
+
+#### 성능척도 (scheduling criteria)
+
+<u>전체적인 cpu처리가 아니라 **각각의 cpu에만** 포커스를 맞춘다</u>
+
+- **시스템 입장**에서의 성능척도
+  - CPU utilization (이용률) ( 예_ 주방장 역할 )
+    - 전체 시간 중 CPU가 일한 시간의 비율
+    - CPU는 가능한 바쁘게 일을 시켜라
+  - Throughput (처리량)   ( 예 _ 손님 회전율 )
+    - 주어진 시간에 얼마나 처리한지의 갯수
+- **프로그램 입장**에서의 성능 척도 (시간과 연관) (손님 입장)
+  - Turnaround time(소요시간, 반환시간) ( 예_ 다먹고 나가는 시간)
+    - CPU사용을 위해 들어오고부터 다 쓰고 빠져나가는데의 시간
+  - Waiting time(대기시간)
+    - ready queue
+    - 기다리는 시간에도 CPU사용을 뺐겼다 얻었다 할 수 있음. 이를 반복하는 것도 대기시간
+  - response time(응답시간) (예_첫번째 음식이 나오는데 걸린 시간)
+    - Ready queue에 들어와부터 사용되기 시작한 시간
+    - time sharing cpu에서는 중요한 개념
+
+<br/> 
+
+#### FCFS (First-come first-serve)
+
+- 비선점형
+- 비교적 효율적이지는 않다. (interactive 하지 않음)
+- 
+
+
 
 
 

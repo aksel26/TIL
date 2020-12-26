@@ -1039,11 +1039,51 @@ CPU가 여러개 (Multiprocessor)
 
 #### FCFS (First-come first-serve)
 
-- 비선점형
+- **비선점형**
+
 - 비교적 효율적이지는 않다. (interactive 하지 않음)
-- 
+
+- 경우 1
+
+  <img src="readme.assets/image-20201226183317945.png" alt="image-20201226183317945" width ="40%" />
+
+  - 평균 대기시간 : ( 0 + 27 + 30 ) / 3 = **19**
+
+    <br/> 
+
+- 경우 2
+
+  <img src="readme.assets/image-20201226183334697.png" alt="image-20201226183334697" width ="40%" />
+
+  - 평균 대기시간 :  (0 + 3 + 27) / 3 =  **10**
+
+  <br/> 
+
+- 짧은 프로세스가 앞에오면 대기시간이 매우 짧아진다( 편차가 커짐 )
+
+- 소요시간이 긴 프로세스가 앞에 와서 대기시간이 늘어지는 것 : **Convoy Effect**
 
 
 
+<br/> 
 
+#### SJF(Shortest - Job - First)
+
+>  **CPU burst time**이 제일 짧은 CPU에게 프로세스를 먼저 준다.
+
+- **평균 대기시간을 가장 최소화** 하는 알고리즘 (*Preemptive* 버전에 해당)
+
+- Nonpreemptive한 경우
+  - 더 짧은 프로세스가 도착해도 기존의 프로세스에게 cpu사용권을 보장해준다.
+- Preemptive한 경우
+  - 더 짧은 프로세스가 도착하면 cpu를 뺏는다.
+  - **SRTF** (Shortest-Remaining- Time -First) 라고도 한다.
+
+<br/>
+
+- Dilemma : **Starvation** 
+
+  - 계속해서 CPU가 뺏기면, 영원히 할당을 못받을 수 있는 경우가 발생한다.
+
+    
 

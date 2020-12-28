@@ -1085,9 +1085,47 @@ CPU가 여러개 (Multiprocessor)
 
 <br/>
 
-- Dilemma : **Starvation** 
+- Dilemma1 : **Starvation** 
 
   - 계속해서 CPU가 뺏기면, 영원히 할당을 못받을 수 있는 경우가 발생한다.
+- Dilemma2 : CPU 사용시간(CPU burst time) 을 미리 알 수가 없다..
+  - *하지만 추정은 가능하다. (과거의 사용량을 통해서)*
+  - 과거의 사용량 : exponential averaging을 통해 알아낼 수 있다.
 
-    
+
+
+<br/> 
+
+#### Priority scheduling
+
+> 우선순위가 제일 높은 순서대로 CPU할당
+
+- Preemptive 
+  - 더 높은 우선순위를 위해 빼앗을 수 있을 때
+- Non-Preemptive 
+  - 더 높은 우선순위를 위해 빼앗을 수 없을 때
+
+- 우선순위 정의?
+  - **정수** 값으로 표현하고 우선순위가 높으면 제일 작은 정수
+- **SJF**는 일종의 priority scheduling이다
+
+- 문제점 : **starvation**이 존재 할 수 있다.
+  - Solution : **aging**
+    - 오래 기다리면 기다릴수록 우선순위를 높여주어 starvation을 방지하는 방법
+
+<br/> 
+
+#### Round Robin (RR)
+
+- **할당시간을 setting**하고 시간이 끝나면(timer interrupt) 넘겨주는 방법, 
+- preemptive
+- 응답시간이 빨라진다.
+  - 굳이 예측할 필요가 없다.
+  - 적어도 (n-1)q  시간안에는 사용할 수 있다.
+    - *q : time unit,  n : 프로세스 수*
+- 대기시간은 사용하려는 프로세스의 길이와 비례하게 된다.
+
+- 할당시간(q)이 아주 커지면 : FCFS와 같아진다.
+- 할당시간(q)이 아주 작아지면 : context switching이 매우 빈번히 발생 
+  - RR의 목적과는 부합하지만 overhead 발생가능성 존재하기 때문에 적당한 규모의 time quantum이 필요함 *(10 ~ 100 millisecond)*
 

@@ -1129,3 +1129,6 @@ CPU가 여러개 (Multiprocessor)
 - 할당시간(q)이 아주 작아지면 : context switching이 매우 빈번히 발생 
   - RR의 목적과는 부합하지만 overhead 발생가능성 존재하기 때문에 적당한 규모의 time quantum이 필요함 *(10 ~ 100 millisecond)*
 
+
+
+'> 10.cpu scheduling 1

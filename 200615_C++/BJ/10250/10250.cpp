@@ -11,37 +11,46 @@ int main()
 
     cin >> tcase;
 
-    int w, h, order;
+    int w, h, order, j, k;
     int room = 1;
-    int cnt = 1;
-    int k = order / h;
+    int cnt = 0;
 
     for (int i = 0; i < tcase; i++)
     {
         cin >> h >> w >> order;
 
-        for (int j = 1; j <= w; j++)
+        for (j = 0; j < w; j++)
         {
 
-            for (int k = h; k >= 0; k--)
+            for (k = h - 1; k >= 0; k--)
             {
-                int temp = (room * 100) + j;
+                int temp = (room * 100) + (j + 1);
                 map[k][j] = temp;
-                room++;
 
-                if (k == 0)
-                {
-                    room = 1;
-                    cnt++;
-                    continue;
-                }
-                cnt++;
-                // cout << map[k][j] << ' ';
                 if (cnt == order)
+                {
                     cout << map[k][j] << '\n';
+                    break;
+                }
+                else
+                {
+                    cnt++;
+                    room++;
+                }
+
+                // if (k != 0)
+                // {
+                //     cnt++;
+                // }
             }
-            // cout << '\n';
+            room = 1;
+            if (cnt == order)
+            {
+                break;
+            }
         }
+        cnt = 1;
+        room = 1;
     }
 
     // for (int i = 1; i <= 12; i++)

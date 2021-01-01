@@ -6,7 +6,7 @@ int map[100][100];
 // int test[13][13];
 int main()
 {
-
+    ios::sync_with_stdio
     int tcase;
 
     cin >> tcase;

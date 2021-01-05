@@ -1612,7 +1612,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 
 
-# 7번째 수업
+# 7번째 
 
 ## Semaphore
 

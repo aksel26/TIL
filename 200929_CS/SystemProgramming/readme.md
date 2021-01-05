@@ -1662,7 +1662,9 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
    - 순차적으로 프로세스가 공유될 때, 동기를 맞추고 싶을 때
 
-     <img src="/Users/hxmkim/Library/Application Support/typora-user-images/image-20210105233621359.png" alt="image-20210105233621359" width ="50%" />
+     <img src="readme.assets/image-20210106024703095.png" alt="image-20210106024703095" width ="60%" />
+
+     
 
      
 

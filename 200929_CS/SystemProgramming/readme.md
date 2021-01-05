@@ -1662,7 +1662,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
    - 순차적으로 프로세스가 공유될 때, 동기를 맞추고 싶을 때
 
-     <img src="readme.assets/image-20210106024703095.png" alt="image-20210106024703095" width ="60%" />
+     <img src="readme.assets/image-20210106024703095.png" alt="image-20210106024703095" width ="55%" />
 
      
 
@@ -1737,7 +1737,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
    
 
-
+<br/> 
 
 ## Synchronization 의 흔한 문제
 

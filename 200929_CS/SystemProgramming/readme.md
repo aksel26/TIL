@@ -1578,7 +1578,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
       : 스레드다마 코드를 다르게 짜야한다.
 
-    - Thread 2 는 아무일도 안하게 된다. Busy waiting 발생
+    - Thread 2 는 아무일도 안하게 된다. **Busy waiting** 발생
 
   - <u>atomic operation & Synchronization을 이용해야 한다.</u>
 
@@ -1606,6 +1606,186 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 
 
+<br/> 
+
+
+
+# 7번째 수업
+
+## Semaphore
+
+- Synchronizational tool
+- 일반화된 lock 기능 (자물쇠가 여러개 있는 의미)
+- `Semaphore S ` : S는 integer (lock은 boolean)
+  - Counting Semaphore라고도 불림 (integer값이므로 1,2,3,4, ... 증가해서)
+- Binary semaphore
+  - 0 또는 1만 가지도록 할 수도 있음 (boolean의미) : lock과 동일하게 된다. ( = **mutexlock** (mutual exclusion) )
+- 2가지의 operations만 접근 가능하다. (lock처럼)
+  - `Wait()` : 처음엔 P()로 정의되어 있었다. 
+    - Integer를 -1시킴.(감소되어 0이 되면 기다려야 한다.)
+  - `Signal()` : 처음엔 V()로 정의되어 있었다.
+    - release와 비슷한 기능 
+    - 1증가시킴
+
+
+
+<br/>
+
+
+
+## Semaphore 2가지 용도 
+
+1. Mutual Exclusion 
+
+   : 오직 한개 프로세스만이 공유를 엑세스 할 수 있게 하겠다.
+
+   - 초기값 = 1 
+
+     : Binary semaphore
+
+     ```c
+     Initial value of S =1;
+     Semaphore.P()
+       //Critical section
+     Semaphore.V()
+     ```
+
+     <br/>
+
+2. Scheduling constraints
+
+   - 초기값 = 0
+
+     : 0이 되면 wait에 걸려있다. (기다리도록함)
+
+   - 순차적으로 프로세스가 공유될 때, 동기를 맞추고 싶을 때
+
+     <img src="/Users/hxmkim/Library/Application Support/typora-user-images/image-20210105233621359.png" alt="image-20210105233621359" width ="50%" />
+
+     
+
+## Semaphore 구현
+
+1. Busy waiting 이 존재
+
+   ```c
+   wait(S){
+     while(S<-0)
+       ;		//busy wait
+     S--;
+   }
+   ```
+
+   ```c
+   Signal(S){
+     S++;
+   }
+   ```
+
+
 
 <br/> 
 
+2. No busy waiting
+
+   - waiting queue 사용
+
+   1. Block() : 프로세스를 waiting queue에 넣는다. 
+
+      : 다른 프로세스 사용 가능하게 된다.
+
+   2. Wakeup() : waiting queue 에 있는 프로세스 하나를 다시 꺼내서 ready queue에 넣는다.
+
+   ```c
+   typedef struct{
+     int value; //S
+     struct process *list; // process라는 구조체를 가지는 포인터, 프로세스들의 집합을 가리킴
+   } semaphore;
+   ```
+
+   <br/> 
+
+   **Block()**
+
+   ```c
+   wait(semaphore *S){
+     s=>value--;
+     if(S->value <0){
+       add this process to S->list;
+       block();
+     }
+   }
+   ```
+
+   <br/>
+
+   **Wakeup()**
+
+   ```c
+   Signal(semaphore *S){
+     s->value++;
+     if(S->value <=0){
+       remove a process p from S->list;
+       wakeup(P);
+     }
+   }
+   ```
+
+   
+
+
+
+## Synchronization 의 흔한 문제
+
+1. Bounded-Buffer Problem
+2. Readers and Writers Problem
+3. Dining-Philosopher Problem
+
+
+
+### 1. Bounded-Buffer Problem
+
+<img src="/Users/hxmkim/Library/Application Support/typora-user-images/image-20210106022946409.png" alt="image-20210106022946409" width="60%" />
+
+- buffer 의 사이즈는 제한되어 있다.
+
+- 버퍼에 접근하기 위한 synchronizationd의 필요성
+  1. 한개의 스레드만 동시에 버퍼를 수장할 수 있다 (mutex
+  2. sender가 consumer보다 빠르면 병목현상 발생 (full) => producer를 멈추는 동작 필요
+  3. 반대로 sender가 느리면 empty될 수 가 있음. => Consumer를 멈추는 동작 필요
+
+<br/>
+
+```c
+do{
+  ...
+    /* produce an item */
+    wait(empty);	// wait until space
+  	wait(mutex);	// Lock th buffer
+  ...
+    
+    /* add an item to the buffer */
+    
+  ...
+    signal(mutex);//Release the buffer
+	  signal(full);
+}while(true);
+
+
+do{
+//  check if there is an item
+  wait(full);
+  wait(mutex);
+  ...
+    /* remove an item to the buffer */
+  ...
+    signal(mutex);
+	  signal(full);
+  ... 
+    /* consume the item */
+}while(true);
+```
+
+ 
+
+~47:07

@@ -10,6 +10,8 @@
 
 [강의5](#5번째-강의)
 
+[강의6](#6번째-강의)
+
 ---
 
 <br/> 
@@ -1337,6 +1339,10 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 
 <br/> 
 
+<br/>
+
+# 6번째 강의
+
 ### 정리
 
 - 프로세스 (**protection**)
@@ -1380,6 +1386,7 @@ Process가 생성될 때마다 Process Control Block이 생성된다
 - 모든 스레드는 address space, resources 를 공유하게 된다.
 
 - 하이퍼 스레드
+  
   - 하드웨어로 context switching을 도와주어 overhead를 최소화 시키는 방법
 
 
@@ -1597,4 +1604,8 @@ Process가 생성될 때마다 Process Control Block이 생성된다
     lock.Release();
     ```
 
-    
+
+
+
+<br/> 
+

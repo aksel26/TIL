@@ -1790,6 +1790,74 @@ do{
 }while(true);
 ```
 
- 
+ <br/> 
 
-~47:07
+### 2. Readers and Writers Problem
+
+- Readers : 읽기만 하는 프로세스
+- Writers : 읽고 쓰는 프로세스
+
+- **제약**
+
+  - 여러개의 reader가 동시에 읽도록 접근할 수 있다.
+  - 하지만 writer에에게는 하나의 writer만 접근할 수 있도록 해야 한다. (mutual exclusion)
+
+- 그림으로 표현
+
+  - Reader()
+
+    <img src="readme.assets/image-20210106222801122.png" alt="image-20210106222801122" width =" 60%" />
+
+  - Writer()
+
+    ![image-20210106222835132](../../../aksel26.github.io/assets/images/image-20210106222835132.png)
+
+
+
+- 구현
+
+  - `rw_mutex = 1;` (writer의 mutual exclusion을 보장하기 위해)
+
+  - `mutex = 1;`
+
+  - `read_count = 0;`
+
+  - Writer
+
+    ```c
+    do{
+      wait(rw_mutex);
+      ...
+        /* Writing is perfomed */
+        signal(rw_mutex);
+    }while(true);
+    ```
+
+  - Reader
+
+    ```c
+    do{
+      wait(mutex);
+      read_count ++;
+      if(read_count ==1){
+        wait(rw_mutex);
+      }
+      signal(mutex);
+      ...
+        /* reading is performed */
+        ...
+        wait(mutex);
+      
+      // exit section
+      read_count--;
+      if(read_count == 0){
+        signal(rw_mutex);
+      }
+      signal(mutex);
+    }while(true);
+    ```
+
+<br/> 
+
+### 3. Dining-Philosophers Problem
+

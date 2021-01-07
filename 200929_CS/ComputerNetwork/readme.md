@@ -322,6 +322,25 @@ HTTP가 TCP커넥션을 사용하는 방식에 따라 2가지로 나뉜다.
 
 # 3번째 수업
 
+## Multiplexing, Demultiplexing
+
+connection - oriented demux
+
+TCP socke은 4가지 특징
+
+- source IP address
+- source port number
+- dest.IP address
+- dest.port number
+
+
+
+- demux:  리시버는 위 4가지 값을을 모두 사용해서 적절한 소켓에 세그먼트를 보내기 위한 행동
+- 각각의 socket이 4개의 tuple로 구분된다.
+- Web- servers는 각각 다른 소켓을 가지고 있다.
+
+
+
 # 4번째 수업
 
 ## Application Layer2
@@ -618,22 +637,46 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 5. **flow contorlled**
 
-   : reveiver buffer에 데이터를 부었을 때, 공간이 없는 경우 receiver가 받을 수 있을 만큼만 보내주는 것
+   : reveiver buffer에 데이터를 부었을 때, 공간이 없는 경우 receiver가 받을 수 있을 만큼만 (window size) 보내주는 것
 
-6. **congestioin control**
-
-
+   - ACK을 수신하면, 다시 보낼 수 있는 세그먼트의 수가 그만큼 늘어난다.(변경) : sliding window flow control
+   - window 크기가 0이 되면 더이상 전송을 하지 못하고ACK을 받을 때까지 대기한다. (Deadlock)
+   - 이를 방지하기 위해 보내면서 설정된 **timer가 지나면 재전송**한다
+     - 만약 상대방이 아직 버퍼공간이 없어서 그런거라면 더 악화됨.
 
 <br/>
+
+---
 
 *계층구조*
 
 <img src="readme.assets/image-20201221231416592.png" alt="image-20201221231416592" width ="50%"/>
 
-### TCP segement 구조
+*TCP segement 구조*
 
 <img src="readme.assets/image-20201221231517623.png" alt="image-20201221231517623" width ="70%" />
 
 - 이론상으로 한 컴퓨터내에서 동시에 동작할 수 있는 애플리케이션 네트워크 2^16 -1 개 (약 65500)
 
-  
+---
+
+<br/>
+
+<img src="readme.assets/image-20210107171735803.png" alt="image-20210107171735803" width ="60%" />
+
+- 이 그림에서 receive 쪽이 처리하는 시간이 있는데 보내는 속도가 빨라 쓸데없이 재전송을 하게 된 경우.
+
+- 이를 방지하기 위해,
+
+- 현재 남아있는 버퍼크기를 ACK 전송할 때 window size필드를 통해 알려준다.
+
+  - ack은 세그먼트가 잘 도착했다는 것이고, window size는 현재의 버퍼 크기를 알려주는 것
+
+    <img src="readme.assets/image-20210107172433858.png" alt="image-20210107172433858" width ="60%"/>
+
+<br/>
+
+
+
+6. **congestion control**
+

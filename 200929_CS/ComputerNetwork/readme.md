@@ -631,18 +631,22 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 4. **send & receiver buffers**
 
-   <img src="readme.assets/image-20201221225853660.png" alt="image-20201221225853660" width ="50%" />
+5. flow control
 
-   
+6. Congestion control
 
-5. **flow contorlled**
+---
 
-   : reveiver buffer에 데이터를 부었을 때, 공간이 없는 경우 receiver가 받을 수 있을 만큼만 (window size) 보내주는 것
+<br/> 
 
-   - ACK을 수신하면, 다시 보낼 수 있는 세그먼트의 수가 그만큼 늘어난다.(변경) : sliding window flow control
-   - window 크기가 0이 되면 더이상 전송을 하지 못하고ACK을 받을 때까지 대기한다. (Deadlock)
-   - 이를 방지하기 위해 보내면서 설정된 **timer가 지나면 재전송**한다
-     - 만약 상대방이 아직 버퍼공간이 없어서 그런거라면 더 악화됨.
+### flow control
+
+: reveiver buffer에 데이터를 부었을 때, 공간이 없는 경우 receiver가 받을 수 있을 만큼만 (window size) 보내주는 것
+
+- ACK을 수신하면, 다시 보낼 수 있는 세그먼트의 수가 그만큼 늘어난다.(변경) : sliding window flow control
+- window 크기가 0이 되면 더이상 전송을 하지 못하고ACK을 받을 때까지 대기한다. (Deadlock)
+- 이를 방지하기 위해 보내면서 설정된 **timer가 지나면 재전송**한다
+  - 만약 상대방이 아직 버퍼공간이 없어서 그런거라면 더 악화됨.
 
 <br/>
 
@@ -673,10 +677,59 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
   - ack은 세그먼트가 잘 도착했다는 것이고, window size는 현재의 버퍼 크기를 알려주는 것
 
     <img src="readme.assets/image-20210107172433858.png" alt="image-20210107172433858" width ="60%"/>
+    
+  - 보내는 양 ? 보내는 속도 ? 무엇이 결정되나 ?
+  
+    - 속도의 단위는 M/bps , 즉 양이 커질수록 속도가 빨라진다는 의미
+  
+      <br/> 
+  
+- <img src="readme.assets/image-20210107223254169.png" alt="image-20210107223254169" width ="70%"/>
+
+- <img src="readme.assets/image-20210107223336813.png" alt="image-20210107223336813" width ="70%"/>
 
 <br/>
 
+#### 3-way handshake
+
+<img src="readme.assets/image-20210107224337580.png" alt="image-20210107224337580" width ="70%" />
+
+- 위 과정 이후에 buffer가 생겨짐
+- 왜 3 hand 인가 ?
+  - 2way 상황을 가정하면 
+    - client입장에서 보면 응답을 받을 수 있다.
+    - server입장에서는 응답을 받을 수 없다.
 
 
-6. **congestion control**
 
+<br/> 
+
+#### Closing TCP Connection
+
+<img src="readme.assets/image-20210107224640110.png" alt="image-20210107224640110" width ="40%" />
+
+<br/> 
+
+---
+
+
+
+### Congestion control
+
+<img src="readme.assets/image-20201221225853660.png" alt="image-20201221225853660" width ="50%" />
+
+1. 속도를 높이려고함 (데이터를 많이 보낸다)
+2. Network 막힌다
+   - TCP에서 막힌다 ? TCP는 악화되면 더욱 나빠진다 (패킷이 떨어지면 재전송하기 때문)
+3. NW가 막히지 않도록 하는게 TCP가 해야할 일 중 하나.
+4. 양보해서 데이터 속도를 줄여야 한다.
+
+---
+
+1. **End-End Congestion Control**
+
+   : TCP 세그먼트의 왕래를 통해 내부상황을 유추해야 한다.
+
+2. **Network-assisted Congetsion Control**
+
+   : 자신의 N/W 상태를 알려준다

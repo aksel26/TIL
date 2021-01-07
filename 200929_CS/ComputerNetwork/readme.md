@@ -684,9 +684,9 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
   
       <br/> 
   
-- <img src="readme.assets/image-20210107223254169.png" alt="image-20210107223254169" width ="70%"/>
+- <img src="readme.assets/image-20210107223254169.png" alt="image-20210107223254169" width ="50%"/>
 
-- <img src="readme.assets/image-20210107223336813.png" alt="image-20210107223336813" width ="70%"/>
+- <img src="readme.assets/image-20210107225743688.png" alt="image-20210107225743688" style="zoom:50%;" />
 
 <br/>
 
@@ -706,7 +706,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 #### Closing TCP Connection
 
-<img src="readme.assets/image-20210107224640110.png" alt="image-20210107224640110" width ="40%" />
+<img src="readme.assets/image-20210107224640110.png" alt="image-20210107224640110" width ="30%" />
 
 <br/> 
 
@@ -716,7 +716,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 ### Congestion control
 
-<img src="readme.assets/image-20201221225853660.png" alt="image-20201221225853660" width ="50%" />
+<img src="readme.assets/image-20201221225853660.png" alt="image-20201221225853660" width ="35%" />
 
 1. 속도를 높이려고함 (데이터를 많이 보낸다)
 2. Network 막힌다

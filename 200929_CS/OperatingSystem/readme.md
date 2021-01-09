@@ -14,6 +14,8 @@
 
 [강의7](#7번째-수업)
 
+[강의8](#8번째-수업)
+
 <br/>
 
 # 1번째 수업
@@ -1131,4 +1133,177 @@ CPU가 여러개 (Multiprocessor)
 
 
 
-'> 10.cpu scheduling 1
+---
+
+<br/>
+
+# 8번째 수업
+
+#### Multilevel Queue
+
+- 프로세스가 다른 큐로 이동 불가능
+
+- Ready Queue를 여러개로 부할
+
+  - foreground ( interactive )
+  - Background (batch - no human interactive)
+
+- 각 큐는 독립적인 스케줄링 알고리즘을 가짐
+
+  - foreground -- RR
+
+    : interactive하니까 RR이 적절
+
+  - background -- FCFS
+
+- 큐에 대한 스케줄링이 필요
+
+  - Fixed priority scheduling
+    - 우선순위가 높은순대로 부여한다.
+    - 하지만 , starvation이 발생할 수 있음.
+  - Time slice
+    - 각 큐에 CPU time을 적절한 비율로 할당
+      - EX) foreground인 RR에 80%, background인 FCFS 에 20%
+
+<br/> 
+
+#### Multilevel Feedback Queue
+
+- 프로세스가 다른 큐로 이동 가능
+- 에이징
+- Multilevel Feedback Queue scheduler를 정의하는 파라미터들
+  - Queue의 수
+  - 각 큐의 scheduling algorithm
+  - Process를 상위 큐 or 하위 큐로 보내는 기준
+  - 프로세스가 CPU 서비스를 받으려 할 때 들어갈 큐를 결정하는 기준
+  - <img src="../../../aksel26.github.io/assets/images/image-20210108144813585.png" alt="image-20210108144813585" width ="60%" />
+
+<br/> 
+
+#### Multi-Processor Scheduling
+
+- CPU가 여러개인 경우 스케줄링은 더욱 복잡해짐
+- Homogeneous processor인 경우
+  - Queue에 한줄로 세워서 각 프로세서가 알아서 꺼내가게 할 수 있다.
+  - 반드시 특정 프로세서에서 수행되어야 하는 프로세스가 있는 경우에는 문제가 더 복잡해짐
+- Load Sharing
+  - 일부 프로세서에 job이 물리지 않도록 부하를 적절히 공유하는 메커니즘 필요
+  - 별개의 큐를 두는 방법 VS 공동 큐를 사용하는 방법
+- Symmetric Multiprocessing(SMP)
+  - 각 프로세서가 각자 알아서 스케줄링 결정
+- Asymmetric Multiprocessing
+  - 하나의 프로세서가 시스템 데이터의 접근과 공유를 책임지고 분배. 
+
+<br/> 
+
+#### Real-Time Scheduling
+
+- 들어와서 스케줄링이 아닌 미리 계산해 적재적소에 들어가게끔 하는 방법
+- Hard read-time systems
+  - 주기적으로 activate해야 하는 경우가 많음 deadline이 중요한 경우 
+- Soft real-time computing
+  - deadline을 반드시 지키는 것보단 우선순위 조절만 하는 방법 ( 영화 streaming 서비스)
+
+<br/> 
+
+#### Thread Scheduling 
+
+- **Local Scheduling**
+  - User level thread의 경우 사용자 수준의 thread library에 의해 어떤 thread를 스케줄 할 지 결정
+  - 사용자 스레드가 직접 관리하는 방법 (운영체제는 모름)
+- **Global Scheduling**
+  - 운영체제가 스레드의 스케줄링을 알고 있는 경우
+  - Kernel level thread의 경우 일반 프로세스와 마찬가지로 커널의 단기 스케줄러가 어떤 thread를 할 지 결정
+
+<br/> 
+
+## 어떤 알고리즘이 적절한가 ?  
+
+### 평가 방법
+
+#### **1. Queueing models**
+
+- 확률 분포로 주어지는 arrival rate와 service rate 등을 통해 각종 퍼포먼스 인덱스값을 계산
+
+  <img src="../../../aksel26.github.io/assets/images/image-20210108150844378.png" alt="image-20210108150844378" width =" 60%"/>
+
+- *옛날 방식*
+
+#### **2. Implementation(구현) & Measurement (성능 측정)**
+
+- 실제 시스템에 알고리즘을 구현해 실제 작업(workload)에 대해 성능 측정을 비교
+- 실측하는 방법
+
+#### **3. Simulation (모의 실험)**
+
+- 알고리즘을 모의 프로그램으로 작성 후 **trace** 를 입력으로 하여 결과 비교
+
+
+
+---
+
+ 
+
+<br/> 
+
+## Process Synchronization
+
+<br/> 
+
+---
+
+### Race Condition 
+
+1. **kernel 수행 중 인터럽트 발생 시**
+
+   - **멀티 프로세서 시스템**에서 메모리를 공유하고 있다면
+
+   - 하나의 주체가 읽어갔는데 다른 주체가 또 읽어가느 경우 조절이 필요하다.
+
+   - 예  .커널모드 수행 중 인터럽트로 커널모드 다른 루틴 실행 시
+
+     <img src="../../../aksel26.github.io/assets/images/image-20210108154125306.png" alt="image-20210108154125306" width ="60%"/>
+
+<br/> 
+
+2. **Process가 system call을 하여 kernel  mode로 수행 중인데 context switch가  일어나는 경우**
+
+   <img src="../../../aksel26.github.io/assets/images/image-20210108161255677.png" alt="image-20210108161255677" width ="40%"/>
+
+   - User 와 kernel 모드를 번갈아가면서 실행된다
+
+     CPU가 독립적으로 쓰는게 아니라 할당시간이 있고 할당시간이 끝나면 CPU를 반납하게 된다.
+
+     
+
+   - <img src="../../../aksel26.github.io/assets/images/image-20210108161829632.png" alt="image-20210108161829632" width ="70%"/>
+     - **해결책** : 커널모드에서 수행시 CPU를 preemptive하지 않음, 커널 모드에서 사용자모드로 돌아갈 때 preemptive
+
+   
+
+   <br/> 
+
+3. **CPU가 여러개인 환경** 에서는 race condition 을 어떻게 해결해야 하나 ?
+
+   : 위의 2가지로는 해결 불가능
+
+   1. 한번에 하나의 CPU만이 커널에 들어갈 수 있게 하는 방법
+   2. 커널 내부에 있는 각 공유데이터에 접근할 때마다 그 데이터에 대한 **lock / unlock** 을 하는 방법
+
+<br/>
+
+---
+
+<br/>
+
+### Process Synchronization 문제
+
+- 공유데이터의 동시 접근은 데이터의 불일치 문제를 발생시킬 수 있다.
+- 일관석 유지를 위해서는 협력 프로세스간의 실행순서를 정해주는 매커니즘 필요
+- **<u>Race Condition</u>**
+  - 여러 프로세스들이 동시에 공유 데이터를 접근하는 상황
+  - 데이터의 최종 연산 결과는 마지막에 그 데이터를 다룬 프로세스에 따라 달라짐
+- Race condition을 막기 위해 concurrent process는 **동기화** 되어야 한다.
+
+
+

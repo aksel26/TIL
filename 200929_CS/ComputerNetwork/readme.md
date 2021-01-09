@@ -654,11 +654,11 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 *계층구조*
 
-<img src="readme.assets/image-20201221231416592.png" alt="image-20201221231416592" width ="50%"/>
+<img src="../../../aksel26.github.io/assets/images/image-20201221231416592.png" alt="image-20201221231416592" width ="50%"/>
 
 *TCP segement 구조*
 
-<img src="readme.assets/image-20201221231517623.png" alt="image-20201221231517623" width ="70%" />
+<img src="../../../aksel26.github.io/assets/images/image-20201221231517623.png" alt="image-20201221231517623" width ="70%" />
 
 - 이론상으로 한 컴퓨터내에서 동시에 동작할 수 있는 애플리케이션 네트워크 2^16 -1 개 (약 65500)
 
@@ -666,7 +666,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 <br/>
 
-<img src="readme.assets/image-20210107171735803.png" alt="image-20210107171735803" width ="60%" />
+<img src="../../../aksel26.github.io/assets/images/image-20210107171735803.png" alt="image-20210107171735803" width ="60%" />
 
 - 이 그림에서 receive 쪽이 처리하는 시간이 있는데 보내는 속도가 빨라 쓸데없이 재전송을 하게 된 경우.
 
@@ -676,7 +676,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
   - ack은 세그먼트가 잘 도착했다는 것이고, window size는 현재의 버퍼 크기를 알려주는 것
 
-    <img src="readme.assets/image-20210107172433858.png" alt="image-20210107172433858" width ="60%"/>
+    <img src="../../../aksel26.github.io/assets/images/image-20210107172433858.png" alt="image-20210107172433858" width ="60%"/>
     
   - 보내는 양 ? 보내는 속도 ? 무엇이 결정되나 ?
   
@@ -684,15 +684,15 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
   
       <br/> 
   
-- <img src="readme.assets/image-20210107223254169.png" alt="image-20210107223254169" width ="50%"/>
+- <img src="../../../aksel26.github.io/assets/images/image-20210107223254169.png" alt="image-20210107223254169" width ="50%"/>
 
-- <img src="readme.assets/image-20210107225743688.png" alt="image-20210107225743688" style="zoom:50%;" />
+- <img src="../../../aksel26.github.io/assets/images/image-20210107225743688.png" alt="image-20210107225743688" style="zoom:50%;" />
 
 <br/>
 
 #### 3-way handshake
 
-<img src="readme.assets/image-20210107224337580.png" alt="image-20210107224337580" width ="70%" />
+<img src="../../../aksel26.github.io/assets/images/image-20210107224337580.png" alt="image-20210107224337580" width ="70%" />
 
 - 위 과정 이후에 buffer가 생겨짐
 - 왜 3 hand 인가 ?
@@ -706,7 +706,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 #### Closing TCP Connection
 
-<img src="readme.assets/image-20210107224640110.png" alt="image-20210107224640110" width ="30%" />
+<img src="../../../aksel26.github.io/assets/images/image-20210107224640110.png" alt="image-20210107224640110" width ="30%" />
 
 <br/> 
 
@@ -716,7 +716,7 @@ sender는 다시 받은 메세지가 ACK 인지 NAK인지 모른다. 즉, 새거
 
 ### Congestion control
 
-<img src="readme.assets/image-20201221225853660.png" alt="image-20201221225853660" width ="35%" />
+<img src="../../../aksel26.github.io/assets/images/image-20201221225853660.png" alt="image-20201221225853660" width ="35%" />
 
 1. 속도를 높이려고함 (데이터를 많이 보낸다)
 2. Network 막힌다

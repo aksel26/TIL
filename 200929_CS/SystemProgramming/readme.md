@@ -14,6 +14,8 @@
 
 [강의7](#7번째-강의)
 
+[강의8](#8번째-강의)
+
 ---
 
 <br/> 
@@ -1933,3 +1935,197 @@ do {
 3. asymmetric solution
 
    홀수번째 사람은 왼쪽, 짝수번째는 오른쪽먼저 집도록 하는 방법
+
+
+
+---
+
+
+
+<br/> 
+
+# 8번째 강의
+
+<br/>
+
+**Synchronization을 위해 사용되는 Tool**
+
+- Mutex
+
+- Scheduling constraint
+
+- **Monitor**
+
+   *Mutex & Scheduling constraint를 사용하기 위해 Semaphore 이 사용된다.*
+
+## Monitor
+
+- high - level abstraction
+- mutual exclusion & conditional synchronization 
+-  lock으로 보호되는 critical section이 있어야 하고, condition variables
+
+<br/>
+
+####  Monitor 구성요소
+
+- Mutual exclusion을 위한 **Lock**
+- 공유된 데이터로의 동시 첩근을 관리하기 위한 한개 이상 또는 0의 **condition variables**
+  - 궁극적으로 스케줄링 constraints 를 위함
+
+<br/>
+
+#### 프로그램 구조
+
+- **Entry section**
+  - 크리티컬 섹션을 보호하기 위한 lock을 잠그기 위해
+  - 이미 lock상태라면 wait
+- **Critical section code**
+- **Exit Section**
+  - Unlock
+
+
+
+<br/> 
+
+#### Lock & Conditional Variables
+
+- **Lock**
+
+  - Mutual Exclusion.
+
+  - 다수의 프로세스 또는 스레드들이 공유하고자 하는 Data가 존재한다는 의미
+
+    *Lock.Acquire() : Shared data접근전에 Lock을 걸고 Critical Section에 접근한다. 끝나면, Lock.Release()*
+
+- **Conditional variable** 
+
+  - 무언가를 기다리는 스레드들이 들어있는 **Queue**
+  - **Waiting Queue** : 스레드들이 **이벤트**(Semaphore 증가)가 일어날 때까지 기다림 
+    - *Semaphore* S
+      - *wait() or P*
+      - *Signal() or V*
+      - *이미 0이면 기다림 (방법 2가지)* 
+        1.  *busy wiait - > while문*
+        2. *S가 0이면 wait함수에서는 자기 자신을 wait Queue에 넣고  blcok시킴*
+  - Operation
+    - **wait(&lock)** : atomic하게  lock을 풀고 sleep 한다. 돌아올 때는 다시  lock을 하고  return
+    - **signal()** : wait 큐에 들어있는 스레드를 깨운다.(가장 앞에 있는 하나)
+    - **broadcast()**  : wait queue에 들어있는 스레드들을 한꺼번에 모두 깨운다.
+  - 규칙
+    - 당연히 lock을 하고 사용해야 한다.
+  - Monitor 기능을 구현하는 방법 두가지 
+    - **Hoare** monitor semantic 
+    - **Hansen(Mesa)** monitor semantic
+
+- **Example - Coke machine (producer - consumer)**
+
+  <img src="../../../aksel26.github.io/assets/images/image-20210109172528245.png" alt="image-20210109172528245" width ="90%"/>
+
+- Semaphore Vs Monitor 무슨 차이인가 ?
+
+  <img src="../../../aksel26.github.io/assets/images/image-20210109174016077.png" alt="image-20210109174016077"  width ="90%" />
+
+- C++에서는  `throw`를 통해 Exception처리가 가능하다.
+
+  ```c++
+  void ThreadEx(){
+    lock.acquire();
+    try{
+      Do Something();
+     	...
+    }catch(..){
+      lock.release();
+      throw;
+    }
+    lock.release();
+  }
+  
+  void DoSomething(){
+    ...
+      if(exception) throw errException;
+    ...
+  }
+  ```
+
+  - Class 정의를 통해 구현 가능
+
+    ```c++
+    class lock{
+      mutex &m_mutex;
+      public :
+      lock(mutex &m) : m_mutex(m){
+        m.acquire();
+      }
+      ~lock(){
+        m_.release();
+      }
+    };
+    
+    
+    // critical section
+    mutex m;
+    ...
+    {
+      lock mylock(m);
+      ...
+        ....
+        ... //no explicit unlock
+    }
+    ```
+
+- Java에서의 Synchronization : `synchronized` 이용 (in high-level)
+
+  ```java
+  public class SynchronizedQueue{
+    public LinkedList<Integer> q = new LinkedList<Integer> ();
+    
+    public synchronized void enqueue (int item){
+      q.add(item);
+      notify();
+    }
+    
+    public synchronized int dequeue(){
+      try{
+        while(q.size()==0){
+          wait();
+        }
+        return q.removeFirst();
+      }catch(InterruptedException e){
+        return 0;
+      }
+    }
+  }
+  ```
+
+
+
+---
+
+
+
+<br/> 
+
+## Concurrency Bugs
+
+- Atomicity Violation 
+
+  - 원인 : shared resource가 약하게 protected된 경우 (under protecting)
+
+- Order Violation
+
+  - 원인 : 메모리 접근 순서
+
+- Deadlock
+
+  - 원인 : 과하게 protected (over protecting) 
+
+  ...
+
+- Concurrencty Bug는 debug하는데 시간이 매우 오래걸릴 수 있다.
+
+
+
+
+
+
+

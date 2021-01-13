@@ -16,6 +16,8 @@
 
 [강의8](#8번째-수업)
 
+[강의9](#9번째-수업)
+
 <br/>
 
 # 1번째 수업
@@ -1277,6 +1279,7 @@ CPU가 여러개 (Multiprocessor)
      
 
    - <img src="../../../aksel26.github.io/assets/images/image-20210108161829632.png" alt="image-20210108161829632" width ="70%"/>
+     
      - **해결책** : 커널모드에서 수행시 CPU를 preemptive하지 않음, 커널 모드에서 사용자모드로 돌아갈 때 preemptive
 
    
@@ -1304,6 +1307,266 @@ CPU가 여러개 (Multiprocessor)
   - 여러 프로세스들이 동시에 공유 데이터를 접근하는 상황
   - 데이터의 최종 연산 결과는 마지막에 그 데이터를 다룬 프로세스에 따라 달라짐
 - Race condition을 막기 위해 concurrent process는 **동기화** 되어야 한다.
+
+
+
+
+
+# 9번째 수업
+
+## critical section 문제 해결
+
+- p1, p2 프로세스가 있다고 가정
+
+  ```c
+  do{
+    entry section
+      critical section
+      exit section
+      remainder section
+  }while(1);
+  ```
+
+- 프로세스들은 수행의 동기화를 위해 몇몇 변수를 공유할 수 있다. (synchronization variable)
+
+<br/>
+
+## 해결을 위한 조건
+
+1. **mutual exclusion (상호 배제)**
+
+   : 프로세스가 크리티컬 섹션에 있으면 다른 모든 프로세스들은 그들의 크리티컬 섹션에 들어가면 안된다.
+
+2. **Progress**
+
+   : 아무도 크리티컬 섹션에 있지 않은 상태에서 크리티컬 섹션에 들어가고자 하는 프로세스가 있으면 크리티컬 섹션에 들어가게 해주어야 한다.
+
+3. **Bounded Waiting**
+
+   : 기다리는 시간이 유한해야 한다. (starvationd을 방지해야 한다.) 
+
+   크리티컬 섹션에 들어가고자 하는 프로세스가 3가지 있는데 2개의 프로세스만 번갈아서 들어가서 나머지 하나는 starvation이 발생하는 경우다.
+
+
+
+<br/> 
+
+### 해결을 위한 방법(SW)
+
+#### Algorithm1
+
+Process 1. & 2
+
+```c
+do{
+  while(turn!= 0){ /*my turn?*/
+    critical section
+      turn =1;	/*now it's your turn*/
+    remainder section
+  }
+}while(1);
+```
+
+- `While(turn ! = 0)` 부분은 p1이 바꿔줄 것임.
+- mutual exclusion은 만족하지만,
+- Progress 조건을 만족하지 못한다. 과잉양보
+  - 빈번도가 프로세스마다 다를 수 있는데, 
+  - 만약, p0은 빈번하고, p1은 한번만 들어간다면 p0은 영원히 들어갈 수 없을 수도 있다.
+
+
+
+<br/>
+
+
+
+#### Algorithm 2
+
+`flag` 변수 사용
+
+초기값은 모두 `false` 모두 CS에 들어있지 않다.
+
+```c
+do{
+ 	flag[i] = true; // 나 들어간다
+  while(flag[j]); // 너 들어가있냐 ? 그럼 기다림
+  critical section
+    flag[i] = false; // 나 나간다.
+  remainder section
+}while(1);
+```
+
+- 문제점 
+
+  본인은 true이고인 상태에서 process가 넘어갈 때, 상대방도 true이면 둘다 못들어가는 상황 발생 가능.
+
+
+
+
+
+#### 피터슨 알고리즘
+
+```c
+do{
+  flag[i] = true; // 나 들어간다
+  turn = j; // 너 차례다
+  while(flag[j] && turn == j); // 너차례고 너 들어가 있으면 기다림 (Busy waiting 발생 가능 지점)
+  critical section
+    flag[i] = false; // 나 나간다
+  remainder section
+}while(1);
+```
+
+- 3가지 조건을 모두 만족한다.
+- 문제점
+  - Busy waiting (= spin lock) 발생 가능 
+
+
+
+
+
+
+
+
+
+### 해결을 위한 방법(HW)
+
+#### testAndSet (atomic operation)
+
+읽고 쓰는 것을 하나의 instruction으로 처리를 못하기 때문에 이같은 문제들이 발생하게 된다.
+
+만약, 읽고 쓰는 것을 동시에 하나의 인스트럭션으로 처리하면 도중에 CPU에 빼앗기지 않을 수 있다.
+
+하드웨어적으로 Test. & modify를 atomic하게 수행할 수 있다면 간단히 해결할 수 있다. (하드웨어 명령어 API이용)
+
+```c
+do{
+  while(Test_and_Set(lock));
+  critical section
+  lock = false;
+  remainder section
+}
+```
+
+
+
+
+
+#### Semaphore
+
+- 추상자료형 : Object + operation
+
+- Semaphore S (HW api로 만들어진 atomic한 operation)
+
+  - 정수값
+  - 연산
+    1. P 연산 P(S) : lock `while(S<=0) do no-operation; S--;`
+    2. V 연산 V(S) : release `S++;`
+
+  **1. Busy-wait 방식** 
+
+  ```c
+  semaphore mutex; // 초기값은 1
+  do{
+    P(mutex);
+    critical section
+      V(mutex);
+    remainder section
+  }while(1);
+  ```
+
+  - Busy-wait은 효율적이지 못함
+  - Block & Wakeup 방식 구현
+
+  
+
+  **2. Block & Wakeup 방식 ( = sleep lock )**
+
+  : `lock` 을 못 얻으면 `blocked` 상태로 바꿈
+
+  ```c
+  typedef struct{
+    int value;
+    strcut prcess *L;
+  }semaphore S;
+  ```
+
+  - `block ` : 세마포어를 얻을 수 없으면 그 프로세스를 `block`
+  - `Wakeup(P)` : 쓰고 반납하면 `block` 된 프로세스를 깨워서 readyQueue로 옮김
+
+  - **구현**
+
+    ```c
+    // P(S) : 자원획득 과정, 여분없으면 blocked 상태
+    S.value--;
+    if(S.value <0) {
+      add this process to S.L;
+      block();
+    }
+    
+    
+    // V(S): 반납 + 잠든 프로세스 깨움
+    S.value++;
+    if(S.value <= 0){ //<= : 음수부터 시작해서 0이 됐다는 것은 누군가는 잠들어 있는 상태의 프로세스가 존재한 경우임
+      remove a process P from S.L;
+      wakeup(P);
+    }
+    ```
+
+  - 단순히 자원의 갯수를 따지는 것이 아니고 상황을 판단하는 것이다라는 것이 차이점
+
+
+
+
+
+##### Busy-wait VS Block & Wakeup ?
+
+보통 Block & Wakeup 이 더 효율적이지만,
+
+크리티컬 섹션의 길이가 짧으면 Busy-wait이 더 유리하다.
+
+
+
+
+
+##### Semaphore의 2가지 type
+
+1. Counting Semaphore
+
+   : 주로 여분의 자원 counting에 사용, 도메인이 0 이상인 임의의 정수값
+
+2. Binary Semaphore (= mutex)
+
+   : 0 또는 1만 가질 수 있다.
+
+   mutual exclusion (lock / unlock)에 사용
+
+
+
+##### Semaphore 유의 사항 (deadlock)
+
+```c
+//S & Q 는 모두 1로 초기화된 상태의 Semaphore
+//P0		//P1
+P(S);			P(Q); // P0확득후 인터럽트로 인해 P1으로 가고, P1도 자원Q 획득
+P(Q);			P(S); // 여기서 영원히 기다려야함 deadlock 발생
+..
+V(S);			V(Q);
+V(Q);			V(S);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

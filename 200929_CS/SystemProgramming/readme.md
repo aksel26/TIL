@@ -16,6 +16,8 @@
 
 [강의8](#8번째-강의)
 
+[강의9](#9번째-강의)
+
 ---
 
 <br/> 
@@ -2129,3 +2131,189 @@ do {
 
 
 
+---
+
+
+
+<br/> 
+
+# 9번째-강의
+
+## CPU Schduling
+
+ : 어느 프로세스를 적절하게 선택해서 CPU에게 넘겨줄 것인가에 대한 문제
+
+
+
+![image-20210119173736978](readme.assets/image-20210119173736978.png)
+
+
+
+양보하게 되는 상황
+
+1. I/O (하드웨어 or NW or ...)
+
+   <img src="readme.assets/image-20210119175048596.png" alt="image-20210119175048596" style="zoom:50%;" />
+
+2. 오래쓰고 있는 프로세스도 언젠가 양보가 필요하다.
+
+   <img src="readme.assets/image-20210119175157281.png" alt="image-20210119175157281" style="zoom:50%;" />
+
+3. Fork Process
+
+   <img src="readme.assets/image-20210119175346355.png" alt="image-20210119175346355" style="zoom:50%;" />
+
+<br/> 
+
+**--> 어떤 프로세스가 들아가 더 효율적인가를 결정하는 것이  CPU 스케줄링.**
+
+
+
+
+
+<br/> 
+
+- Long-term (Job scheduler)
+
+  - 어떤 것을 Ready Queue에 넣을지 결정하는 것
+  - Ready state <-> Running state를 반복적으로 왕복하는 것
+  - <img src="readme.assets/image-20210119175742556.png" alt="image-20210119175742556" style="zoom:50%;" />
+
+- Short-term (CPU scheduler)
+
+  - 누구를 dispatch해서 cpu에 보낼 것인지에 대한 순간을 결정
+
+  - 한개의 프로세스를 선택해 그 프로세스에게 CPU사용권을 부여해준다 (dispatcher)
+
+  - <img src="readme.assets/image-20210119175850804.png" alt="image-20210119175850804" style="zoom:50%;" />
+
+  - Non-preemptive
+
+    : 한개의 프로세스를 자발적으로 CPU에게 넘긴다
+
+    멀티태스킽 또는 멀티프로세서가 되는 상황에서 독점적으로 사용되기는 쓰이기 쉽지 않다.
+
+  - preemptive
+
+    : 1개의 프로세스를 독점한다해도 사용권의 일부 time slice 범위안에서 실행시키고 넘으면 강제로 CPU상태를 빼앗아 버린다.
+
+    대부분 preemptive
+
+    running state 상태를 ready state상태로
+
+    waiting state 상태를 reatedy state 상태로
+
+    
+
+
+
+<br/> 
+
+### Dispatcher
+
+- dispatcher module
+- dispatch latency
+: 결정하는데 걸리는 시간도 존재한다.
+
+
+</br>
+
+여러개의 프로세스가 ready state에서 기다리는 상황에서 
+1개 선택해 running으로 가기위해 고려해야 할 상황
+
+1. CPU utilization
+: CPU는 가능한 바빠야 한다. (일당백)
+2. Throughput
+: 일정시간 단위에 가능한 많은 프로세스를 실행하도록 한다.
+
+3. Waiting Time
+: ready Queue로 들어온 다음 그 시간 이후로 선택되어 running state로 바뀌는데 걸리는 시간
+선택이 안되어 Ready Queue에 오래 머문다면 Waiting time이 길어진다.
+동영상, 음악, 등 실시간 데이터 처리가 중요한 경우 이 시간이 길면 매우 치명적
+4. Response Time
+: request를 하고 response를 받는데 걸리는 시간.
+마우스 클릭 -> response time -> 반응
+5. Fairness
+: 여러개의 프로세스들을 모두 공평하게 자원이 분배되어야 한다.
+
+<br/>
+
+**최적화를 위해서는**
+- Maximize 1,2 + Fairness
+- Minimize 3,4
+
+
+
+<br/>
+
+### CPU Scheduling Algorithm
+1. **FCFS (선착순)**
+2. **Shortest Job Next(First) (SJF)**
+3. **Round-Robin**
+4. **Prioirity-base Scheduling**
+5. **Multi-level scheduling**
+
+
+
+
+
+#### SJF 
+
+: 가장 짧은 것부터 스케줄링한다.
+
+<img src="readme.assets/image-20210119182000698.png" alt="image-20210119182000698" style="zoom:50%;" />
+
+`(0 + 75 + 200 + 340 + 620 + 940 ) / 5 = 247`
+
+5개의 프로세스가 247만큼 Waiting Queue에서 기다린다.
+FCFS : 341인 것을 보면 SJF가 더 짧다.
+굉장히 긴 프로세스가 먼저 온다면 그만큼 그 뒤의 프로세스는 그 시간만큼 누적되기 때문.
+
+<br/><br/>
+
+#### Round-Robin
+: 동일하게 프로세스를 분산시킨다. **번갈아가면서**
+
+![](readme.assets/image.png)
+
+
+- 장점 ?
+반응속도, Waiting Time 모두 짧다
+
+- 단점 ?
+프로세스간의 switching이 굉장히 잦다 -> Context Switching, 즉 **오버헤드**가 커진다.
+<br/><br/>
+
+#### Priority-based scheduling
+
+모든 각 프로세스들은 항상 priority를 가진다.
+우선순위는 User가 정의할 수 있다.
+
+- 단점 :** Starvation**이 발생할 수 있다.
+	- **해결책** : **Aging** : 선택이 안된 프로세스는 시간이 지날수록 우선순위를 높이는 방법
+
+<br/><br/>
+#### Multi-level scheduling
+차이점 ? Ready Queue가 한개가 아니다.
+
+![](https://images.velog.io/images/aksel26/post/9e48133b-dbe1-469f-be88-bf02673ce8b4/image.png)
+
+- 장점 : 고유의 스케줄을 가질 수 있게 된다. -> 용도에 맞는 적절한 스케줄링 알고리즘이 가능하다.
+
+
+
+- **foreground process**
+실제로 사용자가 interactive하게 사용하고 있는 프로세스
+Round-Robin 스케줄링이 유리하다.
+
+- **background (batch) process**
+FCFS 스케줄링이 유리하다.
+
+- 예) 노래를 들으며 인터넷 검색을 한다.
+노래듣기 : background process, 
+검색 : foreground process
+
+- 프로세스의 우선순의 조정도 필요하다.
+시간이 지나면 우선순위를 낮추고, 오랫동안 실행이 안되면 우선순위 증가 (Aging)
+- 얼만큼의 CPU를 나눠쓸 것인지에 대한 고려도 필요함
+eg) foreground : 80%, background : 20 % (1개의 CPU)

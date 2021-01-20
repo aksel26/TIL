@@ -5,6 +5,8 @@ using namespace std;
 
 int main()
 {
+    cin.tie(NULL);
+    ios::sync_with_stdio(false);
 
     int n;
     cin >> n;
@@ -13,21 +15,15 @@ int main()
     {
         q.push(i);
     }
-    int size = q.size();
-    
-    cout<<size<<endl;
-    while (size != 1)
+    while (q.size() > 1)
     {
 
         q.pop();
-        int temp = q.front();
-
+        q.push(q.front());
         q.pop();
-
-        q.push(temp);
     }
 
-    cout << q.front() << endl;
+    cout << q.front() << '\n';
 
     return 0;
 }

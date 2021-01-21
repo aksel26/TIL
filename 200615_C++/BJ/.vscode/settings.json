@@ -25,6 +25,7 @@
         "unordered_map": "cpp",
         "__string": "cpp",
         "functional": "cpp",
-        "memory": "cpp"
+        "memory": "cpp",
+        "list": "cpp"
     }
 }

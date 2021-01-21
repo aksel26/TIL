@@ -14,7 +14,9 @@
 
 [강의7](#7번째-수업)
 
+[강의8](#8번째-수업)
 
+# 
 
 ---
 
@@ -874,9 +876,229 @@ congWin 사이가 클수록 속도가 빠르다.
 
 
 
- 
+<br/>
+
+
+
+---
+
+
+
+<br/>
+
+# 8번째 수업
+
+
+
+## Network Layer
+
+### Router
+
+Router가 하는일
+
+1. forwarding
+
+   패킷을 목적지 방향으로 전달한다. (헤더에 적혀있는 목적지로)
+
+   - 과정
+
+     1. 목적지 파악
+     2. forwarding table을 보고목적지를 판단한다. 
+
+   - <img src="readme.assets/image-20210121234817472.png" alt="image-20210121234817472" style="zoom:50%;" />
+
+     - Value값과 output을 1:1 매칭시키면 수만개의 데이터가 생기면 너무 많아 검색이 불가능해진다.
+     - 이를 개선해 **범위**로 지정한다.
+     - 
+
+   - *forwarding table은 누가만드나 ?*
+
+     : Routing algorithm에 의해 만들어진다.
+
+2. Routing
+
+
+
+<br/> 
+
+### Longest prefix matching
+
+<img src="readme.assets/image-20210121235315571.png" alt="image-20210121235315571" style="zoom:50%;" />
+
+두번째 예제에서
+
+addr range 두번째와 세번째를 비교해보면
+
+두번째 range가 더 길게 (보다 정확하게) 매칭이되므로 선택이된다.
+
+
+
+<br/> 
+
+### IP datagram format
+
+<img src="readme.assets/image-20210121235727844.png" alt="image-20210121235727844" style="zoom:50%;" />
+
+- 패킷의 헤더필드를 모두 합하면 20byte
+- IP header 20 + TCP header 20 = 40 byte의 오버헤드가 덧붙여져 전송된다.
+- 실제로 단지 40byte가 대부분 -> TCP ACK (ACK만 담긴 패킷들임)
+
+
+
+<br/> 
+
+### IP address
+
+#### IPv4
+
+32bit 주소체계,
+
+2^32개의 IP주소를 가진다.
+
+8비트씩 끊어서 255가 최대
+
+<img src="readme.assets/image-20210122000233419.png" alt="image-20210122000233419" style="zoom:50%;" />
+
+**IP주소는 호스트에 들어있는 N/W interface(NAC)를 지칭한다.**
+
+즉 IP주소를 여러개 동시에 가질 수 있다. --> 대표적인 예가 **Router**
+
+<img src="readme.assets/image-20210122000753997.png" alt="image-20210122000753997" style="zoom:50%;" />
+
+
+
+#### IP주소는 어떻게 배정되나 ?
+
+1. 막무가내로
+
+   : 문제점 -> forwarding table이 너무너무 커진다.
+
+2. 계층화
+
+   **N/W id**(=prefix=Subnet ID) 와 **Host ID**로 나눔
+
+   <img src="readme.assets/image-20210122000950313.png" alt="image-20210122000950313" style="zoom:50%;" />
+
+#### Subnet Mask
+
+<img src="readme.assets/image-20210122001117747.png" alt="image-20210122001117747" style="zoom:60%;" />
+
+addr와 Mask는 항상 같이다닌다.
+
+같은 prefix끼리 묶인다. forwarding table에서 단순화됨.
+
+<img src="readme.assets/image-20210122001318415.png" alt="image-20210122001318415" style="zoom:50%;" />
+
+Add하기도 쉬워진다. (prefix만 맞춰주면 되므로)
+
+<img src="readme.assets/image-20210122001329632.png" alt="image-20210122001329632" style="zoom:50%;" />
 
 
 
 
 
+<br/> 
+
+#### Classful Addressing
+
+<img src="readme.assets/image-20210122002813690.png" alt="image-20210122002813690" style="zoom:50%;" />
+
+선정하는데 그렇다고 모두 사용는것도 아님.낭비하게 된다.
+
+Class C로가면 기관은 많아지지만 하나받으면 255개의 host만 처리가능하다. (부족함)
+
+Class간 유연함이 매우 떨어져 Class개념이 사라지고
+
+Classless Inter-Domain Routing(CIDR)이 생겨남
+
+
+
+<br/> 
+
+#### Classless Inter-Domain Routing(CIDR)
+
+2개의 32비트 숫자를 사용한다.
+
+**Network number = IP address + Mask**
+
+![image-20210122003216289](readme.assets/image-20210122003216289.png)
+
+
+
+##### 계층적인 주소 배분(Router가 하는 일)
+
+<img src="readme.assets/image-20210122004017646.png" alt="image-20210122004017646" style="zoom:50%;" />
+
+Longest prefix matching방식으로 찾는다.
+
+
+
+<br/> 
+
+### Subnets
+
+같은 prefix를 가진 device들의 집합
+
+Router를 거치지 않고도 접근 가능한 host들의 집합
+
+Router도 IP주소를 갖는다.
+
+<img src="readme.assets/image-20210122004212011.png" alt="image-20210122004212011" style="zoom:50%;" />
+
+예제)
+
+<img src="readme.assets/image-20210122004245236.png" alt="image-20210122004245236" style="zoom:50%;" />
+
+6개의 서브넷. prefix가 같은 것이 subnet이니까
+
+
+
+
+
+<br/> 
+
+IP address는 32bit의 주소공간이며 interface를 지칭한다.
+
+2^32개의 host지원가능 ( 약 40 억)
+
+초창기에는 매우 많은 수였으나,
+
+상업화 후에는 부족하게 되어
+
+IPv6로 재디자인하게 되었다.
+
+IPv6는 128bit로 늘림으로 2^128개의 host가 지원 가능하다-> 매우 많음 ( 해변 모래알만큼의 양 .. )
+
+
+
+하지만 현재는 iPv4를 사용한다.
+
+왜?
+
+이미 IPv4의 용량은 초과했지만 **재활용**으로 버티고 있다. 
+
+-> **NAT** 라는 기술 (trick 같은 느낌이랄까)
+
+
+
+#### NAT
+
+local주소는 글로벌(외부)로 나갈 수 없기 때문에 NAT가 IP 주소를 바꿔준다.
+
+<img src="readme.assets/image-20210122012417177.png" alt="image-20210122012417177" style="zoom:50%;" />
+
+
+
+재사용하긴 하지만 **문제점**이 있다.
+
+IP packet (Header | Data) 에서 
+
+Header부분의 source IP -> 헤더정보 & Data부분까지 바꿔버린다. (**계층 violation**)
+
+<br/>
+
+Port 넘버의 기능 : host내부에서 process를 찾아가는 용도
+
+IP주소 : Host를 찾아가는 용도
+
+**Host를 찾는데에 포트번호를 써버림**. 서버를 사용하게 되지 못한게 된다.

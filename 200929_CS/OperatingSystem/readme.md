@@ -18,6 +18,8 @@
 
 [강의9](#9번째-수업)
 
+[강의10](#10번째-수업)
+
 <br/>
 
 # 1번째 수업
@@ -1556,6 +1558,51 @@ V(Q);			V(S);
 
 
 
+---
+
+
+
+<br/>
+
+# 10번째 수업
+
+
+
+## Synchronization 에 관련된 문제 3가지
+
+1. Bounded-buffer Problem (Producer-Consumer Problem)
+2. Readers and Writers Problem
+3. Dining-Philosophers Problem
+
+
+
+<br/>
+
+
+
+### Bounded-buffer Problem
+
+*유한한 버퍼의 크기*
+
+**Producer**
+
+1. 공유데이터에 만들어서 버퍼에 집어 넣음 (빈 버퍼가 있으면)
+2. 공유버퍼 전체에 lock
+3. 빈 버퍼에 데이터 입력, 빈 버퍼 위치 변경
+4. lock 해제
+
+**Consumer**
+
+Consumer는 Producer 프로세스와 정반대.
+
+
+
+유한한 크기때문에 생기는 문제
+
+- 생산자 입장
+  - 한꺼번에 도착해 공유버퍼가 다 채워져 있는 경우, Consumer가 아닌 Producer가 또 오면, 생산자 입장에서는 사용할 수 있는 자원이 없다. 즉, 버퍼가 비어질 때까지 기다려야 할 수 밖에 없다.
+- 소비자 입장
+  - 꺼내갈 데이터(내용이 들어있는)가 없는 경우 생산자가 내용을 만들어 넣을때까지 기달리 수 밖에 없다.
 
 
 
@@ -1563,8 +1610,130 @@ V(Q);			V(S);
 
 
 
+**synchronization 변수들**
+
+1. mutual exclusion -> lock여부를 위한 binary samphore
+2. Resource count -> 자원의 수를 세기 위한 integer semaphore 
 
 
+
+
+
+Semaphore full = 0 , empty = n, mutex = 1(하나의 프로세스만 접근하도록 lock을 위한 변수);
+
+
+
+<br/>
+
+
+
+### Reader-Writers Problem
+
+: procss가 DB(공유데이터)에 write중일때 다른 process가 접근하면 안됨 (lock)
+
+​	read는 동시에 여럿이 가능
+
+
+
+Solution 
+
+1. writer가 DB에 접근 허가를 아직 얻지 못한상태면 모든 대기중인 Reader들을 다 DB에 접근하게 해준다.
+2. Writer는 대기중인 Reader가 하나도 없을 때 DB접근이 허용된다.
+3. 일단 Writer가 DB에 접근중이면 Reader들은 접근금지
+4. Writer가 DB에서 빠져나가야먄 Reader의 접근 허용된다.
+
+
+
+동시에 같이 들어온다면
+
+먼저 Reader쪽에서 쭉 읽고 그동안 Writer는 다 읽을 동안 기다린다.
+
+10000개가 들어와 readCount가 1이 된 순간 다시 1000개가 들어온다면 또 Writer는 기다려야한다
+
+--> Starvation문제 발생
+
+*어느정도 일정량이 지나면 Writer에게 권한을 넘겨주는 식으로 해결한다.*
+
+
+
+<br/>
+
+
+
+### Dining-Philosopher Problem
+
+**문제점**
+
+**Deadlock** : 모든 철학자가 동시에 배가 고파져 왼쪽젓가락을 든 경우
+
+
+
+**해결책**
+
+- 4명의 철학자만 인원제한
+- 젓가락을 두 개 모두 집을 수 있을때에만 젓가락을 잡을 수 있는 권한
+- 비대칭 : 짝수 철학자는 왼쪽, 홀수 철학자는 오른쪽부터 잡도록 한다.
+
+
+
+
+
+<br/>
+
+
+
+## Monitor
+
+
+
+semaphore의 문제점
+
+- 코딩하기 어려움
+
+- 정확성입증이 어렵다
+
+- 자발적 협력이 필요하다
+
+- 한번의 실수가 모든 시스템에 치명적인 영향을 끼친다.
+
+  - 예)
+
+    **V(mutex)**
+
+    Critical Section
+    **P(mutex)**
+
+    *Mutual Exclution 깨짐*
+
+  - 예2)
+
+    **P(mutex)**
+
+    Critical Section
+
+    **P(mutex)**
+
+    *Deadlock*
+
+
+
+<br/> 
+
+High-level synchronization construct
+
+모니터 안에 접근하는 프로시저를 정의해놓고 제한적으로 접근하도록 함
+
+--> lock을 걸 필요가 없어짐
+
+
+
+**Condition variable**
+
+Condition x, y;
+
+`x.wait()`
+
+`x.signal()`
 
 
 

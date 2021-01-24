@@ -1719,11 +1719,31 @@ semaphore의 문제점
 
 <br/> 
 
-High-level synchronization construct
+**High-level synchronization construct**
 
-모니터 안에 접근하는 프로시저를 정의해놓고 제한적으로 접근하도록 함
+객체 중심으로 모니터 안에 접근하는 프로시저를 정의해놓고 제한적으로 접근하도록 함
 
 --> lock을 걸 필요가 없어짐
+
+```c
+monitor monitor-name{
+//	공유변수 선언
+  procedure body P1(..){
+    ...
+  }
+    procedure body P2(..){
+    ...
+  }
+    procedure body P3(..){
+    ...
+  }
+  {
+    initialization code
+  }
+}
+```
+
+
 
 
 
@@ -1731,9 +1751,36 @@ High-level synchronization construct
 
 Condition x, y;
 
+
+
 `x.wait()`
 
+x가 여분이 있으면 바로 접근 허용, 없으면 줄서서 기다리는 함수를 정의.
+
 `x.signal()`
+
+빠져나가는 기능
+
+```c
+monitor bounded_buffer {
+  int buffer[N];
+  condition full, empty ;
+  
+  void prodduce(int x){
+    empty.wait(); // 빈 버퍼가 없을 경우
+    full.signal(); // x가 버퍼에 추가되는 경우
+  }
+  
+  void consume(int *x){
+    full.wait(); // full버퍼가 없을 경우
+    empty.signal(); // 버퍼에서 데이터를 지우고 저장
+  }
+}
+```
+
+
+
+<img src="readme.assets/image-20210124150639898.png" alt="image-20210124150639898" style="zoom:50%;" />
 
 
 

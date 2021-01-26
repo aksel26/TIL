@@ -1,0 +1,2 @@
+if (!q.empty())
+                cout << ", ";

@@ -38,8 +38,37 @@ class App extends Component {
         <Subject
           title={this.state.subject.title}
           sub={this.state.subject.sub}
+          onChangePage={function () {
+            alert("hihi")
+            this.setState({ mode: "welcome" })
+          }.bind(this)}
         ></Subject>
-        <TOC data={this.state.contents}></TOC>
+
+        {/* <header>
+          <h1>
+            <a
+              href="/"
+              onClick={function (e) {
+                e.preventDefault()
+
+                // this.state.mode = "welcome"
+                this.setState({
+                  mode: "welcome",
+                })
+              }.bind(this)}
+            >
+              {this.state.subject.title}
+            </a>
+          </h1>
+          {this.state.subject.sub}
+        </header> */}
+        <TOC
+          onChangePage={function () {
+            alert("hi")
+            this.setState({ mode: "welcome" })
+          }.bind(this)}
+          data={this.state.contents}
+        ></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
     )

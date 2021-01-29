@@ -1786,3 +1786,212 @@ monitor bounded_buffer {
 
 
 
+
+
+
+
+---
+
+
+
+# 11번째 수업
+
+## Deadlock
+
+프로세스들이 서로가 가진 자원을 기다리며 block된 상태
+
+**Resource(자원)**
+
+- 하드웨어, 소프트웨어 등을 포함하는 개념
+  - I/O device, CPU cycle, memory space samephore 등
+- 프로세스가 자원을 사용하는 절차
+  - Request -> Allocate -> Use -> Release
+
+
+
+<br/>
+
+### Deadlock이 발생하는 조건 
+
+1. **Mutual exclusion**(상호 배제) : 가진 동안엔 독점적으로 쓰는 경우
+
+2. **No preemptive**(비선점)
+
+3. **Hold and Wait**
+
+   : 자원을 가진 프로세스가 다른 자원을 기달리 때 보유 자원을 놓지 않고 계속 가지고 있음.
+
+4. **Circular wait**
+
+   : 자원을 기다리는 프로세스간 **사이클**이 형성되는 경우
+
+   p0은 p1이 가진 자원을 기다림
+
+   p1은 p2가 가진 자원을 기다림
+
+   Pn-1은 Pn이 가진 자원을 기다림
+
+   Pn은 P0가 가진 자원을 기다림
+
+
+
+<br/>
+
+###  Deadlock 처리 방법
+
+1. **deadlock prevention**
+
+   자원 할당 시 deadlock의 4가지 필요 조건 중 어느 하나가 만족되지 않도록 하는 것.
+
+2. **deadlock avoidance**
+
+   : 자원 요청에 대한 부가적인 정보를 이용해 deadlock의 가능성이 없는 경우에만 자원을 할당
+
+   시스템 state가 원래 state로 돌아올 수 있는 경우에만 자원을 할당
+
+3. **deadlock detection and recovery**
+
+   : deadlock발생은 허용하되 그에 대한 detection 루틴을 두어 deadlock발견시 recover
+
+4. **deadlock ignorance**
+
+   : deadlock을 시스템이 책임지지 않음, UNIX를 포함한 대부분의 OS가 채택(사용자가 알아서 프로세스를 종료하게 될 것이기 때문)
+
+
+
+<br/>
+
+
+
+#### 1. Deadlock Prevention
+
+- **hold & wait** 
+
+  자원을 기다리는 상황에서는 자원을 보유하고 있지 않으면 된다. 
+
+  방법 1. 프로세스가 시작 시 모든 필요한 자원을 할당받게 하는 방법 (자원에 대한 비효율성 발생..보완책이 방법2)
+
+  방법 2. 자원이 필요할 경우 보유 자원을 모두 놓고 다시 요청
+
+- **no preemption**
+
+  자원을 preemption하도록 하면된다.
+
+  자원의 현재 State를 쉽게 save하고 restore할 수 있는 자원인 CPU, memory에서 주로 사용 
+
+- **circular wait**
+
+  자원에 할당 **순서**를 정해 순서대로만 자원 할당
+
+
+
+<u>--> 원천적인 deadlock을 막을 수 있지만, 자원 이용률이 저하되고, throughput감소, starvation문제가 존재한다.</u>
+
+
+
+<br/>
+
+<img src="readme.assets/image-20210129161821371.png" alt="image-20210129161821371" style="zoom:50%;" />
+
+- 그래프에서 cycle이 없으면 deadlock이 아니다.
+
+- cycle이 있는 경우,
+
+  - instance가 1개이면 **deadlock**, 
+
+  - 여러개라면 deadlock이 아닐수도있다.
+
+    - **Banker's Algorithm사용**
+
+    <img src="readme.assets/image-20210129162410255.png" alt="image-20210129162410255" style="zoom:50%;" />
+
+#### 2. Deadlock avoidance
+
+프로세스 시작될때 프로세스가 쓸 최대의 자원의 양을 알고있다고 가정하고, deadlock의 가능성이 있다면 자원이 있어도 할당하지 않음.
+
+<img src="readme.assets/image-20210129163234056.png" alt="image-20210129163234056" style="zoom:50%;" />
+
+
+
+<br/>
+
+
+
+**Banker's Algorithm**
+
+![image-20210129165551337](readme.assets/image-20210129165551337.png)
+
+
+
+그렇다면 P0에서 모두 가용자원을 써버리면 deadlock인가 ?
+
+그렇다고 볼 수없다. 다른 프로세스의 자원이 메꿔줄 수 있기 때문.
+
+하지만 Banker's 알고리즘은 매우 보수적이기 때문에 할당해주지 않는 것 뿐.
+
+<br/>
+
+
+
+#### 3. Deadlock detect & recovery
+
+deadlock은 빈번한 이벤트가 아니기 때문에, 발생이 되면 이를 detection하고 recover하는 방식
+
+자원이 하나라면 자원할당그래프로,
+
+여러개면 테이블로 detection (하나만 있어도 테이블로 해도됨, 그래프는 부가적인 방법)
+
+<img src="readme.assets/image-20210129165950596.png" alt="image-20210129165950596" style="zoom:50%;" />
+
+cycle을 찾는 overhead는 ? `O(n^2)`
+
+cycle이 있는지 알아보려면 따라가보면 된다. 
+
+점이 n개면 화살표는 최대  n-1개가 존재 할 수 있다. (`n * (n -1)`)
+
+<br/>
+
+![image-20210129171420229](readme.assets/image-20210129171420229.png)
+
+
+
+<br/>
+
+**만약 이렇다면 ?**
+
+![image-20210129171512502](readme.assets/image-20210129171512502.png)
+
+
+
+<br/>
+
+**deadlock발견시 recovery를 해야한다**.
+
+1. deadlock에 연루된 프로세스들을 모두 죽인다. (프로세스 종료)
+2. 하나씩 죽여보면서 계속 어느 프로세스가 deadlock을 유발하는지 check (자원 뺏기)
+
+같은 패턴이 다시 일어난다면? (동일한 프로세스가 계속 희생양으로 선정되는 경우)
+
+ **자원을 뺏는 패턴을 바꾸어야한다.**
+
+**Starvation**문제가 발생할 수도 있기 때문.
+
+이를 대비해 rollback횟수도 고려해야한다.
+
+
+
+<br/>
+
+
+
+#### 4. Deadlock Ignorance
+
+: deadlock이 일어나지 않는다고 생각하고 아무런 조치도 취하지 않음
+
+deadlock은 매우 드물게 발생하므로 deadlock을 처리하는 것 자체가 더 큰 overhead일 수도 있다.
+
+만약, overhead가 발생한다면 사람이 직접 process를 죽이는 방법으로 대처
+
+
+
+(~~ deadlock2)

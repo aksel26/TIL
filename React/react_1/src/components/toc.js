@@ -11,10 +11,18 @@ class TOC extends Component {
         <li key={data[i].id}>
           <a
             href={"/content" + data[i].id}
-            onClick={function (e) {
+            // 1. 속성을 이용하는 방법
+            // data-id={data[i].id}
+            // onClick={function (e) {
+            //   e.preventDefault()
+            //   this.props.onChangePage(e.target.dataset.id)
+            onClick={function (id, e) {
               e.preventDefault()
-              this.props.onChangePage()
-            }.bind(this)}
+              this.props.onChangePage(id)
+
+              // 2. bind를 이용하는 방법
+              // 2번째 인자로 들어온 값을 함수의 첫번째 매개변수의 값으로 넣어준다.
+            }.bind(this, data[i].id)}
           >
             {data[i].title}
           </a>

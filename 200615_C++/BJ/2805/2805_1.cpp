@@ -36,6 +36,7 @@ int main(int argc, char const *argv[])
     }
 
     long long result = 0;
+
     while (low <= high)
     {
         long long mid = (low + high) / 2;

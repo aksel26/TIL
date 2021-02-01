@@ -26,6 +26,7 @@
         "__string": "cpp",
         "functional": "cpp",
         "memory": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "ios": "cpp"
     }
 }

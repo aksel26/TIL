@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
             }
             cnt += tree;
             cout << cnt << endl;
-            if (m == cnt)
+            if (m <= cnt)
             {
                 cout << temp << endl;
                 return 0;

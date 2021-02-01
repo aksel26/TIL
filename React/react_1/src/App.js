@@ -13,6 +13,7 @@ import "./App.css"
 class App extends Component {
   constructor(props) {
     super(props)
+    this.max_content_id = 3; // 마지막 목록에 추가하기 위한 변수. UI에 전혀 영향을 주지 않기 때문에 state로 주지 않음
     this.state = {
       selected_content_id: 2,
       mode: "create",
@@ -53,6 +54,14 @@ class App extends Component {
         <CreateContent
           onSubmit={function (_title, _desc) {
             //add content to this.state.contents
+            this.max_content_id +=1;
+            // push를 사용하는 방법
+              // this.state.contents.push({id:this.max_content_id, title:_title, desc:_desc});
+            // concat을 사용하는 방법
+            var _contents = this.state.contents.concat({id:this.max_content_id, title:_title, desc:_desc});
+            this.setState({
+              contents:_contents
+            })
             console.log(_title, _desc)
           }.bind(this)}
         ></CreateContent>

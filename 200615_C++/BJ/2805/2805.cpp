@@ -9,43 +9,48 @@ int main(int argc, char const *argv[])
 {
     cin.tie(NULL);
     ios::sync_with_stdio(false);
-    int n, m, num;
+    int n;
+    long long m, num;
 
     cin >> n >> m;
-    vector<int> v;
+    vector<long long> v;
+    long long top = 0;
     for (int i = 0; i < n; i++)
     {
         cin >> num;
+        if (num > top)
+        {
+            top = num;
+        }
         v.push_back(num);
     }
-
-    sort(v.begin(), v.end());
-
-    int left = 0, right = v.size() - 1;
-    int cnt = 0, tree;
-    while (left <= right)
+    long long bottom = 1;
+    long long tree = 0;
+    while (bottom <= top)
     {
-        int mid = (left + right) / 2;
+        long long mid = (bottom + top) / 2;
 
-        int temp = v[mid];
-        cnt = 0;
+        long long length = 0;
 
-        for (int i = mid; i <= right; i++)
+        for (int i = 0; i < v.size(); i++)
         {
-            if (v[i] >= temp)
-            {
-                tree = v[i] - temp;
-            }
-            cnt += tree;
-            cout << cnt << endl;
-            if (m <= cnt)
-            {
-                cout << temp << endl;
-                return 0;
-            }
+            long long temp = v[i] - mid;
+            if (temp > 0)
+                length += temp;
         }
-        left = mid + 1;
+
+        if (length >= m)
+        {
+            tree = max(tree, mid);
+            bottom = mid + 1;
+        }
+        else if (length < m)
+        {
+            top = mid - 1;
+        }
     }
+
+    cout << tree << endl;
 
     return 0;
 }

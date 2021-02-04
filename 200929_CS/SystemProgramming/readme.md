@@ -20,6 +20,8 @@
 
 [강의10](#10번째-강의)
 
+[강의11](#10번째-강의)
+
 ---
 
 <br/> 
@@ -2664,3 +2666,147 @@ int main(int argc, char const *argv[])
 - Fork() : 동일한 자식 프로세스 생성
 
   <img src="readme.assets/image-20210125182553056.png" alt="image-20210125182553056" style="zoom:50%;" />
+
+
+
+
+
+---
+
+
+
+# 11번째 강의
+
+
+
+## Shared memory
+
+copy를 할 필요 없이 프로세스 A, 프로세스 B 모두 Access할 수 있도록 한다. 이렇게되면 copy를 할 필요가 없기 때문에 빨라진다.
+
+
+
+### Shared memory를 위해서는 
+
+1. 프로세스가 접근 가능하도록 하기 위해서 OS(kernel) 영역에서 **Memory segment**를 mapping하는 작업이 필요하다.
+2. mapping 후에는 read & write하는 방식.
+3. 처음 만들어지는 프로세스 는 shared memory에 매핑되고 synchronization 메커니즘에 대한 엑세스를 얻는다.
+4. 그 이후의 프로세스도  shared memory에 매핑
+
+
+
+![image-20210204225356000](readme.assets/image-20210204225356000.png)
+
+
+
+
+
+<br/><br/>
+
+- 메모리 영역에서 볼때의 shared memory
+
+![image-20210204225646520](readme.assets/image-20210204225646520.png)
+
+
+
+<br/><br/>
+
+
+
+### 방식
+
+`shmget()`  : shared memory를 처음 만드는 함수
+
+이미 존재하면 존재하는 shared memory의 id를 리턴
+
+`segment_id = shmget(IPC PRIVATE, size )`
+
+`shmat()` : shared memory **attach**
+
+`shmdet()` : shared memory **detach**
+
+
+
+<br/><br/>
+
+
+
+## sockets
+
+1. point - to -point : 2개의 프로세스간 양방향 커뮤니케이션으로 정의
+
+2. Server & client 모델
+
+3. inter-process & inter-system 
+
+    inter-system : 물리적으로 분리된 컴퓨터간에 socket을 사용할 수 있다.
+
+   socket은 port번호를 참고하게 된다.
+
+
+
+<br/>
+
+### domain
+
+unix domain
+
+unix 시스템 내에서 프로세스간의 통신. 서로다른 UNIX path를 통해 구분
+
+internet domain
+
+서로다른 컴퓨터간의 socket 통신 : TCP/IP 프로토콜로 구분
+
+<br/>
+
+
+
+#### Socket data type
+
+**stream socket** 
+
+: TCP 프로토콜 사용에서 사용되는 소켓, (**TCP** : 양방향 통신, reliable한 통신)
+
+**Datagram socket**
+
+: UDP 프로토콜 사용시 사용되는 소켓
+
+**Sequential packet socket**
+
+**raw socket**
+
+
+
+<br/>
+
+
+
+##### Server
+
+socket()
+
+: 각 엔드포인트마다 socket을 생성해야 한다.
+
+Bind()
+
+: 만들어진 소켓과 자기 자신의 이름(unix domain:path, internet domain:각각의 ip주소)을 연결(assign)
+
+listen()
+
+: 가장 먼저 들어온 클라이언트들을 accept, 다음 클라이언트를 위해 listen, 
+
+accept()
+
+: fork() 실행해 서버 자기 자신을 복제(자식 프로세스)를 한다.
+
+
+
+##### Client
+
+socket()
+
+connect()
+
+: 연결 요청, 서버쪽의 이름으로 요청 시도
+
+call read() write()
+

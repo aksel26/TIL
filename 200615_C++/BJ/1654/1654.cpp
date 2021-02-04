@@ -26,7 +26,6 @@ int main(int argc, char const *argv[])
     {
         int temp = 0;
         mid = (right + left) / 2;
-        cout << mid << endl;
         for (int i = 0; i < v.size(); i++)
         {
             temp += v[i] / mid;

@@ -62,13 +62,24 @@ class App extends Component {
             // push를 사용하는 방법
             // this.state.contents.push({id:this.max_content_id, title:_title, desc:_desc});
             // concat을 사용하는 방법
-            var _contents = this.state.contents.concat({
+            // var _contents = this.state.contents.concat({
+            //   id: this.max_content_id,
+            //   title: _title,
+            //   desc: _desc,
+            // })
+
+            // Arrya.from을 사용하는 방법
+            // 수정하려고 하는 객체 또는 배열은 복제
+            var _contents = Array.from(this.state.contents)
+            _contents.push({
               id: this.max_content_id,
               title: _title,
               desc: _desc,
             })
             this.setState({
               contents: _contents,
+              mode: "welcome",
+              selected_content_id: this.max_content_id,
             })
             console.log(_title, _desc)
           }.bind(this)}
@@ -79,19 +90,27 @@ class App extends Component {
       _article = (
         <UpdateContent
           data={_content}
-          onSubmit={function (_title, _desc) {
-            //add content to this.state.contents
-            this.max_content_id += 1
-            // push를 사용하는 방법
-            // this.state.contents.push({id:this.max_content_id, title:_title, desc:_desc});
-            // concat을 사용하는 방법
-            var _contents = this.state.contents.concat({
-              id: this.max_content_id,
-              title: _title,
-              desc: _desc,
-            })
+          onSubmit={function (_title, _desc, _id) {
+            // this.max_content_id += 1 update에서는 필요 없다
+            // concat 기존데이터 추가용 , 수정하려면
+            // contents를 복사 --> Array.from
+            // var _contents = this.state.contents.concat({
+            //   id: this.max_content_id,
+            //   title: _title,
+            //   desc: _desc,
+            // })
+            var _contents = Array.from(this.state.contents)
+            var i = 0
+            while (i < _contents.length) {
+              if (_contents[i].id === _id) {
+                _contents[i] = { id: _id, title: _title, desc: _desc }
+                break
+              }
+              i += 1
+            }
             this.setState({
               contents: _contents,
+              mode: "welcome",
             })
             console.log(_title, _desc)
           }.bind(this)}

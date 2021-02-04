@@ -4,6 +4,7 @@ class UpdateContent extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      id: this.props.data.id /* <--- */,
       title: this.props.data.title,
       desc: this.props.data.desc,
     }
@@ -26,10 +27,15 @@ class UpdateContent extends Component {
           method="post"
           onSubmit={function (e) {
             e.preventDefault()
-            this.props.onSubmit(e.target.title.value, e.target.desc.value)
-            alert("submitted")
+            this.props.onSubmit(
+              this.state.title,
+              this.state.desc,
+              this.state.id /* <--- */
+            )
           }.bind(this)}
         >
+          {/* 식별자를 위한 코드부분 */}
+          <input type="hidden" name="id" value={this.state.id}></input>
           <p>
             <input
               type="text"

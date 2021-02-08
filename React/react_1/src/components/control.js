@@ -37,7 +37,7 @@ class Control extends Component {
               this.props.onChangeMode("delete")
             }.bind(this)}
             type="button"
-            value="button"
+            value="delete"
           ></input>
         </li>
       </ul>

@@ -17,7 +17,7 @@ class App extends Component {
     this.max_content_id = 3 // 마지막 목록에 추가하기 위한 변수. UI에 전혀 영향을 주지 않기 때문에 state로 주지 않음
     this.state = {
       selected_content_id: 2,
-      mode: "create",
+      mode: "read",
       subject: { title: "WEB", sub: "World Wide Web (state)" },
       welcome: { title: "welcome", desc: "Hello, React!" },
       contents: [
@@ -144,9 +144,29 @@ class App extends Component {
         ></TOC>
         <Control
           onChangeMode={function (_mode) {
-            this.setState({
-              mode: _mode,
-            })
+            if (_mode === "delete") {
+              if (window.confirm("really?")) {
+                var _content = Array.from(this.state.contents)
+                var i = 0
+                while (i < this.state.contents.length) {
+                  if (_content[i].id === this.state.selected_content_id) {
+                    // i 원소로부터 1개를 지우겠다.
+                    _content.splice(i, 1)
+                    break
+                  }
+                  i += 1
+                }
+                this.setState({
+                  mode: "read",
+                  contents: _content,
+                })
+                alert("deleted !")
+              }
+            } else {
+              this.setState({
+                mode: _mode,
+              })
+            }
           }.bind(this)}
         ></Control>
         {this.getContent()}

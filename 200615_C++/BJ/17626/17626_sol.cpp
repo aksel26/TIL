@@ -42,7 +42,7 @@ void solve()
             if (temp < min)
                 min = temp;
         }
-
+ 
         num[i] = min;
     }
 }

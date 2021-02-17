@@ -14,7 +14,7 @@ import "./App.css"
 class App extends Component {
   constructor(props) {
     super(props)
-    this.max_content_id = 3 // 마지막 목록에 추가하기 위한 변수. UI에 전혀 영향을 주지 않기 때문에 state로 주지 않음
+    this.max_content_id = 0 // 마지막 목록에 추가하기 위한 변수. UI에 전혀 영향을 주지 않기 때문에 state로 주지 않음
     this.state = {
       selected_content_id: 2,
       mode: "read",

@@ -389,3 +389,28 @@ align-content : center;
 /*   : item별로 item들을 정렬 가능 */
 ```
 
+
+
+
+
+---
+
+ background image의 모든것과 margin 버그
+
+1. `background-image : url (../img/shoes.jpg)`
+
+   .. : 상위폴더를 지칭하는 경로 표현법
+
+
+
+
+
+position
+
+좌표속성의 기준점
+
+Top / bottom / left / right 
+
+단독으로 사용될 수 없고 , `position` 값을 relative, absolute 등으로 먼저 기준점을 정해주어야 함.
+
+margin과 다른점은 붕 떠있는 상태

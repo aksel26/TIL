@@ -1,5 +1,5 @@
 
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -9,7 +9,8 @@ long long dp2[81];
 int main()
 {
     cin.tie(NULL);
-    ios::sync_with_stdio(false);
+
+    ios_base::sync_with_stdio(false);
 
     int n;
 

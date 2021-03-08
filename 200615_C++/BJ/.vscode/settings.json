@@ -27,6 +27,7 @@
         "functional": "cpp",
         "memory": "cpp",
         "list": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "__bit_reference": "cpp"
     }
 }

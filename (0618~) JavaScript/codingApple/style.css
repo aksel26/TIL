@@ -1,0 +1,27 @@
+.alert-Box {
+  background: rgb(171, 226, 233);
+  color: rgb(69, 99, 72);
+  padding: 20px;
+  border-radius: 5px;
+  display: none;
+}
+
+.idBox {
+  background: rgb(171, 226, 233);
+  color: rgb(69, 99, 72);
+  padding: 20px;
+  border-radius: 5px;
+  display: none;
+}
+
+.pwBox {
+  background: rgb(171, 226, 233);
+  color: rgb(69, 99, 72);
+  padding: 20px;
+  border-radius: 5px;
+  display: none;
+}
+
+.yellow-bg {
+  background: rgb(255, 255, 138);
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <h4 id="title">hi</h4>
+
+    <p class="greeting">hello</p>
+    <p class="greeting">hello</p>
+    <p class="greeting">hello</p>
+
+    <button class="button">button</button>
+    <button class="button">button</button>
+    <button class="button">button</button>
+    <script>
+      //   $("#title").html("who?")
+      //   == document.querySelector('#title')[0]
+      //   == document.getElementById('#title').innerHTML = 'who?'
+      //   $("#title").text("who else?")
+
+      //   출력만 하고 싶을때는 빈칸으로
+      //   $("#title").text()
+
+      // css속성 바꾸기
+      //   $("#title").css("color", "red")
+
+      //   tag의 속성을 바꾸기
+      //   $("#title").attr("src", "dsddd.jpg")
+
+      //   클래스 속성 추가하기 (addClass)
+      //   $("#title").attr("class", "yellow-bg")
+      $("#title").addClass("yellow-bg")
+
+      //   document.getElementById().innerHTML = "안녕"
+      //   document.getElementsByClassName("greeting").innerHTML = "안녕"
+      document.getElementsByClassName("greeting")[0].innerHTML = "니하오"
+      //   순서를 지정해 주어야 한다.
+      //   elements가 복수이므로 3개를 다 찾게 되므로 하나만 요소를 바꾸려면 순서(인덱스)를 지정해 주어야 한다.
+
+      //  jquery는 한번에 바꾸는 것이 가능하다.
+      $(".greeting").html("안녕")
+      //   특정 요소만 바꾸려면 eq를 사용한다.
+      $(".greeting").eq(2).html("ㅁㅁㅁ")
+
+      //   버튼 여러개에 이벤트리스너 부착할 경우 편해진다.
+      //   jQuery 사용 전
+      document
+        .getElementsByClassName("button")[0]
+        .addEventListener("click", () => {})
+      document
+        .getElementsByClassName("button")[1]
+        .addEventListener("click", () => {})
+      document
+        .getElementsByClassName("button")[2]
+        .addEventListener("click", () => {})
+
+      //   jQuery 사용 후
+
+      $(".button").on("click", function () {
+        console.log("이벤트리스너")
+      })
+      //   h4가 있으면 함수를 실행하기 위한 셀렉터
+      //   $(".button").on("click", 'h4' function () {
+      //     console.log("이벤트리스너")
+      //   })
+
+      //   jQuery 사용 전 (JS)
+      //   document
+      //     .getElementsByClassName("button")[0]
+      //     .addEventListener("click", function () {
+      //       document.getElementsByClassName("greeting")[0].style.display = "none"
+      //     })
+
+      //   jQuery 사용 후 (JS)
+
+      $(".button").on("click", function () {
+        // $(".greeting").css("display", "none")
+        // $(".greeting").hide()
+        $(".greeting").slideUp()
+      })
+      $(".button")
+        .eq(2)
+        .on("click", function () {
+          // $(".greeting").css("display", "none")
+          $(".greeting").show()
+        })
+    </script>
+    <!-- body태그 끝나기 바로 전에 위치하는게 좋다 -->
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2 id="hello">hi</h2>
+    <h2 id="hi">hola</h2>
+    <div class="alert-Box" id="alertBox">Alert Box</div>
+    <button onclick="alertOn('block','짠')">alert 띄우기</button>
+    <button onclick="alertOn('none')">alert 닫기</button>
+
+    <button onclick="push('아이디 입력하세요')">id</button>
+    <button onclick="push('비밀번호 입력하세요')">pw</button>
+    <div class="idBox" id="result">
+      <p id="title"></p>
+      <button id="close">X</button>
+    </div>
+    <!-- <div class="pwBox" id="pw"></div> -->
+
+    <script>
+      document.getElementById("hello").innerHTML = "안녕"
+      document.getElementById("hi").innerHTML = "hoy"
+      document.getElementById("hello").style.fontSize = "30px"
+
+      function alertOn(구멍) {
+        document.getElementById("alertBox").style.display = 구멍
+        // document.getElementById("alertBox").innerHTML = text
+      }
+
+      function push(message) {
+        document.getElementById("result").style.display = "block"
+        document.getElementById("title").innerHTML = message
+      }
+      //   function alertOff() {
+      //     document.getElementById("alertBox").style.display = "none"
+      //   }
+
+      alertOn("block", "짜잔") //원하는 글자 및 숫자처럼 모든 자료형을 넣을 수 있다.
+      alertOn("none") //원하는 글자 및 숫자처럼 모든 자료형을 넣을 수 있다.
+      //   alertOff함수가 필요 없게 된다.
+
+      //   function plus(구멍) {
+      //     console.log(2 + 구멍)
+      //   }
+      //   plus(4)
+
+      document
+        .getElementById("close")
+        .addEventListener("mouseover", function () {
+          document.getElementById("result").style.display = "none"
+        })
+    </script>
+  </body>
+</html>

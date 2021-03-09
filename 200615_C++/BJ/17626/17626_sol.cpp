@@ -28,6 +28,7 @@ void solve()
         int min = 9999;
         int temp, count;
 
+        // 제곱근은 모두 1로
         if ((int)sqrt(i) * sqrt(i) == i)
         {
             num[i] = 1;
@@ -42,7 +43,7 @@ void solve()
             if (temp < min)
                 min = temp;
         }
- 
+
         num[i] = min;
     }
 }

@@ -63,6 +63,27 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "typeinfo": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "__tree": "cpp",
+        "cfenv": "cpp",
+        "cinttypes": "cpp",
+        "clocale": "cpp",
+        "condition_variable": "cpp",
+        "csetjmp": "cpp",
+        "csignal": "cpp",
+        "forward_list": "cpp",
+        "fstream": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "queue": "cpp",
+        "random": "cpp",
+        "regex": "cpp",
+        "scoped_allocator": "cpp",
+        "thread": "cpp",
+        "typeindex": "cpp",
+        "unordered_set": "cpp",
+        "valarray": "cpp"
     }
 }

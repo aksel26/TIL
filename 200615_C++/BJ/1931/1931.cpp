@@ -2,15 +2,17 @@
 
 using namespace std;
 
-bool comp(pair<int,int> a, pair<int,int> b){
-    if(a.second == b.second){
+bool comp(pair<int, int> a, pair<int, int> b)
+{
+    if (a.second == b.second)
+    {
         return a.first < b.first;
     }
-    else{
+    else
+    {
         return a.second < b.second;
     }
 }
- 
 
 int main()
 {
@@ -18,7 +20,7 @@ int main()
     int n, start, end, max = -100;
 
     cin >> n;
-    vector<pair<int, int> > v;
+    vector<pair<int, int>> v;
     for (int i = 0; i < n; i++)
     {
 
@@ -43,10 +45,6 @@ int main()
     }
 
     cout << cnt << endl;
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout << v[i].first << ' ' << v[i].second << '\n';
-    // }
 
     return 0;
 }

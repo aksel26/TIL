@@ -25,3 +25,46 @@
 .yellow-bg {
   background: rgb(255, 255, 138);
 }
+
+.main-background {
+  background-image: url(food.jpg);
+  background-size: cover;
+  color: white;
+  border-radius: 0px;
+}
+
+.black-background {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+
+  display: none;
+  /* 같은 효과를 볼 수 있는 것들 */
+  /* visibility: hidden; */
+  /* opacity: 0; */
+}
+
+.white-background {
+  background: white;
+  width: 80%;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
+h4 {
+  margin: 0;
+}
+
+.nav-sub {
+  display: none;
+}

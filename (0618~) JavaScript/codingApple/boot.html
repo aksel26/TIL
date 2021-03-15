@@ -23,7 +23,29 @@
     <div class="black-background">
       <div class="white-background">
         <p>로그인 하세요</p>
-        <button id="closeBtn">X</button>
+
+        <!-- 폼 양식 -->
+        <form action="login.php">
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              id="email"
+            />
+            <p id="email-alert">이메일이 정확하지 않습니다.</p>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              id="pw"
+            />
+            <p id="pw-alert">비밀번호가 정확하지 않습니다.</p>
+          </div>
+          <button type="submit" class="btn btn-primary">전송</button>
+        </form>
       </div>
     </div>
 
@@ -56,18 +78,38 @@
       >
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-      crossorigin="anonymous"
-    ></script>
     <script>
       $("#login").on("click", function () {
         // $(".black-background").css("display", "block")
         // $(".black-background").show()
+
+        // if ($("#test-input").val() == "안녕") {
+        //   $(".black-background").fadeIn()
+        // }
+
         $(".black-background").fadeIn()
         // $(".black-background").slideDown()
       })
+
+      // 폼이 전송될 때
+      // 만약에 이메일 input에 입력된 값이 빈칸인 경우, 품의 전송을 막음, 안내문 띄움
+      $("form").on("submit", function (e) {
+        if ($("#email").val() === "") {
+          // 폼의 전송을 막고, 새로고침을 막는다.
+          e.preventDefault()
+          $("#email-alert").show()
+        } else if ($("#pw").val() === "") {
+          e.preventDefault()
+          $("#pw-alert").show()
+        }
+      })
+      // $("#email").on("change", function (e) {
+      //   $("#email-alert").show()
+      // })
+      $("#email").on("input", function (e) {
+        $("#email-alert").show()
+      })
+
       $("#closeBtn").on("click", function () {
         $(".black-background").fadeOut()
       })
@@ -80,5 +122,10 @@
         // 그냥 toggle은 hide <-> show를 토글해쭌다. (slide효과가 없음)
       })
     </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string solution(string s)
+{
+    string answer = "";
+    if (s.size() % 2 == 0)
+    {
+        answer = s.substr(s.size() / 2 - 1, 2);
+    }
+    else
+    {
+        answer = s[s.size() / 2];
+    }
+    cout << answer << endl;
+    return answer;
+}
+
+int main()
+{
+    string s = "qwer";
+    solution(s);
+    return 0;
+}

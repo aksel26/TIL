@@ -1,4 +1,5 @@
-for (iter = arr.begin(); iter != arr.end(); iter++)
-    // {
-    //     cout << *iter << endl;
-    // }
+if (lost[j] == reserve[i])
+            {
+                cout << "ad" << endl;
+                break;
+            }

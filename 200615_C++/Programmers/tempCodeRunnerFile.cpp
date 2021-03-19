@@ -1,2 +1,2 @@
-[i] << ' ';
-    }
+
+    vector<pair<string, char> 

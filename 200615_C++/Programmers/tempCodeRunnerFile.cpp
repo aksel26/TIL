@@ -1,2 +1,2 @@
-
-    vector<pair<string, char> 
+q.pop();
+            

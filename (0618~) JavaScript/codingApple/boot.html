@@ -65,7 +65,16 @@
       <li class="list-group-item">Shoes</li>
       <li class="list-group-item">ETC</li>
     </ul>
-
+    <script>
+      $(window).on("scroll", function () {
+        if ($(window).scrollTop() > 100) {
+          $(".nav-menu").addClass("nav-black")
+          $(".nav-menu h4").css("font-size", "20px")
+        } else if ($(window).scrollTop() == 0) {
+          $(".nav-menu").removeClass("nav-black")
+        }
+      })
+    </script>
     <div class="jumbotron main-background">
       <h1 class="display-4">Shirts Studio</h1>
       <p class="lead">

@@ -66,6 +66,15 @@
   justify-content: space-between;
   padding: 10px;
   align-items: center;
+
+  /* 투명하게 */
+  background-color: transparent;
+  /* 스크롤 고정 */
+  position: fixed;
+  /* 앞으로 */
+  z-index: 5;
+  width: 100%;
+  color: white;
 }
 
 h4 {
@@ -114,4 +123,12 @@ h4 {
   position: absolute;
   top: 45%;
   right: 0%;
+}
+.nav-black {
+  background: white;
+  color: black;
+}
+.nav-menu h4 {
+  font-size: 40px;
+  transition: all 1s;
 }

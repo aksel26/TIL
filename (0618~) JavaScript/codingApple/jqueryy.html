@@ -15,6 +15,9 @@
   <body>
     <h4 id="title">hi</h4>
 
+    <p id="detail"></p>
+
+    <!-- 
     <p class="greeting">hello</p>
     <p class="greeting">hello</p>
     <p class="greeting">hello</p>
@@ -23,9 +26,17 @@
     <button class="button">button</button>
     <button class="button">button</button>
 
-    <input type="text" id="test-input"></input>
+    <input type="text" id="test-input"></input> -->
 
     <script>
+      // 데이터 바인딩
+      var 어레이 = ["BMW", 520]
+      var 오브젝트 = { brand: "BMW", model: 520 }
+      var 자료 = [{ brand: "BMW" }, { model: 520 }]
+      document.getElementById("title").innerHTML = 어레이[0]
+      document.getElementById("detail").innerHTML = 자료[0].brand
+      // $("#detail").html(어레이[0])
+
       //   $("#title").html("who?")
       //   == document.querySelector('#title')[0]
       //   == document.getElementById('#title').innerHTML = 'who?'
@@ -46,7 +57,7 @@
 
       //   document.getElementById().innerHTML = "안녕"
       //   document.getElementsByClassName("greeting").innerHTML = "안녕"
-      document.getElementsByClassName("greeting")[0].innerHTML = "니하오"
+      // document.getElementsByClassName("greeting")[0].innerHTML = "니하오"
       //   순서를 지정해 주어야 한다.
       //   elements가 복수이므로 3개를 다 찾게 되므로 하나만 요소를 바꾸려면 순서(인덱스)를 지정해 주어야 한다.
 
@@ -85,9 +96,6 @@
       //     })
 
       //   jQuery 사용 후 (JS)
-
-      
-
 
       $(".button").on("click", function () {
         // $(".greeting").css("display", "none")

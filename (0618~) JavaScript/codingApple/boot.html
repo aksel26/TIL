@@ -53,6 +53,27 @@
       </div>
     </div>
 
+    <script>
+
+      $('.black-background').click((e)=>{
+        console.log(e.currentTarget);
+        console.log($('.black-background'));
+        var bgd = $('.black-background');
+        var logo1 = bgd.get(0);
+
+        // if(e.target==logo1){
+        if(e.target==e.currentTarget){
+          $('.black-background').hide()
+          $('.black-background').removeClass('slide-down')
+        }
+        e.target; //지금 실제로 클릭한 요소
+        e.currentTarget; // 지금 이벤트리스너가 달린 곳 ( = $(this)) )
+        e.preventDefault(); // 기본동작 막기
+        // if()
+        // $('.black-background').hide()
+      })
+    </script>
+
     <div class="nav-menu">
       <h4>Shirts Studio</h4>
       <a id="nav-sub-btn">Products</a>
@@ -69,9 +90,11 @@
       $(window).on("scroll", function () {
         if ($(window).scrollTop() > 100) {
           $(".nav-menu").addClass("nav-black")
-          $(".nav-menu h4").css("font-size", "20px")
-        } else if ($(window).scrollTop() == 0) {
+          $(".nav-menu h4").addClass("nav-title")
+        }
+        if ($(window).scrollTop() == 0) {
           $(".nav-menu").removeClass("nav-black")
+          $(".nav-menu h4").removeClass("nav-title")
         }
       })
     </script>
@@ -112,9 +135,26 @@
       <button class="slide-next">Next</button>
     </div>
 
-    <button class="slide-1">1</button>
-    <button class="slide-2">2</button>
-    <button class="slide-3">3</button>
+
+    <div class="container mt-5"">
+      <ul class="list">
+        <li class="tab-button">Products</li>
+        <li class="tab-button active">Information</li>
+        <li class="tab-button">Shipping</li>
+      </ul>
+    
+      <div class="tab-content">
+        <p>상품설명입니다. Product</p>
+      </div>
+      <div class="tab-content show">
+        <p>상품정보입니다. Info</p>
+      </div>
+      <div class="tab-content">
+        <p>배송정보입니다. Shipping</p>
+      </div>
+    </div>
+
+    <script src="tab.js"></script>
 
     <script>
       // $(".slide-2").click(() => {
@@ -171,7 +211,10 @@
       $("#login").on("click", function () {
         // $(".black-background").css("margin-top", "0px")
         // $(".black-background").css("transform", "translateY(0px)")
+
+        $(".black-background").show()
         $(".black-background").addClass("slide-down")
+
       })
       // 폼이 전송될 때
       // 만약에 이메일 input에 입력된 값이 빈칸인 경우, 품의 전송을 막음, 안내문 띄움

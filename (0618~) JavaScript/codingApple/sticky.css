@@ -1,0 +1,22 @@
+.grey {
+  background: black;
+  height: 2000px;
+  margin-top: 600px;
+  margin-bottom: 1600px;
+}
+
+/* 주의점 */
+/* 1. sticky는 좌표속성과 같이 사용해야 한다. */
+/* 2. 당연히 부모박스가 길어야 잘 동작한다. */
+.sticky {
+  position: sticky;
+  /* viewport에서부터  */
+  top: 100px;
+  /* 감싸지는 div가 넘어가면 다시 맨위로 간다. */
+  float: right;
+}
+.left-text {
+  float: left;
+  color: white;
+  padding: 20px;
+}

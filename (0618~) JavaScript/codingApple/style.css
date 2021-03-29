@@ -114,9 +114,12 @@ h4 {
 }
 .slide-container {
   width: 300vw;
-  transition: transform 1s;
+  /* transition: transform 1s; */
 
   /* transform: translateX(-100vw); */
+}
+.transforming {
+  transition: transform 1s;
 }
 
 .slide-next {

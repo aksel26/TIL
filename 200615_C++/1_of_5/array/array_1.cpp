@@ -8,13 +8,6 @@ struct Employee
     char name;
 };
 
-struct Person
-{
-    string name;
-    string surname;
-    int age;
-};
-
 bool operator<(const Employee &lhs, const Employee &rhs)
 {
     return lhs.age < rhs.name;
@@ -30,8 +23,8 @@ int main()
         v.emplace_back(Employee{i, 'Z'});
     };
 
-    // stable_sort(v.begin(), v.end());
-    sort(v.begin(), v.end());
+    stable_sort(v.begin(), v.end());
+    // sort(v.begin(), v.end());
     for (const Employee &e : v)
     {
         cout << e.age << ", " << e.name << endl;

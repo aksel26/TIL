@@ -24,7 +24,7 @@ int main()
     };
 
     stable_sort(v.begin(), v.end());
-    // sort(v.begin(), v.end());
+    sort(v.begin(), v.end());
     for (const Employee &e : v)
     {
         cout << e.age << ", " << e.name << endl;

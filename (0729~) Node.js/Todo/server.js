@@ -65,11 +65,31 @@ app.get("/write", function (request, response) {
 // 어떤 사람이 /add 경로로 post요청을 하면
 // ~~~를 해주세요
 app.post("/add", function (req, res) {
-  db.collection("post").insertOne(req.body, function (에러, 결과) {
-    console.log("저장완료")
-  })
   res.send("전송완료")
-  console.log(req.body.date)
+  db.collection("counter").findOne(
+    { name: "게시물갯수" },
+    function (에러, 결과) {
+      var 총게시물갯수 = 결과.totalPost
+      db.collection("post").insertOne(
+        { _id: 총게시물갯수 + 1, 제목: req.body.title, 날짜: req.body.date },
+        function (에러, 결과) {
+          console.log("저장완료")
+
+          // !! counter라는 콜렉션에 있는 totalPost라는 항목도 1 증가시켜야 한다.
+          // db.collection('counter').updateOne({어떤데이터를 수정할지?},{수정값을 입력 operator($set)를 사용해야한다.},function(){
+          db.collection("counter").updateOne(
+            { name: "게시물갯수" },
+            { $inc: { totalPost: 1 } },
+            function (에러, 결과) {
+              // 이후 추가할 함수
+              // 에러 체킹하고 싶다면 에러, 결과 두개의 파라미터를 넣어준다.
+              if (에러) return console.log(에러)
+            }
+          )
+        }
+      )
+    }
+  )
 })
 
 // /list로 GET요청으로 젖ㅂ속하면
@@ -83,4 +103,16 @@ app.get("/list", function (req, res) {
       console.log(결과)
       res.render("list.ejs", { todos: 결과 })
     })
+})
+
+app.delete("/delete", function (req, res) {
+  console.log(req.body) // ajax 요청시 함께 보낸 데이터를 찾으려면 이렇개
+  req.body._id = parseInt(req.body._id)
+  db.collection("post").deleteOne(req.body, function (에러, 결과) {
+    console.log("삭제완료")
+
+    //서버에서 요청 응답해주는 법 . 서버는 꼭 뭔가 응답해주어야 한다.
+    res.status(200).send({ message: "성공했습니다" })
+    // res.status(400).send({ message: "실패했습니다" })
+  })
 })

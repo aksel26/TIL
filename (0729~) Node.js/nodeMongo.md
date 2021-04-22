@@ -162,8 +162,9 @@ form에서 정보 입력하기
 REST API ?
 
 - API ?
-  - 어떤식으로 통신할 것인지에 대한 규약
-
+  
+- 어떤식으로 통신할 것인지에 대한 규약
+  
 - 웹개발 환경에서의 API ?
 
   - 서버와 고객간의 요청 방식  (소통방법)
@@ -266,3 +267,84 @@ EJS
 ejs파일들은 항상 views폴더에 있어야 한다.
 
  
+
+
+
+게시물들 번호 매기기
+
+```javascript
+app.post("/add", function (req, res) {
+  db.collection("post").insertOne(
+    { _id: 총게시물갯수+1, 제목: req.body.title, 날짜: req.body.date },
+    function (에러, 결과) {
+      console.log("저장완료")
+    }
+  )
+  res.send("전송완료")
+  console.log(req.body.date)
+})
+
+```
+
+다른 DB들은 auto increament가 있는데 몽고는 없다
+
+총 게시물 갯수를 어떻게 구하냐 ?
+
+count함수로 총 갯수를 구하는 방법 ? 비추
+
+저장되는 시점에 따라 혼선유발 가능
+
+글마다의 고유의 번호를 부여하자
+
+
+
+1. .Counter라는 컬렉션을 만든다
+2. 0을 부여하고
+3. findOne(하나만 찾기 때문에) 을 사용해서 결과 값을 불러온다.
+4. 불러온 결과값을 `총게시물갯수`  변수에 할당한다.
+5. 글이 새로 생기면 counter라는 콜렉션에 있는 totalPost라는 항목도 1 증가시켜야 한다.
+
+
+
+Update함수
+
+![image-20210422225106192](nodeMongo.assets/image-20210422225106192.png)
+
+
+
+operator
+
+$set(변경)
+
+$inc(증가)
+
+$min(기존값보다 적을 때만 변경
+
+$rename(key값 이름 변경)
+
+
+
+![image-20210422225603100](nodeMongo.assets/image-20210422225603100.png)
+
+![image-20210422225655012](nodeMongo.assets/image-20210422225655012.png)
+
+
+
+
+
+글 삭제
+
+![image-20210423001856836](nodeMongo.assets/image-20210423001856836.png)
+
+DELETE요청
+
+html에서 바로 delete, put를 요청할 수는 없음 (post, get은 되지만..)
+
+1. 라이브러리 
+
+   1.  **method-override** 라이브러리 : form에서 delete요청이 가능하게 된다.
+
+2. Ajax요청을 한다.
+
+   
+

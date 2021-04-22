@@ -26,17 +26,79 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
-      <h4>서버에서 가져온 할일 리스트</h4>
-      <!-- 
-      <h4>할일 제목 : <%=todos[0].title %></h4>
-      <p>할일 마감날짜 : <%=todos[0].date %></p> -->
-
-      <% todos.forEach(function(a){ %>
-      <h6>할일 제목 : <%=a.title %></h6>
-      <p>할일 마감날짜 : <%=a.date %></p>
-      <% }) %>
+      <h4 class="ml-2 my-3">서버에서 가져온 할일 리스트</h4>
       <!-- EJS -->
       <!-- 템플릿 엔진 -->
+      <!-- -->
+      
+
+      <!-- <% todos.forEach(function(a){ %>
+      <h6>할일 제목 : <%=a.제목 %></h6>
+      <p>할일 마감날짜 : <%=a.날짜 %></p>
+      <button>삭제</button>
+      <% }) %> -->
+
+
+      <ul class="list-group">
+        <% for(var i = 0  ;i<todos.length ; i++){ %>
+        <li class="list-group-item">
+          <p>글번호 : <%=todos[i]._id %></p>
+          <h6>할일 제목 : <%=todos[i].제목 %></h6>
+          <p>할일 마감날짜 : <%=todos[i].날짜 %></p>
+          <button class="delete" data-id="<%=todos[i]._id %>">삭제</button>
+        </li>
+        <% } %>
+      </ul>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+        <script>
+          $('.delete').click(function(e){
+            var 글번호  = e.target.dataset.id; //e.target 내가 누른 요소 dataset.id 내가 누르 ㄴ요소의 data-id
+            var 지금누른거 = $(this) //jquery에서 this는 이벤트가 동작하는 곳 ==~ e.target
+            $.ajax({
+                        method : 'DELETE',
+                        url : '/delete',
+                        data : {_id : 글번호}
+                        
+                    }).done(function(결과){ // ajax요청이 성공했을 때 실행 (done)
+                      // 페이지를 강제로 새로고침한다. location.reload()
+                      // 삭제버튼을 누른 <li> 요소를 제거한다 / 안보이게
+                      console.log('성공했따')
+                      지금누른거.parent('li').fadeOut();
+
+                    }).fail(function(a,b,c){
+                      // }).fail(function(xhr,textStatus,errorThrown){
+                      console.log('싪패')
+                      console.log(a,b,c)
+
+                    })
+          })
+
+
+
+          // $.ajax({
+          //     method : 'DELETE',
+          //     url : '요청할 경로',
+          //     data : '요청과함께 보낼 데이터'
+
+          // ))
+
+          // $.ajax({
+          //     method : 'DELETE',
+          //     url : '/delete',
+          //     data : {_id : 1}
+              
+          // }).done(function(결과){ // ajax요청이 성공했을 때 실행 (done)
+
+          // })
+
+
+
+        </script>
+
+
+      
     </div>
 
     <script

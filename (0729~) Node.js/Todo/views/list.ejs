@@ -11,22 +11,14 @@
       crossorigin="anonymous"
     />
   </head>
+  <link rel="stylesheet" href="/public/main.css">
+  
   <body>
-    <div class="container m-5">
-      <form action="/add" method="POST">
-        <div class="form-group mb-3">
-          <label for="exampleInputEmail1">Todo</label>
-          <input type="text" class="form-control" name="title" />
-        </div>
-        <div class="form-group mb-3">
-          <label for="exampleInputPassword1">Due Date</label>
-          <input type="date" class="form-control" name="date" />
-        </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+    <%- include('nav.html') %>
+    
 
-      <h4 class="ml-2 my-3">서버에서 가져온 할일 리스트</h4>
+      <h4 class="ml-2 my-3 text-center">서버에서 가져온 할일 리스트</h4>
       <!-- EJS -->
       <!-- 템플릿 엔진 -->
       <!-- -->
@@ -38,17 +30,19 @@
       <button>삭제</button>
       <% }) %> -->
 
-
+        <div class="container">
       <ul class="list-group">
         <% for(var i = 0  ;i<todos.length ; i++){ %>
         <li class="list-group-item">
-          <p>글번호 : <%=todos[i]._id %></p>
-          <h6>할일 제목 : <%=todos[i].제목 %></h6>
+        <h5>글번호 : <%=todos[i]._id %></h5>
+        
+        <a href="detail/<%=todos[i]._id %>"><h6>할일 제목 : <%=todos[i].제목 %></h6></a>
           <p>할일 마감날짜 : <%=todos[i].날짜 %></p>
-          <button class="delete" data-id="<%=todos[i]._id %>">삭제</button>
+          <button class="btn btn-danger delete" data-id="<%=todos[i]._id %>">삭제</button>
         </li>
         <% } %>
       </ul>
+    </div>
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       
@@ -99,8 +93,7 @@
 
 
       
-    </div>
-
+   
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"

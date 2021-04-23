@@ -8,6 +8,9 @@ const MongoClient = require("mongodb").MongoClient
 // ejs라이브러리 사용
 app.set("view engine", "ejs")
 
+//미들웨어
+app.use("/public", express.static("public")) //나는 static파일을 위해 public폴더를 쓸거다
+
 var db
 MongoClient.connect(
   "mongodb+srv://admin:qwer1234@cluster0.xxjog.mongodb.net/Todo?retryWrites=true&w=majority",
@@ -55,11 +58,11 @@ app.get("/beauty", function (request, response) {
 
 app.get("/", (request, response) => {
   //   response.send("무야호~")
-  response.sendFile(__dirname + "/index.html")
+  response.render("index.ejs")
 })
 
 app.get("/write", function (request, response) {
-  response.sendFile(__dirname + "/write.html")
+  response.render("write.ejs")
 })
 
 // 어떤 사람이 /add 경로로 post요청을 하면
@@ -114,5 +117,14 @@ app.delete("/delete", function (req, res) {
     //서버에서 요청 응답해주는 법 . 서버는 꼭 뭔가 응답해주어야 한다.
     res.status(200).send({ message: "성공했습니다" })
     // res.status(400).send({ message: "실패했습니다" })
+  })
+})
+
+app.get("/detail/:id", function (req, res) {
+  req.params.id = parseInt(req.params.id)
+  db.collection("post").findOne({ _id: req.params.id }, function (에러, 결과) {
+    console.log(결과)
+
+    res.render("detail.ejs", { data: 결과 })
   })
 })

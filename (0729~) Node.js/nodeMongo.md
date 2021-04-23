@@ -1,6 +1,6 @@
 
 
-express 라이브러리 설치하기
+# express 라이브러리 설치하기
 
 1. npm init : package.json을 설정해줌
 
@@ -18,9 +18,9 @@ npm : 라이브러리 설치를 도와주는 도구
 
 
 
-GET요청을 처리해보자
+# GET요청을 처리해보자
 
-.1 서버 만들기
+### 1. 서버 만들기
 
 서버를 띄우기 위한 기본 셋팅 (express 라이브러리)
 
@@ -47,7 +47,7 @@ app.get("/beauty", function (request, response) {
 
 
 
-2. Nodemon 라이브러리
+### 1-1. Nodemon 라이브러리
 
 변경사항이 있을 때마다 서버를 껐다가 다시 켜야 하는 불편함을 보완해주는 라이브러리
 
@@ -59,17 +59,17 @@ Permission 오류가 나면 ?
 
 
 
-실행
+### 2. 실행
 
 `nodemon server.js`
 
 
 
-서버에서 html 전송
+### 3. 서버에서 html 전송
 
 response.sendFile()
 
-__dirname : 현재경로
+`__dirname` : 현재경로
 
 sendFile() : 파일을 보낼 수 있다.
 
@@ -87,7 +87,7 @@ app.get("/", function (request, response) {
 
 
 
-form에서 정보 입력하기
+## form에서 정보 입력하기
 
 1. write.html
 
@@ -159,7 +159,7 @@ form에서 정보 입력하기
 
 그전에 
 
-REST API ?
+# REST API ?
 
 - API ?
   
@@ -248,7 +248,11 @@ DB종류
 
 
 
- /list로 GET요청으로 젖ㅂ속하면
+
+
+# EJS
+
+ /list로 GET요청으로 접속하면
 
 // 실제 DB에 저장된 데이터들로 꾸며진 HTML을 보여줌
 
@@ -270,7 +274,7 @@ ejs파일들은 항상 views폴더에 있어야 한다.
 
 
 
-게시물들 번호 매기기
+# 게시물들 번호 매기기
 
 ```javascript
 app.post("/add", function (req, res) {
@@ -312,7 +316,7 @@ Update함수
 
 
 
-operator
+### operator
 
 $set(변경)
 
@@ -332,7 +336,7 @@ $rename(key값 이름 변경)
 
 
 
-글 삭제
+# 글 삭제
 
 ![image-20210423001856836](nodeMongo.assets/image-20210423001856836.png)
 
@@ -347,4 +351,93 @@ html에서 바로 delete, put를 요청할 수는 없음 (post, get은 되지만
 2. Ajax요청을 한다.
 
    
+
+
+
+
+
+# Detail페이지
+
+상세페이지를 만들어보자 (URL parameter)
+
+/detil로 접속하면 detail.ejs 보여줌
+
+1번 누르면 1번 상세페이지,
+
+2번글 누르면 2번 상세페이지로...
+
+
+
+/detil1로 접속하면 detail1.ejs 보여줌
+
+/detil2로 접속하면 detail2.ejs 보여줌
+
+/detil3로 접속하면 detail3.ejs 보여줌
+
+...
+
+
+
+detail 페이지를 여러개 ?
+
+url을 다르게 설정하면 된다.
+
+
+
+```javascript
+app.get('/detail/:id', function(res,req){
+  res.render('detail.ejs', {이런이름으로 : 이런데이터를});
+})
+
+: :url parameter
+적엇을때 render해주세요
+
+```
+
+
+
+findOne이라는 함수를 사용해 _id값을 찾는다.
+
+req.params.id에 정보가 담겨있음!
+
+```javascript
+app.get("/detail/:id", function (req, res) {
+  req.params.id = parseInt(req.params.id)
+  db.collection("post").findOne({ _id: req.params.id }, function (에러, 결과) {
+    console.log(결과)
+    
+    res.render("detail.ejs", { data: 결과 }) // 정보들을 보냄
+  })
+})
+```
+
+
+
+
+
+# Detail페이지 디자인하기
+
+```html
+<div class="container mt-4">
+```
+
+container 속성을 주면 정렬된다
+
+
+
+css파일 적용시키기
+
+보통 관습적으로 public/main.css 이렇게 파일을 넣어줌
+
+css파일들은 static파일이라고  함
+
+
+
+
+
+조립식
+
+ejs파일들이 매우 많을때,
+
+nav태그 요소를 고치려고 할때 여러개의 ejs파일들을 일일이 고쳐야 하는 경우가 발생
 

@@ -1,5 +1,23 @@
 
 
+
+
+# node.js || express ?
+
+js를 항상 브라우저에서만 사용하게됨
+
+node가 나오면서 서버사이드에서도 사용가능하게 됨
+
+## express ?
+
+node가 엔진이라고 한다면
+
+**express** : 엔진 + 바퀴, 브레이크시스템 등등 으로 자동차를 만드는 것 
+
+nodejs를 쉽게 이용할수 있도록 하는 프레임워크
+
+
+
 # express 라이브러리 설치하기
 
 1. npm init : package.json을 설정해줌
@@ -15,6 +33,16 @@ npm : 라이브러리 설치를 도와주는 도구
    node_modules가 생성된다. 그 안에 express폴더도 같이 생성됨
 
 
+
+
+
+# 모델
+
+스키마를 감싸는 것
+
+스키마 ?
+
+하나하나 정보틀을 지정한 것
 
 
 
@@ -440,4 +468,115 @@ css파일들은 static파일이라고  함
 ejs파일들이 매우 많을때,
 
 nav태그 요소를 고치려고 할때 여러개의 ejs파일들을 일일이 고쳐야 하는 경우가 발생
+
+이럴때는 공통된 요소를 따로 빼 필요한 부분에 `<%- include('nav.html') %>`  를 해준다.
+
+
+
+
+
+# Update(글 수정) 페이지
+
+
+
+HTML에서 PUT, DELETE요청을 직접하는 것은 불가능하다
+
+이러한 기능을 가능하도록 해주는 것이 **`method-override`**
+
+`npm install method-override`
+
+
+
+
+
+**server.js**
+
+```javascript
+//method-override 설정 부분
+const methodOverride = require("method-override")
+
+app.use(methodOverride("_method"))
+
+
+// 폼에 담긴 제목데이터, 날짜 데이터를 db.collection에 업데이트한다.
+app.put("/edit", (req, res) => {
+  db.collection("post").updateOne(
+    { _id: parseInt(req.body.id) },
+    { $set: { 제목: req.body.title, 날짜: req.body.date } },
+    (err, result) => {
+      console.log(result)
+      res.redirect("/list")
+    }
+  )
+})
+
+```
+
+
+
+
+
+**Edit.ejs**
+
+![image-20210428135211292](nodeMongo.assets/image-20210428135211292.png)
+
+
+
+
+
+
+
+
+
+# 세션, JWT, OAuth 등 회원인증 방법론
+
+회원 인증 방법
+
+1. cookie based
+
+   브라우저에 저장할 수 있는 긴 문자열
+
+   Session id 가 적힌 쿠키
+
+   서버메모리에 이 정보를 저장하고 저장이 되면 쿠키로 만들어 브라우저에 보낸다
+
+   브라우저는 이 쿠키를 저장한다.
+
+   마이페이지 접속 시 이 쿠키데이터를 서버에게 자동으로 전송한다.
+
+   이 쿠키에는 session id가 저장되어 있으므로 서버((session store)에서 찾는다 
+
+   있으면 마이페이지에 보내준다.
+
+   이러한 과정들은 라이브러리들이 알아서 해주기 때문에 흐름만 기억하도록 한다.
+
+
+
+2. Token-based (JWT)
+
+   로그인 성공시
+
+   서버에서는 JSON Web Token (암호화된 그냥 긴 문자열)을 브라우저에게 전송함
+
+   이러한 문자열을 local storage등에 저장한다.
+
+   마이페이지 요청시 서버에게 웹 토큰을 Header에 함께 전송한다.
+
+   서버는 토큰이 있으면 유효한 토큰인지 검사한다. (유통기한이 있는 방식)
+
+   유저들 로그인 상태를 저장할 필요가 없음 (보다 Restful한 방식)
+
+   
+
+3. Open Authentication (OAuth)
+
+   Google, 의 프로필 정보를 가져옴 소셜 로그인 방식
+
+   pw가 필요없음
+
+   사이트가 없어지면 사용이 불가능
+
+
+
+
 

@@ -26,6 +26,10 @@ app.get("/", (req, res) => {
   res.send("hello world!")
 })
 
+app.get("/api/hello", (req, res) => {
+  res.send("안녕하세요~")
+})
+
 // app.post("/register", (req, res) => {
 // /api/users/register : 나중에 express의 Router기능을 사용할때 용이하다.
 app.post("/api/users/register", (req, res) => {
@@ -46,7 +50,7 @@ app.listen(port, () => {
   console.log(`listening ${port}`)
 })
 
-app.post("/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
   // 1. 데이터베이스 안에서 요청된 이메일 찾기
 
   User.findOne({ email: req.body.email }, (err, user) => {

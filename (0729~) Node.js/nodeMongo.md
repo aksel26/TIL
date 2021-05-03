@@ -580,3 +580,11 @@ app.put("/edit", (req, res) => {
 
 
 
+# CORS 이슈 Proxy 설정
+
+# concurrently
+
+`npm install concurrently`
+
+​	
+

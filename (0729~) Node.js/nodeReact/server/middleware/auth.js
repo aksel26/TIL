@@ -6,6 +6,7 @@ let auth = (req, res, next) => {
 
   // 1. 클라이언트에 쿠키에서 토큰을 가져온다.
   // cookieParser를 이용한다.
+
   let token = req.cookies.x_auth
 
   // 2. 토큰을 복호화 한 후 , user를 찾는다

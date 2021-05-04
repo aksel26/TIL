@@ -22,9 +22,9 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err))
 
-app.get("/", (req, res) => {
-  res.send("hello world!")
-})
+// app.get("/", (req, res) => {
+//   res.send("hello world!")
+// })
 
 app.get("/api/hello", (req, res) => {
   res.send("안녕하세요~")
@@ -60,15 +60,19 @@ app.post("/api/users/login", (req, res) => {
         message: "유저가 없습니다",
       })
     }
-    // 2. 요청된 이메일이 db에 있다면 비밀번호도 일치하는지 확인
 
+    // 2. 요청된 이메일이 db에 있다면 비밀번호도 일치하는지 확인
     user.comparePassword(req.body.password, (err, isMatch) => {
+      console.log("err : ", isMatch)
       if (!isMatch)
         return res.json({ loginSuccess: false, message: "비밀번호 오류!" })
     })
     // 3. 비밀번호까지 같다면 token을 생성해야한다.
     user.generateToken((err, user) => {
-      if (err) return res.status(400).send(err)
+      if (err) {
+        console.log("err!!!", err)
+        return res.status(400).send(err)
+      }
 
       // 토큰을 저장한다. 어디에 ? 쿠키 또는 로컬스토리지
       // 쿠키에 저장하기 위해서 npm install cookie-parser한다

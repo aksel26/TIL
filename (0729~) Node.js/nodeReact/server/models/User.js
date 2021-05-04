@@ -18,14 +18,14 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    maxlength: 10,
+    maxlength: 100,
   },
   lastname: {
     type: String,
     maxlength: 50,
   },
   role: {
-    type: String,
+    type: Number,
     default: 0,
   },
   image: String,
@@ -64,7 +64,9 @@ userSchema.pre("save", function (next) {
 userSchema.methods.comparePassword = function (plainPassword, cb) {
   //plainPassword = 1234567이라고 가정하고  암호화된 비밀번호(db에 있는)와 같은지 체크해야 함
   bcrypt.compare(plainPassword, this.password, function (err, isMatch) {
-    if (err) return cb(err), cb(null, isMatch)
+    if (err) {
+      return cb(err), cb(null, isMatch)
+    }
   })
 }
 

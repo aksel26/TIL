@@ -40,6 +40,7 @@ app.post("/api/users/register", (req, res) => {
   //   {id : 'hello',
   // password: '123'}
   const user = new User(req.body)
+  console.log(req.body)
   user.save((err, userInfo) => {
     if (err) return res.json({ success: false, err })
     return res.status(200).json({ success: true })

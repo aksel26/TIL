@@ -588,3 +588,99 @@ app.put("/edit", (req, res) => {
 
 ​	
 
+회원가입 & 로그인
+
+회원가입
+
+node.js
+
+
+
+1. 기본 구성 exprees & mongoose
+
+   mongoose : mongoDB ODM 중 가장 유명한 라이브러리
+
+   ODM : Object Document Mapping MongoDB의 데이터를 NodeJS에서 JS객체로 사용할 수 있도록 해준다.
+
+   데이터베이스 연결 , 스키마 정의, 스키마에서 모델로 변환, 모델을 이용해 데이터를 다룸
+
+   프로미스 & 콜백 사용 가능
+
+2. mongoose 사용
+
+   `nom instal mongoose`
+
+   1. 연결시키기
+
+      ```javascript
+      mongoose
+        .connect(config.mongoURI, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          useCreateIndex: true,
+          useFindAndModify: false,
+        })
+        .then(() => console.log("MongoDB Connected..."))
+        .catch((err) => console.log(err))
+      ```
+
+      
+
+```javascript
+const express = require("express")
+const app = express()
+const port = 5000 // 포트번호
+const mongoose = require("mongoose")
+
+const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
+const { User } = require("./models/User")
+const config = require("./config/key")
+
+const { auth } = require("./middleware/auth")
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(cookieParser())
+mongoose
+  .connect(config.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log("MongoDB Connected..."))
+  .catch((err) => console.log(err))
+
+// app.get("/", (req, res) => {
+//   res.send("hello world!")
+// })
+
+app.get("/api/hello", (req, res) => {
+  res.send("안녕하세요~")
+})
+
+// app.post("/register", (req, res) => {
+// /api/users/register : 나중에 express의 Router기능을 사용할때 용이하다.
+app.post("/api/users/register", (req, res) => {
+  //회원가입시 필요한 정보들을 client에서 가져오면
+  // 그것들을 db에 넣어준다.
+
+  // bodyparser로 인해서 json형태로 담겨있다. req.body:
+  //   {id : 'hello',
+  // password: '123'}
+  const user = new User(req.body)
+  console.log(req.body)
+  user.save((err, userInfo) => {
+    if (err) return res.json({ success: false, err })
+    return res.status(200).json({ success: true })
+  }) //save() : mongoDB의 메서드
+})
+
+app.listen  (port, () => {
+  console.log(`listening ${port}`)
+})
+
+
+app.post("/")
+
+```

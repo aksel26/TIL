@@ -610,7 +610,7 @@ node.js
 
    `nom instal mongoose`
 
-   1. 연결시키기
+   1. 환경변수 설정
 
       ```javascript
       mongoose
@@ -624,63 +624,61 @@ node.js
         .catch((err) => console.log(err))
       ```
 
-      
-
-```javascript
-const express = require("express")
-const app = express()
-const port = 5000 // 포트번호
-const mongoose = require("mongoose")
-
-const bodyParser = require("body-parser")
-const cookieParser = require("cookie-parser")
-const { User } = require("./models/User")
-const config = require("./config/key")
-
-const { auth } = require("./middleware/auth")
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(cookieParser())
-mongoose
-  .connect(config.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log("MongoDB Connected..."))
-  .catch((err) => console.log(err))
-
-// app.get("/", (req, res) => {
-//   res.send("hello world!")
-// })
-
-app.get("/api/hello", (req, res) => {
-  res.send("안녕하세요~")
-})
-
-// app.post("/register", (req, res) => {
-// /api/users/register : 나중에 express의 Router기능을 사용할때 용이하다.
-app.post("/api/users/register", (req, res) => {
-  //회원가입시 필요한 정보들을 client에서 가져오면
-  // 그것들을 db에 넣어준다.
-
-  // bodyparser로 인해서 json형태로 담겨있다. req.body:
-  //   {id : 'hello',
-  // password: '123'}
-  const user = new User(req.body)
-  console.log(req.body)
-  user.save((err, userInfo) => {
-    if (err) return res.json({ success: false, err })
-    return res.status(200).json({ success: true })
-  }) //save() : mongoDB의 메서드
-})
-
-app.listen  (port, () => {
-  console.log(`listening ${port}`)
-})
+   2. 연결시키기
+   
+   ![image-20210507170317601](nodeMongo.assets/image-20210507170317601-0374600.png)
 
 
-app.post("/")
 
-```
+
+
+3. 모델 스키마 작성
+
+   ![image-20210507170752091](nodeMongo.assets/image-20210507170752091-0374873.png)
+
+4. MongoDB Altas에서 Collection을 확인해보면 생성된것을 확인할 수 있다.
+
+   ![image-20210507171014247](nodeMongo.assets/image-20210507171014247-0375016.png)
+
+
+
+회원가입하기
+
+![image-20210507171738982](nodeMongo.assets/image-20210507171738982-0375461.png)
+
+
+
+하지만 저장된 db를 보면 입력했던 비밀번호 (1234) 가 그대로 저장되어 있다. 보안문제가 생길 수 있음 !
+
+이럴때를 대비해서 암호화하는 bcrypt라이브러리를 사용한다
+
+`npm install bcrypt`
+
+
+
+![image-20210507174423286](nodeMongo.assets/image-20210507174423286-0377065.png)
+
+
+
+
+
+로그인
+
+1. mongoDB에서 findOne메서드를 이용해 찾는다.
+2. 비교를 위해 comparePassword 생성
+
+![image-20210507180302438](nodeMongo.assets/image-20210507180302438.png)
+
+3. comparePassword 메서드
+
+   ![image-20210507180955800](nodeMongo.assets/image-20210507180955800-0378599.png)
+
+4. 토큰생성
+
+   ![image-20210507181800784](nodeMongo.assets/image-20210507181800784-0379096.png)
+
+   생성된 결과
+
+   ![image-20210507182451720](nodeMongo.assets/image-20210507182451720-0379494.png)
+
+   

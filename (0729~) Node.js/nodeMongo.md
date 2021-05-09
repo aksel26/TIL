@@ -682,3 +682,40 @@ node.js
    ![image-20210507182451720](nodeMongo.assets/image-20210507182451720-0379494.png)
 
    
+
+
+
+Auth기능 만들기
+
+미들웨어 auth
+
+index.js
+
+![image-20210509180109048](nodeMongo.assets/image-20210509180109048-0550871.png)
+
+
+
+middleware /auth.js
+
+![image-20210509180202544](nodeMongo.assets/image-20210509180202544-0550924.png)
+
+
+
+User.js
+
+![image-20210509180248571](nodeMongo.assets/image-20210509180248571-0550970.png)
+
+
+
+
+
+# Logout
+
+![image-20210509182146178](nodeMongo.assets/image-20210509182146178-0552107.png)
+
+`_id` 가 존재하면 `token`을 없애준다.
+
+
+
+
+

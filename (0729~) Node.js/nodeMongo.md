@@ -787,13 +787,57 @@ Axios CORS
 
 
 
-
+### redux-promise
 
 ### redux-thunk
 
 비동기작업 처리할 때 사용하는 미들웨어
 
 객체 대신 함수를 생성하는 액션 생성함수를 작성할수 있게 해준다.
+
+
+
+두가지가 필요한 이유 ?
+
+redux 를 잘 사용할 수 있도록
+
+어떻게 ?
+
+redux 는 redux store가 존재하고, 모든 state를 관리한다.
+
+store안의 state를 변경하려면 dispatch를 이용해서 action으로 변경할 수 있다.
+
+store에서는 언제나 객체형식으로 된 action을 받는것이 아닌, Promise형식 또는 function형태로 받을 수도 있다.
+
+Promise형식 또는 function형태로 오면 redux store가 받지를 못한다.
+
+redux - thunk는 dispatch에게 function을 받는 방법을 알려주고,
+
+redux-promise는 promise를 어떻게 대처하는지 알려준다.
+
+
+
+#### Async await
+
+Promise then.... promise then... promise then... 반복 --> 난잡한 코드가 될 수 있다
+
+깔끔하게 promise를 사용하기 위해 Async await이 도움이 될 수 있다. **`syntatic sugar `** 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

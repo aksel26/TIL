@@ -54,12 +54,6 @@ class EventPractice extends Component {
           placeholder="암거나입력"
           value={this.state.message}
           onChange={this.handleChange}
-          //   onChange={(e) => {
-          //     console.log("#", this)
-          //     this.setState({
-          //       message: e.target.value,
-          //     })
-          //   }}
           onKeyPress={this.handleKeyPress}
         ></input>
         <input

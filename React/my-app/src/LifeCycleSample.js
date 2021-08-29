@@ -62,6 +62,8 @@ export default class LifeCycleSample extends Component {
     }
     return (
       <div>
+        {/* ErrorBoundary Test용 */}
+        {this.props.missing.value}
         <h1 style={style} ref={(ref) => (this.myRef = ref)}>
           {this.state.number}
         </h1>

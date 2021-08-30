@@ -10,6 +10,9 @@ import LifeCycleSample from "./LifeCycleSample"
 import ErrorBoundary from "./ErrorBoundary"
 import React, { useState, useEffect } from "react"
 import HooksSample from "./HooksSample"
+import Counter from "./Counter"
+import Info from "./Info"
+import Average from "./Average"
 
 // function getRandomColor() {
 //   return "#" + Math.floor(Math.random() * 16777215).toString(16)
@@ -57,7 +60,7 @@ export default function App() {
 
   return (
     <div>
-      <button
+      {/* <button
         onClick={() => {
           setVisible(!visible)
         }}
@@ -65,7 +68,11 @@ export default function App() {
         {visible ? "숨기기" : "보이기"}
       </button>
       <hr />
-      {visible && <HooksSample />}
+      {visible && <HooksSample />} */}
+
+      {/* <Counter /> */}
+      {/* <Info /> */}
+      <Average />
     </div>
   )
 }

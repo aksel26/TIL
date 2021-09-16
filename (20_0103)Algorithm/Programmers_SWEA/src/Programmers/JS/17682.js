@@ -1,13 +1,13 @@
 function solution(input) {
+  var answer = 0
+
   const filteredNum = input.split(/[0-9]/)
   const filteredChar = input.split(/[A-Z*#]/)
-
-  const numbers = filteredNum.filter((v) => v !== "")
-  const chars = filteredChar.filter((v) => v !== "")
+  const numbers = filteredChar.filter((v) => v !== "")
+  const chars = filteredNum.filter((v) => v !== "")
 
   let res = []
   let num = 0
-
   for (let i = 0; i < chars.length; i++) {
     const number = numbers[i]
     if (chars[i].includes("S")) {
@@ -29,11 +29,13 @@ function solution(input) {
     }
     res.push(num)
   }
+  const tt2 = res.reduce((acc, cur) => (acc += cur))
+  answer = tt2
 
-  return res.reduce((acc, cur) => (acc += cur))
+  return answer
 }
 
-// solution("1D2S#10S")
+solution("1D2S#10S")
 // solution("1D2S0T")
 // solution("1S*2T*3S")
 // solution("1D#2S*3S")

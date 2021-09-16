@@ -1,1 +1,1 @@
-console.log("sam: ", sam)
+console.log("temp: ", temp)

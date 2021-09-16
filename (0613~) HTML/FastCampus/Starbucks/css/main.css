@@ -1,0 +1,41 @@
+body {
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* 인라인 요소는 baseline이 존재 
+    img는 인라인요소 
+    img밑에도 공간이 존재하게 된다.
+    block속성으로 바꿔준다
+*/
+img {
+    display: block;
+}
+
+/* HEADER */
+header {
+    background-color: royalblue;
+}
+
+/* inner는 하는역할이 한정적이다 */
+/* 화면의 중앙으로 몰아서 표현하겠다. */
+header .inner {
+    width: 1100px;
+    height: 120px;
+    margin : 0 auto;
+    background-color: orange;
+    position:relative;
+}
+
+header .logo {
+    height: 75px;
+    width: 75px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}

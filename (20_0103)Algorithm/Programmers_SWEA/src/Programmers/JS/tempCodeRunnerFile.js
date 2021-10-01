@@ -1,1 +1,1 @@
-console.log("temp: ", temp)
+console.log('priorities: ', priorities);

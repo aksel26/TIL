@@ -15,7 +15,7 @@ searchInputEl.addEventListener("blur", function () {
 })
 
 const badgeEl = document.querySelector("header .badges")
-
+const toTopEl = document.querySelector("#to-top")
 // window : 브라우저의 하나의 탭(창)
 // _.throttle(함수, 시간)
 window.addEventListener(
@@ -33,8 +33,10 @@ window.addEventListener(
         //안보이는 것 뿐만 아니라 실질적으로 사라지게 해야 함.
         display: "none",
       })
-
-      console.log(window.scrollY)
+      //버튼 보이기
+      gsap.to(toTopEl, 0.2, {
+        x: 0,
+      })
     } else {
       // 배지 보이기
       // badgeEl.style.display = "block"
@@ -43,9 +45,19 @@ window.addEventListener(
         opacity: 1,
         display: "block",
       })
+      //버튼 숨기기
+      gsap.to(toTopEl, 0.2, {
+        x: 100,
+      })
     }
   }, 300)
 )
+
+toTopEl.addEventListener("click", function () {
+  gsap.to(window, 0.7, {
+    scrollTo: 0,
+  })
+})
 
 const fadeEls = document.querySelectorAll(".visual .fade-in")
 console.log("fadeEls: ", fadeEls)
@@ -134,3 +146,6 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, "show")
     .addTo(new ScrollMagic.Controller())
 })
+
+const thisYear = document.querySelector(".this-year")
+thisYear.textContent = new Date().getFullYear()

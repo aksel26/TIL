@@ -1,0 +1,81 @@
+$url : "https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images";
+
+body {
+    height: 100vh;
+    background:{
+        image: url('#{$url}/bg.jpg');
+        size: cover;
+        repeat:no-repeat;
+        attachment: fixed;
+    }
+}
+
+.container {
+    padding: 50px 0;
+
+    .heros {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 700px;
+
+        /* margin : auto 조건 */
+        /* 1.block요소에 2.가로사이즈가 있을 경우 가운데 정렬이 가능하다. */
+        margin: auto;
+        padding: 40px 20px;
+
+        .hero {
+            width: 80px;
+            height: 84px;
+            margin: 4px;
+            border: 3px solid #fff;
+            border-radius: 10px;
+
+            /* border가 들어간만큼 크긱가 커지지 않도록함 */
+            box-sizing: border-box;
+
+            background-color: #555;
+            transform: skewX(-14deg);
+            transition:
+                transform .1s,
+                background-color .6s;
+
+            overflow: hidden;
+
+            &:hover {
+                background-color: #ff9c00;
+                transform: skewX(-14deg) scale(1.3);
+                z-index: 1;
+            }
+
+            .image {
+                width: 140%;
+                height: 100%;
+                background-position: center;
+                background-size: 90px;
+                background-repeat: no-repeat;
+
+                /* 안의 내용도 기울어지기 때문에 다시 원상복구 */
+                transform: skewX(14deg) translateX(-16px);
+            }
+
+            @for $i from 1 through 32 {
+                &:nth-child(#{$i}) .image {
+                    background-image: url("#{$url}/hero#{$i}.png");
+                }
+            }
+        }
+    }
+    .logo {
+        max-width: 300px;
+    
+        /* 요소 하나를 정렬하고 싶을때도 사용한다. */
+        margin: auto;
+    
+        padding: 0 20px;
+        img {
+            width: 100%;
+        
+        }
+    }
+}

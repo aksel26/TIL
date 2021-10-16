@@ -1,0 +1,223 @@
+// $color : royalblue;
+
+// .container {
+//  > ul{
+//      li{
+//          font-size: 40px;
+//          .name{
+//             color : $color
+//          }
+//          .age{
+//             color : orange
+//          }
+//      }
+//  }
+// }
+
+//  & - 상위 선택자 참조
+// .btn {
+//     position: absolute;
+//     &.active{
+//         color : red;
+//     }
+// }
+
+// .list {
+//     li {
+//         &:last-child{
+//             margin-left: 0;
+//         }
+//     }
+// }
+
+// .fs {
+//     &-small {font-size: 12px;}
+//     &-medium {font-size: 14px;}
+//     &-large {font-size: 16px;}
+// }
+
+
+
+// .box {
+//     font :{
+//         weight : bold;
+//         size : 10px;
+//         family : sans-serif;
+//     };
+//     margin :{
+//         top : 10px;
+//         left: 20px;
+//     };
+//     padding : {
+//         top:  10px;
+//         bottom : 40px;
+//         left: 20p;
+//         right: 30px;
+//     }
+// }
+
+// 변수
+
+// 100px를 공통적으로 관리해야 하는 경우 변수 사용
+
+// $size : 100px;
+
+// .container {
+//     position : fixed;
+//     $size : 50px;
+//     top : $size ;
+//     .item {
+//         $size : 100px;
+//         width: $size;
+//         height: $size;
+//         transform: translateX($size);
+//     }
+//     $size: 80px;
+//     left: $size
+// }
+
+// div {
+//     width: 20px + 30px;
+//     height: 40px - 10px;
+//     font-size: 10px *2;
+//     margin : 30px / 2;
+//     padding: 20px %7;
+// }
+
+// span{
+//     font-size: 10px;
+//     line-height: 10px;
+//     font-family: serif;
+
+//     // 단축속성 ( font-size  / line-height serif)
+//     font : 10px / 10px serif; 
+
+//     // 이러한 속성때문에 / 슬래쉬는 나누기 연산으로 인식하지 않음
+// }
+
+ // 방법
+    // 1. 나누기하려면 ( ) 로 묶는다.  
+    // 2. 변수를 만들고 변수를 나눈다 ( $size / 2 )
+    // 3. 다른 연산자와 같이 사용 11px = (10px + 12px) / 2
+
+
+// div {
+//     width: 100%-200px;
+// }
+
+// 단위가 동일해야한다.
+
+// calc()함수를 사용하면 다른 단위도 연산 가능함.
+
+// div {
+//     width: calc(100% - 200px);
+// }
+
+
+
+
+
+// @mixin center {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .container{
+//     @include center;
+//     .item{
+//         @include center;
+//     }
+// }
+
+// .box {
+//     @include center;
+// }
+
+
+
+// @mixin box($size:100px, $color: tomato) {
+//     width: $size;
+//     height: $size;
+//     background-color: $color;
+    
+// }
+
+// .container{
+//     @include box(200px,red);
+//     .item {
+//         // @include box(80px,green); 
+//         // 기본값이 이미 설정되어 있는데 인수 순서를 맞추기위해 굳이 또 적어야 되나!! 
+//         // 이럴때 사용하는게 키워드인수
+//         @include box($color: green); //키워드 인수
+//     }
+// }
+
+// .box {
+//     @include box;
+// }
+
+
+
+
+// for( let i = 0 ;i < 10 ; i+=1){
+//     console.log(`loop-${i}`);
+// } --> Zero Based
+
+
+// Zero Based : X (1부터)
+// 보간 
+// JS : ${} 
+// SCSS : #{}
+
+// @for $i from 1 through 10 {
+//     .box:nth-child(#{$i}){
+//         width: 100px
+//     }
+// }
+
+
+// @for $i from 1 through 10 {
+//     .box:nth-child(#{$i}){
+//         width: 100px * $i
+//     }
+// }
+
+
+// 함수
+
+// @function ratio($size, $ratio){
+//     @return $size * $ratio
+// }
+
+// .box{
+//     $width : 100px;
+//     width :$width;
+//     @include center;
+// }
+
+
+// .box{
+//     $color: royalblue;
+//     $width : 200px;
+//     height:100px;
+//     margin: 20px;
+//     border-radius: 10px;
+//     background-color: $color;
+//     &:hover{
+//         background-color: darken($color , 10%);
+//     }
+//     &.built-in{
+//         background-color: mix($color , red);
+//         background-color: lighten($color , 10%);
+//         background-color: darken($color , 10%);
+//         background-color: saturate($color , 40%); //채도
+//         background-color: desaturate($color , 40%);
+//         background-color: grayscale($color);
+//         background-color: invert($color); //색반전
+//         background-color: rgba($color, .5); //투명도
+
+//     } 
+// }
+
+

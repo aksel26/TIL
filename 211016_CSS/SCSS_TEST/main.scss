@@ -1,9 +1,62 @@
-@import "./sub","./sub2";
+@import "./sub", "./sub2";
 
 $color : royalblue;
 
 .container {
-    h1{
-        color : $color;
+    h1 {
+        color: $color;
+    }
+}
+
+
+
+$number : 1;
+$string :bold;
+$color : red;
+$boolead : true;
+$null : null;
+$list : orange,
+royalblue,
+yellow;
+$map :(o : orange,
+    r : royalblue,
+    y : yellow);
+
+@each $i in $list {
+    .box {
+        color: $i
+    }
+}
+
+
+@each $k,
+$v in $map {
+    .box-#{$k} {
+        color: $v
+    }
+}
+
+@mixin left-top {
+    position: relative;
+    top: 0;
+    left: 0;
+    @content;
+
+}
+
+.container {
+    width: 100px;
+    height: 100px;
+    @include left-top;
+}
+
+.box {
+    width: 200px;
+    height: 300px;
+
+    @include left-top {
+        bottom: 0;
+        right: 0;
+        margin: auto
     }
 }
